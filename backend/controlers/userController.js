@@ -1,6 +1,6 @@
 const { userModel } = require("../models/userModel");
 const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 const getUser = (req, res) => {
   res.status(200).json({ message: "users" });
@@ -33,10 +33,17 @@ const loginUser = async (req, res) => {
     } else {
       const isPasswordMatch = await bcrypt.compare(password, user.password);
       if (!isPasswordMatch) {
-          res.status(400).json({ message: "Wrong password" });
-        } else {
-            const token = jwt.sign({ id:user._id }, process.env.JWT_SECRET);
-          res.status(200).json({ message: "User logged in successfully", token: token });
+        res.status(400).json({ message: "Wrong password" });
+      } else {
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        res
+          .status(200)
+          .json({
+            message: "User logged in successfully",
+            name: user.name,
+            email: user.email,
+            token: token,
+          });
       }
     }
   } catch (err) {
