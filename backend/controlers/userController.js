@@ -1,5 +1,6 @@
 const { userModel } = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 
 const getUser = (req, res) => {
   res.status(200).json({ message: "users" });
@@ -34,8 +35,8 @@ const loginUser = async (req, res) => {
       if (!isPasswordMatch) {
           res.status(400).json({ message: "Wrong password" });
         } else {
-            const token = 
-          res.status(200).json({ message: "User logged in successfully" });
+            const token = jwt.sign({ id:user._id }, process.env.JWT_SECRET);
+          res.status(200).json({ message: "User logged in successfully", token: token });
       }
     }
   } catch (err) {
