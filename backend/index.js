@@ -3,9 +3,11 @@ require("dotenv").config();
 const app = express();
 const cors = require("cors");
 const { connection } = require("./config/db");
+const { userRouter } = require("./routes/userRoute");
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
+app.use("/users", userRouter);
 
 app.get("/", (req, res) => {
   res.status(200).json({ Message: "Welcome to dotapp Home" });
