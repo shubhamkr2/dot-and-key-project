@@ -5,15 +5,15 @@ const {
   registerUser,
 } = require("../controlers/userController");
 
-const userRouter = Router();
+const userRoute = Router();
 
 //to get all users
-userRouter.get("/", getUser);
+userRoute.get("/", getUser);
 
 //to login a user
-userRouter.post("/login", loginUser);
+userRoute.post("/login", loginUser);
 
 //to register a user
-userRouter.post("/register", registerUser);
+userRoute.post("/register", registerUser);
 
-module.exports = { userRouter };
+module.exports = { userRoute };
