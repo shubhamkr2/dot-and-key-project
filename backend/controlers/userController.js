@@ -1,4 +1,4 @@
-const { userModel } = require("../models/userModel");
+const { UserModel } = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -9,13 +9,13 @@ const getUser = (req, res) => {
 //to register
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
-  const userExists = await userModel.findOne({ email });
+  const userExists = await UserModel.findOne({ email });
   if (userExists) {
     res.status(400).json({ message: "user already exists" });
   }
   try {
     let hashedPassword = await bcrypt.hash(password, 10);
-    const user = new userModel({ name, email, password: hashedPassword });
+    const user = new UserModel({ name, email, password: hashedPassword });
     await user.save();
     res.status(201).json({ message: "User Registered successfully" });
   } catch (err) {
@@ -27,7 +27,7 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await userModel.findOne({ email });
+    const user = await UserModel.findOne({ email });
     if (!user) {
       res.status(400).json({ message: "User not exists" });
     } else {
