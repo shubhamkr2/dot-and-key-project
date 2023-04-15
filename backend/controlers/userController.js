@@ -2,10 +2,18 @@ const { UserModel } = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const getUser = (req, res) => {
-  res.status(200).json({ message: "users" });
+//to get all users
+const getUsers = async (req, res) => {
+  let query = req.query;
+  let users = await UserModel.find(query);
+  res.status(200).json({ data: users });
 };
-
+//to get user by ID
+const getUserByID = async (req, res) => {
+  let params = req.params;
+  let user = await UserModel.find(params);
+  res.status(200).json({ data: user });
+};
 //to register
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -36,13 +44,11 @@ const loginUser = async (req, res) => {
         res.status(400).json({ message: "Wrong password" });
       } else {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-        res
-          .status(200)
-          .json({
-            name: user.name,
-            email: user.email,
-            token: token,
-          });
+        res.status(200).json({
+          name: user.name,
+          email: user.email,
+          token: token,
+        });
       }
     }
   } catch (err) {
@@ -50,4 +56,4 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { getUser, registerUser, loginUser };
+module.exports = { getUsers, getUserByID, registerUser, loginUser };

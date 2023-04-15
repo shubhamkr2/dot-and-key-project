@@ -1,15 +1,16 @@
 const { Router } = require("express");
 const {
-  getUser,
+  getUsers,
   loginUser,
   registerUser,
+  getUserByID,
 } = require("../controlers/userController");
 
 const userRoute = Router();
 
 //to get all users
-userRoute.get("/", getUser);
-userRoute.get("/:_id", getUser);
+userRoute.get("/", getUsers);
+userRoute.get("/:_id", getUserByID);
 
 //to login a user
 userRoute.post("/login", loginUser);
