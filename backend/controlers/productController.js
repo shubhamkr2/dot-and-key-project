@@ -1,6 +1,11 @@
 const { ProductModel } = require("../models/productModel");
 
-const getProducts = async (req, res) => {
+const getProducts =async (req, res) => {
+  let category=req.query.category;
+  let product = await ProductModel.find(req.query);
+  res.status(200).json({ data: product });
+};
+const addProducts = async (req, res) => {
   const { category, title, description, price, image } = req.body;
   try {
     const product = new ProductModel({
@@ -14,12 +19,8 @@ const getProducts = async (req, res) => {
     res.status(201).json({ message: "Product added successfully" });
   } catch (err) {
     console.log(err);
+    res.status(500).json({ message: "Unable to add product" });
   }
-  res.status(200).json({ message: "all product" });
-};
-
-const addProducts = (req, res) => {
-  res.status(200).json({ message: "added product" });
 };
 
 const updateProducts = (req, res) => {
