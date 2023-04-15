@@ -9,6 +9,7 @@ const userRoute = Router();
 
 //to get all users
 userRoute.get("/", getUser);
+userRoute.get("/:_id", getUser);
 
 //to login a user
 userRoute.post("/login", loginUser);
