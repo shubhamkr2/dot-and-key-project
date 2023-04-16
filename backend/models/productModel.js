@@ -25,6 +25,10 @@ const productSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  stock: {
+    type: Boolean,
+    required: true,
+  },
 });
 
 const ProductModel = mongoose.model("product", productSchema);
