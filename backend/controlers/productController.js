@@ -125,6 +125,7 @@ const deleteProducts = async (req, res) => {
     res.status(500).json({ message: "Unable to update the product" });
   }
 };
+
 module.exports = {
   getProducts,
   getProductByID,
