@@ -10,9 +10,9 @@ const {
 const productRoute = Router();
 
 productRoute.get("/", getProducts);
-productRoute.get("/:_id", getProductByID);
+productRoute.get("/:id", getProductByID);
 productRoute.post("/", addProducts);
-productRoute.put("/:_id", updateProducts);
-productRoute.delete("/:_id", deleteProducts);
+productRoute.put("/:id", updateProducts);
+productRoute.delete("/:id", deleteProducts);
 
 module.exports = { productRoute };
