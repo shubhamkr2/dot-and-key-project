@@ -103,6 +103,7 @@ const addProducts = async (req, res) => {
   }
 };
 
+//to update a product
 const updateProducts = async (req, res) => {
   try {
     let params = req.params;
@@ -114,6 +115,7 @@ const updateProducts = async (req, res) => {
   }
 };
 
+//to delete a product
 const deleteProducts = async (req, res) => {
   try {
     await ProductModel.findByIdAndRemove(req.params);
