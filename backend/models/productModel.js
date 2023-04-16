@@ -21,6 +21,10 @@ const productSchema = mongoose.Schema({
     type: Array,
     required: true,
   },
+  rating: {
+    type: Number,
+    required: true,
+  },
 });
 
 const ProductModel = mongoose.model("product", productSchema);
