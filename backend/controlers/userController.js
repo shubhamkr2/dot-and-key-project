@@ -10,8 +10,7 @@ const getUsers = async (req, res) => {
 };
 //to get user by ID
 const getUserByID = async (req, res) => {
-  let params = req.params;
-  let user = await UserModel.find(params);
+  let user = await UserModel.find({ _id: req.params.id });
   res.status(200).json({ data: user });
 };
 //to register
@@ -56,4 +55,34 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, getUserByID, registerUser, loginUser };
+//to update a user
+const updateUser = async (req, res) => {
+  try {
+    await UserModel.findByIdAndUpdate({ _id: req.params.id }, req.body);
+    res.status(200).json({ message: "updated user" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Unable to update the user" });
+  }
+};
+
+//to delete a user
+const deleteUser = async (req, res) => {
+  try {
+    await UserModel.findByIdAndRemove({ _id: req.params.id });
+    res.status(200).json({ message: "deleted user" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Unable to update the user" });
+  }
+};
+
+
+module.exports = {
+  getUsers,
+  getUserByID,
+  registerUser,
+  loginUser,
+  updateUser,
+  deleteUser,
+};
