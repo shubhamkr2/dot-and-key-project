@@ -33,6 +33,10 @@ const cartSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  userId: {
+    type: String,
+    required: true,
+  },
 });
 
 const CartModel = mongoose.model("carts", cartSchema);
