@@ -106,8 +106,7 @@ const addProducts = async (req, res) => {
 const updateProducts = async (req, res) => {
   try {
     let params = req.params;
-    await ProductModel.findByIdAndUpdate(params,req.body);
-    console.log(req.body);
+    await ProductModel.findByIdAndUpdate(params, req.body);
     res.status(200).json({ message: "updated product" });
   } catch (err) {
     console.log(err);
@@ -115,9 +114,14 @@ const updateProducts = async (req, res) => {
   }
 };
 
-const deleteProducts = (req, res) => {
-
-  res.status(200).json({ message: "deleted product" });
+const deleteProducts = async (req, res) => {
+  try {
+    await ProductModel.findByIdAndRemove(req.params);
+    res.status(200).json({ message: "deleted product" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Unable to update the product" });
+  }
 };
 module.exports = {
   getProducts,
