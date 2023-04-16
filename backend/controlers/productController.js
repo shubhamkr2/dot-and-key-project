@@ -85,15 +85,8 @@ const getProductByID = async (req, res) => {
 
 //to add product
 const addProducts = async (req, res) => {
-  const { category, title, description, price, image } = req.body;
   try {
-    const product = new ProductModel({
-      category,
-      title,
-      description,
-      price,
-      image,
-    });
+    const product = new ProductModel(req.body);
     await product.save();
     res.status(201).json({ message: "Product added successfully" });
   } catch (err) {

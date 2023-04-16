@@ -1,54 +1,31 @@
-const { userModel } = require("../models/userModel");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const { CartModel } = require("../models/cartModel");
 
-const getUser = (req, res) => {
-  res.status(200).json({ message: "users" });
-};
-
-//to register
-const registerUser = async (req, res) => {
-  const { name, email, password } = req.body;
-  const userExists = await userModel.findOne({ email });
-  if (userExists) {
-    res.status(400).json({ message: "user already exists" });
-  }
+//to get all cart items
+const getCartItems = async (req, res) => {
   try {
-    let hashedPassword = await bcrypt.hash(password, 10);
-    const user = new userModel({ name, email, password: hashedPassword });
-    await user.save();
-    res.status(201).json({ message: "User Registered successfully" });
+    let items = await CartModel.find(req.query);
+    res.status(200).json({ data: items });
   } catch (err) {
     console.log(err);
+    res.status(500).json({ message: "Items not found" });
   }
 };
 
-//to login
-const loginUser = async (req, res) => {
-  const { email, password } = req.body;
+//to get item by ID
+const getItemByID = async (req, res) => {
+  let item = await CartModel.find({ _id: req.params.id });
+  res.status(200).json({ data: item });
+};
+
+//to add product
+const addItems = async (req, res) => {
   try {
-    const user = await userModel.findOne({ email });
-    if (!user) {
-      res.status(400).json({ message: "User not exists" });
-    } else {
-      const isPasswordMatch = await bcrypt.compare(password, user.password);
-      if (!isPasswordMatch) {
-        res.status(400).json({ message: "Wrong password" });
-      } else {
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-        res
-          .status(200)
-          .json({
-            message: "User logged in successfully",
-            name: user.name,
-            email: user.email,
-            token: token,
-          });
-      }
-    }
+    const product = new ProductModel(req.body);
+    await product.save();
+    res.status(201).json({ message: "Product added successfully" });
   } catch (err) {
     console.log(err);
+    res.status(500).json({ message: "Unable to add product" });
   }
 };
-
-module.exports = { getUser, registerUser, loginUser };
+module.exports = {};
