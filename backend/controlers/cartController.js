@@ -20,12 +20,40 @@ const getItemByID = async (req, res) => {
 //to add product
 const addItems = async (req, res) => {
   try {
-    const product = new ProductModel(req.body);
-    await product.save();
-    res.status(201).json({ message: "Product added successfully" });
+    const item = new CartModel(req.body);
+    await item.save();
+    res.status(201).json({ message: "Item added successfully" });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Unable to add product" });
+    res.status(500).json({ message: "Unable to add item" });
   }
 };
-module.exports = {};
+
+//to update a product
+const updateItems = async (req, res) => {
+  try {
+    await CartModel.findByIdAndUpdate({ _id: req.params.id }, req.body);
+    res.status(200).json({ message: "updated item" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Unable to update the item" });
+  }
+};
+
+//to delete a product
+const deleteItems = async (req, res) => {
+  try {
+    await CartModel.findByIdAndRemove({ _id: req.params.id });
+    res.status(200).json({ message: "deleted item" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Unable to update the item" });
+  }
+};
+module.exports = {
+  getCartItems,
+  getItemByID,
+  addItems,
+  updateItems,
+  deleteItems,
+};
