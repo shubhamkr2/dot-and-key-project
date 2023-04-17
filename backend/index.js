@@ -11,7 +11,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use("/users", userRoute);
 app.use("/products", productRoute);
-app.use("/carts", cartRouteRoute);
+app.use("/carts", cartRoute);
 
 app.get("/", (req, res) => {
   res.status(200).json({ Message: "Welcome to dotapp Home" });

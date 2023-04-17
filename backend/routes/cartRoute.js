@@ -5,7 +5,7 @@ const {
     addItems,
     updateItems,
     deleteItems,
-} = require("../controlers/productController");
+} = require("../controlers/cartController");
 
 const cartRoute = Router();
 
