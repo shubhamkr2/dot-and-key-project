@@ -4,16 +4,26 @@ const jwt = require("jsonwebtoken");
 
 //to get all users
 const getUsers = async (req, res) => {
-  let query = req.query;
-  let users = await UserModel.find(query);
-  res.status(200).json({ data: users });
+  try {
+    let query = req.query;
+    let users = await UserModel.find(query);
+    res.status(200).json({ data: users });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Users not found" });
+  }
 };
-//to get user by ID
+//to get a user by ID
 const getUserByID = async (req, res) => {
-  let user = await UserModel.find({ _id: req.params.id });
-  res.status(200).json({ data: user });
+  try {
+    let user = await UserModel.find({ _id: req.params.id });
+    res.status(200).json({ data: user });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "User not found" });
+  }
 };
-//to register
+//to register a user
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
   const userExists = await UserModel.findOne({ email });
@@ -27,10 +37,11 @@ const registerUser = async (req, res) => {
     res.status(201).json({ message: "User Registered successfully" });
   } catch (err) {
     console.log(err);
+    res.status(500).json({ message: "Registration failed" });
   }
 };
 
-//to login
+//to login a user
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -52,6 +63,7 @@ const loginUser = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
+    res.status(500).json({ message: "Login failed" });
   }
 };
 
@@ -76,7 +88,6 @@ const deleteUser = async (req, res) => {
     res.status(500).json({ message: "Unable to update the user" });
   }
 };
-
 
 module.exports = {
   getUsers,
