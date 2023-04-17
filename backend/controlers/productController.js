@@ -79,8 +79,13 @@ const getProducts = async (req, res) => {
 
 //to get a product by ID
 const getProductByID = async (req, res) => {
-  let product = await ProductModel.find({ _id: req.params.id });
-  res.status(200).json({ data: product });
+  try {
+    let product = await ProductModel.find({ _id: req.params.id });
+    res.status(200).json({ data: product });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Product not found" });
+  }
 };
 
 //to add a product
