@@ -21,6 +21,7 @@ userRoute.post("/login", loginUser);
 //to register a user
 userRoute.post("/register", registerUser);
 
+//to update and delete a user
 userRoute.put("/:id", authenticate, updateUser);
 userRoute.delete("/:id", authenticate, deleteUser);
 
