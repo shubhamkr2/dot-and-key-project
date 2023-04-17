@@ -77,14 +77,14 @@ const getProducts = async (req, res) => {
   }
 };
 
-//to get product by ID
+//to get a product by ID
 const getProductByID = async (req, res) => {
   let product = await ProductModel.find({ _id: req.params.id });
   res.status(200).json({ data: product });
 };
 
-//to add product
-const addProducts = async (req, res) => {
+//to add a product
+const addProduct = async (req, res) => {
   try {
     const product = new ProductModel(req.body);
     await product.save();
@@ -96,7 +96,7 @@ const addProducts = async (req, res) => {
 };
 
 //to update a product
-const updateProducts = async (req, res) => {
+const updateProduct = async (req, res) => {
   try {
     await ProductModel.findByIdAndUpdate({ _id: req.params.id }, req.body);
     res.status(200).json({ message: "updated product" });
@@ -107,7 +107,7 @@ const updateProducts = async (req, res) => {
 };
 
 //to delete a product
-const deleteProducts = async (req, res) => {
+const deleteProduct = async (req, res) => {
   try {
     await ProductModel.findByIdAndRemove({ _id: req.params.id });
     res.status(200).json({ message: "deleted product" });
@@ -120,7 +120,7 @@ const deleteProducts = async (req, res) => {
 module.exports = {
   getProducts,
   getProductByID,
-  addProducts,
-  updateProducts,
-  deleteProducts,
+  addProduct,
+  updateProduct,
+  deleteProduct,
 };
