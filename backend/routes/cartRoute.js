@@ -1,20 +1,18 @@
 const { Router } = require("express");
 const {
-    getCartItems,
-    getItemByID,
-    addItems,
-    updateItems,
-    deleteItems,
+  getCartItems,
+  getItemByID,
+  addItem,
+  updateItem,
+  deleteItem,
 } = require("../controlers/cartController");
 
 const cartRoute = Router();
 
 cartRoute.get("/", getCartItems);
 cartRoute.get("/:id", getItemByID);
-cartRoute.post("/", addItems);
-cartRoute.put("/:id", updateItems);
-cartRoute.delete("/:id", deleteItems);
+cartRoute.post("/", addItem);
+cartRoute.put("/:id", updateItem);
+cartRoute.delete("/:id", deleteItem);
 
 module.exports = { cartRoute };
-
-

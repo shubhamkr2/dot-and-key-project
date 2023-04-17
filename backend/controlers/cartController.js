@@ -11,14 +11,19 @@ const getCartItems = async (req, res) => {
   }
 };
 
-//to get item by ID
+//to get a item by ID
 const getItemByID = async (req, res) => {
-  let item = await CartModel.find({ _id: req.params.id });
-  res.status(200).json({ data: item });
+  try {
+    let item = await CartModel.find({ _id: req.params.id });
+    res.status(200).json({ data: item });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Items not found" });
+  }
 };
 
-//to add product
-const addItems = async (req, res) => {
+//to add a item to cart
+const addItem = async (req, res) => {
   try {
     const item = new CartModel(req.body);
     await item.save();
@@ -29,8 +34,8 @@ const addItems = async (req, res) => {
   }
 };
 
-//to update a product
-const updateItems = async (req, res) => {
+//to update a item
+const updateItem = async (req, res) => {
   try {
     await CartModel.findByIdAndUpdate({ _id: req.params.id }, req.body);
     res.status(200).json({ message: "updated item" });
@@ -40,8 +45,8 @@ const updateItems = async (req, res) => {
   }
 };
 
-//to delete a product
-const deleteItems = async (req, res) => {
+//to delete a item
+const deleteItem = async (req, res) => {
   try {
     await CartModel.findByIdAndRemove({ _id: req.params.id });
     res.status(200).json({ message: "deleted item" });
@@ -53,7 +58,7 @@ const deleteItems = async (req, res) => {
 module.exports = {
   getCartItems,
   getItemByID,
-  addItems,
-  updateItems,
-  deleteItems,
+  addItem,
+  updateItem,
+  deleteItem,
 };
