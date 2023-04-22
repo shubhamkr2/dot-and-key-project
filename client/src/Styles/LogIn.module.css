@@ -9,6 +9,8 @@
 }
 .container h2{
     text-align: center;
+    margin: 0%;
+    margin-bottom: 15px;
 }
 .form_container div {
   display: flex;
