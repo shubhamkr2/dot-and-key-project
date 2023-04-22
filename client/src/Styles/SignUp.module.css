@@ -1,14 +1,14 @@
 .container {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 10px;;
+  border-radius: 10px;
   max-width: 350px;
   margin: auto;
   margin-top: 3%;
   text-align: left;
   padding: 15px;
 }
-.container h2{
-    text-align: center;
+.container h2 {
+  text-align: center;
 }
 .form_container div {
   display: flex;
@@ -17,24 +17,24 @@
   margin-bottom: 20px;
 }
 .form_container div label {
-    font-weight: 500;
-  }
+  font-weight: 500;
+}
 .form_container div input {
   padding: 5px;
   height: 40px;
 }
-.form_container button{
-    display: block;
-    margin: auto;
-    width: 100%;
-    padding: 12px;
-    font-size: large;
-    font-weight: bolder;
-    cursor: pointer;
-    background-color: #2e2e2d;
-    color: white;
-    border: none;
+.form_container button {
+  display: block;
+  margin: auto;
+  width: 100%;
+  padding: 12px;
+  font-size: large;
+  font-weight: bolder;
+  cursor: pointer;
+  background-color: #2e2e2d;
+  color: white;
+  border: none;
 }
-.form_container button:hover{
-    background-color: green;
+.form_container button:hover {
+  background-color: green;
 }
