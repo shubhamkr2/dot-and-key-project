@@ -9,6 +9,8 @@
 }
 .container h2 {
   text-align: center;
+  margin: 0%;
+  margin-bottom: 15px;
 }
 .form_container div {
   display: flex;
@@ -37,4 +39,12 @@
 }
 .form_container button:hover {
   background-color: green;
+}
+span{
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+a{
+  text-decoration: none;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../Styles/SignUp.module.css";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   return (
@@ -26,6 +27,9 @@ function SignUp() {
           <button>Create</button>
         </form>
       </div>
+      <span>
+        Have an account? <Link to="/login">Log In</Link>
+      </span>
     </div>
   );
 }
