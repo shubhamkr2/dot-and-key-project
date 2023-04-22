@@ -15,6 +15,7 @@ function LogIn() {
           <div>
             <label>PASSWORD</label>
             <input type="password" placeholder="Enter your password" />
+            <span className={styles.forgot_password}><Link>Forgot Password?</Link></span>
           </div>
           <button>Log in</button>
         </form>

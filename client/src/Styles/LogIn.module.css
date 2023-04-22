@@ -25,6 +25,10 @@
   padding: 5px;
   height: 40px;
 }
+.forgot_password{
+  text-align: right;
+  margin: 0%;
+}
 .form_container button{
     display: block;
     margin: auto;
