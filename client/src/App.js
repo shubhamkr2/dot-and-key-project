@@ -1,11 +1,9 @@
-import { LogIn } from "./Pages/LogIn";
-import { SignUp } from "./Pages/SignUp";
+import { AllRoutes } from "./Routes/AllRoutes";
 
 function App() {
   return (
     <div>
-     {/* <SignUp /> */}
-     <LogIn />
+      <AllRoutes />
     </div>
   );
 }
