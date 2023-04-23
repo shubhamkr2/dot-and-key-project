@@ -4,8 +4,8 @@ import { userReducer } from "./Redux/reducers/user.reducer";
 import { cartReducer } from "./Redux/reducers/cart.reducer";
 
 const rootReducer = combineReducers({
-  userReducer,
-  cartReducer,
+  user:userReducer,
+  cart:cartReducer,
 });
 
 const store = legacy_createStore(rootReducer, applyMiddleware(thunk));

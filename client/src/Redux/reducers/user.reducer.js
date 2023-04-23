@@ -11,6 +11,7 @@ let initialState = {
   isAuth: false,
   token: "",
   isRegistered: false,
+  loading: false,
 };
 
 function userReducer(state = initialState, action) {
@@ -22,11 +23,23 @@ function userReducer(state = initialState, action) {
     case USER_LOGIN_FAILURE:
       return {};
     case USER_REGISTER_REQUEST:
-      return {};
+      return {
+        ...state,
+        isRegistered: false,
+        loading: true,
+      };
     case USER_REGISTER_SUCCESS:
-      return {};
+      return {
+        ...state,
+        isRegistered: true,
+        loading: false,
+      };
     case USER_REGISTER_FAILURE:
-      return {};
+      return {
+        ...state,
+        isRegistered: false,
+        loading: false,
+      };
     default:
       return state;
   }
