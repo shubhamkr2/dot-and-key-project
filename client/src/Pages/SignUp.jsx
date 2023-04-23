@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "../Styles/SignUp.module.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userRegister } from "../Redux/actions/user.action";
 
 const initialFormData = {
   name: "",
@@ -12,15 +14,17 @@ const initialFormData = {
 
 function SignUp() {
   const [formData, setFormData] = useState(initialFormData);
+  const dispatch = useDispatch();
 
   function handleChange(e) {
     const { name, value } = e.target;
-
     setFormData({ ...formData, [name]: value });
     console.log(formData);
   }
+
   function handleSubmit(e) {
     e.preventDefault();
+    dispatch(userRegister(formData));
   }
 
   return (
