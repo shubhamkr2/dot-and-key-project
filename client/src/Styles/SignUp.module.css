@@ -48,3 +48,7 @@ span{
 a{
   text-decoration: none;
 }
+.required:after {
+  content:" *";
+  color: red;
+}
