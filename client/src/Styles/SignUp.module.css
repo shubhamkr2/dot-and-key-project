@@ -21,7 +21,7 @@
 .form_container div label {
   font-weight: 500;
 }
-.form_container div input {
+.form_container div input,.form_container div select {
   padding: 5px;
   height: 40px;
 }
@@ -38,7 +38,7 @@
   border: none;
 }
 .form_container button:hover {
-  background-color: green;
+  background-color: rgb(16, 90, 16);
 }
 span{
   display: block;

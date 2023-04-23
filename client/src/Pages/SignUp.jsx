@@ -9,12 +9,8 @@ function SignUp() {
       <div className={styles.form_container}>
         <form>
           <div>
-            <label>FIRST NAME</label>
-            <input type="text" placeholder="Enter your first name" />
-          </div>
-          <div>
-            <label>LAST NAME</label>
-            <input type="text" placeholder="Enter your last name" />
+            <label>NAME</label>
+            <input type="text" placeholder="Enter your name" />
           </div>
           <div>
             <label>EMAIL</label>
@@ -23,6 +19,18 @@ function SignUp() {
           <div>
             <label>PASSWORD</label>
             <input type="password" placeholder="Enter your password" />
+          </div>
+          <div>
+            {/* <label>Select a Security question</label> */}
+            <select>
+              <option value="">Secret Question</option>
+              <option value="">What is the first name of your favourite teacher?</option>
+              <option value="">Who is your favourite person in history?</option>
+              <option value="">What was your first job?</option>
+              <option value="">What was your first phone number?</option>
+              <option value="">Who is your favourite character?</option>
+            </select>
+            <input type="text" placeholder="Your answer" />
           </div>
           <button>Create</button>
         </form>
