@@ -23,11 +23,7 @@ function userRegister(userDetails) {
         }
       );
       let data = await res.json();
-      // if (data.message === "User Registered successfully") {
-        console.log(data.message);
-        dispatch({ type: USER_REGISTER_SUCCESS, payload: true });
-      // }else{
-      // }
+      dispatch({ type: USER_REGISTER_SUCCESS, payload: data.message });
     } catch (err) {
       console.log(err);
       dispatch({ type: USER_REGISTER_FAILURE });

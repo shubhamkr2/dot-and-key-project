@@ -15,7 +15,7 @@ const initialFormData = {
 function SignUp() {
   const [formData, setFormData] = useState(initialFormData);
   const dispatch = useDispatch();
-  const { isRegistered, loading } = useSelector((store) => store.user);
+  const { isRegistered, loading, message } = useSelector((store) => store.user);
   console.log(isRegistered, loading);
   function handleChange(e) {
     const { name, value } = e.target;
@@ -37,6 +37,8 @@ function SignUp() {
     dispatch(userRegister(userDetails));
     if (isRegistered) {
       alert("You have successfully registered");
+    } else {
+      alert(message);
     }
   }
 

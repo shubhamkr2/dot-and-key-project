@@ -12,6 +12,7 @@ let initialState = {
   token: "",
   isRegistered: false,
   loading: false,
+  message: "",
 };
 
 function userReducer(state = initialState, action) {
@@ -29,11 +30,21 @@ function userReducer(state = initialState, action) {
         loading: true,
       };
     case USER_REGISTER_SUCCESS:
-      return {
-        ...state,
-        isRegistered: true,
-        loading: false,
-      };
+      if (action.payload === "User Registered successfully") {
+        return {
+          ...state,
+          loading: false,
+          isRegistered: true,
+          message: action.payload,
+        };
+      } else {
+        return {
+          ...state,
+          loading: false,
+          isRegistered: false,
+          message: action.payload,
+        };
+      }
     case USER_REGISTER_FAILURE:
       return {
         ...state,
