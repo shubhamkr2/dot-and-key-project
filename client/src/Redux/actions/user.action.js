@@ -7,7 +7,34 @@ import {
   USER_REGISTER_FAILURE,
 } from "../actionTypes/user.actionTypes";
 
-function userLogin() {}
+function userLogin(userDetails, navigate) {
+  return async function (dispatch) {
+    dispatch({ type: USER_LOGIN_REQUEST });
+    // console.log(userDetails);
+    try {
+      let res = await fetch(
+        `https://courageous-rose-nightgown.cyclic.app/users/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userDetails),
+        }
+      );
+      let data = await res.json();
+      console.log(data);
+      dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
+      if (data.token) {
+        alert("User logged in successfully");
+        navigate("/home");
+      }else{
+        alert(data.message);
+      }
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: USER_LOGIN_FAILURE });
+    }
+  };
+}
 
 function userRegister(userDetails, navigate) {
   return async function (dispatch) {

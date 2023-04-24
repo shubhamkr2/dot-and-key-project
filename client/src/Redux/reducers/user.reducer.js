@@ -7,7 +7,6 @@ import {
   USER_REGISTER_FAILURE,
 } from "../actionTypes/user.actionTypes";
 
-
 let initialState = {
   isAuth: false,
   token: "",
@@ -19,11 +18,22 @@ let initialState = {
 function userReducer(state = initialState, action) {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
-      return {};
+      return {
+        ...state,
+        loading: true,
+      };
     case USER_LOGIN_SUCCESS:
-      return {};
+      return {
+        ...state,
+        loading: false,
+        isAuth: true,
+        token: action.payload.token,
+      };
     case USER_LOGIN_FAILURE:
-      return {};
+      return {
+        ...state,
+        loading: false,
+      };
     case USER_REGISTER_REQUEST:
       return {
         ...state,

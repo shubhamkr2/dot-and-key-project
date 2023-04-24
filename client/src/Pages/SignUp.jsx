@@ -19,7 +19,6 @@ function SignUp() {
   const dispatch = useDispatch();
   const { isRegistered, loading } = useSelector((store) => store.user);
   const navigate = useNavigate();
-  console.log(isRegistered, loading);
 
   function handleChange(e) {
     const { name, value } = e.target;
