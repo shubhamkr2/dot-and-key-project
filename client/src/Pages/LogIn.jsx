@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "../Styles/LogIn.module.css";
 import { Link } from "react-router-dom";
+import BeatLoader from "react-spinners/BeatLoader";
+import { useSelector } from "react-redux";
 
 const initialFormData = {
   email: "",
@@ -9,6 +11,7 @@ const initialFormData = {
 
 function LogIn() {
   const [formData, setFormData] = useState(initialFormData);
+  const { loading } = useSelector((store) => store.user);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -35,7 +38,11 @@ function LogIn() {
             <input type="password" placeholder="Enter your password" name="password" value={formData.password} onChange={(e) => handleChange(e)} required />
             <span className={styles.forgot_password}><Link>Forgot Password?</Link></span>
           </div>
-          <button>Log in</button>
+          <button disabled={loading ? true : false}> {loading ? (
+              <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
+            ) : (
+              "Log in"
+            )}</button>
         </form>
       </div>
       <span>
