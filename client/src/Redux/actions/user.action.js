@@ -9,7 +9,7 @@ import {
 
 function userLogin() {}
 
-function userRegister(userDetails) {
+function userRegister(userDetails, navigate) {
   return async function (dispatch) {
     dispatch({ type: USER_REGISTER_REQUEST });
     // console.log(userDetails);
@@ -23,8 +23,11 @@ function userRegister(userDetails) {
         }
       );
       let data = await res.json();
-      // alert(data.message);
+      alert(data.message);
       dispatch({ type: USER_REGISTER_SUCCESS, payload: data.message });
+      if (data.message === "User Registered successfully") {
+        navigate("/login");
+      }
     } catch (err) {
       console.log(err);
       dispatch({ type: USER_REGISTER_FAILURE });

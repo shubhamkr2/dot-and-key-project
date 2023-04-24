@@ -7,11 +7,13 @@ import {
   USER_REGISTER_FAILURE,
 } from "../actionTypes/user.actionTypes";
 
+
 let initialState = {
   isAuth: false,
   token: "",
   isRegistered: false,
   loading: false,
+  message: "",
 };
 
 function userReducer(state = initialState, action) {
@@ -29,12 +31,13 @@ function userReducer(state = initialState, action) {
         loading: true,
       };
     case USER_REGISTER_SUCCESS:
-      alert(action.payload);
+      // alert(action.payload);
       if (action.payload === "User Registered successfully") {
         return {
           ...state,
           loading: false,
           isRegistered: true,
+          message: action.payload,
         };
       } else {
         return {

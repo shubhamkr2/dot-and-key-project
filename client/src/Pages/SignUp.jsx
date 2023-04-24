@@ -3,6 +3,8 @@ import styles from "../Styles/SignUp.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../Redux/actions/user.action";
+import { useNavigate } from "react-router-dom";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const initialFormData = {
   name: "",
@@ -16,7 +18,9 @@ function SignUp() {
   const [formData, setFormData] = useState(initialFormData);
   const dispatch = useDispatch();
   const { isRegistered, loading } = useSelector((store) => store.user);
+  const navigate = useNavigate();
   console.log(isRegistered, loading);
+
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -34,15 +38,8 @@ function SignUp() {
         answer: formData.answer,
       },
     };
-    dispatch(userRegister(userDetails));
-
+    dispatch(userRegister(userDetails, navigate));
   }
-  // if (isRegistered) {
-  //   // alert("You have successfully registered");
-  //   alert(message);
-  // }
-
-
 
   return (
     <div className={styles.container}>
@@ -115,7 +112,13 @@ function SignUp() {
               required
             />
           </div>
-          <button>{loading ? "Loading..." : "Create"}</button>
+          <button disabled={loading ? true : false}>
+            {loading ? (
+              <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
+            ) : (
+              "Create"
+            )}
+          </button>
         </form>
       </div>
       <span>
