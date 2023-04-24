@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../Styles/SignUp.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +15,7 @@ const initialFormData = {
 function SignUp() {
   const [formData, setFormData] = useState(initialFormData);
   const dispatch = useDispatch();
-  const { isRegistered, loading, message } = useSelector((store) => store.user);
+  const { isRegistered, loading } = useSelector((store) => store.user);
   console.log(isRegistered, loading);
   function handleChange(e) {
     const { name, value } = e.target;
@@ -35,12 +35,14 @@ function SignUp() {
       },
     };
     dispatch(userRegister(userDetails));
-    if (isRegistered) {
-      alert("You have successfully registered");
-    } else {
-      alert(message);
-    }
+
   }
+  // if (isRegistered) {
+  //   // alert("You have successfully registered");
+  //   alert(message);
+  // }
+
+
 
   return (
     <div className={styles.container}>

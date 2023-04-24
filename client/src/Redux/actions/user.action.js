@@ -12,7 +12,7 @@ function userLogin() {}
 function userRegister(userDetails) {
   return async function (dispatch) {
     dispatch({ type: USER_REGISTER_REQUEST });
-    console.log(userDetails);
+    // console.log(userDetails);
     try {
       let res = await fetch(
         `https://courageous-rose-nightgown.cyclic.app/users/register`,
@@ -23,6 +23,7 @@ function userRegister(userDetails) {
         }
       );
       let data = await res.json();
+      // alert(data.message);
       dispatch({ type: USER_REGISTER_SUCCESS, payload: data.message });
     } catch (err) {
       console.log(err);
