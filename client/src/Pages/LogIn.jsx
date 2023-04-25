@@ -5,6 +5,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from "../Redux/actions/user.action";
+import toast, { Toaster } from 'react-hot-toast';
 
 const initialFormData = {
   email: "",
@@ -27,12 +28,13 @@ function LogIn() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(userLogin(formData, navigate));
+    dispatch(userLogin(formData, navigate, toast));
 
   }
 
   return (
     <div className={styles.container}>
+    <div><Toaster /></div>
       <h2>Log In</h2>
       <div className={styles.form_container}>
         <form onSubmit={(e) => handleSubmit(e)}>

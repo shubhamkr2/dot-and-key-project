@@ -7,7 +7,7 @@ import {
   USER_REGISTER_FAILURE,
 } from "../actionTypes/user.actionTypes";
 
-function userLogin(userDetails, navigate) {
+function userLogin(userDetails, navigate, toast) {
   return async function (dispatch) {
     dispatch({ type: USER_LOGIN_REQUEST });
     // console.log(userDetails);
@@ -24,10 +24,12 @@ function userLogin(userDetails, navigate) {
       console.log(data);
       dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
       if (data.token) {
-        alert("User logged in successfully");
-        navigate("/home");
+        toast.success("User logged in successfully");
+        setTimeout(() => {
+          navigate("/home");
+        }, 2000);
       } else {
-        alert(data.message);
+        toast.error(data.message);;
       }
     } catch (err) {
       console.log(err);
