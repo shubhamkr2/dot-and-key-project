@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../Redux/actions/user.action";
 import { useNavigate } from "react-router-dom";
 import BeatLoader from "react-spinners/BeatLoader";
+import toast, { Toaster } from 'react-hot-toast';
 
 const initialFormData = {
   name: "",
@@ -37,11 +38,12 @@ function SignUp() {
         answer: formData.answer,
       },
     };
-    dispatch(userRegister(userDetails, navigate));
+    dispatch(userRegister(userDetails, navigate, toast));
   }
-
+  
   return (
     <div className={styles.container}>
+    <div><Toaster /></div>
       <h2>Create Account</h2>
       <div className={styles.form_container}>
         <form onSubmit={(e) => handleSubmit(e)}>
