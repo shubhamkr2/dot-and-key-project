@@ -12,6 +12,8 @@ import {
 
 let initialState = {
   loading: false,
+  email_confirmed: false,
+  secret_question_confirmed: false,
 };
 
 function userReducer(state = initialState, action) {
@@ -25,11 +27,15 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        email_confirmed: false,
+        secret_question_confirmed: true,
       };
     case CONFIRM_SECRET_QUESTION_FAILURE:
       return {
         ...state,
         loading: false,
+        email_confirmed: false,
+        secret_question_confirmed: false,
       };
     case CONFIRM_EMAIL_REQUEST:
       return {
@@ -40,11 +46,13 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        email_confirmed: true,
       };
     case CONFIRM_EMAIL_FAILURE:
       return {
         ...state,
         loading: false,
+        email_confirmed: false,
       };
     case RESET_PASSWORD_REQUEST:
       return {
@@ -55,11 +63,15 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        email_confirmed: false,
+        secret_question_confirmed: true,
       };
     case RESET_PASSWORD_FAILURE:
       return {
         ...state,
         loading: false,
+        email_confirmed: false,
+        secret_question_confirmed: false,
       };
     default:
       return state;
