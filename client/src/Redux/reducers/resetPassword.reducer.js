@@ -19,8 +19,7 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        isAuth: true,
-        token: action.payload.token,
+
       };
     case RESET_PASSWORD_FAILURE:
       return {
