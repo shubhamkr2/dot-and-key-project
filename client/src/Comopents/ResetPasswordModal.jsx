@@ -3,7 +3,7 @@ import styles from "../Styles/ResetPasswordModal.module.css";
 import { FaRegWindowClose } from "react-icons/fa";
 function ResetPasswordModal({ handleModal }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={() => handleModal()}>
       <div className={styles.form_container}>
         <div className={styles.close_btn}>
           <FaRegWindowClose
