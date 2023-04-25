@@ -26,7 +26,7 @@ function userLogin(userDetails, navigate, toast) {
       if (data.token) {
         toast.success("User logged in successfully");
         setTimeout(() => {
-          navigate("/home");
+          navigate("/");
         }, 2000);
       } else {
         toast.error(data.message);;
