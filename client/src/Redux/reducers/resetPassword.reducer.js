@@ -13,10 +13,11 @@ import {
 let initialState = {
   loading: false,
   email_confirmed: false,
+  userId: "",
   secret_question_confirmed: false,
 };
 
-function userReducer(state = initialState, action) {
+function resetPassword(state = initialState, action) {
   switch (action.type) {
     case CONFIRM_SECRET_QUESTION_REQUEST:
       return {
@@ -47,6 +48,7 @@ function userReducer(state = initialState, action) {
         ...state,
         loading: false,
         email_confirmed: true,
+        userId: action.payload,
       };
     case CONFIRM_EMAIL_FAILURE:
       return {
@@ -78,4 +80,4 @@ function userReducer(state = initialState, action) {
   }
 }
 
-export { userReducer };
+export { resetPassword };
