@@ -1,0 +1,41 @@
+.container{
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid red;
+    height: 40px;
+}
+.logo img{
+    width: 12dvw;
+}
+.Search_Box{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(114, 113, 114, 0.89);
+    cursor: pointer;
+    border-radius: 7px;
+    gap: 5px;
+    padding-right: 5px;
+}
+.Search_Box:hover{
+    background-color: rgb(16, 90, 16);
+}
+.Search_Box input{
+    height: 5dvh;
+    width: 30dvw;
+    padding: 5px;
+    font-size: large;
+    border-radius: 7px 0px 0px 7px;
+}
+.cartLogo_profileIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6dvw;
+}
+.cart_logo, .user_profile{
+    cursor: pointer;
+}
