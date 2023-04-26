@@ -8,6 +8,7 @@ import {
   RESET_PASSWORD_REQUEST,
   RESET_PASSWORD_SUCCESS,
   RESET_PASSWORD_FAILURE,
+  RESET_MODAL_DATA,
 } from "../actionTypes/resetPassword.actionTypes";
 
 let initialState = {
@@ -77,6 +78,10 @@ function resetPassword(state = initialState, action) {
         loading: false,
         email_confirmed: false,
         secret_question_confirmed: false,
+      };
+    case RESET_MODAL_DATA:
+      return {
+        ...initialState,
       };
     default:
       return state;

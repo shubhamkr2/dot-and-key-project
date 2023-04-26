@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { userLogin } from "../Redux/actions/user.action";
 import toast, { Toaster } from "react-hot-toast";
 import { ResetPasswordModal } from "../Comopents/ResetPasswordModal";
+import { resetModal } from "../Redux/actions/resetPassword.action";
 
 const initialFormData = {
   email: "",
@@ -35,6 +36,7 @@ function LogIn() {
 
   function handleModal() {
     setModal(!modal);
+    dispatch(resetModal());
   }
   return (
     <>

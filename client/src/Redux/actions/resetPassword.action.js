@@ -8,6 +8,7 @@ import {
   RESET_PASSWORD_REQUEST,
   RESET_PASSWORD_SUCCESS,
   RESET_PASSWORD_FAILURE,
+  RESET_MODAL_DATA,
 } from "../actionTypes/resetPassword.actionTypes";
 
 function confirmEmail(email, toast) {
@@ -52,7 +53,7 @@ function confirmQuestion(secret_question, userId, toast) {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({secret_question}),
+          body: JSON.stringify({ secret_question }),
         }
       );
       let data = await res.json();
@@ -107,4 +108,10 @@ function resetPassword(newPassword, userId, token, toast, handleModal) {
   };
 }
 
-export { confirmEmail, confirmQuestion, resetPassword };
+function resetModal() {
+  return {
+    type: RESET_MODAL_DATA,
+  };
+}
+
+export { confirmEmail, confirmQuestion, resetPassword, resetModal };
