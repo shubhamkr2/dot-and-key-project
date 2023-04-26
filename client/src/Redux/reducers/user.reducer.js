@@ -41,21 +41,12 @@ function userReducer(state = initialState, action) {
         loading: true,
       };
     case USER_REGISTER_SUCCESS:
-      // alert(action.payload);
-      if (action.payload === "User Registered successfully") {
-        return {
-          ...state,
-          loading: false,
-          isRegistered: true,
-          message: action.payload,
-        };
-      } else {
-        return {
-          ...state,
-          loading: false,
-          isRegistered: false,
-        };
-      }
+      return {
+        ...state,
+        loading: false,
+        isRegistered: true,
+        message: action.payload,
+      };
     case USER_REGISTER_FAILURE:
       return {
         ...state,

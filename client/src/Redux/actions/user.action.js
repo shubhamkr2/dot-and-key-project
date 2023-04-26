@@ -29,7 +29,7 @@ function userLogin(userDetails, navigate, toast) {
           navigate("/");
         }, 2000);
       } else {
-        toast.error(data.message);;
+        toast.error(data.message);
       }
     } catch (err) {
       console.log(err);
@@ -52,13 +52,14 @@ function userRegister(userDetails, navigate, toast) {
         }
       );
       let data = await res.json();
-      dispatch({ type: USER_REGISTER_SUCCESS, payload: data.message });
       if (data.message === "User Registered successfully") {
+        dispatch({ type: USER_REGISTER_SUCCESS, payload: data.message });
         toast.success(data.message);
         setTimeout(() => {
           navigate("/login");
         }, 2000);
       } else {
+        dispatch({ type: USER_REGISTER_FAILURE });
         toast.error(data.message);
       }
     } catch (err) {
