@@ -4,6 +4,7 @@ import { FaRegWindowClose } from "react-icons/fa";
 import {
   confirmEmail,
   confirmQuestion,
+  resetPassword,
 } from "../Redux/actions/resetPassword.action";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
@@ -15,26 +16,48 @@ function ResetPasswordModal({ handleModal }) {
     question: "",
     answer: "",
   });
+  const [newPassword, setNewPassword] = useState({
+    password: "",
+    confirm_password: "",
+  });
   const { loading, email_confirmed, userId, secret_question_confirmed, token } =
     useSelector((store) => store.reset);
   const dispatch = useDispatch();
 
-  function handleSecretQuestion(e) {
-    const { name, value } = e.target;
-    setFormSecretQuestionAns({ ...formSecretQuestionAns, [name]: value });
-  }
-
+  //for email
   function handleEmailSubmit(e) {
     e.preventDefault();
     // dispatch(confirmEmail(formEmail, navigate, toast));
     dispatch(confirmEmail(formEmail, toast));
   }
 
+  //for question
+  function handleSecretQuestion(e) {
+    const { name, value } = e.target;
+    setFormSecretQuestionAns({ ...formSecretQuestionAns, [name]: value });
+  }
+
   function handleQuestionSubmit(e) {
     e.preventDefault();
     dispatch(confirmQuestion(formSecretQuestionAns, userId, toast));
   }
-  console.log(loading, secret_question_confirmed, token);
+
+  //for new password
+  function handleNewPassword(e) {
+    const { name, value } = e.target;
+    setNewPassword({ ...newPassword, [name]: value });
+  }
+
+  function handleNewPasswordSubmit(e) {
+    e.preventDefault();
+    if (newPassword.password === newPassword.confirm_password) {
+      dispatch(resetPassword(newPassword.password, userId, token, toast));
+    } else {
+      toast.error("Confirm password didn't match");
+    }
+  }
+  // console.log(newPassword);
+  // console.log(loading, secret_question_confirmed, token);
   return (
     <div className={styles.container}>
       <div>
@@ -47,7 +70,7 @@ function ResetPasswordModal({ handleModal }) {
             onClick={() => handleModal()}
           />
         </div>
-        {!email_confirmed && (
+        {/* {!email_confirmed && (
           <form onSubmit={(e) => handleEmailSubmit(e)}>
             <h2>Registered Mail-id</h2>
             <div>
@@ -121,8 +144,41 @@ function ResetPasswordModal({ handleModal }) {
               </button>
             </div>
           </form>
-        )}
-        
+        )} */}
+        {/* {secret_question_confirmed && ( */}
+        <form onSubmit={(e) => handleNewPasswordSubmit(e)}>
+          <h2>Create New Password</h2>
+          <div>
+            <label className={styles.required}>New Password</label>
+            <input
+              type="text"
+              placeholder="Type new password"
+              name="password"
+              value={newPassword.password}
+              onChange={(e) => handleNewPassword(e)}
+              required
+            />
+
+            <label className={styles.required}>Confirm New Password</label>
+            <input
+              type="password"
+              placeholder="Confirm new password"
+              name="confirm_password"
+              value={newPassword.confirm_password}
+              onChange={(e) => handleNewPassword(e)}
+              required
+            />
+            <button disabled={loading ? true : false}>
+              {" "}
+              {loading ? (
+                <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
+              ) : (
+                "Submit"
+              )}
+            </button>
+          </div>
+        </form>
+        {/* )} */}
       </div>
     </div>
   );

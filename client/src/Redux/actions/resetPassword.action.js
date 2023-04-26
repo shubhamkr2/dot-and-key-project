@@ -72,4 +72,38 @@ function confirmQuestion(secret_question, userId, toast) {
     }
   };
 }
-export { confirmEmail, confirmQuestion };
+
+function resetPassword(newPassword, userId, token, toast) {
+  return async function (dispatch) {
+    dispatch({ type: RESET_PASSWORD_REQUEST });
+    try {
+      let res = await fetch(
+        `https://courageous-rose-nightgown.cyclic.app/users/reset/64458e7e36680c9b6fccd214`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDU4ZTdlMzY2ODBjOWI2ZmNjZDIxNCIsImlhdCI6MTY4MjQ5NjAxMn0.Nrrhl-pZ-UtSabKgHy7M25L8D246dZZfZ5W-8ShZ-LA`,
+          },
+          body: JSON.stringify({ newPassword }),
+        }
+      );
+      let data = await res.json();
+      console.log(data);
+      dispatch({ type: RESET_PASSWORD_SUCCESS, payload: data });
+      if (data.message === "Password updated successfully") {
+        toast.success(data.message);
+        setTimeout(() => {
+          // navigate("/");
+        }, 2000);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: RESET_PASSWORD_FAILURE });
+    }
+  };
+}
+
+export { confirmEmail, confirmQuestion, resetPassword };
