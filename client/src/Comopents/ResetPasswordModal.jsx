@@ -51,7 +51,8 @@ function ResetPasswordModal({ handleModal }) {
   function handleNewPasswordSubmit(e) {
     e.preventDefault();
     if (newPassword.password === newPassword.confirm_password) {
-      dispatch(resetPassword(newPassword.password, userId, token, toast));
+      dispatch(resetPassword(newPassword.password, userId, token, toast, handleModal));
+      
     } else {
       toast.error("Confirm password didn't match");
     }
@@ -70,7 +71,7 @@ function ResetPasswordModal({ handleModal }) {
             onClick={() => handleModal()}
           />
         </div>
-        {/* {!email_confirmed && (
+        {!email_confirmed && !secret_question_confirmed && (
           <form onSubmit={(e) => handleEmailSubmit(e)}>
             <h2>Registered Mail-id</h2>
             <div>
@@ -144,8 +145,8 @@ function ResetPasswordModal({ handleModal }) {
               </button>
             </div>
           </form>
-        )} */}
-        {/* {secret_question_confirmed && ( */}
+        )}
+        {secret_question_confirmed && (
         <form onSubmit={(e) => handleNewPasswordSubmit(e)}>
           <h2>Create New Password</h2>
           <div>
@@ -178,7 +179,7 @@ function ResetPasswordModal({ handleModal }) {
             </button>
           </div>
         </form>
-        {/* )} */}
+        )}
       </div>
     </div>
   );

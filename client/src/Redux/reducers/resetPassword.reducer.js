@@ -30,7 +30,8 @@ function resetPassword(state = initialState, action) {
         ...state,
         loading: false,
         secret_question_confirmed: true,
-        token: action.payload,
+        email_confirmed: false,
+        token: action.payload.token,
       };
     case CONFIRM_SECRET_QUESTION_FAILURE:
       return {
@@ -49,7 +50,7 @@ function resetPassword(state = initialState, action) {
         ...state,
         loading: false,
         email_confirmed: true,
-        userId: action.payload,
+        userId: action.payload.userId,
       };
     case CONFIRM_EMAIL_FAILURE:
       return {
@@ -67,7 +68,8 @@ function resetPassword(state = initialState, action) {
         ...state,
         loading: false,
         email_confirmed: false,
-        secret_question_confirmed: true,
+        secret_question_confirmed: false,
+        token: "",
       };
     case RESET_PASSWORD_FAILURE:
       return {

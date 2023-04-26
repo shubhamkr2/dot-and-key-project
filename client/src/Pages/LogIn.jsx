@@ -16,7 +16,7 @@ const initialFormData = {
 function LogIn() {
   const [formData, setFormData] = useState(initialFormData);
   const { loading } = useSelector((store) => store.user);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();

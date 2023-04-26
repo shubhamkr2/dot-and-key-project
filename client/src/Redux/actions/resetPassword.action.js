@@ -48,22 +48,23 @@ function confirmQuestion(secret_question, userId, toast) {
     console.log(secret_question, userId);
     try {
       let res = await fetch(
-        `https://courageous-rose-nightgown.cyclic.app/users/64458e7e36680c9b6fccd214`,
+        `https://courageous-rose-nightgown.cyclic.app/users/${userId}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ secret_question }),
+          body: JSON.stringify({secret_question}),
         }
       );
       let data = await res.json();
       console.log(data);
-      dispatch({ type: CONFIRM_SECRET_QUESTION_SUCCESS, payload: data });
       if (data.token) {
+        dispatch({ type: CONFIRM_SECRET_QUESTION_SUCCESS, payload: data });
         toast.success("Question verified successfully");
         setTimeout(() => {
           // navigate("/");
         }, 2000);
       } else {
+        dispatch({ type: CONFIRM_SECRET_QUESTION_FAILURE });
         toast.error(data.message);
       }
     } catch (err) {
@@ -73,28 +74,28 @@ function confirmQuestion(secret_question, userId, toast) {
   };
 }
 
-function resetPassword(newPassword, userId, token, toast) {
+function resetPassword(newPassword, userId, token, toast, handleModal) {
   return async function (dispatch) {
     dispatch({ type: RESET_PASSWORD_REQUEST });
     try {
       let res = await fetch(
-        `https://courageous-rose-nightgown.cyclic.app/users/reset/64458e7e36680c9b6fccd214`,
+        `https://courageous-rose-nightgown.cyclic.app/users/reset/${userId}`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDU4ZTdlMzY2ODBjOWI2ZmNjZDIxNCIsImlhdCI6MTY4MjQ5NjAxMn0.Nrrhl-pZ-UtSabKgHy7M25L8D246dZZfZ5W-8ShZ-LA`,
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({ newPassword }),
         }
       );
       let data = await res.json();
       console.log(data);
-      dispatch({ type: RESET_PASSWORD_SUCCESS, payload: data });
       if (data.message === "Password updated successfully") {
+        dispatch({ type: RESET_PASSWORD_SUCCESS, payload: data });
         toast.success(data.message);
         setTimeout(() => {
-          // navigate("/");
+          handleModal();
         }, 2000);
       } else {
         toast.error(data.message);
