@@ -57,8 +57,7 @@ function ResetPasswordModal({ handleModal }) {
       toast.error("Confirm password didn't match");
     }
   }
-  // console.log(newPassword);
-  // console.log(loading, secret_question_confirmed, token);
+
   return (
     <div className={styles.container}>
       <div>
