@@ -15,6 +15,7 @@ let initialState = {
   email_confirmed: false,
   userId: "",
   secret_question_confirmed: false,
+  token: "",
 };
 
 function resetPassword(state = initialState, action) {
@@ -28,15 +29,15 @@ function resetPassword(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        email_confirmed: false,
         secret_question_confirmed: true,
+        token: action.payload,
       };
     case CONFIRM_SECRET_QUESTION_FAILURE:
       return {
         ...state,
         loading: false,
-        email_confirmed: false,
         secret_question_confirmed: false,
+        token: "",
       };
     case CONFIRM_EMAIL_REQUEST:
       return {

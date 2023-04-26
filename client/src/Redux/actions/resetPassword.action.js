@@ -20,19 +20,20 @@ function confirmEmail(email, toast) {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({email}),
+          body: JSON.stringify({ email }),
         }
       );
       let data = await res.json();
       console.log(data);
-      dispatch({ type: CONFIRM_EMAIL_SUCCESS, payload: data });
       if (data.userId) {
+        dispatch({ type: CONFIRM_EMAIL_SUCCESS, payload: data });
         toast.success("User verified successfully");
         setTimeout(() => {
           // navigate("/");
         }, 2000);
       } else {
-        toast.error(data.message);;
+        dispatch({ type: CONFIRM_EMAIL_FAILURE });
+        toast.error(data.message);
       }
     } catch (err) {
       console.log(err);
@@ -41,4 +42,34 @@ function confirmEmail(email, toast) {
   };
 }
 
-export { confirmEmail };
+function confirmQuestion(secret_question, userId, toast) {
+  return async function (dispatch) {
+    dispatch({ type: CONFIRM_SECRET_QUESTION_REQUEST });
+    console.log(secret_question, userId);
+    try {
+      let res = await fetch(
+        `https://courageous-rose-nightgown.cyclic.app/users/64458e7e36680c9b6fccd214`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ secret_question }),
+        }
+      );
+      let data = await res.json();
+      console.log(data);
+      dispatch({ type: CONFIRM_SECRET_QUESTION_SUCCESS, payload: data });
+      if (data.token) {
+        toast.success("Question verified successfully");
+        setTimeout(() => {
+          // navigate("/");
+        }, 2000);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: CONFIRM_SECRET_QUESTION_FAILURE });
+    }
+  };
+}
+export { confirmEmail, confirmQuestion };
