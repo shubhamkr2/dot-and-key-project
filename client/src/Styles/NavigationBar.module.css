@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(108, 109, 108);
+    height: 35px;
+    padding: 5px;
+}
+a{
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: white;
+    border: 1px solid transparent;
+    padding: 5px;
+}
+a:hover{
+    border: 1px solid white;
+    color: rgb(194, 245, 9);
+}
