@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from "../Redux/actions/user.action";
 import toast, { Toaster } from "react-hot-toast";
-import { ResetPasswordModal } from "../Comopents/ResetPasswordModal";
+import { ResetPasswordModal } from "../Components/ResetPasswordModal";
 import { resetModal } from "../Redux/actions/resetPassword.action";
 
 const initialFormData = {
