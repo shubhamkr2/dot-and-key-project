@@ -1,7 +1,7 @@
 .carousel_container {
   position: "relative";
-  width: "99%";
-  /* border: "1px solid red"; */
+  width: "50%";
+  border: "1px solid red";
   margin: "auto";
 }
 .next_btn{

@@ -1,0 +1,41 @@
+.container {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  max-width: 220px;
+  border-radius: 5px;
+  height: 380px;
+  text-align: center;
+  line-height: 1;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+div span {
+  margin: 0%;
+}
+h4,
+h5 {
+  margin: 10px;
+  color: rgb(61, 61, 61);
+}
+.highlights {
+  color: rgb(155, 153, 153);
+}
+.price {
+  color: rgb(184, 74, 74);
+}
+.container button {
+  display: block;
+  width: 100%;
+  background-color: black;
+  color: white;
+  height: 40px;
+  font-weight: bold;
+}
+.container img {
+  width: 100%;
+  border-radius: 0px 5px 0px 5px;
+  margin-bottom: 0%;
+}
