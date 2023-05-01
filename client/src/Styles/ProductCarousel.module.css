@@ -1,32 +1,28 @@
 .carousel_container {
-  position: "relative";
-  width: "50%";
-  border: "1px solid red";
-  margin: "auto";
+  position: relative;
+  width: 68%;
+  margin: auto;
 }
-.next_btn{
-    position: "absolute";
-    top: "35%";
-    right: "0%";
-    border: "1px solid red";
-    width: "50px";
-    height: "150px";
-    display: "flex";
-    align-items: "center";
-    justify-content: "center";
-}
-/* #prev_btn{
-    position: "absolute";
-          width: "50px";
-          height: "150px";
-          left: "0%";
-          top: "35%";
-          border: "1px solid red";
-          display: "flex";
-          align-items: "center";
-          justify-content: "center";
-} */
-.carousel_container .prev_btn:hover{
-    border: "1px solid red";
 
+.prev_btn,
+.next_btn {
+  border: 1px solid black;
+  position: absolute;
+  top: 30%;
+  width: 50px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.prev_btn {
+  left: -7%;
+}
+.next_btn {
+  right: -7%;
+}
+.prev_btn:hover,
+.next_btn:hover {
+  background-color: rgb(202, 198, 198);
 }

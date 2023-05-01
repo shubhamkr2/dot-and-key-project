@@ -26,64 +26,21 @@ function ProductCarousel({ images }) {
     arrows: false,
   };
   return (
-    
-    <div
-      style={{
-        width: "68%",
-        margin: "auto",
-        position: "relative",
-        // display: "flex",
-        // justifyContent: "center",
-        // alignItems: "center",
-      }}
-    >
-    <div>
-
-      <Slider {...settings} ref={ref} >
-        {images?.map((item) => (
+    <div className={styles.carousel_container}>
+      <div>
+        <Slider {...settings} ref={ref}>
+          {images?.map((item) => (
             <Carousel_Product_Card product={item} />
-          
-        ))}
-      </Slider>
-    </div>
+          ))}
+        </Slider>
+      </div>
 
-
-      <div
-        className="button"
-        onClick={handlePrevSlide}
-        style={{
-          position: "absolute",
-          width: "50px",
-          height: "150px",
-          left: "-7%",
-          top: "30%",
-          border: "1px solid gray",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-        }}
-      >
+      <div className={styles.prev_btn} onClick={handlePrevSlide}>
         <IconContext.Provider value={{ size: "2rem" }}>
           <AiOutlineArrowLeft />
         </IconContext.Provider>
       </div>
-      <div
-        className="button"
-        onClick={handleNextSlide}
-        style={{
-          position: "absolute",
-          top: "30%",
-          right: "-7%",
-          border: "1px solid gray",
-          width: "50px",
-          height: "150px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-        }}
-      >
+      <div className={styles.next_btn} onClick={handleNextSlide}>
         <IconContext.Provider value={{ size: "2rem" }}>
           <AiOutlineArrowRight />
         </IconContext.Provider>
