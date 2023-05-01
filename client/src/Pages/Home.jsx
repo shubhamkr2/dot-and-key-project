@@ -126,6 +126,40 @@ const bestsellers = [
     price: 249.0,
   },
 ];
+const category = [
+  {
+    image:
+      "https://www.dotandkey.com/cdn/shop/files/greenclaymask_large.jpg?v=1682746349",
+    rating: 4.7,
+    name: "Cica & Salicylic French Green Clay Face Mask",
+    highlight: "ANTI-ACNE TREATMENT",
+    price: 550.0,
+  },
+  {
+    image:
+      "https://www.dotandkey.com/cdn/shop/files/20_vitc_6b8de8b1-298a-439a-8f13-0421ad88c9ab_large.jpg?v=1682747034",
+    rating: 4.7,
+    name: "20% Vitamin C Serum with Blood Orange",
+    highlight: "WITH PURE L-ASCORBIC ACID",
+    price: 695.0,
+  },
+  {
+    image:
+      "https://www.dotandkey.com/cdn/shop/products/copyofmoringashampoo_large.webp?v=1682595921",
+    rating: 4.7,
+    name: "Moringa & Argan Oil Anti Hairfall Shampoo",
+    highlight: "HAIRFALL CONTROL",
+    price: 695.0,
+  },
+  {
+    image:
+      "https://www.dotandkey.com/cdn/shop/products/untitled-1-12_1_large.webp?v=1682596508",
+    rating: 4.8,
+    name: "Cocoa & French Vanilla Body Butter",
+    highlight: "INTENSE MOISTURIZATION",
+    price: 595.0,
+  },
+];
 function Home() {
   return (
     <div className={styles.container}>
@@ -171,6 +205,18 @@ function Home() {
           src="https://www.dotandkey.com/cdn/shop/files/desk-47.webp?v=1679037760"
           alt="banner"
         />
+      </div>
+
+      {/********Our CATEGORIES*********/}
+      <div className={styles.heading}>
+        <span>SHOP OUR</span>
+        <h2>TOP CATEGORIES</h2>
+        <p>SKIN | HAIRCARE | BODYCARE </p>
+      </div>
+      <div className={styles.bestsellers}>
+        {category.map((item) => (
+          <Carousel_Product_Card product={item} />
+        ))}
       </div>
     </div>
   );
