@@ -1,7 +1,8 @@
 import React from "react";
 import { CarouselBanner } from "../Components/CarouselBanner";
 import ProductCarousel from "../Components/ProductCarousel";
-import styles from "../Styles/Home.module.css"
+import styles from "../Styles/Home.module.css";
+import { Carousel_Product_Card } from "../Components/Carousel_Product_Card";
 
 const images = [
   "https://www.dotandkey.com/cdn/shop/files/pro_desk_552a0e39-53bd-4a71-98da-ceb1a8d819b7_1024x1024.jpg?v=1680865716",
@@ -91,15 +92,63 @@ const cards = [
     price: 395.0,
   },
 ];
+const bestsellers = [
+  {
+    image:
+      "https://www.dotandkey.com/cdn/shop/files/VITaminCMOIST.jpg?v=1682746715",
+    rating: 4.8,
+    name: "Vitamin C + E Moisturizer",
+    highlight: "MAKES SKIN GLOW",
+    price: 565.0,
+  },
+  {
+    image:
+      "https://www.dotandkey.com/cdn/shop/products/1-finall-1_1.webp?v=1682596648",
+    rating: 4.6,
+    name: "Lip Balm Duo | Make Your Own | SPF 30",
+    highlight: "PACK OF 2",
+    price: 374.0,
+  },
+  {
+    image:
+      "https://www.dotandkey.com/cdn/shop/files/cactusSERUM.jpg?v=1682746999",
+    rating: 4.8,
+    name: "Cica + 2% Salicylic Serum",
+    highlight: "REDUCES ACTIVE ACNE",
+    price: 550.0,
+  },
+  {
+    image:
+      "https://www.dotandkey.com/cdn/shop/files/strawberry.jpg?v=1682746462",
+    rating: 4.8,
+    name: "SPF 30 Strawberry Red Lip Balm",
+    highlight: "HIGH TINTED",
+    price: 249.0,
+  },
+];
 function Home() {
   return (
     <div className={styles.container}>
       <CarouselBanner images={images} />
       <div className={styles.heading}>
-        <h3>SHOP OUR</h3>
+        <span>SHOP OUR</span>
         <h2>NEW ARRIVALS</h2>
       </div>
       <ProductCarousel images={cards} />
+      {/* <div className={styles.product_carousel}>
+
+      </div> */}
+
+      <div className={styles.heading}>
+        <span>OUR</span>
+        <h2>BESTSELLERS</h2>
+        <p>FACE CREAMS | SUNSCREEN | FACE SERUMS | LIP CARE</p>
+      </div>
+      <div className={styles.bestsellers}>
+        {bestsellers.map(item=>(
+          <Carousel_Product_Card product={item}/>
+        ))}
+      </div>
     </div>
   );
 }

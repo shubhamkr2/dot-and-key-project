@@ -1,4 +1,24 @@
-.heading{
-    text-align: center;
-    margin-top: 50px;
+.heading {
+  text-align: center;
+  margin-top: 55px;
+  margin-bottom: 20px;
 }
+.heading h2 {
+  margin: 0%;
+  font-size: 1.8rem;
+}
+.heading > span {
+  font-size: 1.3rem;
+}
+.heading>p{
+  font-size: 1.3rem;
+  margin: 5px;
+  color:gray;
+}
+.bestsellers{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+

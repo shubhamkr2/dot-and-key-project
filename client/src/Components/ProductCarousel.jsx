@@ -26,20 +26,27 @@ function ProductCarousel({ images }) {
     arrows: false,
   };
   return (
+    
     <div
       style={{
-        width: "80%",
+        width: "68%",
         margin: "auto",
         position: "relative",
+        // display: "flex",
+        // justifyContent: "center",
+        // alignItems: "center",
       }}
     >
-      <Slider {...settings} ref={ref}>
-        {images?.map((item, i) => (
-          <div key={i}>
+    <div>
+
+      <Slider {...settings} ref={ref} >
+        {images?.map((item) => (
             <Carousel_Product_Card product={item} />
-          </div>
+          
         ))}
       </Slider>
+    </div>
+
 
       <div
         className="button"
@@ -67,7 +74,7 @@ function ProductCarousel({ images }) {
         style={{
           position: "absolute",
           top: "30%",
-          right: "-3%",
+          right: "-7%",
           border: "1px solid gray",
           width: "50px",
           height: "150px",
