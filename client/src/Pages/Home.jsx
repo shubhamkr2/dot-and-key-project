@@ -3,6 +3,7 @@ import { CarouselBanner } from "../Components/CarouselBanner";
 import ProductCarousel from "../Components/ProductCarousel";
 import styles from "../Styles/Home.module.css";
 import { Carousel_Product_Card } from "../Components/Carousel_Product_Card";
+import { Footer } from "../Components/Footer";
 
 const images = [
   "https://www.dotandkey.com/cdn/shop/files/pro_desk_552a0e39-53bd-4a71-98da-ceb1a8d819b7_1024x1024.jpg?v=1680865716",
@@ -213,10 +214,15 @@ function Home() {
         <h2>TOP CATEGORIES</h2>
         <p>SKIN | HAIRCARE | BODYCARE </p>
       </div>
-      <div className={styles.bestsellers}>
+      <div className={styles.category}>
         {category.map((item) => (
           <Carousel_Product_Card product={item} />
         ))}
+      </div>
+
+      {/********Footer*********/}
+      <div className={styles.footer}>
+          <Footer />
       </div>
     </div>
   );
