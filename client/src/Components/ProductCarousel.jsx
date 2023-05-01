@@ -24,16 +24,49 @@ function ProductCarousel({ images }) {
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1100,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 950,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 550,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+    ],
   };
   return (
     <div className={styles.carousel_container}>
-      <div>
-        <Slider {...settings} ref={ref}>
-          {images?.map((item) => (
-            <Carousel_Product_Card product={item} />
-          ))}
-        </Slider>
-      </div>
+      <Slider {...settings} ref={ref}>
+        {images?.map((item) => (
+          <Carousel_Product_Card product={item} />
+        ))}
+      </Slider>
 
       <div className={styles.prev_btn} onClick={handlePrevSlide}>
         <IconContext.Provider value={{ size: "2rem" }}>

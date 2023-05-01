@@ -1,7 +1,8 @@
 .carousel_container {
   position: relative;
-  width: 68%;
+  width: 78%;
   margin: auto;
+  border: 1px solid black;
 }
 
 .prev_btn,
@@ -16,7 +17,7 @@
   justify-content: center;
   cursor: pointer;
 }
-.prev_btn { 
+.prev_btn {
   left: -7%;
 }
 .next_btn {

@@ -6,6 +6,7 @@
   height: 380px;
   text-align: center;
   line-height: 1.2;
+  margin: auto;
 }
 .rating {
   display: flex;
