@@ -1,32 +1,52 @@
-.carousel_container {
-  position: "relative";
-  width: "99%";
-  /* border: "1px solid red"; */
-  margin: "auto";
+.left_arrow,
+.right_arrow {
+  border: 1px solid transparent;
+  cursor: pointer;
+  width: 50px;
+  height: 150px;
+  position: absolute;
+  top: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.next_btn{
-    position: "absolute";
-    top: "35%";
-    right: "0%";
-    border: "1px solid red";
-    width: "50px";
-    height: "150px";
-    display: "flex";
-    align-items: "center";
-    justify-content: "center";
+.left_arrow {
+  left: 0%;
 }
-/* #prev_btn{
-    position: "absolute";
-          width: "50px";
-          height: "150px";
-          left: "0%";
-          top: "35%";
-          border: "1px solid red";
-          display: "flex";
-          align-items: "center";
-          justify-content: "center";
-} */
-.carousel_container .prev_btn:hover{
-    border: "1px solid red";
-
+.right_arrow {
+  right: 0%;
+}
+.left_arrow:hover,
+.right_arrow:hover {
+  border: 1px solid black;
+}
+.carousel_img img{
+    width: 100%;
+}
+@media (max-width: 1000px) {
+  .left_arrow,
+  .right_arrow {
+    top: 20%;
+    height: 120px;
+  }
+}
+@media (max-width: 700px) {
+  .left_arrow,
+  .right_arrow {
+    top: 16%;
+  }
+}
+@media (max-width: 600px) {
+  .left_arrow,
+  .right_arrow {
+    top: 12%;
+    height: 100px;
+  }
+}
+@media (max-width: 400px) {
+  .left_arrow,
+  .right_arrow {
+    top: 8%;
+    height: 60px;
+  }
 }

@@ -27,51 +27,21 @@ function CarouselBanner({ images }) {
     autoplaySpeed: 3000,
   };
   return (
-    <div className={styles.carousel_container}>
+    <div style={{ position: "relative" }}>
       <Slider {...settings} ref={ref}>
         {images?.map((item) => (
-          <div>
-            <img src={item} style={{ width: "100%" }} alt="Images" />
+          <div className={styles.carousel_img}>
+            <img src={item} alt="Images" />
           </div>
         ))}
       </Slider>
-
-      <div
-        className="button"
-        onClick={handlePrevSlide}
-        style={{
-          position: "absolute",
-          width: "50px",
-          height: "150px",
-          left: "0%",
-          top: "40%",
-          // border: "1px solid red",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-        }}
-      >
+      <div className={styles.left_arrow} onClick={handlePrevSlide}>
         <IconContext.Provider value={{ size: "2rem" }}>
           <AiOutlineArrowLeft />
         </IconContext.Provider>
       </div>
-      <div
-        className="button"
-        onClick={handleNextSlide}
-        style={{
-          position: "absolute",
-          top: "40%",
-          right: "0%",
-          // border: "1px solid red",
-          width: "50px",
-          height: "150px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-        }}
-      >
+
+      <div className={styles.right_arrow} onClick={handleNextSlide}>
         <IconContext.Provider value={{ size: "2rem" }}>
           <AiOutlineArrowRight />
         </IconContext.Provider>
