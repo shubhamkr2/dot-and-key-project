@@ -3,7 +3,7 @@ import styles from "../Styles/Carousel_Product_Card.module.css";
 import { AiFillStar } from "react-icons/ai";
 import { IconContext } from "react-icons";
 
-function Carousel_Product_Card({product}) {
+function Carousel_Product_Card({ product }) {
   // console.log(product)
   return (
     <div className={styles.container}>
