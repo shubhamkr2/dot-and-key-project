@@ -139,7 +139,7 @@ function Home() {
       </div>
       <ProductCarousel images={cards} />
 
-      {/********Our bestsellers*********/}
+      {/********Our BESTSELLERS*********/}
       <div className={styles.heading}>
         <span>OUR</span>
         <h2>BESTSELLERS</h2>
@@ -149,6 +149,28 @@ function Home() {
         {bestsellers.map((item) => (
           <Carousel_Product_Card product={item} />
         ))}
+      </div>
+
+      {/********Our SPOTLIGHT*********/}
+      <div className={styles.spotlight}>
+        <div className={styles.heading}>
+          <span>IN THE</span>
+          <h2>SPOTLIGHT</h2>
+        </div>
+        <div className={styles.spotlight_img}>
+          <img
+            src="https://www.dotandkey.com/cdn/shop/files/desk-45_ccef1097-f1b8-4f09-8ed3-7d0837ea216a.webp?v=1678876894"
+            alt="banner"
+          />
+          <img
+            src="https://www.dotandkey.com/cdn/shop/files/desk_resize.jpg?v=1679570858"
+            alt="banner"
+          />
+        </div>
+        <img
+          src="https://www.dotandkey.com/cdn/shop/files/desk-47.webp?v=1679037760"
+          alt="banner"
+        />
       </div>
     </div>
   );

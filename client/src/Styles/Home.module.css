@@ -10,15 +10,30 @@
 .heading > span {
   font-size: 1.3rem;
 }
-.heading>p{
+.heading > p {
   font-size: 1.3rem;
   margin: 5px;
-  color:gray;
+  color: gray;
 }
-.bestsellers{
+.bestsellers {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
 }
-
+.spotlight{
+  width: 96%;
+  margin: auto;
+}
+.spotlight_img{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.spotlight_img>img{
+  width: 50%;
+}
+.spotlight img{
+  width: 100%;
+}
