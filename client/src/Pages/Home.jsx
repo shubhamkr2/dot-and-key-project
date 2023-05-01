@@ -129,24 +129,25 @@ const bestsellers = [
 function Home() {
   return (
     <div className={styles.container}>
+      {/********Top banner carousel*********/}
       <CarouselBanner images={images} />
+
+      {/********Product carousel*********/}
       <div className={styles.heading}>
         <span>SHOP OUR</span>
         <h2>NEW ARRIVALS</h2>
       </div>
       <ProductCarousel images={cards} />
-      {/* <div className={styles.product_carousel}>
 
-      </div> */}
-
+      {/********Our bestsellers*********/}
       <div className={styles.heading}>
         <span>OUR</span>
         <h2>BESTSELLERS</h2>
         <p>FACE CREAMS | SUNSCREEN | FACE SERUMS | LIP CARE</p>
       </div>
       <div className={styles.bestsellers}>
-        {bestsellers.map(item=>(
-          <Carousel_Product_Card product={item}/>
+        {bestsellers.map((item) => (
+          <Carousel_Product_Card product={item} />
         ))}
       </div>
     </div>
