@@ -1,18 +1,35 @@
-.footer_container{
-    border: 1px solid black;
-    height: 500px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    padding: 50px;
+.footer_container {
+  border: 1px solid black;
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 50px;
 }
-.row{
-    display: flex;
-    flex-direction: column;
+.row {
+  display: flex;
+  flex-direction: column;
 }
-a{
-    color: black;
-
+a {
+  color: black;
 }
-a:hover{
-    color: red;
+a:hover {
+  color: red;
+}
+.row .updated_input {
+  display: flex;
+  gap: 10px;
+}
+.row input {
+  height: 40px;
+  width: 70%;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.row .submit_btn {
+  display: block;
+  height: 54px;
+  width: 30%;
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
 }

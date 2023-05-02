@@ -36,9 +36,9 @@ function Footer() {
       <div>
       <h2>STAY UPDATED</h2>
         <div className={styles.row}>
-          <div>
+          <div className={styles.updated_input}>
             <input type="text" placeholder="example@example.com" />
-            <button>SUBMIT</button>
+            <button className={styles.submit_btn}>SUBMIT</button>
           </div>
           <button>DOWNLOAD THE APP</button>
           <div>
