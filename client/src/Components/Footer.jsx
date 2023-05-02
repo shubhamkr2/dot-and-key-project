@@ -40,7 +40,7 @@ function Footer() {
             <input type="text" placeholder="example@example.com" />
             <button className={styles.submit_btn}>SUBMIT</button>
           </div>
-          <button>DOWNLOAD THE APP</button>
+          <button className={styles.download_app_btn}>DOWNLOAD THE APP</button>
           <div>
             <Link to="#">FOLLOW US</Link>
             <FaFacebookF />
