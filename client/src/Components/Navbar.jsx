@@ -35,7 +35,7 @@ function Navbar() {
       </div>
       </div>
     </div>
-    {/* <NavigationBar /> */}
+    <NavigationBar />
     </>
   );
 }
