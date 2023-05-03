@@ -10,8 +10,8 @@ function Footer() {
   return (
     <div className={styles.footer_container}>
       <div>
-        <h2>GET TO KNOW US</h2>
         <div className={styles.row}>
+        <h2>GET TO KNOW US</h2>
           <Link to="#">ABOUT US</Link>
           <Link to="#">CONTACT US</Link>
           <Link to="#">EARTHCARE</Link>
@@ -26,8 +26,8 @@ function Footer() {
         </div>
       </div>
       <div>
-        <h2>ALSO AVAILABLE ON</h2>
         <div className={styles.row}>
+        <h2>ALSO AVAILABLE ON</h2>
           <Link to="#">NYKAA</Link>
           <Link to="#">AMAZON</Link>
           <Link to="#">FLIPKART</Link>
@@ -35,8 +35,8 @@ function Footer() {
         </div>
       </div>
       <div>
-        <h2>STAY UPDATED</h2>
         <div className={styles.row}>
+        <h2>STAY UPDATED</h2>
           <div className={styles.updated_input}>
             <input type="text" placeholder="example@example.com" />
             <button className={styles.submit_btn}>SUBMIT</button>
