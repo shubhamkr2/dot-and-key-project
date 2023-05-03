@@ -35,12 +35,16 @@ h5 {
   bottom: 0%;
   display: block;
   width: 100%;
-  background-color: black;
+  background-color: rgb(32, 32, 32);
   color: white;
   height: 40px;
   font-weight: bold;
   cursor: pointer;
   /* margin-bottom: 0%; */
+}
+.container button:hover{
+  background-color: black;
+  font-size: 1.2rem;
 }
 .container img {
   width: 100%;
