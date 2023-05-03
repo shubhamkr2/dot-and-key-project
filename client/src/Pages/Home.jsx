@@ -221,9 +221,7 @@ function Home() {
       </div>
 
       {/********Footer*********/}
-      <div className={styles.footer}>
           <Footer />
-      </div>
     </div>
   );
 }

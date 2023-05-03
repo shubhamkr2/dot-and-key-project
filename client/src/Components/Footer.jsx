@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FaFacebookF } from "react-icons/fa";
 import { SiInstagram } from "react-icons/si";
 import { IoLogoYoutube } from "react-icons/io";
+import { IconContext } from "react-icons";
 
 function Footer() {
   return (
@@ -25,7 +26,7 @@ function Footer() {
         </div>
       </div>
       <div>
-      <h2>ALSO AVAILABLE ON</h2>
+        <h2>ALSO AVAILABLE ON</h2>
         <div className={styles.row}>
           <Link to="#">NYKAA</Link>
           <Link to="#">AMAZON</Link>
@@ -34,18 +35,20 @@ function Footer() {
         </div>
       </div>
       <div>
-      <h2>STAY UPDATED</h2>
+        <h2>STAY UPDATED</h2>
         <div className={styles.row}>
           <div className={styles.updated_input}>
             <input type="text" placeholder="example@example.com" />
             <button className={styles.submit_btn}>SUBMIT</button>
           </div>
           <button className={styles.download_app_btn}>DOWNLOAD THE APP</button>
-          <div>
+          <div className={styles.social_links}>
             <Link to="#">FOLLOW US</Link>
-            <FaFacebookF />
-            <SiInstagram />
-            <IoLogoYoutube />
+            <IconContext.Provider value={{ size: "1.8rem" }}>
+              <FaFacebookF />
+              <SiInstagram />
+              <IoLogoYoutube />
+            </IconContext.Provider>
           </div>
         </div>
       </div>

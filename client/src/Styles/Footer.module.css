@@ -1,9 +1,12 @@
 .footer_container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 500px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 50px;
+  padding-top: 10px;
+  margin-top: 60px;
+  border-top: 2px solid rgb(206, 206, 206);
 }
 .row {
   display: flex;
@@ -31,9 +34,14 @@
   display: block;
   height: 54px;
   width: 30%;
-  background-color: black;
+  background-color: rgb(32, 32, 32);
   color: white;
   font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+}
+.row .submit_btn:hover{
+  background-color: black;
 }
 .row .download_app_btn {
   width: 55%;
@@ -43,4 +51,17 @@
   font-size: 1rem;
   font-weight: bold;
   color: white;
+  cursor: pointer;
+}
+.row .download_app_btn:hover {
+  background-color: #7d61be;
+}
+.social_links{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+.social_links a{
+  font-size: 1.3rem;
 }
