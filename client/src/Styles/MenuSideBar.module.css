@@ -4,6 +4,12 @@
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+.MenuSidebar_container a {
+    font-weight: 100;
+}
+.menuNavigationBar a:hover{
+    font-weight: 500;
+}
 .sidebar_profile {
   display: flex;
   justify-content: center;
@@ -16,13 +22,21 @@
   height: 40px;
 }
 .menuNavigationBar {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    
 }
+
 .menuNavigationBar h2 {
   margin: 0%;
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
   padding: 10px;
+  padding-left: 0%;
   font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.profile{
+
 }

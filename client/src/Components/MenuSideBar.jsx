@@ -20,6 +20,9 @@ function MenuSideBar({ name }) {
         </IconContext.Provider>
         <h3>Hello, {name}</h3>
       </div>
+      <div className={styles.profile}>
+
+      </div>
       <div className={styles.menuNavigationBar}>
       <h2>Browse, Dot&Key</h2>
       <Link to="/sunscreens" element={<Sunscreens />}>
