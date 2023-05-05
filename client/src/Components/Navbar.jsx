@@ -21,7 +21,7 @@ function Navbar() {
           <MenuSideBar name={"shubham"} isOpen={isOpen} setIsOpen={setIsOpen} />
         )}
       </div>
-      <div className={styles.container}>
+      <div className={styles.nav_container}>
         {/* Hamburger menu icon */}
         <div className={styles.hamburgerIcon}>
 
