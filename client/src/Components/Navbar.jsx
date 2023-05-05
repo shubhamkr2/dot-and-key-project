@@ -24,10 +24,9 @@ function Navbar() {
       <div className={styles.nav_container}>
         {/* Hamburger menu icon */}
         <div className={styles.hamburgerIcon}>
-
-        <IconContext.Provider value={{ size: "2rem" }}>
-          <GiHamburgerMenu onClick={() => setIsOpen(!isOpen)} />
-        </IconContext.Provider>
+          <IconContext.Provider value={{ size: "2rem" }}>
+            <GiHamburgerMenu onClick={() => setIsOpen(!isOpen)} />
+          </IconContext.Provider>
         </div>
 
         {/* Logo */}
@@ -61,7 +60,9 @@ function Navbar() {
         </div>
       </div>
       {/* NavigationBar component */}
-      <NavigationBar />
+      <div className={styles.navigationBar}>
+        <NavigationBar />
+      </div>
     </>
   );
 }

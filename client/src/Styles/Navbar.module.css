@@ -62,3 +62,8 @@
   cursor: pointer;
   color: red;
 }
+@media(max-width:950px){
+  .navigationBar{
+    display: none;
+  }
+}
