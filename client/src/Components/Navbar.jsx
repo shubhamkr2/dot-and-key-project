@@ -16,7 +16,9 @@ function Navbar() {
   return (
     <>
       {/* Navbar container */}
-     
+      <div className={styles.sideBar} >
+        {isOpen && <MenuSideBar name={"shubham"} isOpen={isOpen} setIsOpen={setIsOpen} />}
+      </div>
       <div className={styles.container}>
         {/* Hamburger menu icon */}
         <IconContext.Provider value={{ size: "2rem" }}>
@@ -56,9 +58,6 @@ function Navbar() {
       </div>
       {/* NavigationBar component */}
       <NavigationBar />
-      <div className={styles.sideBar} >
-        {isOpen && <MenuSideBar name={"shubham"} isOpen={isOpen} setIsOpen={setIsOpen} />}
-      </div>
     </>
   );
 }
