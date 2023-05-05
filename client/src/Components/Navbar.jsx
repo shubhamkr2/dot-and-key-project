@@ -16,15 +16,19 @@ function Navbar() {
   return (
     <>
       {/* Navbar container */}
-      <div className={styles.sideBar} >
-        {isOpen && <MenuSideBar name={"shubham"} isOpen={isOpen} setIsOpen={setIsOpen} />}
+      <div className={styles.sideBar}>
+        {isOpen && (
+          <MenuSideBar name={"shubham"} isOpen={isOpen} setIsOpen={setIsOpen} />
+        )}
       </div>
       <div className={styles.container}>
         {/* Hamburger menu icon */}
-        <IconContext.Provider value={{ size: "2rem" }}>
+        <div className={styles.hamburgerIcon}>
 
-        <GiHamburgerMenu onClick={()=>setIsOpen(!isOpen)}/>
+        <IconContext.Provider value={{ size: "2rem" }}>
+          <GiHamburgerMenu onClick={() => setIsOpen(!isOpen)} />
         </IconContext.Provider>
+        </div>
 
         {/* Logo */}
         <Link to="/">

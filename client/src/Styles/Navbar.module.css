@@ -58,3 +58,6 @@
   background-color: white;
   /* height: 100dvh; */
 }
+.hamburgerIcon:hover{
+  cursor: pointer;
+}

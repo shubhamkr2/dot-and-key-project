@@ -23,7 +23,7 @@
   gap: 10px;
   background-color: gray;
   color: white;
-  height: 40px;
+  height: 50px;
 }
 .menuNavigationBar,
 .profile {
@@ -46,4 +46,7 @@
     right: 1%;
     top: -25%;
     cursor: pointer;
+}
+.close_btn:hover{
+  color: rgb(219, 120, 120);
 }

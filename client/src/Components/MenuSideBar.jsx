@@ -22,7 +22,9 @@ function MenuSideBar({ name, isOpen, setIsOpen }) {
         </IconContext.Provider>
         <h3>Hello, {name}</h3>
         <div className={styles.close_btn} onClick={()=>setIsOpen(!isOpen)}>
+        <IconContext.Provider value={{ size: "1.5rem" }}>
           <FaRegWindowClose />
+        </IconContext.Provider>
         </div>
       </div>
       <div className={styles.profile}>
