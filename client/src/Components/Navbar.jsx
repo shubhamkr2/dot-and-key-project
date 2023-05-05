@@ -8,11 +8,13 @@ import { CgProfile } from "react-icons/cg";
 import { NavigationBar } from "./NavigationBar";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { MenuSideBar } from "./MenuSideBar";
 
 // Define Navbar component
 function Navbar() {
   return (
     <>
+    <MenuSideBar name={"shubham"} />
       {/* Navbar container */}
       <div className={styles.container}>
         {/* Hamburger menu icon */}

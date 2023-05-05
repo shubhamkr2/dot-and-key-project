@@ -1,0 +1,28 @@
+.MenuSidebar_container {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.sidebar_profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-top: 2px solid gray; */
+  border-bottom: 2px solid gray;
+  gap: 20px;
+  background-color: gray;
+  color: white;
+  height: 40px;
+}
+.menuNavigationBar {
+  display: flex;
+  flex-direction: column;
+}
+.menuNavigationBar h2 {
+  margin: 0%;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 10px;
+  font-size: 1.2rem;
+}

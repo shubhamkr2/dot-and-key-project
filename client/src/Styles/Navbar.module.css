@@ -27,7 +27,8 @@
   padding-right: 5px;
 }
 .Search_Box:hover {
-  background-color: rgb(16, 90, 16);
+  /* background-color: rgb(16, 90, 16); */
+  background-color: red;
 }
 .Search_Box input {
   height: 5dvh;
@@ -45,4 +46,8 @@
 .cart_logo,
 .user_profile {
   cursor: pointer;
+}
+.cart_logo:hover,
+.user_profile:hover {
+  color: red;
 }
