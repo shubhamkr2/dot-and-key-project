@@ -3,10 +3,10 @@
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    height: 100vh;
-    position: fixed;
-    /* z-index: 99; */
-    background-color: white;
+  height: 100vh;
+  position: fixed;
+  /* z-index: 99; */
+  background-color: white;
 }
 .MenuSidebar_container a {
   font-weight: 100;
@@ -41,12 +41,12 @@
   font-size: 1.2rem;
   margin-bottom: 5px;
 }
-.close_btn{
-    position: relative;
-    right: 1%;
-    top: -25%;
-    cursor: pointer;
+.close_btn {
+  position: relative;
+  right: 1%;
+  top: -25%;
+  cursor: pointer;
 }
-.close_btn:hover{
+.close_btn:hover {
   color: rgb(253, 6, 6);
 }

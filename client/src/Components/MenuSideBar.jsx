@@ -15,16 +15,15 @@ import { FaRegWindowClose } from "react-icons/fa";
 function MenuSideBar({ name, isOpen, setIsOpen }) {
   return (
     <div className={styles.MenuSidebar_container}>
-      <div ></div>
       <div className={styles.sidebar_profile}>
         <IconContext.Provider value={{ size: "2rem" }}>
           <CgProfile />
         </IconContext.Provider>
         <h3>Hello, {name}</h3>
-        <div className={styles.close_btn} onClick={()=>setIsOpen(!isOpen)}>
-        <IconContext.Provider value={{ size: "1.5rem" }}>
-          <FaRegWindowClose />
-        </IconContext.Provider>
+        <div className={styles.close_btn} onClick={() => setIsOpen(!isOpen)}>
+          <IconContext.Provider value={{ size: "1.5rem" }}>
+            <FaRegWindowClose />
+          </IconContext.Provider>
         </div>
       </div>
       <div className={styles.profile}>
