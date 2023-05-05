@@ -39,19 +39,19 @@
 .row .submit_btn {
   display: block;
   height: 54px;
-  width: 30%;
+  width: 31%;
   background-color: rgb(32, 32, 32);
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   border: none;
 }
 .row .submit_btn:hover {
   background-color: black;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
 }
 .row .download_app_btn {
-  width: 55%;
+  width: 75%;
   height: 45px;
   background-color: #9d88ce;
   border: none;
@@ -62,7 +62,7 @@
 }
 .row .download_app_btn:hover {
   background-color: #7d61be;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .social_links {
   display: flex;
