@@ -1,5 +1,5 @@
 // Import necessary modules
-import React from "react";
+import React, { useState } from "react";
 import styles from "../Styles/Navbar.module.css";
 import { ImSearch } from "react-icons/im";
 import { FiShoppingCart } from "react-icons/fi";
@@ -12,15 +12,18 @@ import { MenuSideBar } from "./MenuSideBar";
 
 // Define Navbar component
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       {/* Navbar container */}
-        <div className={styles.sideBar}>
-          <MenuSideBar name={"shubham"} />
-        </div>
+     
       <div className={styles.container}>
         {/* Hamburger menu icon */}
-        <GiHamburgerMenu />
+        <IconContext.Provider value={{ size: "2rem" }}>
+
+        <GiHamburgerMenu onClick={()=>setIsOpen(!isOpen)}/>
+        </IconContext.Provider>
+
         {/* Logo */}
         <Link to="/">
           <div className={styles.logo}>
@@ -53,6 +56,9 @@ function Navbar() {
       </div>
       {/* NavigationBar component */}
       <NavigationBar />
+      <div className={styles.sideBar} >
+        {isOpen && <MenuSideBar name={"shubham"} isOpen={isOpen} setIsOpen={setIsOpen} />}
+      </div>
     </>
   );
 }

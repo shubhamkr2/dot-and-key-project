@@ -53,6 +53,7 @@
 }
 .sideBar{
   /* display: block; */
+  position: absolute;
   z-index: 99;
   background-color: white;
   /* height: 100dvh; */

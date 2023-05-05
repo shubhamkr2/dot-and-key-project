@@ -10,51 +10,56 @@ import { LipBalms } from "../Pages/LipBalms";
 import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";
 import { FaceToners } from "../Pages/FaceToners";
+import { FaRegWindowClose } from "react-icons/fa";
 
-function MenuSideBar({ name }) {
+function MenuSideBar({ name, isOpen, setIsOpen }) {
   return (
     <div className={styles.MenuSidebar_container}>
+      <div ></div>
       <div className={styles.sidebar_profile}>
         <IconContext.Provider value={{ size: "2rem" }}>
           <CgProfile />
         </IconContext.Provider>
         <h3>Hello, {name}</h3>
+        <div className={styles.close_btn} onClick={()=>setIsOpen(!isOpen)}>
+          <FaRegWindowClose />
+        </div>
       </div>
       <div className={styles.profile}>
         <h2>Profile</h2>
         <Link to="/account" element={<Sunscreens />}>
-        Account
-      </Link>
-      <Link to="/order" element={<Moisturizers />}>
-        Order History
-      </Link>
-      <Link to="/login" element={<FaceSerums />}>
-        Sign Out
-      </Link>
+          Account
+        </Link>
+        <Link to="/order" element={<Moisturizers />}>
+          Order History
+        </Link>
+        <Link to="/login" element={<FaceSerums />}>
+          Sign Out
+        </Link>
       </div>
       <div className={styles.menuNavigationBar}>
-      <h2>Browse, Dot&Key</h2>
-      <Link to="/sunscreens" element={<Sunscreens />}>
-        Sunscreens
-      </Link>
-      <Link to="/moisturizers" element={<Moisturizers />}>
-        Moisturizers
-      </Link>
-      <Link to="/faceserums" element={<FaceSerums />}>
-        Face Serums
-      </Link>
-      <Link to="/lipbalm" element={<LipBalms />}>
-        Lip Balms & Masks
-      </Link>
-      <Link to="/facewash" element={<FaceWash />}>
-        Face Wash
-      </Link>
-      <Link to="/facemasks" element={<FaceMasks />}>
-        Face Masks
-      </Link>
-      <Link to="/facetonners" element={<FaceToners />}>
-        Face Toners
-      </Link>
+        <h2>Browse, Dot&Key</h2>
+        <Link to="/sunscreens" element={<Sunscreens />}>
+          Sunscreens
+        </Link>
+        <Link to="/moisturizers" element={<Moisturizers />}>
+          Moisturizers
+        </Link>
+        <Link to="/faceserums" element={<FaceSerums />}>
+          Face Serums
+        </Link>
+        <Link to="/lipbalm" element={<LipBalms />}>
+          Lip Balms & Masks
+        </Link>
+        <Link to="/facewash" element={<FaceWash />}>
+          Face Wash
+        </Link>
+        <Link to="/facemasks" element={<FaceMasks />}>
+          Face Masks
+        </Link>
+        <Link to="/facetonners" element={<FaceToners />}>
+          Face Toners
+        </Link>
       </div>
     </div>
   );
