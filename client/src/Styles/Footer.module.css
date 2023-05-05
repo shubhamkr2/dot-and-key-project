@@ -73,6 +73,10 @@
 .social_links a {
   font-size: 1.3rem;
 }
+.social_links div:hover{
+  color: red;
+  cursor: pointer;
+}
 @media (max-width: 950px) {
   .footer_container {
     grid-template-columns: repeat(2, 1fr);
