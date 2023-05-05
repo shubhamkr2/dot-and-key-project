@@ -60,4 +60,5 @@
 }
 .hamburgerIcon:hover{
   cursor: pointer;
+  color: red;
 }
