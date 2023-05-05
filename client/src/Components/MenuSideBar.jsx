@@ -21,7 +21,16 @@ function MenuSideBar({ name }) {
         <h3>Hello, {name}</h3>
       </div>
       <div className={styles.profile}>
-
+        <h2>Profile</h2>
+        <Link to="/account" element={<Sunscreens />}>
+        Account
+      </Link>
+      <Link to="/order" element={<Moisturizers />}>
+        Order History
+      </Link>
+      <Link to="/login" element={<FaceSerums />}>
+        Sign Out
+      </Link>
       </div>
       <div className={styles.menuNavigationBar}>
       <h2>Browse, Dot&Key</h2>

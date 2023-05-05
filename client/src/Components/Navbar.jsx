@@ -14,8 +14,10 @@ import { MenuSideBar } from "./MenuSideBar";
 function Navbar() {
   return (
     <>
-    <MenuSideBar name={"shubham"} />
       {/* Navbar container */}
+        <div className={styles.sideBar}>
+          <MenuSideBar name={"shubham"} />
+        </div>
       <div className={styles.container}>
         {/* Hamburger menu icon */}
         <GiHamburgerMenu />

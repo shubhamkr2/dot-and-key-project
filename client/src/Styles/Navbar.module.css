@@ -51,3 +51,9 @@
 .user_profile:hover {
   color: red;
 }
+.sideBar{
+  /* display: block; */
+  z-index: 99;
+  background-color: white;
+  /* height: 100dvh; */
+}
