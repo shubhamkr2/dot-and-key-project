@@ -45,13 +45,13 @@ function Footer() {
           <div className={styles.social_links}>
             <Link to="#">FOLLOW US</Link>
             <IconContext.Provider value={{ size: "1.8rem" }}>
-              <div className={styles.fb_icon}>
+              <div>
                 <FaFacebookF />
               </div>
-              <div className={styles.insta_icon}>
+              <div>
                 <SiInstagram />
               </div>
-              <div className={styles.youtube_icon}>
+              <div>
                 <IoLogoYoutube />
               </div>
             </IconContext.Provider>
