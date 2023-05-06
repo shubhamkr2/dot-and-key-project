@@ -80,9 +80,9 @@ function Navbar() {
         </div>
       </div>
       {/* NavigationBar component */}
-      <div className={styles.navigationBar}>
+      {/* <div className={styles.navigationBar}>
         <NavigationBar />
-      </div>
+      </div> */}
       {/*Mobile Search box */}
       <div className={styles.Mob_Search_Box}>
         <input type="text" placeholder="Search your product" />

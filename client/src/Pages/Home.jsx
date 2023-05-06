@@ -4,6 +4,7 @@ import ProductCarousel from "../Components/ProductCarousel";
 import styles from "../Styles/Home.module.css";
 import { Carousel_Product_Card } from "../Components/Carousel_Product_Card";
 import { Footer } from "../Components/Footer";
+import { NavigationBar } from "../Components/NavigationBar";
 
 const images = [
   "https://www.dotandkey.com/cdn/shop/files/pro_desk_552a0e39-53bd-4a71-98da-ceb1a8d819b7_1024x1024.jpg?v=1680865716",
@@ -164,6 +165,10 @@ const category = [
 function Home() {
   return (
     <div className={styles.container}>
+    {/* NavigationBar component */}
+     <div className={styles.navigationBar}>
+        <NavigationBar />
+      </div>
       {/********Top banner carousel*********/}
       <CarouselBanner images={images} />
 

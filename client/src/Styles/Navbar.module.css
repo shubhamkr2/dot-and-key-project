@@ -102,7 +102,6 @@
   display: none;
 }
 @media (max-width: 950px) {
-  .navigationBar,
   .user_profile,
   .login_signup {
     display: none;
