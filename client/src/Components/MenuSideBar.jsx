@@ -37,7 +37,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           <Link to="/order" element={<Moisturizers />}>
             Order History
           </Link>
-          <Link to="/login" element={<FaceSerums />}>
+          <Link to="/login" element={<LogIn />}>
             Sign Out
           </Link>
         </div>
