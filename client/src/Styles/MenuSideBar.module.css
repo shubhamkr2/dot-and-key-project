@@ -9,10 +9,21 @@
   background-color: white;
 }
 .MenuSidebar_container a {
+}
+.MenuSidebar_container a {
   font-weight: 100;
+  /* font-weight: 500; */
+  font-size: 1.2rem;
+  color: black;
+  border: 1px solid transparent;
+  padding: 5px;
 }
 .MenuSidebar_container a:hover {
+  border: 1px solid black;
+  color: red;
   font-weight: 500;
+}
+.MenuSidebar_container a:hover {
 }
 .sidebar_profile {
   display: flex;
