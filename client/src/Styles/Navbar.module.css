@@ -40,6 +40,36 @@
   font-size: large;
   border-radius: 7px 0px 0px 7px;
 }
+.login_signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 20px; */
+}
+.login_signup button {
+  border: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 15px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.login_btn {
+  background-color: #4caf50;
+  border-radius: 7px 0px 0px 7px;
+  color: #ffffff;
+}
+.login_btn:hover {
+  background-color: green;
+}
+.signup_btn {
+  background-color: gray;
+  color: white;
+  border-radius: 0px 7px 7px 0px;
+}
+.signup_btn:hover {
+  background-color: rgb(90, 90, 90);
+}
 .cartLogo_profileIcon {
   display: flex;
   justify-content: center;
@@ -60,6 +90,9 @@
   z-index: 99;
   background-color: white;
   /* height: 100dvh; */
+}
+.hamburgerIcon {
+  display: none;
 }
 .hamburgerIcon:hover {
   cursor: pointer;
