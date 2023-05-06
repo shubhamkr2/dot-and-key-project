@@ -13,9 +13,10 @@
   background-color: white;
 }
 .logo img {
-  width: 12dvw;
+  max-width: 100px;
 }
-.Search_Box {
+.Search_Box,
+.Mob_Search_Box {
   /* border: 1px solid red; */
   display: flex;
   justify-content: center;
@@ -26,11 +27,13 @@
   gap: 5px;
   padding-right: 5px;
 }
-.Search_Box:hover {
+.Search_Box:hover,
+.Mob_Search_Box:hover {
   /* background-color: rgb(16, 90, 16); */
   background-color: red;
 }
-.Search_Box input {
+.Search_Box input,
+.Mob_Search_Box input {
   height: 5dvh;
   width: 30dvw;
   padding: 5px;
@@ -51,19 +54,37 @@
 .user_profile:hover {
   color: red;
 }
-.sideBar{
+.sideBar {
   /* display: block; */
   position: absolute;
   z-index: 99;
   background-color: white;
   /* height: 100dvh; */
 }
-.hamburgerIcon:hover{
+.hamburgerIcon:hover {
   cursor: pointer;
   color: red;
 }
-@media(max-width:950px){
-  .navigationBar{
+.Mob_Search_Box {
+  display: none;
+}
+@media (max-width: 950px) {
+  .navigationBar,
+  .user_profile {
     display: none;
+  }
+  .hamburgerIcon {
+    display: block;
+  }
+}
+@media (max-width: 450px) {
+  .Search_Box {
+    display: none;
+  }
+  .Mob_Search_Box {
+    display: flex;
+  }
+  .Mob_Search_Box input {
+    width: 90%;
   }
 }

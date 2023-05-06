@@ -45,6 +45,7 @@ function Navbar() {
             <ImSearch />
           </IconContext.Provider>
         </div>
+
         {/* Cart and profile icons */}
         <div className={styles.cartLogo_profileIcon}>
           <div className={styles.cart_logo}>
@@ -62,6 +63,13 @@ function Navbar() {
       {/* NavigationBar component */}
       <div className={styles.navigationBar}>
         <NavigationBar />
+      </div>
+      {/*Mobile Search box */}
+      <div className={styles.Mob_Search_Box}>
+        <input type="text" placeholder="Search your product" />
+        <IconContext.Provider value={{ size: "2rem", color: "white" }}>
+          <ImSearch />
+        </IconContext.Provider>
       </div>
     </>
   );
