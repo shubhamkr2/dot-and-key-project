@@ -165,8 +165,8 @@ const category = [
 function Home() {
   return (
     <div className={styles.container}>
-    {/* NavigationBar component */}
-     <div className={styles.navigationBar}>
+      {/* NavigationBar component */}
+      <div className={styles.navigationBar}>
         <NavigationBar />
       </div>
       {/********Top banner carousel*********/}
@@ -226,7 +226,7 @@ function Home() {
       </div>
 
       {/********Footer*********/}
-          <Footer />
+      <Footer />
     </div>
   );
 }
