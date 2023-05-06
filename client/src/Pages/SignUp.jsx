@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../Redux/actions/user.action";
 import { useNavigate } from "react-router-dom";
 import BeatLoader from "react-spinners/BeatLoader";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
 const initialFormData = {
   name: "",
@@ -20,6 +20,7 @@ function SignUp() {
   const dispatch = useDispatch();
   const { isRegistered, loading } = useSelector((store) => store.user);
   const navigate = useNavigate();
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -40,10 +41,12 @@ function SignUp() {
     };
     dispatch(userRegister(userDetails, navigate, toast));
   }
-  
+
   return (
     <div className={styles.container}>
-    <div><Toaster /></div>
+      <div>
+        <Toaster />
+      </div>
       <h2>Create Account</h2>
       <div className={styles.form_container}>
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -57,6 +60,11 @@ function SignUp() {
               onChange={(e) => handleChange(e)}
               required
             />
+            {formData.name.length > 0 && formData.name.length < 4 ? (
+              <div className={styles.error}>at least 4 characters</div>
+            ) : (
+              ""
+            )}
           </div>
           <div>
             <label className={styles.required}>EMAIL</label>
@@ -68,6 +76,11 @@ function SignUp() {
               onChange={(e) => handleChange(e)}
               required
             />
+            {!emailRegex.test(formData.email) && formData.email.length > 0 ? (
+              <div className={styles.error}>Invalid email</div>
+            ) : (
+              ""
+            )}
           </div>
           <div>
             <label className={styles.required}>PASSWORD</label>
