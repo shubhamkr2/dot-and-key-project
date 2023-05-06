@@ -11,8 +11,10 @@ import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";
 import { FaceToners } from "../Pages/FaceToners";
 import { FaRegWindowClose } from "react-icons/fa";
+import { LogIn } from "../Pages/LogIn";
+import { SignUp } from "../Pages/SignUp";
 
-function MenuSideBar({ name, isOpen, setIsOpen }) {
+function MenuSideBar({ name, isOpen, setIsOpen, login }) {
   return (
     <div className={styles.MenuSidebar_container}>
       <div className={styles.sidebar_profile}>
@@ -26,18 +28,30 @@ function MenuSideBar({ name, isOpen, setIsOpen }) {
           </IconContext.Provider>
         </div>
       </div>
-      <div className={styles.profile}>
-        <h2>Profile</h2>
-        <Link to="/account" element={<Sunscreens />}>
-          Account
-        </Link>
-        <Link to="/order" element={<Moisturizers />}>
-          Order History
-        </Link>
-        <Link to="/login" element={<FaceSerums />}>
-          Sign Out
-        </Link>
-      </div>
+      {login ? (
+        <div className={styles.profile}>
+          <h2>Profile</h2>
+          <Link to="/account" element={<Sunscreens />}>
+            Account
+          </Link>
+          <Link to="/order" element={<Moisturizers />}>
+            Order History
+          </Link>
+          <Link to="/login" element={<FaceSerums />}>
+            Sign Out
+          </Link>
+        </div>
+      ) : (
+        <div className={styles.profile}>
+          <h2>Profile</h2>
+          <Link to="/login" element={<LogIn />}>
+            Login
+          </Link>
+          <Link to="/signup" element={<SignUp />}>
+            Register
+          </Link>
+        </div>
+      )}
       <div className={styles.menuNavigationBar}>
         <h2>Browse, Dot&Key</h2>
         <Link to="/sunscreens" element={<Sunscreens />}>
