@@ -8,14 +8,14 @@
   border-bottom: 2px solid rgb(206, 206, 206);
   /* margin-top: 100px; */
 }
-a {
+.container a {
   font-weight: 500;
   font-size: 1.2rem;
   color: black;
   border: 1px solid transparent;
   padding: 5px;
 }
-a:hover {
+.container a:hover {
   border: 1px solid black;
   color: red;
 }

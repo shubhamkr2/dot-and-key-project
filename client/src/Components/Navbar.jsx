@@ -9,6 +9,8 @@ import { NavigationBar } from "./NavigationBar";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { MenuSideBar } from "./MenuSideBar";
+import { LogIn } from "../Pages/LogIn";
+import { SignUp } from "../Pages/SignUp";
 
 // Define Navbar component
 function Navbar() {
@@ -19,7 +21,12 @@ function Navbar() {
       {/* Navbar container */}
       <div className={styles.sideBar}>
         {isOpen && (
-          <MenuSideBar name={"shubham"} isOpen={isOpen} setIsOpen={setIsOpen} login={login} />
+          <MenuSideBar
+            name={"shubham"}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            login={login}
+          />
         )}
       </div>
       <div className={styles.nav_container}>
@@ -62,8 +69,12 @@ function Navbar() {
             </div>
           ) : (
             <div className={styles.login_signup}>
-              <button className={styles.login_btn}>Login</button>
-              <button className={styles.signup_btn}>Register</button>
+              <Link to="/login" element={<LogIn />}>
+                <button className={styles.login_btn}>Login</button>
+              </Link>
+              <Link to="/signup" element={<SignUp />}>
+                <button className={styles.signup_btn}>Register</button>
+              </Link>
             </div>
           )}
         </div>
