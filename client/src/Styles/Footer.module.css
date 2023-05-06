@@ -19,9 +19,15 @@
   width: fit-content;
 }
 .row a {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: black;
+  border: 1px solid transparent;
+  padding: 5px;
   color: gray;
 }
 .row a:hover {
+  border: 1px solid black;
   color: red;
 }
 .row .updated_input {
