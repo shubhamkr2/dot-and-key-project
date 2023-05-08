@@ -18,6 +18,7 @@ const initialFormData = {
 function SignUp() {
   const [formData, setFormData] = useState(initialFormData);
   const [passwordStrength, setPasswordStrength] = useState(0);
+  const [isFormValidated, setIsFormValidated] = useState(false);
   const dispatch = useDispatch();
   const { isRegistered, loading } = useSelector((store) => store.user);
   const navigate = useNavigate();
@@ -64,6 +65,9 @@ function SignUp() {
     setFormData({ ...formData, [name]: value });
     checkPasswordStrength(formData.password);
     console.log(formData);
+    if (formData.name.length >= 4 && emailRegex.test(formData.email)) {
+      setIsFormValidated(true);
+    }
   }
 
   function handleSubmit(e) {
@@ -77,6 +81,7 @@ function SignUp() {
         answer: formData.answer,
       },
     };
+    setIsFormValidated(false);
     dispatch(userRegister(userDetails, navigate, toast));
   }
 
