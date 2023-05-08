@@ -24,5 +24,7 @@
 }
 .prev_btn:hover,
 .next_btn:hover {
-  background-color: rgb(202, 198, 198);
+  /* background-color: rgb(202, 198, 198); */
+  background-color: rgb(50, 95, 50);
+  color: white;
 }
