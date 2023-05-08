@@ -112,6 +112,42 @@
 .Mob_Search_Box {
   display: none;
 }
+.profile_drop_down{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  z-index: 99;
+  right: 1%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: 500;
+  gap: 10px;
+}
+.profile_drop_down a{
+  color: gray;
+  border-bottom: 2px solid transparent;
+}
+.profile_drop_down a:hover{
+  border-bottom: 2px solid red;
+  color: black;
+}
+/* .profile_drop_down a:nth-child(2){
+  margin-bottom: 10px;
+} */
+.profile_drop_down a:nth-child(3){
+  border-top: 2px solid gray;
+  margin-top: 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 25px;
+}
+.profile_drop_down a:nth-child(3):hover{
+background-color: red;
+color: white;
+}
 @media (max-width: 950px) {
   .user_profile,
   .login_signup {

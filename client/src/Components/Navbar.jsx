@@ -88,6 +88,29 @@ function Navbar() {
           )}
         </div>
       </div>
+        <div className={styles.profile_drop_down}>
+          <Link
+            to="/account"
+            // element={<Sunscreens />}
+            // onClick={() => setIsOpen(!isOpen)}
+          >
+            Account
+          </Link>
+          <Link
+            to="/order"
+            // element={<Moisturizers />}
+            // onClick={() => setIsOpen(!isOpen)}
+          >
+            Order History
+          </Link>
+          <Link
+            to="/login"
+            // element={<LogIn />}
+            // onClick={handleSignOut}
+          >
+            Sign Out
+          </Link>
+        </div>
       {/* NavigationBar component */}
       {/* <div className={styles.navigationBar}>
         <NavigationBar />
