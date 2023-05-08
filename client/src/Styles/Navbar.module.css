@@ -60,10 +60,10 @@
   color: #ffffff;
 }
 .login_btn:hover {
-  background-color: green;
+  background-color: rgb(5, 139, 5);
 }
 .signup_btn {
-  background-color: gray;
+  background-color: rgb(146, 145, 145);
   color: white;
   border-radius: 0px 7px 7px 0px;
 }
