@@ -17,14 +17,11 @@ import { useSelector } from "react-redux";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(false);
-  const { token } = useSelector((state) => state.user);
+  const { token, isAuth } = useSelector((state) => state.user);
   const [loggedUserName, setLoggedUserName] = useState("");
   useEffect(() => {
     const name = localStorage.getItem("user_name") || [];
-    if (name.length > 0) {
-      setLogin(true);
       setLoggedUserName(name);
-    }
   }, [token]);
   console.log(loggedUserName);
   return (
@@ -36,7 +33,7 @@ function Navbar() {
             name={loggedUserName}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
-            login={login}
+            login={isAuth}
           />
         )}
       </div>
@@ -72,7 +69,7 @@ function Navbar() {
               <FiShoppingCart />
             </IconContext.Provider>
           </div>
-          {login ? (
+          {isAuth ? (
             <div className={styles.user_profile}>
               <IconContext.Provider value={{ size: "2rem" }}>
                 <CgProfile />
