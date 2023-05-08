@@ -22,13 +22,14 @@ function userLogin(userDetails, navigate, toast) {
       );
       let data = await res.json();
       console.log(data);
-      dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
       if (data.token) {
+        dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
         toast.success("User logged in successfully");
         setTimeout(() => {
           navigate("/");
         }, 2000);
       } else {
+        dispatch({ type: USER_LOGIN_FAILURE });
         toast.error(data.message);
       }
     } catch (err) {
