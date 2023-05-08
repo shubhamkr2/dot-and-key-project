@@ -1,5 +1,5 @@
 // Import necessary modules
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../Styles/Navbar.module.css";
 import { ImSearch } from "react-icons/im";
 import { FiShoppingCart } from "react-icons/fi";
@@ -11,20 +11,29 @@ import { Link } from "react-router-dom";
 import { MenuSideBar } from "./MenuSideBar";
 import { LogIn } from "../Pages/LogIn";
 import { SignUp } from "../Pages/SignUp";
+import { useSelector } from "react-redux";
 
 // Define Navbar component
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(false);
-  const token = localStorage.getItem("token") || [];
-  console.log(token);
+  const { token } = useSelector((state) => state.user);
+  const [loggedUserName, setLoggedUserName] = useState("");
+  useEffect(() => {
+    const name = localStorage.getItem("user_name") || [];
+    if (name.length > 0) {
+      setLogin(true);
+      setLoggedUserName(name);
+    }
+  }, [token]);
+  console.log(loggedUserName);
   return (
     <>
       {/* Navbar container */}
       <div className={styles.sideBar}>
         {isOpen && (
           <MenuSideBar
-            name={"shubham"}
+            name={loggedUserName}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
             login={login}
@@ -68,6 +77,7 @@ function Navbar() {
               <IconContext.Provider value={{ size: "2rem" }}>
                 <CgProfile />
               </IconContext.Provider>
+            <span>{loggedUserName}</span>
             </div>
           ) : (
             <div className={styles.login_signup}>

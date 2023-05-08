@@ -80,6 +80,17 @@
 .user_profile {
   cursor: pointer;
 }
+.user_profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.user_profile span{
+  font-size: larger;
+  font-weight: bold;
+  color: green;
+}
 .cart_logo:hover,
 .user_profile:hover {
   color: red;
