@@ -23,6 +23,8 @@ function userReducer(state = initialState, action) {
         loading: true,
       };
     case USER_LOGIN_SUCCESS:
+      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem("user_name", action.payload.name);
       return {
         ...state,
         loading: false,
