@@ -26,7 +26,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
   return (
     <div className={styles.MenuSidebar_container}>
       <div className={styles.sidebar_profile}>
-        <IconContext.Provider value={{ size: "2rem" }}>
+        <IconContext.Provider value={{ size: "1.5rem" }}>
           <CgProfile />
         </IconContext.Provider>
         <h3>Hello, {name}</h3>
