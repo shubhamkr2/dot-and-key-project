@@ -29,8 +29,8 @@ function CarouselBanner({ images }) {
   return (
     <div style={{ position: "relative" }}>
       <Slider {...settings} ref={ref}>
-        {images?.map((item) => (
-          <div className={styles.carousel_img}>
+        {images?.map((item,i) => (
+          <div className={styles.carousel_img} key={i}>
             <img src={item} alt="Images" />
           </div>
         ))}

@@ -16,6 +16,8 @@ import { SignUp } from "../Pages/SignUp";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(false);
+  const token = localStorage.getItem("token") || [];
+  console.log(token);
   return (
     <>
       {/* Navbar container */}

@@ -63,8 +63,8 @@ function ProductCarousel({ images }) {
   return (
     <div className={styles.carousel_container}>
       <Slider {...settings} ref={ref}>
-        {images?.map((item) => (
-          <Carousel_Product_Card product={item} />
+        {images?.map((item,i ) => (
+          <Carousel_Product_Card product={item} key={i} />
         ))}
       </Slider>
 

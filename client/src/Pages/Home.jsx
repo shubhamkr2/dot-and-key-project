@@ -186,8 +186,8 @@ function Home() {
         <p>FACE CREAMS | SUNSCREEN | FACE SERUMS | LIP CARE</p>
       </div>
       <div className={styles.bestsellers}>
-        {bestsellers.map((item) => (
-          <Carousel_Product_Card product={item} />
+        {bestsellers.map((item,i) => (
+          <Carousel_Product_Card product={item} key={i} />
         ))}
       </div>
 
@@ -220,8 +220,8 @@ function Home() {
         <p>SKIN | HAIRCARE | BODYCARE </p>
       </div>
       <div className={styles.category}>
-        {category.map((item) => (
-          <Carousel_Product_Card product={item} />
+        {category.map((item, i) => (
+          <Carousel_Product_Card product={item} key={i} />
         ))}
       </div>
 
