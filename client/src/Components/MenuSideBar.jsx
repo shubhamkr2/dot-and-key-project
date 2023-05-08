@@ -21,6 +21,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
 
   function handleSignOut() {
     dispatch(userLogOut());
+    setIsOpen(!isOpen);
   }
 
   return (
@@ -39,48 +40,96 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
       {login ? (
         <div className={styles.profile}>
           <h2>Profile</h2>
-          <Link to="/account" element={<Sunscreens />}>
+          <Link
+            to="/account"
+            element={<Sunscreens />}
+            onClick={() => setIsOpen(!isOpen)}
+          >
             Account
           </Link>
-          <Link to="/order" element={<Moisturizers />}>
+          <Link
+            to="/order"
+            element={<Moisturizers />}
+            onClick={() => setIsOpen(!isOpen)}
+          >
             Order History
           </Link>
-          <Link to="/login" element={<LogIn />} onClick={handleSignOut}>
+          <Link
+            to="/login"
+            element={<LogIn />}
+            onClick={handleSignOut}
+          >
             Sign Out
           </Link>
         </div>
       ) : (
         <div className={styles.profile}>
           <h2>Profile</h2>
-          <Link to="/login" element={<LogIn />}>
+          <Link
+            to="/login"
+            element={<LogIn />}
+            onClick={() => setIsOpen(!isOpen)}
+          >
             Login
           </Link>
-          <Link to="/signup" element={<SignUp />}>
+          <Link
+            to="/signup"
+            element={<SignUp />}
+            onClick={() => setIsOpen(!isOpen)}
+          >
             Register
           </Link>
         </div>
       )}
       <div className={styles.menuNavigationBar}>
         <h2>Browse, Dot&Key</h2>
-        <Link to="/sunscreens" element={<Sunscreens />}>
+        <Link
+          to="/sunscreens"
+          element={<Sunscreens />}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Sunscreens
         </Link>
-        <Link to="/moisturizers" element={<Moisturizers />}>
+        <Link
+          to="/moisturizers"
+          element={<Moisturizers />}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Moisturizers
         </Link>
-        <Link to="/faceserums" element={<FaceSerums />}>
+        <Link
+          to="/faceserums"
+          element={<FaceSerums />}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Face Serums
         </Link>
-        <Link to="/lipbalm" element={<LipBalms />}>
+        <Link
+          to="/lipbalm"
+          element={<LipBalms />}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Lip Balms & Masks
         </Link>
-        <Link to="/facewash" element={<FaceWash />}>
+        <Link
+          to="/facewash"
+          element={<FaceWash />}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Face Wash
         </Link>
-        <Link to="/facemasks" element={<FaceMasks />}>
+        <Link
+          to="/facemasks"
+          element={<FaceMasks />}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Face Masks
         </Link>
-        <Link to="/facetonners" element={<FaceToners />}>
+        <Link
+          to="/facetonners"
+          element={<FaceToners />}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Face Toners
         </Link>
       </div>
