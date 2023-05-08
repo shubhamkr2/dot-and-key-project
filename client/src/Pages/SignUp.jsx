@@ -17,14 +17,52 @@ const initialFormData = {
 
 function SignUp() {
   const [formData, setFormData] = useState(initialFormData);
+  const [passwordStrength, setPasswordStrength] = useState(0);
   const dispatch = useDispatch();
   const { isRegistered, loading } = useSelector((store) => store.user);
   const navigate = useNavigate();
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
+  function checkPasswordStrength(password) {
+    let strength = 0;
+    const length = password.length;
+
+    //check for length
+    if (length >= 8) {
+      strength = strength + 1;
+      setPasswordStrength(strength);
+    }
+
+    //check for numbers
+    if (/\d/.test(password)) {
+      strength = strength + 1;
+      setPasswordStrength(strength);
+    }
+
+    //check for lower case
+    if (/[a-z]/.test(password)) {
+      strength = strength + 1;
+      setPasswordStrength(strength);
+    }
+
+    //check for upper case
+    if (/[A-Z]/.test(password)) {
+      strength = strength + 1;
+      setPasswordStrength(strength);
+    }
+
+    //check for special characters
+    if (/[\W_]/.test(password)) {
+      strength = strength + 1;
+      setPasswordStrength(strength);
+    }
+    return strength;
+  }
+
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    checkPasswordStrength(formData.password);
     console.log(formData);
   }
 
@@ -92,6 +130,19 @@ function SignUp() {
               onChange={(e) => handleChange(e)}
               required
             />
+            {formData.password.length > 0 && passwordStrength < 5 ? (
+              <div className={styles.error}>
+                {passwordStrength < 3 ? (
+                  "Weak"
+                ) : (
+                  <div className={styles.error_medium}>Medium</div>
+                )}
+              </div>
+            ) : (
+              <div className={styles.error_strong}>
+                {formData.password.length > 0 ? "Strong" : ""}
+              </div>
+            )}
           </div>
           <div>
             <select

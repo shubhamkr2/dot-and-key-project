@@ -55,3 +55,9 @@ a{
 .error{
   color: red;
 }
+.error_medium{
+  color: rgb(223, 172, 5);
+}
+.error_strong{
+  color: green;
+}
