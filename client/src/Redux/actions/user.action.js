@@ -5,6 +5,7 @@ import {
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAILURE,
+  USER_LOGOUT,
 } from "../actionTypes/user.actionTypes";
 
 function userLogin(userDetails, navigate, toast) {
@@ -70,4 +71,10 @@ function userRegister(userDetails, navigate, toast) {
   };
 }
 
-export { userLogin, userRegister };
+function userLogOut() {
+  return async function (dispatch) {
+    dispatch({ type: USER_LOGOUT });
+  };
+}
+
+export { userLogin, userRegister, userLogOut };

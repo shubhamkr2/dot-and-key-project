@@ -13,8 +13,16 @@ import { FaceToners } from "../Pages/FaceToners";
 import { FaRegWindowClose } from "react-icons/fa";
 import { LogIn } from "../Pages/LogIn";
 import { SignUp } from "../Pages/SignUp";
+import { useDispatch } from "react-redux";
+import { userLogOut } from "../Redux/actions/user.action";
 
 function MenuSideBar({ name, isOpen, setIsOpen, login }) {
+  const dispatch = useDispatch();
+
+  function handleSignOut() {
+    dispatch(userLogOut());
+  }
+
   return (
     <div className={styles.MenuSidebar_container}>
       <div className={styles.sidebar_profile}>
@@ -37,7 +45,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           <Link to="/order" element={<Moisturizers />}>
             Order History
           </Link>
-          <Link to="/login" element={<LogIn />}>
+          <Link to="/login" element={<LogIn />} onClick={handleSignOut}>
             Sign Out
           </Link>
         </div>

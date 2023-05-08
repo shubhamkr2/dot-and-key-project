@@ -5,6 +5,7 @@ import {
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAILURE,
+  USER_LOGOUT,
 } from "../actionTypes/user.actionTypes";
 
 let initialState = {
@@ -55,6 +56,15 @@ function userReducer(state = initialState, action) {
         isRegistered: false,
         loading: false,
         message: "Something went wrong",
+      };
+    case USER_LOGOUT:
+      window.localStorage.removeItem("token");
+      window.localStorage.removeItem("user_name");
+      return {
+        ...state,
+        loading: false,
+        isAuth: false,
+        token: "",
       };
     default:
       return state;
