@@ -128,9 +128,11 @@
 }
 .profile_drop_down a{
   color: gray;
+  border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
 .profile_drop_down a:hover{
+  border-top: 2px solid red;
   border-bottom: 2px solid red;
   color: black;
 }
