@@ -162,6 +162,11 @@ const category = [
     price: 595.0,
   },
 ];
+const offerImages = [
+  "https://www.dotandkey.com/cdn/shop/files/gua_desk_874e0fed-6bbc-4f1b-ba76-ec91ea1f9c73.jpg?v=1683570933",
+  "https://www.dotandkey.com/cdn/shop/files/3_Sale_Banner_Desktop_copy-2.jpg?v=1683616545",
+  "https://www.dotandkey.com/cdn/shop/files/Sale_Banner_Desktop_copy_ae7b83d8-b192-4808-b2e5-bbd703a788f5.jpg?v=1682592139",
+];
 function Home() {
   return (
     <div className={styles.container}>
@@ -179,6 +184,13 @@ function Home() {
       </div>
       <ProductCarousel images={cards} />
 
+      {/******** Offer banner carousel*********/}
+      <div className={styles.heading}>
+        <span>Loved By</span>
+        <h2>2M + Customers</h2>
+      </div>
+      <CarouselBanner images={offerImages} />
+
       {/********Our BESTSELLERS*********/}
       <div className={styles.heading}>
         <span>OUR</span>
@@ -186,7 +198,7 @@ function Home() {
         <p>FACE CREAMS | SUNSCREEN | FACE SERUMS | LIP CARE</p>
       </div>
       <div className={styles.bestsellers}>
-        {bestsellers.map((item,i) => (
+        {bestsellers.map((item, i) => (
           <Carousel_Product_Card product={item} key={i} />
         ))}
       </div>
