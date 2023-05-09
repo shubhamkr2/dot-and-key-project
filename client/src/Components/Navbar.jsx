@@ -29,6 +29,11 @@ function Navbar() {
   }
   useEffect(() => {
     const name = localStorage.getItem("user_name") || [];
+    if (name.length > 0) {
+      setLogin(true);
+    } else {
+      setLogin(false);
+    }
     setLoggedUserName(name);
   }, [token]);
   console.log(loggedUserName);
@@ -41,7 +46,7 @@ function Navbar() {
             name={loggedUserName}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
-            login={isAuth}
+            login={login}
           />
         )}
       </div>
@@ -77,7 +82,7 @@ function Navbar() {
               <FiShoppingCart />
             </IconContext.Provider>
           </div>
-          {isAuth ? (
+          {login ? (
             <div
               className={styles.user_profile}
               onClick={() => setIsDropDownOpen(!isDropDownOpen)}

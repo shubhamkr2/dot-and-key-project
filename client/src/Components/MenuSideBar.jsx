@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
 import { IconContext } from "react-icons";
 import styles from "../Styles/MenuSideBar.module.css";
@@ -19,6 +19,9 @@ import { userLogOut } from "../Redux/actions/user.action";
 function MenuSideBar({ name, isOpen, setIsOpen, login }) {
   const dispatch = useDispatch();
 
+  // useEffect(()=>{
+
+  // },[login])
   function handleSignOut() {
     dispatch(userLogOut());
     setIsOpen(!isOpen);
@@ -54,11 +57,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           >
             Order History
           </Link>
-          <Link
-            to="/login"
-            element={<LogIn />}
-            onClick={handleSignOut}
-          >
+          <Link to="/login" element={<LogIn />} onClick={handleSignOut}>
             Sign Out
           </Link>
         </div>
