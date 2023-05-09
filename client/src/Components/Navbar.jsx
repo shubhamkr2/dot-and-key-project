@@ -11,7 +11,8 @@ import { Link } from "react-router-dom";
 import { MenuSideBar } from "./MenuSideBar";
 import { LogIn } from "../Pages/LogIn";
 import { SignUp } from "../Pages/SignUp";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogOut } from "../Redux/actions/user.action";
 
 // Define Navbar component
 function Navbar() {
@@ -19,9 +20,16 @@ function Navbar() {
   const [login, setLogin] = useState(false);
   const { token, isAuth } = useSelector((state) => state.user);
   const [loggedUserName, setLoggedUserName] = useState("");
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  function handleSignOut() {
+    dispatch(userLogOut());
+    setIsDropDownOpen(!isDropDownOpen);
+  }
   useEffect(() => {
     const name = localStorage.getItem("user_name") || [];
-      setLoggedUserName(name);
+    setLoggedUserName(name);
   }, [token]);
   console.log(loggedUserName);
   return (
@@ -70,11 +78,14 @@ function Navbar() {
             </IconContext.Provider>
           </div>
           {isAuth ? (
-            <div className={styles.user_profile}>
+            <div
+              className={styles.user_profile}
+              onClick={() => setIsDropDownOpen(!isDropDownOpen)}
+            >
               <IconContext.Provider value={{ size: "2rem" }}>
                 <CgProfile />
               </IconContext.Provider>
-            <span>{loggedUserName}</span>
+              <span>{loggedUserName}</span>
             </div>
           ) : (
             <div className={styles.login_signup}>
@@ -88,29 +99,34 @@ function Navbar() {
           )}
         </div>
       </div>
+      {isDropDownOpen ? (
         <div className={styles.profile_drop_down}>
           <Link
             to="/account"
             // element={<Sunscreens />}
-            // onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsDropDownOpen(false)}
           >
             Account
           </Link>
           <Link
             to="/order"
             // element={<Moisturizers />}
-            // onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsDropDownOpen(false)}
           >
             Order History
           </Link>
           <Link
             to="/login"
             // element={<LogIn />}
-            // onClick={handleSignOut}
+            onClick={handleSignOut}
           >
             Sign Out
           </Link>
         </div>
+      ) : (
+        ""
+      )}
+
       {/* NavigationBar component */}
       {/* <div className={styles.navigationBar}>
         <NavigationBar />
