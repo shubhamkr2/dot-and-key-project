@@ -21,8 +21,8 @@
   border: 1px solid black;
   color: red;
 }
-.carousel_img img{
-    width: 100%;
+.carousel_img img {
+  width: 100%;
 }
 @media (max-width: 1000px) {
   .left_arrow,
