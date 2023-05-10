@@ -80,13 +80,13 @@
 .user_profile {
   cursor: pointer;
 }
-.user_profile{
+.user_profile {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
-.user_profile span{
+.user_profile span {
   font-size: larger;
   font-weight: bold;
   color: green;
@@ -112,7 +112,7 @@
 .Mob_Search_Box {
   display: none;
 }
-.profile_drop_down{
+.profile_drop_down {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -126,12 +126,12 @@
   font-weight: 500;
   gap: 10px;
 }
-.profile_drop_down a{
+.profile_drop_down a {
   color: gray;
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
 }
-.profile_drop_down a:hover{
+.profile_drop_down a:hover {
   border-top: 2px solid red;
   border-bottom: 2px solid red;
   color: black;
@@ -139,16 +139,16 @@
 /* .profile_drop_down a:nth-child(2){
   margin-bottom: 10px;
 } */
-.profile_drop_down a:nth-child(3){
+.profile_drop_down a:nth-child(3) {
   border-top: 2px solid gray;
   margin-top: 10px;
   text-align: center;
   padding: 10px;
   border-radius: 25px;
 }
-.profile_drop_down a:nth-child(3):hover{
-background-color: red;
-color: white;
+.profile_drop_down a:nth-child(3):hover {
+  background-color: red;
+  color: white;
 }
 @media (max-width: 950px) {
   .user_profile,
