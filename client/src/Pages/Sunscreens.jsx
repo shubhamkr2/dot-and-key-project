@@ -3,7 +3,7 @@ import styles from "../Styles/Sunscreens.module.css";
 import { NavigationBar } from "../Components/NavigationBar";
 function Sunscreens() {
   return (
-    <div className={styles.sunscreens_container}> 
+    <div className={styles.sunscreens_container}>
       <NavigationBar />
       <img
         className={styles.banner}
