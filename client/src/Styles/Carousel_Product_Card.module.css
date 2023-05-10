@@ -42,7 +42,7 @@ h5 {
   cursor: pointer;
   /* margin-bottom: 0%; */
 }
-.container button:hover{
+.container button:hover {
   background-color: black;
   font-size: 1.2rem;
 }
