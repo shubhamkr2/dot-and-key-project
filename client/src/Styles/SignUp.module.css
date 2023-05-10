@@ -21,7 +21,8 @@
 .form_container div label {
   font-weight: 500;
 }
-.form_container div input,.form_container div select {
+.form_container div input,
+.form_container div select {
   padding: 5px;
   height: 40px;
 }
@@ -40,27 +41,27 @@
 .form_container button:hover {
   background-color: rgb(16, 90, 16);
 }
-span{
+span {
   display: block;
   text-align: center;
   margin-top: 10px;
 }
-a{
+a {
   text-decoration: none;
 }
 .required:after {
-  content:" *";
+  content: " *";
   color: red;
 }
-.form_container .error{
+.form_container .error {
   color: red;
   margin: 0px;
 }
-.form_container .error_medium{
+.form_container .error_medium {
   color: rgb(223, 172, 5);
   margin: 0px;
 }
-.form_container .error_strong{
+.form_container .error_strong {
   color: green;
   margin: 0px;
 }
