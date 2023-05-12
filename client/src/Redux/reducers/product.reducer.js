@@ -7,7 +7,7 @@ import {
   SINGLE_PRODUCTS_FAIL,
 } from "../actionTypes/product.actionTypes.js";
 let initialState = {
-  loading: false,
+  loading: true,
   data: [],
 };
 function productReducer(state = initialState, action) {
@@ -18,6 +18,7 @@ function productReducer(state = initialState, action) {
         loading: true,
       };
     case ALL_PRODUCTS_SUCCESS:
+      console.log(action.payload)
       return {
         ...state,
         loading: false,

@@ -15,8 +15,8 @@ function getAllProduct() {
         `https://courageous-rose-nightgown.cyclic.app/products`
       );
       let data = await res.json();
-      dispatch({ type: ALL_PRODUCTS_SUCCESS, payload: data });
       console.log(data);
+      dispatch({ type: ALL_PRODUCTS_SUCCESS, payload: data });
     } catch (err) {
       console.log(err);
       dispatch({ type: ALL_PRODUCTS_FAIL });
