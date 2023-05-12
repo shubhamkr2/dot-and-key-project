@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";
 
 function Sunscreens() {
+  const state
   const dispatch = useDispatch();
 useEffect(()=>{
   dispatch(getAllProduct())

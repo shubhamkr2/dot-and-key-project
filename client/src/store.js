@@ -3,9 +3,11 @@ import thunk from "redux-thunk";
 import { userReducer } from "./Redux/reducers/user.reducer";
 import { cartReducer } from "./Redux/reducers/cart.reducer";
 import { resetPassword } from "./Redux/reducers/resetPassword.reducer";
+import { productReducer } from "./Redux/reducers/product.reducer";
 
 const rootReducer = combineReducers({
   user: userReducer,
+  product: productReducer,
   cart: cartReducer,
   reset: resetPassword,
 });
