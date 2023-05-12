@@ -6,15 +6,28 @@ import {
   SINGLE_PRODUCTS_SUCCESS,
   SINGLE_PRODUCTS_FAIL,
 } from "../actionTypes/product.actionTypes.js";
-
+let initialState = {
+  loading: false,
+  data: [],
+};
 function productReducer(state = initialState, action) {
   switch (action.type) {
     case ALL_PRODUCTS_REQUEST:
-      return {};
+      return {
+        ...state,
+        loading: true,
+      };
     case ALL_PRODUCTS_SUCCESS:
-      return {};
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+      };
     case ALL_PRODUCTS_FAIL:
-      return {};
+      return {
+        ...state,
+        loading: false,
+      };
     case SINGLE_PRODUCTS_REQUEST:
       return {};
     case SINGLE_PRODUCTS_SUCCESS:
