@@ -4,6 +4,7 @@ import { NavigationBar } from "../Components/NavigationBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";
 import { useParams } from "react-router-dom";
+import ProductCard from "../Components/ProductCard";
 
 function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
@@ -25,6 +26,11 @@ function Sunscreens() {
         src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1682595235"
         alt="sunscreens"
       />
+      {
+        data?.map((product) =>{
+        <ProductCard product={product}/>
+        })
+      }
     </div>
   );
 }
