@@ -1,0 +1,56 @@
+.container {
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  max-width: 280px;
+  border-radius: 5px;
+  height: 400px;
+  text-align: center;
+  line-height: 1.2;
+  margin: auto;
+}
+.container img {
+  height: 62%;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+div span {
+  margin: 0%;
+}
+h4,
+h5 {
+  margin: 10px;
+  color: rgb(61, 61, 61);
+  font-size: 0.8rem;
+}
+.highlights {
+  color: rgb(155, 153, 153);
+}
+.price {
+  color: rgb(197, 48, 48);
+  font-size: 1rem;
+}
+.container button {
+  position: absolute;
+  bottom: 0%;
+  display: block;
+  width: 100%;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  height: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.container button:hover {
+  background-color: black;
+  font-size: 1.2rem;
+}
+.container img {
+  width: 100%;
+  border-radius: 5px 5px 0px 0px;
+  margin-bottom: 0%;
+}
