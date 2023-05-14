@@ -4,7 +4,7 @@ import ProductCard from '../Components/ProductCard';
 function FaceMasks() {
   return (
     <div>FaceMasks
-      <ProductCard />
+      
     </div>
   )
 }
