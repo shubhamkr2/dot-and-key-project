@@ -7,12 +7,13 @@ import {
   SINGLE_PRODUCTS_FAIL,
 } from "../actionTypes/product.actionTypes.js";
 
-function getAllProduct() {
+function getAllProduct(page) {
+  console.log(page)
   return async function (dispatch) {
     dispatch({ type: ALL_PRODUCTS_REQUEST });
     try {
       let res = await fetch(
-        `https://courageous-rose-nightgown.cyclic.app/products`
+        `https://courageous-rose-nightgown.cyclic.app/products?category=${page}`
       );
       let data = await res.json();
       console.log(data);

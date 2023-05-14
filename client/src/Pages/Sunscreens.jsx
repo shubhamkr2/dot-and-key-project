@@ -3,19 +3,20 @@ import styles from "../Styles/Sunscreens.module.css";
 import { NavigationBar } from "../Components/NavigationBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";
+import { useParams } from "react-router-dom";
 
 function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
   const dispatch = useDispatch();
-
+  const url = useParams();
   useEffect(() => {
-    dispatch(getAllProduct()).then(() => {});
+    dispatch(getAllProduct("sunscreens")).then(() => {});
   }, []);
 
-  console.log(loading);
   if (loading) {
     return <h1>Loading...</h1>;
   }
+  console.log(url)
   return (
     <div className={styles.sunscreens_container}>
       <NavigationBar />
