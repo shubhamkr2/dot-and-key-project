@@ -34,13 +34,7 @@ function Sunscreens() {
           <ProductCard product={product} />
         ))}
       </div>
-      <div className={styles.pagination}>
-        <button onClick={() => setPage(page - 1)}>Prev</button>
-        <span>
-          {page}/{Math.ceil(data?.count / 6)}
-        </span>
-        <button onClick={() => setPage(page + 1)}>Next</button>
-      </div>
+      
       <Footer />
     </div>
   );
