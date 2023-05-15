@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../Styles/Pagination.module.css";
 
-function Pagination() {
+function Pagination({page, setPage, data}) {
   return (
     <div className={styles.pagination}>
       <button onClick={() => setPage(page - 1)}>Prev</button>
