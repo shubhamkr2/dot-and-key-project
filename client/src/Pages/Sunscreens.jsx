@@ -17,7 +17,7 @@ function Sunscreens() {
   if (loading) {
     return <h1>Loading...</h1>;
   }
-  console.log(url)
+  console.log(data.data);
   return (
     <div className={styles.sunscreens_container}>
       <NavigationBar />
@@ -27,10 +27,11 @@ function Sunscreens() {
         alt="sunscreens"
       />
       {
-        data?.map((product) =>{
-        <ProductCard product={product}/>
-        })
+        data.data.map((product)=>(
+          <ProductCard product={product} />
+        ))
       }
+      <div>hlo</div>
     </div>
   );
 }

@@ -25,20 +25,20 @@ let data = {
   stock: true,
   __v: 0,
 };
-function ProductCard() {
+function ProductCard({ product }) {
+  console.log(product);
   return (
     <div className={styles.container}>
-      <img src={data.images[0]} />
+      <img src={product.images[0]} />
       <div className={styles.rating}>
         <IconContext.Provider value={{ color: "rgb(235, 182, 10)" }}>
           <AiFillStar />
         </IconContext.Provider>
-
-        <span>{data.rating}/5</span>
+        <span>{product.rating}/5</span>
       </div>
-      <h4>{data.title}</h4>
-      <h5 className={styles.highlights}>{data.highlights}</h5>
-      <h4 className={styles.price}>Rs: {data.price}</h4>
+      <h4>{product.title}</h4>
+      <h5 className={styles.highlights}>{product.highlights}</h5>
+      <h4 className={styles.price}>Rs: {product.price}</h4>
       <button>ADD TO CART</button>
     </div>
   );
