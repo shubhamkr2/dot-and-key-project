@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";
 import { useParams } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
+import {Footer} from "../Components/Footer";
 
 function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
@@ -31,6 +32,7 @@ function Sunscreens() {
           <ProductCard product={product} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 }
