@@ -7,7 +7,7 @@ import {
   SINGLE_PRODUCTS_FAIL,
 } from "../actionTypes/product.actionTypes.js";
 
-function getAllProduct(category,page=1) {
+function getAllProduct(category,page) {
   console.log(page)
   return async function (dispatch) {
     dispatch({ type: ALL_PRODUCTS_REQUEST });
