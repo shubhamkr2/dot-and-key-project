@@ -4,3 +4,9 @@
 .sunscreens_container .banner {
   width: 100%;
 }
+.product_list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 50px;
+  gap: 20px;
+}

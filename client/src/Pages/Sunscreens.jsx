@@ -26,12 +26,11 @@ function Sunscreens() {
         src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1682595235"
         alt="sunscreens"
       />
-      {
-        data.data.map((product)=>(
+      <div className={styles.product_list}>
+        {data.data.map((product) => (
           <ProductCard product={product} />
-        ))
-      }
-      <div>hlo</div>
+        ))}
+      </div>
     </div>
   );
 }
