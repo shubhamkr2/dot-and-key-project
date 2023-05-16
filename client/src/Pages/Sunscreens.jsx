@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
 import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
+import Sidebar from "../Components/Sidebar";
 
 function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
@@ -30,11 +31,13 @@ function Sunscreens() {
         src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1682595235"
         alt="sunscreens"
       />
+
       <div className={styles.product_list}>
         {data?.data?.map((product) => (
           <ProductCard product={product} />
         ))}
       </div>
+
       <Pagination page={page} setPage={setPage} data={data} />
       <Footer />
     </div>

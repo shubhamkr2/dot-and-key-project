@@ -6,7 +6,19 @@
 }
 .product_list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 50px;
-  gap: 20px;
+  gap: 60px 0px;
+  /* width: fit-content;
+  margin: auto; */
+}
+@media(max-width:900px){
+  .product_list{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(max-width:550px){
+  .product_list{
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
