@@ -95,4 +95,7 @@
   .row h2 {
     font-size: 1rem;
   }
+  .social_links{
+    flex-direction: column;
+  }
 }
