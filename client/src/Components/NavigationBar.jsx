@@ -6,12 +6,15 @@ import { FaceSerums } from "../Pages/FaceSerums";
 import { LipBalms } from "../Pages/LipBalms";
 import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";
-import { FaceToners } from "../Pages/FaceToners";
+import { All } from "../Pages/All";
 import styles from "../Styles/NavigationBar.module.css";
 
 function NavigationBar() {
   return (
     <div className={styles.container}>
+      <Link to="/all" element={<All />}>
+        All
+      </Link>
       <Link to="/sunscreens" element={<Sunscreens />}>
         Sunscreens
       </Link>
@@ -29,9 +32,6 @@ function NavigationBar() {
       </Link>
       <Link to="/facemasks" element={<FaceMasks />}>
         Face Masks
-      </Link>
-      <Link to="/facetonners" element={<FaceToners />}>
-        Face Toners
       </Link>
     </div>
   );

@@ -9,7 +9,7 @@ import { FaceSerums } from "../Pages/FaceSerums";
 import { LipBalms } from "../Pages/LipBalms";
 import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";
-import { FaceToners } from "../Pages/FaceToners";
+import { All } from "../Pages/All";
 import { FaRegWindowClose } from "react-icons/fa";
 import { LogIn } from "../Pages/LogIn";
 import { SignUp } from "../Pages/SignUp";
@@ -82,6 +82,9 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
       )}
       <div className={styles.menuNavigationBar}>
         <h2>Browse, Dot&Key</h2>
+        <Link to="/all" element={<All />} onClick={() => setIsOpen(!isOpen)}>
+          All
+        </Link>
         <Link
           to="/sunscreens"
           element={<Sunscreens />}
@@ -123,13 +126,6 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           onClick={() => setIsOpen(!isOpen)}
         >
           Face Masks
-        </Link>
-        <Link
-          to="/facetonners"
-          element={<FaceToners />}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          Face Toners
         </Link>
       </div>
     </div>

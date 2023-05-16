@@ -10,7 +10,7 @@ import { FaceSerums } from "../Pages/FaceSerums";
 import { LipBalms } from "../Pages/LipBalms";
 import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";
-import { FaceToners } from "../Pages/FaceToners";
+import { All } from "../Pages/All";
 
 function AllRoutes() {
   return (
@@ -24,7 +24,7 @@ function AllRoutes() {
       <Route path="/lipbalm" element={<LipBalms />} />
       <Route path="/facewash" element={<FaceWash />} />
       <Route path="/facemasks" element={<FaceMasks />} />
-      <Route path="/facetonners" element={<FaceToners />} />
+      <Route path="/all" element={<All />} />
     </Routes>
   );
 }

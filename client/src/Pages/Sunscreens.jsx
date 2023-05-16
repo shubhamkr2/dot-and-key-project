@@ -13,7 +13,7 @@ import { Skeleton } from "../Components/Skeleton";
 function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
   const [page, setPage] = useState(1);
-  const [sortAs, setSortAs] = useState("desc");
+  const [sortAs, setSortAs] = useState("");
   const dispatch = useDispatch();
   const url = useParams();
 
