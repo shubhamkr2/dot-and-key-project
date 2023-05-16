@@ -31,13 +31,17 @@ function Sunscreens() {
         src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1682595235"
         alt="sunscreens"
       />
+      <div className={styles.sidebar_and_product}>
+      <div className={styles.Sidebar}>
 
-      <div className={styles.product_list}>
-        {data?.data?.map((product) => (
-          <ProductCard product={product} />
-        ))}
+        <Sidebar />
       </div>
-
+        <div className={styles.product_list}>
+          {data?.data?.map((product) => (
+            <ProductCard product={product} />
+          ))}
+        </div>
+      </div>
       <Pagination page={page} setPage={setPage} data={data} />
       <Footer />
     </div>
