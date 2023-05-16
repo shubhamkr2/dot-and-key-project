@@ -8,6 +8,7 @@ import ProductCard from "../Components/ProductCard";
 import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
+import { Skeleton } from "../Components/Skeleton";
 
 function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
@@ -34,7 +35,7 @@ function Sunscreens() {
         <div className={styles.Sidebar}>
           <Sidebar setSortAs={setSortAs} />
         </div>
-        {loading?<div>Loading...</div>:<div className={styles.product_list}>
+        {loading?<Skeleton />:<div className={styles.product_list}>
           {data?.data?.map((product) => (
             <ProductCard product={product} />
           ))}
