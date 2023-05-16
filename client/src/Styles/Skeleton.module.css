@@ -4,7 +4,10 @@
     background-color: #f2f2f2;
     padding: 20px;
     border-radius: 5px;
-    width: 66%;
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
   }
   
   .skeleton {
