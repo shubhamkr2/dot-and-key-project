@@ -12,16 +12,15 @@ import Sidebar from "../Components/Sidebar";
 function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
   const [page, setPage] = useState(1);
+  const [sortAs, setSortAs] = useState("desc");
   const dispatch = useDispatch();
   const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("sunscreens", page)).then(() => {});
-  }, [page]);
+    dispatch(getAllProduct("sunscreens", page, sortAs)).then(() => {});
+  }, [page, sortAs]);
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
+  
   console.log(data.data);
   return (
     <div className={styles.sunscreens_container}>
@@ -32,15 +31,14 @@ function Sunscreens() {
         alt="sunscreens"
       />
       <div className={styles.sidebar_and_product}>
-      <div className={styles.Sidebar}>
-
-        <Sidebar />
-      </div>
-        <div className={styles.product_list}>
+        <div className={styles.Sidebar}>
+          <Sidebar setSortAs={setSortAs} />
+        </div>
+        {loading?<div>Loading...</div>:<div className={styles.product_list}>
           {data?.data?.map((product) => (
             <ProductCard product={product} />
           ))}
-        </div>
+        </div>}
       </div>
       <Pagination page={page} setPage={setPage} data={data} />
       <Footer />

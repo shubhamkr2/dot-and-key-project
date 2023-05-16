@@ -1,22 +1,24 @@
 import React from "react";
 import styles from "../Styles/Sidebar.module.css";
 
-function Sidebar() {
+function Sidebar({setSortAs}) {
   return (
     <div className={styles.sidebar}>
       <h3>Sort By</h3>
-      <select className={styles.sort_options}>
-        <option value="relevance">Relevance</option>
-        <option value="popularity">Popularity</option>
-        <option value="date">Date</option>
+      <select className={styles.sort_options} onChange={(e)=>setSortAs(e.target.value)}>
+        <option value="">Price</option>
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
       </select>
 
       <h3>Filter By</h3>
       <select className={styles.filter_options}>
-        <option value="all">All</option>
-        <option value="category1">Category 1</option>
-        <option value="category2">Category 2</option>
-        <option value="category3">Category 3</option>
+        <option value="all">All Ratings</option>
+        <option value="5">5 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="2">2 Stars</option>
+        <option value="1">1 Star</option>
       </select>
     </div>
   );
