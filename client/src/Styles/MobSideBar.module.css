@@ -1,0 +1,9 @@
+.mob_sidebar{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+}
+.mob_sidebar select{
+    width: 30%;
+}

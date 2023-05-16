@@ -9,6 +9,7 @@ import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
+import { MobSideBar } from "../Components/MobSideBar";
 
 function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
@@ -21,7 +22,6 @@ function Sunscreens() {
     dispatch(getAllProduct("sunscreens", page, sortAs)).then(() => {});
   }, [page, sortAs]);
 
-  
   console.log(data.data);
   return (
     <div className={styles.sunscreens_container}>
@@ -31,15 +31,23 @@ function Sunscreens() {
         src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1682595235"
         alt="sunscreens"
       />
+      <div className={styles.mob_sidebar}>
+
+      <MobSideBar setSortAs={setSortAs} />
+      </div>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
           <Sidebar setSortAs={setSortAs} />
         </div>
-        {loading?<Skeleton />:<div className={styles.product_list}>
-          {data?.data?.map((product) => (
-            <ProductCard product={product} />
-          ))}
-        </div>}
+        {loading ? (
+          <Skeleton />
+        ) : (
+          <div className={styles.product_list}>
+            {data?.data?.map((product) => (
+              <ProductCard product={product} />
+            ))}
+          </div>
+        )}
       </div>
       <Pagination page={page} setPage={setPage} data={data} />
       <Footer />
