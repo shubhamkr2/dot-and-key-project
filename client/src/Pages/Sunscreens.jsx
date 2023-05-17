@@ -15,11 +15,12 @@ function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
   const [page, setPage] = useState(1);
   const [sortAs, setSortAs] = useState("");
+  const [filterAsRating, setFilterAsRating] = useState("");
   const dispatch = useDispatch();
   const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("sunscreens", page, sortAs)).then(() => {});
+    dispatch(getAllProduct("sunscreens", page, sortAs, filterAsRating)).then(() => {});
   }, [page, sortAs]);
 
   console.log(data);
@@ -33,11 +34,11 @@ function Sunscreens() {
       />
       <div className={styles.mob_sidebar}>
 
-      <MobSideBar setSortAs={setSortAs} />
+      <MobSideBar setSortAs={setSortAs} setFilterAsRating={setFilterAsRating} />
       </div>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
-          <Sidebar setSortAs={setSortAs} />
+          <Sidebar setSortAs={setSortAs} setFilterAsRating={setFilterAsRating} />
         </div>
         {loading ? (
           <Skeleton />
