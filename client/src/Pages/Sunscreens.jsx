@@ -21,7 +21,7 @@ function Sunscreens() {
 
   useEffect(() => {
     dispatch(getAllProduct("sunscreens", page, sortAs, filterAsRating)).then(() => {});
-  }, [page, sortAs]);
+  }, [page, sortAs, filterAsRating]);
 
   console.log(data);
   return (
