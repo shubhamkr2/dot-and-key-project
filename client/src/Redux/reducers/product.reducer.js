@@ -18,7 +18,7 @@ function productReducer(state = initialState, action) {
         loading: true,
       };
     case ALL_PRODUCTS_SUCCESS:
-      console.log(action.payload)
+      // console.log(action.payload)
       return {
         ...state,
         loading: false,

@@ -14,7 +14,7 @@ import {
 function confirmEmail(email, toast) {
   return async function (dispatch) {
     dispatch({ type: CONFIRM_EMAIL_REQUEST });
-    console.log(email);
+    // console.log(email);
     try {
       let res = await fetch(
         `https://courageous-rose-nightgown.cyclic.app/users/`,
@@ -25,7 +25,7 @@ function confirmEmail(email, toast) {
         }
       );
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       if (data.userId) {
         dispatch({ type: CONFIRM_EMAIL_SUCCESS, payload: data });
         toast.success("User verified successfully");
@@ -57,7 +57,7 @@ function confirmQuestion(secret_question, userId, toast) {
         }
       );
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       if (data.token) {
         dispatch({ type: CONFIRM_SECRET_QUESTION_SUCCESS, payload: data });
         toast.success("Question verified successfully");
@@ -91,7 +91,7 @@ function resetPassword(newPassword, userId, token, toast, handleModal) {
         }
       );
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       if (data.message === "Password updated successfully") {
         dispatch({ type: RESET_PASSWORD_SUCCESS, payload: data });
         toast.success(data.message);

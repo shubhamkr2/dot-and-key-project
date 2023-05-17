@@ -22,7 +22,7 @@ function Sunscreens() {
     dispatch(getAllProduct("sunscreens", page, sortAs)).then(() => {});
   }, [page, sortAs]);
 
-  console.log(data.data);
+  console.log(data);
   return (
     <div className={styles.sunscreens_container}>
       <NavigationBar />
@@ -44,7 +44,7 @@ function Sunscreens() {
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} />
+              <ProductCard product={product} key={product._id} />
             ))}
           </div>
         )}

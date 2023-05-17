@@ -22,7 +22,7 @@ function userLogin(userDetails, navigate, toast) {
         }
       );
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       if (data.token) {
         dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
         toast.success("User logged in successfully");

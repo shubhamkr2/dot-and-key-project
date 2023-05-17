@@ -36,7 +36,7 @@ function Navbar() {
     }
     setLoggedUserName(name);
   }, [token]);
-  console.log(loggedUserName);
+  // console.log(loggedUserName);
   return (
     <>
       {/* Navbar container */}

@@ -26,7 +26,7 @@ let data = {
   __v: 0,
 };
 function ProductCard({ product }) {
-  console.log(product);
+  // console.log(product);
   return (
     <div className={styles.container}>
       <img src={product.images[0]} />

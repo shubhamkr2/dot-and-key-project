@@ -8,7 +8,7 @@ import {
 } from "../actionTypes/product.actionTypes.js";
 
 function getAllProduct(category, page, sortAs) {
-  console.log(page);
+  // console.log(page);
   return async function (dispatch) {
     dispatch({ type: ALL_PRODUCTS_REQUEST });
     try {
@@ -16,7 +16,7 @@ function getAllProduct(category, page, sortAs) {
         `https://courageous-rose-nightgown.cyclic.app/products?category=${category}&&page=${page}&&limit=6&&sortBy=${sortAs}`
       );
       let data = await res.json();
-      console.log(data);
+      // console.log(data);
       dispatch({ type: ALL_PRODUCTS_SUCCESS, payload: data });
     } catch (err) {
       console.log(err);
