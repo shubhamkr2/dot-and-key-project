@@ -19,7 +19,7 @@ function Sidebar({ setSortAs, setFilterAsRating }) {
         className={styles.filter_options}
         onChange={(e) => setFilterAsRating(e.target.value)}
       >
-        <option value="">All Ratings</option>
+        <option value="">Ratings</option>
         <option value="5">Minimum 5 Stars</option>
         <option value="4">Minimum 4 Stars</option>
         <option value="3">Minimum 3 Stars</option>

@@ -32,10 +32,10 @@ function Sunscreens() {
         src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1682595235"
         alt="sunscreens"
       />
-      <div className={styles.mob_sidebar}>
+      {/* <div className={styles.mob_sidebar}>
 
-      <MobSideBar setSortAs={setSortAs} setFilterAsRating={setFilterAsRating} />
-      </div>
+      <Sidebar sortAs={sortAs} filterAsRating={filterAsRating} setSortAs={setSortAs} setFilterAsRating={setFilterAsRating} />
+      </div> */}
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
           <Sidebar setSortAs={setSortAs} setFilterAsRating={setFilterAsRating} />

@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "../Styles/MobSideBar.module.css";
 
-function MobSideBar({ setSortAs, setFilterAsRating }) {
+function MobSideBar({ sortAs, filterAsRating, setSortAs, setFilterAsRating }) {
+  setSortAs(sortAs);
+  setFilterAsRating(filterAsRating);
   return (
     <div className={styles.mob_sidebar}>
       <h3>Sort By</h3>

@@ -29,12 +29,15 @@
   }
 }
 @media (max-width: 750px) {
-  .Sidebar {
+  /* .Sidebar {
     display: none;
-  }
-  .mob_sidebar{
+  } */
+  .sidebar_and_product{
     display: block;
   }
+  /* .mob_sidebar{
+    display: block;
+  } */
 }
 @media (max-width: 550px) {
   .product_list {
