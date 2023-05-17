@@ -17,12 +17,12 @@ function MobSideBar({setSortAs}) {
 
       <h3>Filter By</h3>
       <select className={styles.filter_options}>
-        <option value="all">All Ratings</option>
-        <option value="5">5 Stars</option>
-        <option value="4">4 Stars</option>
-        <option value="3">3 Stars</option>
-        <option value="2">2 Stars</option>
-        <option value="1">1 Star</option>
+      <option value="">All Ratings</option>
+        <option value="5">Minimum 5 Stars</option>
+        <option value="4">Minimum 4 Stars</option>
+        <option value="3">Minimum 3 Stars</option>
+        <option value="2">Minimum 2 Stars</option>
+        <option value="1">Minimum 1 Star</option>
       </select>
     </div>
   );
