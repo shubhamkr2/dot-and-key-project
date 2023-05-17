@@ -26,7 +26,7 @@ function Serums() {
 
   console.log(data);
   return (
-    <div className={styles.serum_container}>
+    <div className={styles.serums_container}>
       <NavigationBar />
       <img
         className={styles.banner}

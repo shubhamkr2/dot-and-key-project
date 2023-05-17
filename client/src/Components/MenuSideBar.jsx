@@ -5,7 +5,7 @@ import styles from "../Styles/MenuSideBar.module.css";
 import { Link } from "react-router-dom";
 import { Sunscreens } from "../Pages/Sunscreens";
 import { Moisturizers } from "../Pages/Moisturizers";
-import { FaceSerums } from "../Pages/FaceSerums";
+import { Serums } from "../Pages/Serums";
 import { LipBalms } from "../Pages/LipBalms";
 import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";

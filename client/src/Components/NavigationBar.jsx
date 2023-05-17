@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Sunscreens } from "../Pages/Sunscreens";
 import { Moisturizers } from "../Pages/Moisturizers";
-import { FaceSerums } from "../Pages/Serums";
+import { Serums } from "../Pages/Serums";
 import { LipBalms } from "../Pages/LipBalms";
 import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";
@@ -22,7 +22,7 @@ function NavigationBar() {
         Moisturizers
       </Link>
       <Link to="/serums" element={<Serums />}>
-        Face Serums
+        Serums
       </Link>
       <Link to="/lipbalm" element={<LipBalms />}>
         Lip Balms & Masks
