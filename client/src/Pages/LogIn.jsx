@@ -89,10 +89,7 @@ function LogIn() {
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </span>
       </div>
-      <div>
-
-      {modal ? <ResetPasswordModal handleModal={handleModal} /> : ""}
-      </div>
+      <div>{modal ? <ResetPasswordModal handleModal={handleModal} /> : ""}</div>
     </>
   );
 }
