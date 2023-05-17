@@ -19,7 +19,7 @@ function LipCare() {
   const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("lipbalms", page, sortAs, filterAsRating)).then(
+    dispatch(getAllProduct("lipcare", page, sortAs, filterAsRating)).then(
       () => {}
     );
   }, [page, sortAs, filterAsRating]);
