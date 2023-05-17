@@ -9,7 +9,6 @@ import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
-import { MobSideBar } from "../Components/MobSideBar";
 
 function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
@@ -20,7 +19,9 @@ function Sunscreens() {
   const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("sunscreens", page, sortAs, filterAsRating)).then(() => {});
+    dispatch(getAllProduct("sunscreens", page, sortAs, filterAsRating)).then(
+      () => {}
+    );
   }, [page, sortAs, filterAsRating]);
 
   console.log(data);
@@ -34,7 +35,10 @@ function Sunscreens() {
       />
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
-          <Sidebar setSortAs={setSortAs} setFilterAsRating={setFilterAsRating} />
+          <Sidebar
+            setSortAs={setSortAs}
+            setFilterAsRating={setFilterAsRating}
+          />
         </div>
         {loading ? (
           <Skeleton />
