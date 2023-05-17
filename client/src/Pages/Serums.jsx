@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../Styles/FaceSerums.module.css";
+import styles from "../Styles/Serums.module.css";
 import { NavigationBar } from "../Components/NavigationBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";
@@ -10,7 +10,7 @@ import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
 
-function FaceSerums() {
+function Serums() {
   const { loading, data } = useSelector((state) => state.product);
   const [page, setPage] = useState(1);
   const [sortAs, setSortAs] = useState("");
@@ -19,12 +19,14 @@ function FaceSerums() {
   const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("faceserum", page, sortAs, filterAsRating)).then(() => {});
+    dispatch(getAllProduct("serum", page, sortAs, filterAsRating)).then(
+      () => {}
+    );
   }, [page, sortAs, filterAsRating]);
 
   console.log(data);
   return (
-    <div className={styles.faceserum_container}>
+    <div className={styles.serum_container}>
       <NavigationBar />
       <img
         className={styles.banner}
@@ -54,4 +56,4 @@ function FaceSerums() {
   );
 }
 
-export { FaceSerums };
+export { Serums };

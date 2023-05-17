@@ -101,10 +101,10 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
         </Link>
         <Link
           to="/faceserums"
-          element={<FaceSerums />}
+          element={<Serums />}
           onClick={() => setIsOpen(!isOpen)}
         >
-          Face Serums
+          Serums
         </Link>
         <Link
           to="/lipbalm"
