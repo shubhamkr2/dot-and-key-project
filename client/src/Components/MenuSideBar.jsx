@@ -111,7 +111,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           element={<LipCare />}
           onClick={() => setIsOpen(!isOpen)}
         >
-          Lip Care & Masks
+          Lip Care
         </Link>
         <Link
           to="/facewash"

@@ -25,7 +25,7 @@ function NavigationBar() {
         Serums
       </Link>
       <Link to="/lipcare" element={<LipCare />}>
-        Lip Care & Masks
+        Lip Care
       </Link>
       <Link to="/facewash" element={<FaceWash />}>
         Face Wash
