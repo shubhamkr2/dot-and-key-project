@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Sunscreens } from "../Pages/Sunscreens";
 import { Moisturizers } from "../Pages/Moisturizers";
 import { Serums } from "../Pages/Serums";
-import { LipBalms } from "../Pages/LipBalms";
+import { LipCare } from "../Pages/LipCare";
 import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";
 import { All } from "../Pages/All";
@@ -24,8 +24,8 @@ function NavigationBar() {
       <Link to="/serums" element={<Serums />}>
         Serums
       </Link>
-      <Link to="/lipbalm" element={<LipBalms />}>
-        Lip Balms & Masks
+      <Link to="/lipcare" element={<LipCare />}>
+        Lip Care & Masks
       </Link>
       <Link to="/facewash" element={<FaceWash />}>
         Face Wash

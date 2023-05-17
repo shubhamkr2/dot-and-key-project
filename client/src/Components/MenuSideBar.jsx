@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Sunscreens } from "../Pages/Sunscreens";
 import { Moisturizers } from "../Pages/Moisturizers";
 import { Serums } from "../Pages/Serums";
-import { LipBalms } from "../Pages/LipBalms";
+import { LipCare } from "../Pages/LipCare";
 import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";
 import { All } from "../Pages/All";
@@ -107,11 +107,11 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           Serums
         </Link>
         <Link
-          to="/lipbalm"
-          element={<LipBalms />}
+          to="/lipcare"
+          element={<LipCare />}
           onClick={() => setIsOpen(!isOpen)}
         >
-          Lip Balms & Masks
+          Lip Care & Masks
         </Link>
         <Link
           to="/facewash"
