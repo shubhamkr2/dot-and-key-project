@@ -19,7 +19,7 @@ function Serums() {
   const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("serum", page, sortAs, filterAsRating)).then(
+    dispatch(getAllProduct("serums", page, sortAs, filterAsRating)).then(
       () => {}
     );
   }, [page, sortAs, filterAsRating]);
