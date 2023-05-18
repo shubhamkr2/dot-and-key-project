@@ -30,7 +30,7 @@ function Sunscreens() {
       <NavigationBar />
       <img
         className={styles.banner}
-        src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1682595235"
+        src="https://www.dotandkey.com/cdn/shop/files/CATE_DESK_70f0f8fb-6857-4d23-bb4f-86449f2dcbd1.jpg?v=1682937797"
         alt="sunscreens"
       />
       <div className={styles.sidebar_and_product}>
