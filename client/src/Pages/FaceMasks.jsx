@@ -28,7 +28,7 @@ function FaceMasks() {
       <NavigationBar />
       <img
         className={styles.banner}
-        src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1684301670"
+        src="https://www.dotandkey.com/cdn/shop/files/Desktop_Top_banner.jpg?v=1684230503"
         alt="banner"
       />
       <div className={styles.sidebar_and_product}>
