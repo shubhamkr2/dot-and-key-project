@@ -28,7 +28,7 @@ function FaceWash() {
       <NavigationBar />
       <img
         className={styles.banner}
-        src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1684301670"
+        src="https://www.dotandkey.com/cdn/shop/files/vit_cDesktop_copy_26623988-3be2-43c7-8d96-bf2c3ce56ae9.jpg?v=1684345468"
         alt="banner"
       />
       <div className={styles.sidebar_and_product}>
