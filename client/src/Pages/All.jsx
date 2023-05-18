@@ -44,7 +44,7 @@ function All() {
           <Skeleton />
         ) : (
           <div className={styles.product_list}>
-            {data?.data?.map((product) => (
+            {data?.data.map((product) => (
               <ProductCard product={product} key={product._id} />
             ))}
           </div>

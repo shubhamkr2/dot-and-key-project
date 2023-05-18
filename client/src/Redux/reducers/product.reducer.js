@@ -9,6 +9,7 @@ import {
 let initialState = {
   loading: true,
   data: [],
+  single_product_data: [],
 };
 function productReducer(state = initialState, action) {
   switch (action.type) {
@@ -30,11 +31,21 @@ function productReducer(state = initialState, action) {
         loading: false,
       };
     case SINGLE_PRODUCTS_REQUEST:
-      return {};
+      return {
+        ...state,
+        loading: true,
+      };
     case SINGLE_PRODUCTS_SUCCESS:
-      return {};
+      return {
+        ...state,
+        loading: false,
+        single_product_data: action.payload,
+      };
     case SINGLE_PRODUCTS_FAIL:
-      return {};
+      return {
+        ...state,
+        loading: false,
+      };
     default:
       return state;
   }

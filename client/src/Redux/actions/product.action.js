@@ -24,6 +24,22 @@ function getAllProduct(category, page, sortAs, filterAsRating) {
     }
   };
 }
-function getSingleProduct() {}
+
+function getSingleProduct(id) {
+  return async function (dispatch) {
+    dispatch({ type: SINGLE_PRODUCTS_REQUEST });
+    try {
+      let res = await fetch(
+        `https://courageous-rose-nightgown.cyclic.app/products/${id}`
+      );
+      let data = await res.json();
+      // console.log(data);
+      dispatch({ type: SINGLE_PRODUCTS_SUCCESS, payload: data });
+    } catch (err) {
+      console.log(err);
+      dispatch({ type: SINGLE_PRODUCTS_FAIL });
+    }
+  };
+}
 
 export { getAllProduct, getSingleProduct };
