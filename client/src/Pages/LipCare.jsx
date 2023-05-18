@@ -30,7 +30,7 @@ function LipCare() {
       <NavigationBar />
       <img
         className={styles.banner}
-        src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1684301670"
+        src="https://www.dotandkey.com/cdn/shop/files/DESK_e37f3ca9-dc02-41c0-95b8-159715e3646b.jpg?v=1682945740"
         alt="banner"
       />
       <div className={styles.sidebar_and_product}>
