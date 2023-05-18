@@ -6,6 +6,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import { ScrollToTop } from "./Components/ScrollToTop";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +14,8 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         {/* <ChakraProvider> */}
-          <App />
+        <ScrollToTop />
+        <App />
         {/* </ChakraProvider> */}
       </BrowserRouter>
     </Provider>
