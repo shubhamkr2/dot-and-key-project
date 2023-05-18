@@ -2,6 +2,7 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import styles from "../Styles/ProductCard.module.css";
+import { Link } from "react-router-dom";
 let data = {
   _id: "645e1551062c3fbde39b9667",
   category: "sunscreens",
@@ -28,7 +29,7 @@ let data = {
 function ProductCard({ product }) {
   // console.log(product);
   return (
-    <div className={styles.container}>
+    <Link to={product._id}> <div className={styles.container}>
       <img src={product.images[0]} />
       <div className={styles.rating}>
         <IconContext.Provider value={{ color: "rgb(235, 182, 10)" }}>
@@ -41,6 +42,7 @@ function ProductCard({ product }) {
       <h4 className={styles.price}>Rs: {product.price}</h4>
       <button>ADD TO CART</button>
     </div>
+    </Link>
   );
 }
 
