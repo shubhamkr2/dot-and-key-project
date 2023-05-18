@@ -7,7 +7,7 @@ function Pagination({page, setPage, data}) {
     <div className={styles.pagination}>
       <button disabled={page<2} className={styles.prev_btn} onClick={() => setPage(page - 1)}>Prev</button>
       <span>
-        {page}/{totalPage}
+        {page} Out Of {totalPage}
       </span>
       <button disabled={page===totalPage} className={styles.next_btn} onClick={() => setPage(page + 1)}>Next</button>
     </div>
