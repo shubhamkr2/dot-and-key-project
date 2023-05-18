@@ -10,11 +10,13 @@ import { LipCare } from "../Pages/LipCare";
 import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";
 import { All } from "../Pages/All";
+import SingleProductPage from "../Pages/SingleProductPage";
 
 function AllRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/:id" element={<SingleProductPage />} />
       <Route path="/login" element={<LogIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/sunscreens" element={<Sunscreens />} />
