@@ -22,3 +22,18 @@ gap: 20px;
     text-align: center;
     color: gray;
 }
+.quantity{
+    display: flex;
+    gap: 10px;
+    font-weight: bold;
+    /* justify-content: center; */
+    align-items: center;
+    border: 1px solid black;
+}
+.quantity select{
+    width: 50px;
+    /* height: 20px; */
+    font-weight: bold;
+    align-items: center;
+    margin: 0%;
+}
