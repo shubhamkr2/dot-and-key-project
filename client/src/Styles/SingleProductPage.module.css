@@ -2,15 +2,16 @@
 border: 1px solid red;
 padding: 10px 40px;
 display: flex;
-gap: 20px;
+justify-content: center;
+gap: 10%;
 }
 .main_image img{
     max-width:500px ;
     max-height: 500px;
 }
 .thumbnails img{
-    width: 100px;
-    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
     object-fit: cover;
     margin-right: 15px;
     cursor: pointer;
