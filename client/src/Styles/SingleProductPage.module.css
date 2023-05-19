@@ -81,3 +81,9 @@
   background-color: rgb(68, 39, 39);
   font-size: 1.2rem;
 }
+.description{
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    margin: 20px 0px 20px 0px;
+    padding: 20px 10px 20px 10px;
+}

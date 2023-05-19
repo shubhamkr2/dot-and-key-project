@@ -42,10 +42,7 @@ function SingleProductPage() {
       <div className={styles.single_page_container}>
         <div className={styles.image_container}>
           <div className={styles.main_image}>
-          {
-            images&&<img src={images[currentImageIndex]} alt="Product" />
-          }
-            
+            {images && <img src={images[currentImageIndex]} alt="Product" />}
           </div>
           <div className={styles.thumbnails}>
             {images?.map((image, index) => (
@@ -61,6 +58,7 @@ function SingleProductPage() {
         <div className={styles.description_container}>
           <h1>{title}</h1>
           <h3>{highlights}</h3>
+          <h2>Rs {price}</h2>
           <div className={styles.quantity}>
             <label>Quantity:</label>
             <select>
@@ -74,6 +72,9 @@ function SingleProductPage() {
           <div className={styles.cart_buy_btn}>
             <button className={styles.add_to_cart_btn}>ADD TO CART</button>
             <button className={styles.buy_now_btn}>BUY NOW</button>
+          </div>
+          <div className={styles.description}>
+            {description?.map(list=>(<li>{list}</li>))}
           </div>
         </div>
       </div>
