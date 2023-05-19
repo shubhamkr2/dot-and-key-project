@@ -9,6 +9,9 @@
   max-width: 500px;
   max-height: 500px;
 }
+.thumbnails{
+    margin-top: 20px;
+}
 .thumbnails img {
   max-width: 100px;
   max-height: 100px;
