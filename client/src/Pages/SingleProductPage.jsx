@@ -12,46 +12,47 @@ function SingleProductPage() {
   );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const dispatch = useDispatch();
-
+  const {data} = single_product_data||{};
+  const {category,title,description,price,images,rating,highlights,stock} = data||{};
   useEffect(() => {
     dispatch(getSingleProduct(id));
   }, []);
-  console.log(single_product_data);
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
+  
   const switchImage = (index) => {
     setCurrentImageIndex(index);
   };
-
+  
+  console.log(title);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
-    <div>
-      <h1>Product Name</h1>
-      <div>
+    <>
+    <NavigationBar />
+    <div className={styles.single_page_container}>
+    <div className={styles.image_container}>
+      <div className={styles.main_image}>
         <img
-          src={single_product_data?.data.images[currentImageIndex]}
+          src={images[currentImageIndex]}
           alt="Product"
         />
       </div>
-      <div>
-        {single_product_data?.data.images.map((image, index) => (
+      <div className={styles.thumbnails}>
+        {images?.map((image, index) => (
           <img
             key={index}
             src={image}
             alt="Thumbnail"
             onClick={() => switchImage(index)}
-            style={{
-              width: "50px",
-              height: "50px",
-              objectFit: "cover",
-              marginRight: "5px",
-              cursor: "pointer",
-            }}
           />
         ))}
       </div>
+      </div>
+      <div className={styles.description_container}>
+          <h1>{title}</h1>
+      </div>
     </div>
+    </>
   );
 }
 
