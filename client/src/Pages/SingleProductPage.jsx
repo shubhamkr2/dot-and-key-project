@@ -67,6 +67,10 @@ function SingleProductPage() {
               <option value="5">5</option>
             </select>
           </div>
+          <div className={styles.cart_buy_btn}>
+            <button className={styles.add_to_cart_btn}>ADD TO CART</button>
+            <button className={styles.buy_now_btn}>BUY NOW</button>
+          </div>
         </div>
       </div>
     </>

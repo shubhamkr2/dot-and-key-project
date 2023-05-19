@@ -1,40 +1,77 @@
-.single_page_container{
-border: 1px solid red;
-padding: 10px 40px;
-display: flex;
-justify-content: center;
-gap: 10%;
+.single_page_container {
+  border: 1px solid red;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
 }
-.main_image img{
-    max-width:500px ;
-    max-height: 500px;
+.main_image img {
+  max-width: 500px;
+  max-height: 500px;
 }
-.thumbnails img{
-    max-width: 100px;
-    max-height: 100px;
-    object-fit: cover;
-    margin-right: 15px;
-    cursor: pointer;
+.thumbnails img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+  cursor: pointer;
 }
-.thumbnails img:hover{
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+.thumbnails img:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.category{
-    text-align: center;
-    color: gray;
+.category {
+  text-align: center;
+  color: gray;
 }
-.quantity{
-    display: flex;
-    gap: 10px;
-    font-weight: bold;
-    /* justify-content: center; */
-    align-items: center;
-    border: 1px solid black;
+.quantity {
+  display: flex;
+  gap: 10px;
+  font-weight: bold;
+  /* justify-content: center; */
+  align-items: center;
+  border: 1px solid black;
 }
-.quantity select{
-    width: 50px;
-    /* height: 20px; */
-    font-weight: bold;
-    align-items: center;
-    margin: 0%;
+.quantity select {
+  width: 50px;
+  /* height: 20px; */
+  font-weight: bold;
+  align-items: center;
+  margin: 0%;
+}
+.cart_buy_btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  border: 1px solid black;
+}
+.cart_buy_btn button {
+  width: 70%;
+  display: block;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+}
+.add_to_cart_btn {
+  background-color: rgb(32, 32, 32);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.add_to_cart_btn:hover {
+  background-color: black;
+  font-size: 1.2rem;
+}
+.buy_now_btn {
+  background-color: rgb(102, 102, 102);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.buy_now_btn:hover {
+  background-color: rgb(68, 39, 39);
+  font-size: 1.2rem;
 }
