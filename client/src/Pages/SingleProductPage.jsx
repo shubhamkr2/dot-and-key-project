@@ -38,11 +38,14 @@ function SingleProductPage() {
   return (
     <>
       <NavigationBar />
-      <h1 className={styles.category}>{category.toUpperCase()}</h1>
+      <h1 className={styles.category}>{category?.toUpperCase()}</h1>
       <div className={styles.single_page_container}>
         <div className={styles.image_container}>
           <div className={styles.main_image}>
-            <img src={images[currentImageIndex]} alt="Product" />
+          {
+            images&&<img src={images[currentImageIndex]} alt="Product" />
+          }
+            
           </div>
           <div className={styles.thumbnails}>
             {images?.map((image, index) => (
@@ -57,6 +60,7 @@ function SingleProductPage() {
         </div>
         <div className={styles.description_container}>
           <h1>{title}</h1>
+          <h3>{highlights}</h3>
           <div className={styles.quantity}>
             <label>Quantity:</label>
             <select>
