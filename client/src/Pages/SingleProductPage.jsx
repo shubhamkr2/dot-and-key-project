@@ -29,6 +29,7 @@ function SingleProductPage() {
   return (
     <>
     <NavigationBar />
+    <h1 className={styles.category}>{category.toUpperCase()}</h1>
     <div className={styles.single_page_container}>
     <div className={styles.image_container}>
       <div className={styles.main_image}>
