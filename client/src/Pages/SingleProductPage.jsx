@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NavigationBar } from "../Components/NavigationBar";
 import { getSingleProduct } from "../Redux/actions/product.action";
+import { Footer } from "../Components/Footer";
 
 function SingleProductPage() {
   const { id } = useParams();
@@ -80,6 +81,7 @@ function SingleProductPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
