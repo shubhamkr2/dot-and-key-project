@@ -12,6 +12,7 @@ import { MenuSideBar } from "./MenuSideBar";
 import { LogIn } from "../Pages/LogIn";
 import { SignUp } from "../Pages/SignUp";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchSearchSuggestions } from "../Redux/actions/searchActions";
 import { userLogOut } from "../Redux/actions/user.action";
 
 // Define Navbar component
@@ -21,7 +22,8 @@ function Navbar() {
   const { token, isAuth } = useSelector((state) => state.user);
   const [loggedUserName, setLoggedUserName] = useState("");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState("")
+  const [searchValue, setSearchValue] = useState("");
+  const { suggestions, isLoading } = useSelector((state) => state.search);
   const dispatch = useDispatch();
 
   function handleSignOut() {
@@ -37,7 +39,17 @@ function Navbar() {
     }
     setLoggedUserName(name);
   }, [token]);
-  console.log(searchValue);
+
+  const handleSearchChange = (e) => {
+    const searchValue = e.target.value;
+
+    // Update the search value in component state
+    setSearchValue(searchValue);
+
+    // Dispatch the action to fetch suggestions
+    dispatch(fetchSearchSuggestions(searchValue));
+  };
+  console.log(suggestions);
   return (
     <>
       {/* Navbar container */}
@@ -70,10 +82,26 @@ function Navbar() {
         </Link>
         {/* Search box */}
         <div className={styles.Search_Box}>
-          <input type="text" placeholder="Search your product" onChange={(e)=>setSearchValue(e.target.value)}/>
+          <input
+            type="text"
+            placeholder="Search your product"
+            value={searchValue}
+            onChange={handleSearchChange}
+          />
           <IconContext.Provider value={{ size: "2rem", color: "white" }}>
             <ImSearch />
           </IconContext.Provider>
+          {/* Display loading indicator if suggestions are being fetched */}
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : (
+            // Display the search suggestions
+            <ul>
+              {suggestions.map((suggestion) => (
+                <li key={suggestion.id}>{suggestion.name}</li>
+              ))}
+            </ul>
+          )}
         </div>
 
         {/* Cart and profile icons */}
@@ -133,16 +161,27 @@ function Navbar() {
         ""
       )}
 
-      {/* NavigationBar component */}
-      {/* <div className={styles.navigationBar}>
-        <NavigationBar />
-      </div> */}
-      {/*Mobile Search box */}
       <div className={styles.Mob_Search_Box}>
-        <input type="text" placeholder="Search your product" onChange={(e)=>setSearchValue(e.target.value)}/>
+        <input
+          type="text"
+          placeholder="Search your product"
+          value={searchValue}
+          onChange={handleSearchChange}
+        />
         <IconContext.Provider value={{ size: "2rem", color: "white" }}>
           <ImSearch />
         </IconContext.Provider>
+        {/* Display loading indicator if suggestions are being fetched */}
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          // Display the search suggestions
+          <ul>
+            {suggestions.map((suggestion) => (
+              <li key={suggestion.id}>{suggestion.name}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </>
   );
