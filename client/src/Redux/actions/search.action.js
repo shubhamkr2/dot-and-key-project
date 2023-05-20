@@ -1,4 +1,4 @@
-import { setSearchValue, setSuggestions, setLoading } from "./actionTypes";
+import { setSearchValue, setSuggestions, setLoading } from "../actionTypes/search.actionTypes";
 import axios from "axios";
 
 export const fetchSearchSuggestions = (searchValue) => {
