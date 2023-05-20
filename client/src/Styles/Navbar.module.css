@@ -118,6 +118,7 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
+  position: relative;
 }
 .user_profile span {
   font-size: larger;
@@ -148,7 +149,12 @@
 .profile_drop_down {
   display: flex;
   flex-direction: column;
-  position: fixed;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  top: 160%;
+  left: 0;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: white;
   z-index: 99;

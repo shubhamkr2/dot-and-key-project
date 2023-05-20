@@ -152,19 +152,6 @@ function Navbar() {
                 <CgProfile />
               </IconContext.Provider>
               <span>{loggedUserName}</span>
-            </div>
-          ) : (
-            <div className={styles.login_signup}>
-              <Link to="/login" element={<LogIn />}>
-                <button className={styles.login_btn}>Login</button>
-              </Link>
-              <Link to="/signup" element={<SignUp />}>
-                <button className={styles.signup_btn}>Register</button>
-              </Link>
-            </div>
-          )}
-        </div>
-      </div>
       {isDropDownOpen ? (
         <div className={styles.profile_drop_down}>
           <Link
@@ -192,6 +179,19 @@ function Navbar() {
       ) : (
         ""
       )}
+            </div>
+          ) : (
+            <div className={styles.login_signup}>
+              <Link to="/login" element={<LogIn />}>
+                <button className={styles.login_btn}>Login</button>
+              </Link>
+              <Link to="/signup" element={<SignUp />}>
+                <button className={styles.signup_btn}>Register</button>
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
 
       <div className={styles.Mob_Search_Box}>
         <input
