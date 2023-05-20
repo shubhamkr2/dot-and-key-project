@@ -28,6 +28,9 @@
   text-align: center;
   color: gray;
 }
+.description_container{
+    text-align: center;
+}
 .description_container h1{
     color: rgb(43, 43, 43);
 }
@@ -38,7 +41,7 @@
   display: flex;
   gap: 10px;
   font-weight: bold;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
 }
 .quantity select {
@@ -47,6 +50,7 @@
   font-weight: bold;
   align-items: center;
   margin: 0%;
+  cursor: pointer;
 }
 .cart_buy_btn {
   display: flex;
@@ -89,4 +93,5 @@
     border-bottom: 2px solid gray;
     margin: 20px 0px 20px 0px;
     padding: 20px 10px 20px 10px;
+    text-align: left;
 }
