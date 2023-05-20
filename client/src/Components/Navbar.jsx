@@ -8,6 +8,7 @@ import { CgProfile } from "react-icons/cg";
 import { NavigationBar } from "./NavigationBar";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MenuSideBar } from "./MenuSideBar";
 import { LogIn } from "../Pages/LogIn";
 import { SignUp } from "../Pages/SignUp";
@@ -24,6 +25,7 @@ function Navbar() {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const { suggestions, isLoading } = useSelector((state) => state.search);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const token = localStorage.getItem("token") || [];
@@ -51,8 +53,24 @@ function Navbar() {
     if (searchValue.length > 0) {
       // Dispatch the action to fetch suggestions
       dispatch(fetchSearchSuggestions(searchValue));
+    } else {
+      // Clear the suggestions when the search input is empty
+      dispatch(fetchSearchSuggestions(""));
     }
   };
+
+  function handleSearch(id) {
+    console.log(id);
+    // Construct the path using the id
+    const path = `/${id}`;
+
+    // Redirect to the single ID page using the Link component
+    navigate(path);
+
+    // Clear the search input and suggestions after redirection
+    setSearchValue("");
+    dispatch(fetchSearchSuggestions(""));
+  }
   console.log(suggestions);
   return (
     <>
@@ -97,19 +115,22 @@ function Navbar() {
           </IconContext.Provider>
 
           {/* Search suggestions */}
-          {suggestions?.data?.length > 0 && (
+          {searchValue.length > 0 && suggestions?.data?.length > 0 && (
             <div className={styles.searchSuggestions}>
               {suggestions?.data?.map((suggestion) => (
-                <Link to={suggestion._id}><div key={suggestion._id} className={styles.suggestionItem}>
-                  <img src={suggestion.images[0]} />
+                <div
+                  key={suggestion._id}
+                  onClick={() => handleSearch(suggestion._id)}
+                  className={styles.suggestionItem}
+                >
+                  <img src={suggestion.images[0]} alt="product" />
                   <div>
-                  <span>{suggestion.title}</span>
-                  {/* <span>{suggestion.highlights}</span> */}
-                  <span>Rating: {suggestion.rating}</span>
-                  <span>Rs: {suggestion.price}</span>
+                    <span>{suggestion.title}</span>
+                    {/* <span>{suggestion.highlights}</span> */}
+                    <span>Rating: {suggestion.rating}</span>
+                    <span>Rs: {suggestion.price}</span>
                   </div>
                 </div>
-                </Link>
               ))}
             </div>
           )}
