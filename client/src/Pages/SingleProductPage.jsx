@@ -74,6 +74,7 @@ function SingleProductPage() {
             <button className={styles.buy_now_btn}>BUY NOW</button>
           </div>
           <div className={styles.description}>
+          <h3>About this item</h3>
             {description?.map(list=>(<li>{list}</li>))}
           </div>
         </div>
