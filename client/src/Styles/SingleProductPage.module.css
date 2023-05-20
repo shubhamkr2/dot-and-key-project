@@ -5,6 +5,11 @@
   justify-content: center;
   gap: 10%;
 }
+.current_image{
+  border: 2px solid red;
+  box-sizing: border-box;
+  padding: 10px;
+}
 .main_image img {
   max-width: 500px;
   max-height: 500px;

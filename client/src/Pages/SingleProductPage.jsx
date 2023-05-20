@@ -47,6 +47,7 @@ function SingleProductPage() {
           <div className={styles.thumbnails}>
             {images?.map((image, index) => (
               <img
+              className={index===currentImageIndex?styles.current_image:""}
                 key={index}
                 src={image}
                 alt="Thumbnail"
