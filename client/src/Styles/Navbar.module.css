@@ -15,9 +15,9 @@
 .logo img {
   max-width: 150px;
 }
-.Search_Box {
+/* .Search_Box {
   position: relative;
-}
+} */
 .searchSuggestions {
   position: absolute;
   top: 100%;
@@ -59,6 +59,7 @@
   border-radius: 7px;
   gap: 5px;
   padding-right: 5px;
+  position: relative;
 }
 .Search_Box:hover,
 .Mob_Search_Box:hover {
