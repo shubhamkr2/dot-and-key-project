@@ -46,8 +46,10 @@ function Navbar() {
     // Update the search value in component state
     setSearchValue(searchValue);
 
-    // Dispatch the action to fetch suggestions
-    dispatch(fetchSearchSuggestions(searchValue));
+    if (searchValue.length > 0) {
+      // Dispatch the action to fetch suggestions
+      dispatch(fetchSearchSuggestions(searchValue));
+    }
   };
   console.log(suggestions);
   return (
@@ -91,16 +93,23 @@ function Navbar() {
           <IconContext.Provider value={{ size: "2rem", color: "white" }}>
             <ImSearch />
           </IconContext.Provider>
-          {/* Display loading indicator if suggestions are being fetched */}
-          {isLoading ? (
-            <div>Loading...</div>
-          ) : (
-            // Display the search suggestions
-            <ul>
-              {suggestions.map((suggestion) => (
-                <li key={suggestion.id}>{suggestion.name}</li>
+
+          {/* Search suggestions */}
+          {suggestions?.data?.length > 0 && (
+            <div className={styles.searchSuggestions}>
+              {suggestions?.data?.map((suggestion) => (
+                <Link to={suggestion._id}><div key={suggestion._id} className={styles.suggestionItem}>
+                  <img src={suggestion.images[0]} />
+                  <div>
+                  <span>{suggestion.title}</span>
+                  {/* <span>{suggestion.highlights}</span> */}
+                  <span>Rating: {suggestion.rating}</span>
+                  <span>Rs: {suggestion.price}</span>
+                  </div>
+                </div>
+                </Link>
               ))}
-            </ul>
+            </div>
           )}
         </div>
 
@@ -172,7 +181,7 @@ function Navbar() {
           <ImSearch />
         </IconContext.Provider>
         {/* Display loading indicator if suggestions are being fetched */}
-        {isLoading ? (
+        {/* {isLoading ? (
           <div>Loading...</div>
         ) : (
           // Display the search suggestions
@@ -181,7 +190,7 @@ function Navbar() {
               <li key={suggestion.id}>{suggestion.name}</li>
             ))}
           </ul>
-        )}
+        )} */}
       </div>
     </>
   );

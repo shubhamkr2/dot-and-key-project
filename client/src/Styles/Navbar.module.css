@@ -15,6 +15,39 @@
 .logo img {
   max-width: 150px;
 }
+.Search_Box{
+  position: relative;
+}
+.searchSuggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 90.5%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.suggestionItem {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+}
+.suggestionItem div span{
+  text-align: left;
+}
+.suggestionItem img{
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.suggestionItem:hover {
+  background-color: #f5f5f5;
+}
 .Search_Box,
 .Mob_Search_Box {
   /* border: 1px solid red; */
