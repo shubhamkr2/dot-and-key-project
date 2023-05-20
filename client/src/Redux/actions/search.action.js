@@ -1,5 +1,4 @@
 import { setSearchValue, setSuggestions, setLoading } from "../actionTypes/search.actionTypes";
-import axios from "axios";
 
 export const fetchSearchSuggestions = (searchValue) => {
   return async (dispatch) => {
@@ -9,8 +8,8 @@ export const fetchSearchSuggestions = (searchValue) => {
 
       // Perform debouncing here if necessary
 
-      const response = await axios.get(`https://courageous-rose-nightgown.cyclic.app/products?title=${searchValue}`);
-      const suggestions = response.data;
+      const response = await fetch(`https://courageous-rose-nightgown.cyclic.app/products?title=${searchValue}`);
+      const suggestions = await response.json();
 
       dispatch(setSuggestions(suggestions));
     } catch (error) {
