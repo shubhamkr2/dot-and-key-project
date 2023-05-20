@@ -2,7 +2,7 @@ import {
   SET_SEARCH_VALUE,
   SET_SUGGESTIONS,
   SET_LOADING,
-} from "../actions/actionTypes";
+} from "../actionTypes/search.actionTypes";
 
 const initialState = {
   searchValue: "",
