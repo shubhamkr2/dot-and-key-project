@@ -15,7 +15,7 @@
 .logo img {
   max-width: 150px;
 }
-.Search_Box{
+.Search_Box {
   position: relative;
 }
 .searchSuggestions {
@@ -37,10 +37,10 @@
   display: flex;
   gap: 10px;
 }
-.suggestionItem div span{
+.suggestionItem div span {
   text-align: left;
 }
-.suggestionItem img{
+.suggestionItem img {
   max-width: 80px;
   max-height: 80px;
 }

@@ -152,33 +152,33 @@ function Navbar() {
                 <CgProfile />
               </IconContext.Provider>
               <span>{loggedUserName}</span>
-      {isDropDownOpen ? (
-        <div className={styles.profile_drop_down}>
-          <Link
-            to="/account"
-            // element={<Sunscreens />}
-            onClick={() => setIsDropDownOpen(false)}
-          >
-            Account
-          </Link>
-          <Link
-            to="/order"
-            // element={<Moisturizers />}
-            onClick={() => setIsDropDownOpen(false)}
-          >
-            Order History
-          </Link>
-          <Link
-            to="/login"
-            // element={<LogIn />}
-            onClick={handleSignOut}
-          >
-            Sign Out
-          </Link>
-        </div>
-      ) : (
-        ""
-      )}
+              {isDropDownOpen ? (
+                <div className={styles.profile_drop_down}>
+                  <Link
+                    to="/account"
+                    // element={<Sunscreens />}
+                    onClick={() => setIsDropDownOpen(false)}
+                  >
+                    Account
+                  </Link>
+                  <Link
+                    to="/order"
+                    // element={<Moisturizers />}
+                    onClick={() => setIsDropDownOpen(false)}
+                  >
+                    Order History
+                  </Link>
+                  <Link
+                    to="/login"
+                    // element={<LogIn />}
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </Link>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           ) : (
             <div className={styles.login_signup}>
