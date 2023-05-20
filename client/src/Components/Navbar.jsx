@@ -19,12 +19,14 @@ import { userLogOut } from "../Redux/actions/user.action";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(false);
-  const { token, isAuth } = useSelector((state) => state.user);
+  // const { token, isAuth } = useSelector((state) => state.user);
   const [loggedUserName, setLoggedUserName] = useState("");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const { suggestions, isLoading } = useSelector((state) => state.search);
   const dispatch = useDispatch();
+
+  const token = localStorage.getItem("token") || [];
 
   function handleSignOut() {
     dispatch(userLogOut());
