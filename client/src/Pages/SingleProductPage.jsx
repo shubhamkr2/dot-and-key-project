@@ -26,7 +26,7 @@ function SingleProductPage() {
   } = data || {};
   useEffect(() => {
     dispatch(getSingleProduct(id));
-  }, []);
+  }, [id]);
 
   const switchImage = (index) => {
     setCurrentImageIndex(index);
