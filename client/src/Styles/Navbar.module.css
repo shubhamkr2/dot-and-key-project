@@ -15,9 +15,7 @@
 .logo img {
   max-width: 150px;
 }
-/* .Search_Box {
-  position: relative;
-} */
+
 .searchSuggestions {
   position: absolute;
   top: 100%;
