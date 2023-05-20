@@ -21,6 +21,7 @@ function Navbar() {
   const { token, isAuth } = useSelector((state) => state.user);
   const [loggedUserName, setLoggedUserName] = useState("");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("")
   const dispatch = useDispatch();
 
   function handleSignOut() {
@@ -36,7 +37,7 @@ function Navbar() {
     }
     setLoggedUserName(name);
   }, [token]);
-  // console.log(loggedUserName);
+  console.log(searchValue);
   return (
     <>
       {/* Navbar container */}
@@ -69,7 +70,7 @@ function Navbar() {
         </Link>
         {/* Search box */}
         <div className={styles.Search_Box}>
-          <input type="text" placeholder="Search your product" />
+          <input type="text" placeholder="Search your product" onChange={(e)=>setSearchValue(e.target.value)}/>
           <IconContext.Provider value={{ size: "2rem", color: "white" }}>
             <ImSearch />
           </IconContext.Provider>
@@ -138,7 +139,7 @@ function Navbar() {
       </div> */}
       {/*Mobile Search box */}
       <div className={styles.Mob_Search_Box}>
-        <input type="text" placeholder="Search your product" />
+        <input type="text" placeholder="Search your product" onChange={(e)=>setSearchValue(e.target.value)}/>
         <IconContext.Provider value={{ size: "2rem", color: "white" }}>
           <ImSearch />
         </IconContext.Provider>
