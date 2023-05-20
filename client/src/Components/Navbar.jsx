@@ -12,7 +12,7 @@ import { MenuSideBar } from "./MenuSideBar";
 import { LogIn } from "../Pages/LogIn";
 import { SignUp } from "../Pages/SignUp";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSearchSuggestions } from "../Redux/actions/searchActions";
+import { fetchSearchSuggestions } from "../Redux/actions/search.action";
 import { userLogOut } from "../Redux/actions/user.action";
 
 // Define Navbar component
