@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../Styles/All.module.css";
+import styles from "../Styles/SearchResult.module.css";
 import { NavigationBar } from "../Components/NavigationBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";

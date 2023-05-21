@@ -1,6 +1,11 @@
 .all_container {
     width: 100%;
   }
+ .all_container h1{
+    text-align: center;
+    margin: auto;
+    color: gray;
+  }
   .all_container .banner {
     width: 100%;
   }
