@@ -19,9 +19,7 @@ function SearchResult() {
   const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("", page, sortAs, filterAsRating)).then(() => {
-      // window.scrollTo(0, 0); // Scroll to top after pagination
-    });
+    dispatch(getAllProduct("", page, sortAs, filterAsRating))
   }, [page, sortAs, filterAsRating]);
 
   
