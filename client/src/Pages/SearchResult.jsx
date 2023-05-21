@@ -11,7 +11,7 @@ import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
 
 function SearchResult() {
-    const { suggestions, isLoading } = useSelector((state) => state.search);
+  const { suggestions, isLoading } = useSelector((state) => state.search);
   const [page, setPage] = useState(1);
   const [sortAs, setSortAs] = useState("");
   const [filterAsRating, setFilterAsRating] = useState("");
@@ -19,15 +19,13 @@ function SearchResult() {
   const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("", page, sortAs, filterAsRating))
+    dispatch(getAllProduct("", page, sortAs, filterAsRating));
   }, [page, sortAs, filterAsRating]);
 
-  
   return (
     <div className={styles.all_container}>
       <NavigationBar />
       <div className={styles.sidebar_and_product}>
-        
         {isLoading ? (
           <Skeleton />
         ) : (
