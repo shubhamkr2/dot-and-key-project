@@ -25,6 +25,7 @@ function SearchResult() {
   return (
     <div className={styles.all_container}>
       <NavigationBar />
+      <h1>Search Results</h1>
       <div className={styles.sidebar_and_product}>
         {isLoading ? (
           <Skeleton />
