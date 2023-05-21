@@ -11,6 +11,7 @@ import { FaceWash } from "../Pages/FaceWash";
 import { FaceMasks } from "../Pages/FaceMasks";
 import { All } from "../Pages/All";
 import { SingleProductPage } from "../Pages/SingleProductPage";
+import { SearchResult } from "../Pages/SearchResult";
 
 function AllRoutes() {
   return (
@@ -33,6 +34,9 @@ function AllRoutes() {
       <Route path="/facemasks/:id" element={<SingleProductPage />} />
       <Route path="/all" element={<All />} />
       <Route path="/all/:id" element={<SingleProductPage />} />
+      <Route path="/searchresult" element={<SearchResult />} />
+      <Route path="/searchresult/:id" element={<SingleProductPage />} />
+
     </Routes>
   );
 }

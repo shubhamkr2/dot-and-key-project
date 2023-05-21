@@ -20,6 +20,7 @@ import { userLogOut } from "../Redux/actions/user.action";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
   // const { token, isAuth } = useSelector((state) => state.user);
   const [loggedUserName, setLoggedUserName] = useState("");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
@@ -53,9 +54,11 @@ function Navbar() {
     if (searchValue.length > 0) {
       // Dispatch the action to fetch suggestions
       dispatch(fetchSearchSuggestions(searchValue));
+      setShowSuggestions(true);
     } else {
       // Clear the suggestions when the search input is empty
       dispatch(fetchSearchSuggestions(""));
+      setShowSuggestions(false);
     }
   };
 
@@ -68,8 +71,12 @@ function Navbar() {
     navigate(path);
 
     // Clear the search input and suggestions after redirection
-    setSearchValue("");
+    setShowSuggestions(false);
     dispatch(fetchSearchSuggestions(""));
+  }
+
+  function handleSearch() {
+    setShowSuggestions(false);
   }
   console.log(suggestions);
   return (
@@ -111,29 +118,33 @@ function Navbar() {
             onChange={handleSearchChange}
           />
           <IconContext.Provider value={{ size: "2rem", color: "white" }}>
-            <ImSearch />
+            <Link to="/searchresult">
+              <ImSearch onClick={handleSearch} />
+            </Link>
           </IconContext.Provider>
 
           {/* Search suggestions */}
-          {searchValue.length > 0 && suggestions?.data?.length > 0 && (
-            <div className={styles.searchSuggestions}>
-              {suggestions?.data?.map((suggestion) => (
-                <div
-                  key={suggestion._id}
-                  onClick={() => handleSuggestion(suggestion._id)}
-                  className={styles.suggestionItem}
-                >
-                  <img src={suggestion.images[0]} alt="product" />
-                  <div>
-                    <span>{suggestion.title}</span>
-                    {/* <span>{suggestion.highlights}</span> */}
-                    <span>Rating: {suggestion.rating}</span>
-                    <span>Rs: {suggestion.price}</span>
+          {showSuggestions &&
+            searchValue.length > 0 &&
+            suggestions?.data?.length > 0 && (
+              <div className={styles.searchSuggestions}>
+                {suggestions?.data?.map((suggestion) => (
+                  <div
+                    key={suggestion._id}
+                    onClick={() => handleSuggestion(suggestion._id)}
+                    className={styles.suggestionItem}
+                  >
+                    <img src={suggestion.images[0]} alt="product" />
+                    <div>
+                      <span>{suggestion.title}</span>
+                      {/* <span>{suggestion.highlights}</span> */}
+                      <span>Rating: {suggestion.rating}</span>
+                      <span>Rs: {suggestion.price}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          )}
+                ))}
+              </div>
+            )}
         </div>
 
         {/* Cart and profile icons */}
@@ -201,28 +212,33 @@ function Navbar() {
           onChange={handleSearchChange}
         />
         <IconContext.Provider value={{ size: "2rem", color: "white" }}>
-          <ImSearch />
+          <Link to="/searchresult">
+            <ImSearch onClick={handleSearch} />
+          </Link>
         </IconContext.Provider>
+
         {/* Search suggestions */}
-        {searchValue.length > 0 && suggestions?.data?.length > 0 && (
-          <div className={styles.searchSuggestions}>
-            {suggestions?.data?.map((suggestion) => (
-              <div
-                key={suggestion._id}
-                onClick={() => handleSuggestion(suggestion._id)}
-                className={styles.suggestionItem}
-              >
-                <img src={suggestion.images[0]} alt="product" />
-                <div>
-                  <span>{suggestion.title}</span>
-                  {/* <span>{suggestion.highlights}</span> */}
-                  <span>Rating: {suggestion.rating}</span>
-                  <span>Rs: {suggestion.price}</span>
+        {showSuggestions &&
+          searchValue.length > 0 &&
+          suggestions?.data?.length > 0 && (
+            <div className={styles.searchSuggestions}>
+              {suggestions?.data?.map((suggestion) => (
+                <div
+                  key={suggestion._id}
+                  onClick={() => handleSuggestion(suggestion._id)}
+                  className={styles.suggestionItem}
+                >
+                  <img src={suggestion.images[0]} alt="product" />
+                  <div>
+                    <span>{suggestion.title}</span>
+                    {/* <span>{suggestion.highlights}</span> */}
+                    <span>Rating: {suggestion.rating}</span>
+                    <span>Rs: {suggestion.price}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
       </div>
     </>
   );
