@@ -59,7 +59,7 @@ function Navbar() {
     }
   };
 
-  function handleSearch(id) {
+  function handleSuggestion(id) {
     console.log(id);
     // Construct the path using the id
     const path = `/${id}`;
@@ -120,7 +120,7 @@ function Navbar() {
               {suggestions?.data?.map((suggestion) => (
                 <div
                   key={suggestion._id}
-                  onClick={() => handleSearch(suggestion._id)}
+                  onClick={() => handleSuggestion(suggestion._id)}
                   className={styles.suggestionItem}
                 >
                   <img src={suggestion.images[0]} alt="product" />
@@ -209,7 +209,7 @@ function Navbar() {
             {suggestions?.data?.map((suggestion) => (
               <div
                 key={suggestion._id}
-                onClick={() => handleSearch(suggestion._id)}
+                onClick={() => handleSuggestion(suggestion._id)}
                 className={styles.suggestionItem}
               >
                 <img src={suggestion.images[0]} alt="product" />
