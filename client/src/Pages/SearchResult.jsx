@@ -38,7 +38,6 @@ function SearchResult() {
           </div>
         )}
       </div>
-      {/* <Pagination page={page} setPage={setPage} data={data} /> */}
       <Footer />
     </div>
   );
