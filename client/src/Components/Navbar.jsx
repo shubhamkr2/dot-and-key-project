@@ -205,24 +205,24 @@ function Navbar() {
         </IconContext.Provider>
         {/* Search suggestions */}
         {searchValue.length > 0 && suggestions?.data?.length > 0 && (
-            <div className={styles.searchSuggestions}>
-              {suggestions?.data?.map((suggestion) => (
-                <div
-                  key={suggestion._id}
-                  onClick={() => handleSearch(suggestion._id)}
-                  className={styles.suggestionItem}
-                >
-                  <img src={suggestion.images[0]} alt="product" />
-                  <div>
-                    <span>{suggestion.title}</span>
-                    {/* <span>{suggestion.highlights}</span> */}
-                    <span>Rating: {suggestion.rating}</span>
-                    <span>Rs: {suggestion.price}</span>
-                  </div>
+          <div className={styles.searchSuggestions}>
+            {suggestions?.data?.map((suggestion) => (
+              <div
+                key={suggestion._id}
+                onClick={() => handleSearch(suggestion._id)}
+                className={styles.suggestionItem}
+              >
+                <img src={suggestion.images[0]} alt="product" />
+                <div>
+                  <span>{suggestion.title}</span>
+                  {/* <span>{suggestion.highlights}</span> */}
+                  <span>Rating: {suggestion.rating}</span>
+                  <span>Rs: {suggestion.price}</span>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
