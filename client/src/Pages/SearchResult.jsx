@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../Styles/SearchResult.module.css";
 import { NavigationBar } from "../Components/NavigationBar";
+import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../Components/ProductCard";
 import { Footer } from "../Components/Footer";
 
