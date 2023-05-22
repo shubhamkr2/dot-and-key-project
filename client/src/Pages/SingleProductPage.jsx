@@ -63,9 +63,9 @@ function SingleProductPage() {
         </div>
         <div className={styles.description_container}>
           <h1>{title}</h1>
-        <div className={styles.carousel}>
-          <SingleImageCarousel images={images} />
-        </div>
+          <div className={styles.carousel}>
+            <SingleImageCarousel images={images} />
+          </div>
           <h3>{highlights}</h3>
           <h2>Rs {price}</h2>
           <div className={styles.quantity}>
