@@ -135,6 +135,26 @@
   background-color: rgb(50, 95, 50);
   color: white;
 }
-.img{
+.img {
   width: 50dvw;
+}
+.carousel {
+  display: none;
+}
+@media (max-width: 560px) {
+  .image_container {
+    display: none;
+  }
+  .carousel {
+    display: block;
+  }
+  .description_container {
+    width: 100%;
+  }
+  .single_page_container {
+    padding: 10px;
+  }
+  .cart_buy_btn button {
+    width: 100%;
+  }
 }
