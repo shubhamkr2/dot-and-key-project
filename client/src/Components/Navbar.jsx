@@ -24,7 +24,7 @@ function Navbar() {
   // const { token, isAuth } = useSelector((state) => state.user);
   const [loggedUserName, setLoggedUserName] = useState("");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState();
   const { suggestions, isLoading } = useSelector((state) => state.search);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -77,8 +77,9 @@ function Navbar() {
 
   function handleSearch() {
     setShowSuggestions(false);
+    dispatch(fetchSearchSuggestions(searchValue));
   }
-  console.log(suggestions);
+  // console.log(suggestions);
   return (
     <>
       {/* Navbar container */}

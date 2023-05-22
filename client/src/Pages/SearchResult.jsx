@@ -27,8 +27,8 @@ function SearchResult() {
       <NavigationBar />
       <h1>Search Results</h1>
       <div className={styles.sidebar_and_product}>
-        {isLoading ? (
-          <Skeleton />
+        {suggestions?.data?.length<1 ? (
+          <img src="https://github.com/shubhamkr2/UploadImages/blob/main/no_result.gif?raw=true" alt="no result" />
         ) : (
           <div className={styles.product_list}>
             {suggestions?.data?.map((product) => (
