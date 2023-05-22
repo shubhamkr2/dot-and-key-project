@@ -7,7 +7,6 @@ import { getSingleProduct } from "../Redux/actions/product.action";
 import { Footer } from "../Components/Footer";
 import { SinglePageSkeleton } from "../Components/SinglePageSkeleton";
 
-
 function SingleProductPage() {
   const { id } = useParams();
   const { loading, single_product_data } = useSelector(
@@ -50,7 +49,9 @@ function SingleProductPage() {
           <div className={styles.thumbnails}>
             {images?.map((image, index) => (
               <img
-              className={index===currentImageIndex?styles.current_image:""}
+                className={
+                  index === currentImageIndex ? styles.current_image : ""
+                }
                 key={index}
                 src={image}
                 alt="Thumbnail"
@@ -78,8 +79,10 @@ function SingleProductPage() {
             <button className={styles.buy_now_btn}>BUY NOW</button>
           </div>
           <div className={styles.description}>
-          <h3>About this item</h3>
-            {description?.map(list=>(<li>{list}</li>))}
+            <h3>About this item</h3>
+            {description?.map((list) => (
+              <li>{list}</li>
+            ))}
           </div>
         </div>
       </div>
