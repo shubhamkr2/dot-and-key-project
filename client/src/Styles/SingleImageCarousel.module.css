@@ -1,31 +1,36 @@
 .carousel_container {
-    position: relative;
-    width: 78%;
-    margin: auto;
-  }
-  .carousel_image img{
-    width: 100%;
-  }
-  .prev_btn,
-  .next_btn {
-    position: absolute;
-    top: 30%;
-    width: 50px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 25px;
-  }
-  .prev_btn {
-    left: -7%;
-  }
-  .next_btn {
-    right: -7%;
-  }
-  .prev_btn:hover,
-  .next_btn:hover {
-    color: red;
-  }
-  
+  position: relative;
+  width: 78%;
+  margin: auto;
+}
+
+.carousel_image img {
+  width: 100%;
+}
+
+.prev_btn,
+.next_btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.prev_btn {
+  left: -8%;
+}
+
+.next_btn {
+  right: -8%;
+}
+
+.prev_btn:hover,
+.next_btn:hover {
+  color: red;
+}
