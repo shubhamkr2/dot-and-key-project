@@ -2,7 +2,7 @@
   padding: 10px 40px;
   display: flex;
   justify-content: center;
-  gap: 5%;
+  /* gap: 5%; */
 }
 .image_container {
   width: 50dvw;
@@ -13,7 +13,7 @@
   padding: 10px;
 }
 .main_image img {
-  max-width: 100%;
+  max-width: 90%;
   /* max-height: 100dvh; */
 }
 .thumbnails {
@@ -105,7 +105,7 @@
   line-height: 2;
 }
 
-.description_container h1{
+.description_container h1 {
   font-size: 2rem;
 }
 /* carousel */
@@ -154,7 +154,7 @@
   .description_container {
     width: 100%;
   }
-  .description_container h1{
+  .description_container h1 {
     font-size: 1.6rem;
   }
   .single_page_container {
