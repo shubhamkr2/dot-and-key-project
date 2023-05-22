@@ -26,30 +26,4 @@
 .carousel_img img {
   width: 100%;
 }
-@media (max-width: 1000px) {
-  .left_arrow,
-  .right_arrow {
-    /* top: 20%; */
-    /* height: 120px; */
-  }
-}
-@media (max-width: 700px) {
-  .left_arrow,
-  .right_arrow {
-    /* top: 16%; */
-  }
-}
-@media (max-width: 600px) {
-  .left_arrow,
-  .right_arrow {
-    /* top: 12%; */
-    /* height: 100px; */
-  }
-}
-@media (max-width: 400px) {
-  .left_arrow,
-  .right_arrow {
-    /* top: 8%; */
-    /* height: 60px; */
-  }
-}
+
