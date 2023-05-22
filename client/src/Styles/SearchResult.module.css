@@ -22,7 +22,7 @@
   gap: 10px;
   min-height: 10dvh;
 }
-.sidebar_and_product img {
+.sidebar_and_product .no_result_image {
   width: 100dvw;
 }
 .mob_sidebar {

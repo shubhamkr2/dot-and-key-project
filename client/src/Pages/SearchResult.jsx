@@ -20,6 +20,7 @@ function SearchResult() {
         {suggestions?.data?.length < 1 ? (
           // If no results found, display a message or image
           <img
+            className={styles.no_result_image}
             src="https://github.com/shubhamkr2/UploadImages/blob/main/no_result.gif?raw=true"
             alt="no result"
           />
