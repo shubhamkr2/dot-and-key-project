@@ -1,8 +1,12 @@
-import { setSearchValue, setSuggestions, setLoading } from "../actionTypes/search.actionTypes";
+import {
+  setSearchValue,
+  setSuggestions,
+  setLoading,
+} from "../actionTypes/search.actionTypes";
 
 let debounceTimeout;
 
-export const fetchSearchSuggestions = (searchValue="") => {
+export const fetchSearchSuggestions = (searchValue = "") => {
   return async (dispatch) => {
     try {
       dispatch(setLoading(true));
@@ -15,13 +19,17 @@ export const fetchSearchSuggestions = (searchValue="") => {
 
       // Set a new timeout for debouncing
       debounceTimeout = setTimeout(async () => {
-        console.log(searchValue)
-        if(searchValue===""){
-          const response = await fetch(`https://courageous-rose-nightgown.cyclic.app/products?title=""`);
+        console.log(searchValue);
+        if (searchValue === "") {
+          const response = await fetch(
+            `https://courageous-rose-nightgown.cyclic.app/products?title=""`
+          );
           const suggestions = await response.json();
           dispatch(setSuggestions(suggestions));
-        }else{
-          const response = await fetch(`https://courageous-rose-nightgown.cyclic.app/products?title=${searchValue}`);
+        } else {
+          const response = await fetch(
+            `https://courageous-rose-nightgown.cyclic.app/products?title=${searchValue}`
+          );
           const suggestions = await response.json();
           dispatch(setSuggestions(suggestions));
         }
