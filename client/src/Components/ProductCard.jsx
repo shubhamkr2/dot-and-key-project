@@ -29,8 +29,10 @@ let data = {
 function ProductCard({ product }) {
   // console.log(product);
   return (
-    <Link to={product._id}> <div className={styles.container}>
-      <img src={product.images[0]} />
+    <div className={styles.container}>
+      <Link to={product._id}>
+        <img src={product.images[0]} />
+      </Link>
       <div className={styles.rating}>
         <IconContext.Provider value={{ color: "rgb(235, 182, 10)" }}>
           <AiFillStar />
@@ -42,7 +44,6 @@ function ProductCard({ product }) {
       <h4 className={styles.price}>Rs: {product.price}</h4>
       <button>ADD TO CART</button>
     </div>
-    </Link>
   );
 }
 
