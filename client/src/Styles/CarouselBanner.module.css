@@ -17,6 +17,7 @@
 .right_arrow {
   right: 0%;
 }
+
 .left_arrow:hover,
 .right_arrow:hover {
   border: 1px solid black;
