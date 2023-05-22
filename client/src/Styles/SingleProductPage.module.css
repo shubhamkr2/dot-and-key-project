@@ -2,7 +2,10 @@
   padding: 10px 40px;
   display: flex;
   justify-content: center;
-  gap: 10%;
+  gap: 5%;
+}
+.image_container{
+  width: 50dvw;
 }
 .current_image{
   border: 2px solid red;
@@ -10,8 +13,8 @@
   padding: 10px;
 }
 .main_image img {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 100%;
+  /* max-height: 100dvh; */
 }
 .thumbnails{
     margin-top: 20px;
@@ -34,6 +37,7 @@
 }
 .description_container{
     text-align: center;
+    width: 50dvw;
 }
 .description_container h1{
     color: rgb(43, 43, 43);
