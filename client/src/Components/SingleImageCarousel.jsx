@@ -7,7 +7,6 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import styles from "../Styles/SingleImageCarousel.module.css";
 
-
 function SingleImageCarousel({ images }) {
   const ref = useRef(null);
   const handleNextSlide = () => {
@@ -24,16 +23,15 @@ function SingleImageCarousel({ images }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    
   };
   return (
     <div className={styles.carousel_container}>
       <Slider {...settings} ref={ref}>
-      {images?.map((image)=>(
-        <div className={styles.carousel_image}>
-            <img src={image} alt="product image"/>
-        </div>
-      ))}
+        {images?.map((image) => (
+          <div className={styles.carousel_image}>
+            <img src={image} alt="product image" />
+          </div>
+        ))}
       </Slider>
 
       <div className={styles.prev_btn} onClick={handlePrevSlide}>
