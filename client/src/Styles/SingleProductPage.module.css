@@ -105,6 +105,9 @@
   line-height: 2;
 }
 
+.description_container h1{
+  font-size: 2rem;
+}
 /* carousel */
 .carousel_container {
   position: relative;
@@ -150,6 +153,9 @@
   }
   .description_container {
     width: 100%;
+  }
+  .description_container h1{
+    font-size: 1.6rem;
   }
   .single_page_container {
     padding: 10px;
