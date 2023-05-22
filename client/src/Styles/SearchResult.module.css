@@ -22,6 +22,9 @@
     gap: 10px;
     min-height: 10dvh;
   }
+  .sidebar_and_product img{
+    width: 100dvw;
+  }
   .mob_sidebar {
     display: none;
     margin-top: 20px;
