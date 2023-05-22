@@ -10,7 +10,7 @@ function SearchResult() {
   const { suggestions, isLoading } = useSelector((state) => state.search);
 
   return (
-    <div className={styles.all_container}>
+    <div className={styles.searchresult_container}>
       {/* Render the navigation bar */}
       <NavigationBar />
 
