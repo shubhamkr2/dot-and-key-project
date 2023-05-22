@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../Styles/Skeleton.module.css";
 
-const Skeleton = () => {
+const SinglePageSkeleton = () => {
   return (
     
     <div className={styles.container}>
@@ -17,4 +17,4 @@ const Skeleton = () => {
   );
 };
 
-export { Skeleton };
+export { SinglePageSkeleton };

@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavigationBar } from "../Components/NavigationBar";
 import { getSingleProduct } from "../Redux/actions/product.action";
 import { Footer } from "../Components/Footer";
+import { SinglePageSkeleton } from "../Components/SinglePageSkeleton";
+
 
 function SingleProductPage() {
   const { id } = useParams();
@@ -34,7 +36,7 @@ function SingleProductPage() {
 
   console.log(title);
   if (loading) {
-    return <div>Loading...</div>;
+    return <SinglePageSkeleton />;
   }
   return (
     <>
