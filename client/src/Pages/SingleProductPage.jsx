@@ -42,7 +42,8 @@ function SingleProductPage() {
       <NavigationBar />
       <h1 className={styles.category}>{category?.toUpperCase()}</h1>
       <div className={styles.single_page_container}>
-        <div className={styles.image_container}>
+      <div></div>
+        {/* <div className={styles.image_container}>
           <div className={styles.main_image}>
             {images && <img src={images[currentImageIndex]} alt="Product" />}
           </div>
@@ -59,7 +60,7 @@ function SingleProductPage() {
               />
             ))}
           </div>
-        </div>
+        </div> */}
         <div className={styles.description_container}>
           <h1>{title}</h1>
           <h3>{highlights}</h3>

@@ -104,3 +104,37 @@
   text-align: left;
   line-height: 2;
 }
+
+/* carousel */
+.carousel_container {
+  position: relative;
+  width: 78%;
+  margin: auto;
+}
+.prev_btn,
+.next_btn {
+  border: 1px solid black;
+  position: absolute;
+  top: 30%;
+  width: 50px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.prev_btn {
+  left: -7%;
+}
+.next_btn {
+  right: -7%;
+}
+.prev_btn:hover,
+.next_btn:hover {
+  /* background-color: rgb(202, 198, 198); */
+  background-color: rgb(50, 95, 50);
+  color: white;
+}
+.img{
+  width: 50dvw;
+}
