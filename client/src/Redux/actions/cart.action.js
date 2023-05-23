@@ -9,7 +9,9 @@ import {
   REMOVE_FROM_CART,
 } from "../actionTypes/cart.actionTypes";
 
-function addToCart() {}
+function addToCart() {
+  
+}
 function getProducts() {}
 function updateQty() {}
 function removeFromCart() {}

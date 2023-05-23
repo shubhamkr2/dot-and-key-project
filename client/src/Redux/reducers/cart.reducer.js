@@ -10,27 +10,74 @@ import {
 } from "../actionTypes/cart.actionTypes";
 
 const initialState = {
- 
+  loading: false,
+  error: null,
+  cartItems: [],
 };
 
 function cartReducer(state = initialState, action) {
   switch (action.type) {
     case CART_REQUEST:
-      return {};
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
     case CART_SUCCESS:
-      return {};
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        cartItems: [...state.cartItems, action.payload],
+      };
     case CART_FAILURE:
-      return {};
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     case GET_CART_PRODUCTS_DATA:
-      return {};
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        cartItems: action.payload,
+      };
     case GET_CART_PRODUCTS_LOADING:
-      return {};
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
     case GET_CART_PRODUCTS_ERROR:
-      return {};
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+        cartItems: [],
+      };
     case UPDATE_QUANTITY:
-      return {};
+      const updatedCartItems = state.cartItems.map((item) => {
+        if (item.productId === action.payload.productId) {
+          return {
+            ...item,
+            quantity: action.payload.quantity,
+          };
+        }
+        return item;
+      });
+      return {
+        ...state,
+        cartItems: updatedCartItems,
+      };
     case REMOVE_FROM_CART:
-      return {};
+      const filteredCartItems = state.cartItems.filter(
+        (item) => item.productId !== action.payload.productId
+      );
+      return {
+        ...state,
+        cartItems: filteredCartItems,
+      };
     default:
       return state;
   }
