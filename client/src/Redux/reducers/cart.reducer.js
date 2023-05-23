@@ -10,9 +10,7 @@ import {
 } from "../actionTypes/cart.actionTypes";
 
 const initialState = {
-  isLoading: false,
-  isError: false,
-  cartData: [],
+ 
 };
 
 function cartReducer(state = initialState, action) {
