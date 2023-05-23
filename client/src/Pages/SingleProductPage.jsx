@@ -43,16 +43,16 @@ function SingleProductPage() {
   }
   function handleAddToCart() {
     const product = {
-      productId:_id,
-      category:category,
-      title:title,
-      description:description,
-      price:price,
-      image:images,
-      rating:rating,
-      stock:stock,
-      quantity:quantity
-    }
+      productId: _id,
+      category: category,
+      title: title,
+      description: description,
+      price: price,
+      image: images,
+      rating: rating,
+      stock: stock,
+      quantity: quantity,
+    };
     dispatch(addToCart(product, token));
   }
   return (
