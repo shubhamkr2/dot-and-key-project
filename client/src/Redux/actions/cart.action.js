@@ -21,7 +21,7 @@ function addToCart(product, token) {
             "Content-Type": "application/json",
             authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify( product ),
+          body: JSON.stringify(product),
         }
       );
       const data = await response.json();
