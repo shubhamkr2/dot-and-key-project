@@ -7,6 +7,7 @@ import { getSingleProduct } from "../Redux/actions/product.action";
 import { Footer } from "../Components/Footer";
 import { SinglePageSkeleton } from "../Components/SinglePageSkeleton";
 import { SingleImageCarousel } from "../Components/SingleImageCarousel";
+import { addToCart } from "../Redux/actions/cart.action";
 
 function SingleProductPage() {
   const { id } = useParams();
@@ -14,9 +15,12 @@ function SingleProductPage() {
     (state) => state.product
   );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const { data } = single_product_data || {};
+  const token = localStorage.getItem("token") || [];
   const {
+    _id,
     category,
     title,
     description,
@@ -34,9 +38,22 @@ function SingleProductPage() {
     setCurrentImageIndex(index);
   };
 
-  console.log(title);
   if (loading) {
     return <SinglePageSkeleton />;
+  }
+  function handleAddToCart() {
+    const product = {
+      productId:_id,
+      category:category,
+      title:title,
+      description:description,
+      price:price,
+      image:images,
+      rating:rating,
+      stock:stock,
+      quantity:quantity
+    }
+    dispatch(addToCart(product, token));
   }
   return (
     <>
@@ -70,7 +87,7 @@ function SingleProductPage() {
           <h2>Rs {price}</h2>
           <div className={styles.quantity}>
             <label>Quantity:</label>
-            <select>
+            <select onChange={(e) => setQuantity(e.target.value)}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -79,13 +96,18 @@ function SingleProductPage() {
             </select>
           </div>
           <div className={styles.cart_buy_btn}>
-            <button className={styles.add_to_cart_btn}>ADD TO CART</button>
+            <button
+              className={styles.add_to_cart_btn}
+              onClick={handleAddToCart}
+            >
+              ADD TO CART
+            </button>
             <button className={styles.buy_now_btn}>BUY NOW</button>
           </div>
           <div className={styles.description}>
             <h3>About this item</h3>
-            {description?.map((list) => (
-              <li>{list}</li>
+            {description?.map((list, index) => (
+              <li key={index}>{list}</li>
             ))}
           </div>
         </div>

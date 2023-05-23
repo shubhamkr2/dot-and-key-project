@@ -27,8 +27,8 @@ function SingleImageCarousel({ images }) {
   return (
     <div className={styles.carousel_container}>
       <Slider {...settings} ref={ref}>
-        {images?.map((image) => (
-          <div className={styles.carousel_image}>
+        {images?.map((image, index) => (
+          <div className={styles.carousel_image} key={index}>
             <img src={image} alt="product image" />
           </div>
         ))}
