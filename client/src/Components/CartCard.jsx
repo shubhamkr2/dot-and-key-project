@@ -6,6 +6,7 @@ function CartCard({item, setQuantity}) {
     
   return (
     <div className={styles.container}>
+    <div className={styles.image_and_description}>
       <img
         src={image[0]}
         alt="product image"
@@ -16,7 +17,8 @@ function CartCard({item, setQuantity}) {
         <h3>Category: {category}</h3>
         <h2>Rs: {price}</h2>
       </div>
-      <div>
+      </div>
+      <div className={styles.qty}>
         <select value={quantity} onChange={(e)=>setQuantity(e.target.value)}>
           <option value="1" >1</option>
           <option value="2" >2</option>

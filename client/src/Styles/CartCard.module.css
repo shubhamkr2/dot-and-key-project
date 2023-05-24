@@ -1,11 +1,15 @@
 .container {
   /* border: 1px solid red; */
   display: flex;
-  /* justify-content: center; */
-  align-items: center;
+  justify-content: space-between;
+  /* align-items: center; */
   /* width: fit-content; */
   gap: 20px;
   padding: 10px;
+}
+.image_and_description{
+  display: flex;
+  gap: 20px;
 }
 .container img{
     width: 150px;
@@ -16,4 +20,7 @@
 }
 .container .description h3{
     color: gray;
+}
+select{
+  margin-top: 1em;
 }
