@@ -32,12 +32,9 @@ function Navbar() {
   const token = localStorage.getItem("token") || [];
 
   function handleSignOut() {
+    dispatch(userLogOut());
     setIsDropDownOpen(!isDropDownOpen);
   }
-  
-  useEffect(() => {
-    dispatch(userLogOut());
-  }, [isDropDownOpen]);
   
   useEffect(() => {
     const name = localStorage.getItem("user_name");
