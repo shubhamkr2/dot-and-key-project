@@ -150,11 +150,13 @@ function Navbar() {
 
         {/* Cart and profile icons */}
         <div className={styles.cartLogo_profileIcon}>
-          <div className={styles.cart_logo}>
-            <IconContext.Provider value={{ size: "2rem" }}>
-              <FiShoppingCart />
-            </IconContext.Provider>
-          </div>
+          <Link to="/cart" >
+            <div className={styles.cart_logo} >
+              <IconContext.Provider value={{ size: "2rem" }}>
+                <FiShoppingCart />
+              </IconContext.Provider>
+            </div>
+          </Link>
           {login ? (
             <div
               className={styles.user_profile}

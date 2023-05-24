@@ -15,7 +15,9 @@
 .logo img {
   max-width: 150px;
 }
-
+.cart_logo {
+  color: black;
+}
 .searchSuggestions {
   position: absolute;
   top: 100%;
