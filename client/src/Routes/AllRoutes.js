@@ -12,6 +12,7 @@ import { FaceMasks } from "../Pages/FaceMasks";
 import { All } from "../Pages/All";
 import { SingleProductPage } from "../Pages/SingleProductPage";
 import { SearchResult } from "../Pages/SearchResult";
+import { Cart } from "../Pages/Cart";
 
 function AllRoutes() {
   return (
@@ -20,6 +21,7 @@ function AllRoutes() {
       <Route path="/:id" element={<SingleProductPage />} />
       <Route path="/login" element={<LogIn />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="/sunscreens" element={<Sunscreens />} />
       <Route path="/sunscreens/:id" element={<SingleProductPage />} />
       <Route path="/moisturizers" element={<Moisturizers />} />
