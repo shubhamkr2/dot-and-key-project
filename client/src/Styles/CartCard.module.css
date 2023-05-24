@@ -1,15 +1,15 @@
 .container {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  width: fit-content;
+  /* width: fit-content; */
   gap: 20px;
   padding: 10px;
 }
 .container img{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 .container .description h3{
     color: gray;

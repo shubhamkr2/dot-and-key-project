@@ -1,19 +1,20 @@
 import React from "react";
 import styles from "../Styles/CartCard.module.css";
 
-function CartCard({quantity, setQuantity}) {
+function CartCard({item, setQuantity}) {
+    let {image, title, category, price, quantity, _id } = item || {};
     
   return (
     <div className={styles.container}>
       <img
-        src="https://cdn.shopify.com/s/files/1/0361/8553/8692/products/1-1.webp?v=1683526609"
+        src={image[0]}
         alt="product image"
       />
       <div className={styles.description}>
-        <h2>Watermelon Cooling SPF 50 Face Sunscreen</h2>
-        <h3>GIVES INSTANT COOLING</h3>
-        <h3>Category: Sunscreens</h3>
-        <h2>Rs: 458</h2>
+        <h2>{title}</h2>
+        {/* <h3>GIVES INSTANT COOLING</h3> */}
+        <h3>Category: {category}</h3>
+        <h2>Rs: {price}</h2>
       </div>
       <div>
         <select value={quantity} onChange={(e)=>setQuantity(e.target.value)}>

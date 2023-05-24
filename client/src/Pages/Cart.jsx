@@ -16,7 +16,9 @@ console.log(cartItems)
   return (
     <div>
       <h1>Cart</h1>
-      <CartCard quantity={quantity} setQuantity={setQuantity}/>
+      {cartItems?.data?.map((item)=>(
+        <CartCard key={item._id} item={item} quantity={quantity} setQuantity={setQuantity}/>
+      ))}
       <div>
         <h3>Gross Total: </h3>
         <h3>Shipping: </h3>
