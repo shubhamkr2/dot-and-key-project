@@ -11,6 +11,9 @@
     width: 150px;
     height: 150px;
 }
+.container .description h2{
+  font-size: 1.1rem;
+}
 .container .description h3{
     color: gray;
 }
