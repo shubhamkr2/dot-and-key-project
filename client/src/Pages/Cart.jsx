@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getCartItem } from "../Redux/actions/cart.action";
 
 function Cart() {
-  const {} = useSelector((state) => state.cart);
+  const token = localStorage.getItem("token") || [];
+  const {cartItems} = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCartItem(token));
+  },[]);
+console.log(cartItems)
   return (
     <div>
       <h1>Cart</h1>

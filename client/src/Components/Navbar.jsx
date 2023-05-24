@@ -32,18 +32,24 @@ function Navbar() {
   const token = localStorage.getItem("token") || [];
 
   function handleSignOut() {
-    dispatch(userLogOut());
     setIsDropDownOpen(!isDropDownOpen);
   }
+  
   useEffect(() => {
-    const name = localStorage.getItem("user_name") || [];
-    if (name.length > 0) {
+    dispatch(userLogOut());
+  }, [isDropDownOpen]);
+  
+  useEffect(() => {
+    const name = localStorage.getItem("user_name");
+    if (name !== null) {
       setLogin(true);
+      setLoggedUserName(name);
     } else {
       setLogin(false);
+      setLoggedUserName("");
     }
-    setLoggedUserName(name);
   }, [token]);
+  
 
   const handleSearchChange = (e) => {
     const searchValue = e.target.value;

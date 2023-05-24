@@ -33,7 +33,7 @@ function addToCart(product, token) {
   };
 }
 
-function getProducts() {
+function getCartItem(token) {
   return async (dispatch) => {
     try {
       dispatch({ type: GET_CART_PRODUCTS_LOADING });
@@ -58,4 +58,4 @@ function getProducts() {
 function updateQty() {}
 function removeFromCart() {}
 
-export { addToCart, getProducts, updateQty, removeFromCart };
+export { addToCart, getCartItem, updateQty, removeFromCart };
