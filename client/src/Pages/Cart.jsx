@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartItem } from "../Redux/actions/cart.action";
 import { CartCard } from "../Components/CartCard";
 
 function Cart() {
   const token = localStorage.getItem("token") || [];
+  const [quantity, setQuantity] = useState(3);
   const {cartItems} = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -15,7 +16,7 @@ console.log(cartItems)
   return (
     <div>
       <h1>Cart</h1>
-      <CartCard />
+      <CartCard quantity={quantity} setQuantity={setQuantity}/>
       <div>
         <h3>Gross Total: </h3>
         <h3>Shipping: </h3>

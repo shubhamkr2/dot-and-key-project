@@ -1,0 +1,16 @@
+.container {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: 20px;
+  padding: 10px;
+}
+.container img{
+    width: 200px;
+    height: 200px;
+}
+.container .description h3{
+    color: gray;
+}
