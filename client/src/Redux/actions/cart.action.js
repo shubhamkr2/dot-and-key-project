@@ -33,7 +33,28 @@ function addToCart(product, token) {
   };
 }
 
-function getProducts() {}
+function getProducts() {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: GET_CART_PRODUCTS_LOADING });
+      const response = await fetch(
+        "https://courageous-rose-nightgown.cyclic.app/carts",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      dispatch({ type: GET_CART_PRODUCTS_DATA, payload: data });
+    } catch (error) {
+      dispatch({ type: GET_CART_PRODUCTS_ERROR, payload: error.message });
+    }
+  };
+}
 function updateQty() {}
 function removeFromCart() {}
 
