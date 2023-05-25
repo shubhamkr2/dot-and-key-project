@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartItems } from "../Redux/actions/cart.action";
-import {CartCard} from "../Components/CartCard";
+import { CartCard } from "../Components/CartCard";
 import styles from "../Styles/Cart.module.css";
 
 const Cart = () => {
@@ -17,7 +17,14 @@ const Cart = () => {
     return <h1>Loading...</h1>;
   }
 
-  const totalPrice = cartItems?.data?.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalPrice = cartItems?.data?.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+  const totalQuantity = cartItems?.data?.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
 
   return (
     <div className={styles.main_container}>
@@ -29,6 +36,9 @@ const Cart = () => {
           ))}
         </div>
         <div className={styles.price}>
+          <div className={styles.total_qty}>
+            <h2>Total {totalQuantity} Items</h2>
+          </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Total price:</span>
             <span className={styles.priceValue}>{totalPrice}</span>
@@ -51,4 +61,4 @@ const Cart = () => {
   );
 };
 
-export {Cart};
+export { Cart };
