@@ -1,6 +1,6 @@
 import * as actionTypes from "../actionTypes/cart.actionTypes";
 
-export const addToCart = (product, token) => {
+export const addToCart = (product, token, toast) => {
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.ADD_TO_CART_REQUEST });
@@ -16,13 +16,18 @@ export const addToCart = (product, token) => {
         }
       );
       const data = await response.json();
-      console.log(data);
       dispatch({ type: actionTypes.ADD_TO_CART_SUCCESS, payload: data });
+      if (data.message === "Quantity limit exceeded") {
+        toast.error(data.message);
+      } else {
+        toast.success(data.message);
+      }
     } catch (error) {
       dispatch({
         type: actionTypes.ADD_TO_CART_FAILURE,
         payload: error.message,
       });
+      toast.error("Unable to add to cart");
     }
   };
 };

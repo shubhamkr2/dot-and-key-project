@@ -8,6 +8,7 @@ import { Footer } from "../Components/Footer";
 import { SinglePageSkeleton } from "../Components/SinglePageSkeleton";
 import { SingleImageCarousel } from "../Components/SingleImageCarousel";
 import { addToCart } from "../Redux/actions/cart.action";
+import toast, { Toaster } from "react-hot-toast";
 
 function SingleProductPage() {
   const { id } = useParams();
@@ -53,12 +54,15 @@ function SingleProductPage() {
       stock: stock,
       quantity: quantity,
     };
-    dispatch(addToCart(product, token));
+    dispatch(addToCart(product, token, toast));
   }
   return (
     <>
       <NavigationBar />
       <h1 className={styles.category}>{category?.toUpperCase()}</h1>
+      <div>
+        <Toaster />
+      </div>
       <div className={styles.single_page_container}>
         <div className={styles.image_container}>
           <div className={styles.main_image}>
