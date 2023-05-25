@@ -1,8 +1,30 @@
 import React from "react";
 import styles from "../Styles/CartCard.module.css";
+import { useDispatch } from "react-redux";
+import {
+  updateCartItemQuantity,
+  removeFromCart,
+  getCartItems,
+} from "../Redux/actions/cart.action";
 
-function CartCard({ item, setQuantity }) {
-  let { image, title, category, price, quantity, _id } = item || {};
+function CartCard({ item }) {
+  const { _id, image, title, category, price, quantity } = item;
+  const token = localStorage.getItem("token") || "";
+  const dispatch = useDispatch();
+
+  const handleQuantityChange = (e) => {
+    const newQuantity = parseInt(e.target.value);
+    dispatch(updateCartItemQuantity(token, _id, newQuantity));
+  };
+
+  const handleRemove = async () => {
+    try {
+      await dispatch(removeFromCart(token, _id));
+      dispatch(getCartItems(token));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -10,14 +32,15 @@ function CartCard({ item, setQuantity }) {
         <img src={image[0]} alt="product image" />
         <div className={styles.description}>
           <h2>{title}</h2>
-          {/* <h3>GIVES INSTANT COOLING</h3> */}
           <h3>Category: {category}</h3>
           <h2>Rs: {price}</h2>
-          <button className={styles.remove_btn}>Remove</button>
+          <button className={styles.remove_btn} onClick={handleRemove}>
+            Remove
+          </button>
         </div>
       </div>
       <div className={styles.qty}>
-        <select value={quantity} onChange={(e) => setQuantity(e.target.value)}>
+        <select value={quantity} onChange={handleQuantityChange}>
           <option value="1">Qty 1</option>
           <option value="2">Qty 2</option>
           <option value="3">Qty 3</option>

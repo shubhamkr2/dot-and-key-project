@@ -1,61 +1,79 @@
-import {
-  CART_REQUEST,
-  CART_SUCCESS,
-  CART_FAILURE,
-  GET_CART_PRODUCTS_DATA,
-  GET_CART_PRODUCTS_LOADING,
-  GET_CART_PRODUCTS_ERROR,
-  UPDATE_QUANTITY,
-  REMOVE_FROM_CART,
-} from "../actionTypes/cart.actionTypes";
+import * as actionTypes from "../actionTypes/cart.actionTypes";
 
-function addToCart(product, token) {
+export const addToCart = (product, token) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: CART_REQUEST });
-      const response = await fetch(
-        "https://courageous-rose-nightgown.cyclic.app/carts",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(product),
-        }
-      );
+      dispatch({ type: actionTypes.ADD_TO_CART_REQUEST });
+      const response = await fetch("https://courageous-rose-nightgown.cyclic.app/carts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(product),
+      });
       const data = await response.json();
-      console.log(data);
-      dispatch({ type: CART_SUCCESS, payload: data });
+      dispatch({ type: actionTypes.ADD_TO_CART_SUCCESS, payload: data });
     } catch (error) {
-      dispatch({ type: CART_FAILURE, payload: error.message });
+      dispatch({ type: actionTypes.ADD_TO_CART_FAILURE, payload: error.message });
     }
   };
-}
+};
 
-function getCartItem(token) {
+export const getCartItems = (token) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: GET_CART_PRODUCTS_LOADING });
-      const response = await fetch(
-        "https://courageous-rose-nightgown.cyclic.app/carts",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      dispatch({ type: actionTypes.GET_CART_ITEMS_REQUEST });
+      const response = await fetch("https://courageous-rose-nightgown.cyclic.app/carts", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
-      console.log(data);
-      dispatch({ type: GET_CART_PRODUCTS_DATA, payload: data });
+      dispatch({ type: actionTypes.GET_CART_ITEMS_SUCCESS, payload: data });
     } catch (error) {
-      dispatch({ type: GET_CART_PRODUCTS_ERROR, payload: error.message });
+      dispatch({ type: actionTypes.GET_CART_ITEMS_FAILURE, payload: error.message });
     }
   };
-}
-function updateQty() {}
-function removeFromCart() {}
+};
 
-export { addToCart, getCartItem, updateQty, removeFromCart };
+export const updateCartItemQuantity = (token, id, quantity) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: actionTypes.UPDATE_CART_ITEM_QUANTITY_REQUEST });
+      const response = await fetch(`https://courageous-rose-nightgown.cyclic.app/carts/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ quantity }),
+      });
+      const data = await response.json();
+      dispatch({ type: actionTypes.UPDATE_CART_ITEM_QUANTITY_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: actionTypes.UPDATE_CART_ITEM_QUANTITY_FAILURE, payload: error.message });
+    }
+  };
+};
+
+export const removeFromCart = (token, id) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: actionTypes.REMOVE_FROM_CART_REQUEST });
+      const response = await fetch(`https://courageous-rose-nightgown.cyclic.app/carts/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await response.json();
+      dispatch({ type: actionTypes.REMOVE_FROM_CART_SUCCESS, payload: id });
+    } catch (error) {
+      dispatch({ type: actionTypes.REMOVE_FROM_CART_FAILURE, payload: error.message });
+    }
+  };
+};

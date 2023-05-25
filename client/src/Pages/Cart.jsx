@@ -1,26 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCartItem } from "../Redux/actions/cart.action";
-import { CartCard } from "../Components/CartCard";
+import { getCartItems } from "../Redux/actions/cart.action";
+import {CartCard} from "../Components/CartCard";
 import styles from "../Styles/Cart.module.css";
 
-function Cart() {
-  const token = localStorage.getItem("token") || [];
-  const [quantity, setQuantity] = useState(3);
-  const { cartItems } = useSelector((state) => state.cart);
+const Cart = () => {
+  const token = localStorage.getItem("token");
+  const { cartItems, loading } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCartItem(token));
+    dispatch(getCartItems(token));
   }, []);
 
-  // Calculate total price dynamically
-  const totalPrice = cartItems?.data?.reduce(
-    (acc, item) => acc + item.price * quantity,
-    0
-  );
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
-  console.log(cartItems);
+  const totalPrice = cartItems?.data?.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <div className={styles.main_container}>
@@ -28,12 +25,7 @@ function Cart() {
       <div className={styles.cards_and_price}>
         <div className={styles.cards}>
           {cartItems?.data?.map((item) => (
-            <CartCard
-              key={item._id}
-              item={item}
-              quantity={quantity}
-              setQuantity={setQuantity}
-            />
+            <CartCard key={item._id} item={item} />
           ))}
         </div>
         <div className={styles.price}>
@@ -57,6 +49,6 @@ function Cart() {
       </div>
     </div>
   );
-}
+};
 
-export { Cart };
+export {Cart};
