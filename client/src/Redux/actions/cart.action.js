@@ -13,6 +13,7 @@ export const addToCart = (product, token) => {
         body: JSON.stringify(product),
       });
       const data = await response.json();
+      console.log(data)
       dispatch({ type: actionTypes.ADD_TO_CART_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: actionTypes.ADD_TO_CART_FAILURE, payload: error.message });
