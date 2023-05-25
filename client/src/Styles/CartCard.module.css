@@ -24,6 +24,7 @@
 select{
   margin-top: 1em;
   cursor: pointer;
+  font-size: large;
 }
 .remove_btn{
   border: none;
