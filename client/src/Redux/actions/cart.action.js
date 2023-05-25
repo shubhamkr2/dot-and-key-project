@@ -1,3 +1,4 @@
+import { toast } from "react-hot-toast";
 import * as actionTypes from "../actionTypes/cart.actionTypes";
 
 export const addToCart = (product, token, toast) => {
@@ -57,7 +58,7 @@ export const getCartItems = (token) => {
   };
 };
 
-export const updateCartItemQuantity = (token, id, quantity) => {
+export const updateCartItemQuantity = (token, id, quantity, toast) => {
   // console.log(quantity, token, id)
   return async (dispatch) => {
     try {
@@ -75,6 +76,7 @@ export const updateCartItemQuantity = (token, id, quantity) => {
       );
       const data = await response.json();
       console.log(data);
+      toast.success(`Quantity ${quantity} updated successfully`);
       dispatch({
         type: actionTypes.UPDATE_CART_ITEM_QUANTITY_SUCCESS,
         payload: { _id: id, quantity: quantity },
@@ -84,11 +86,12 @@ export const updateCartItemQuantity = (token, id, quantity) => {
         type: actionTypes.UPDATE_CART_ITEM_QUANTITY_FAILURE,
         payload: error.message,
       });
+      // toast.error("Failed to update the quantity");
     }
   };
 };
 
-export const removeFromCart = (token, id) => {
+export const removeFromCart = (token, id, toast) => {
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.REMOVE_FROM_CART_REQUEST });
@@ -103,6 +106,7 @@ export const removeFromCart = (token, id) => {
         }
       );
       const data = await response.json();
+      toast.success("Item removed successfully");
       dispatch({ type: actionTypes.REMOVE_FROM_CART_SUCCESS, payload: id });
     } catch (error) {
       dispatch({

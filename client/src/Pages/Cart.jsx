@@ -41,7 +41,6 @@ const Cart = () => {
     } else {
       setDiscount(0);
       toast.error("Invalid promo code");
-
     }
   }
   return (
@@ -57,7 +56,7 @@ const Cart = () => {
             <h2>Quantity</h2>
           </div>
           {cartItems?.data?.map((item) => (
-            <CartCard key={item._id} item={item} />
+            <CartCard key={item._id} item={item} toast={toast} />
           ))}
         </div>
         <div className={styles.price}>
