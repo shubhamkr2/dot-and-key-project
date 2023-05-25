@@ -37,7 +37,7 @@ const Cart = () => {
         </div>
         <div className={styles.price}>
           <div className={styles.total_qty}>
-            <h2>Total {totalQuantity} Items</h2>
+            <h2>Total {totalQuantity} items</h2>
           </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Total price:</span>
@@ -52,7 +52,7 @@ const Cart = () => {
             <span className={styles.priceValue}>100</span>
           </div>
           <div className={styles.totalItem}>
-            <span className={styles.totalLabel}>Total:</span>
+            <span className={styles.totalLabel}>Subtotal:</span>
             <span className={styles.totalValue}>{totalPrice + 50 - 100}</span>
           </div>
         </div>
