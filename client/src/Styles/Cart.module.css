@@ -69,16 +69,25 @@
   margin-left: 10px;
   width: 70px;
   text-align: right;
+  font-weight: bolder;
+}
+.totalValue {
+  color: green;
 }
 .promo_code {
   display: flex;
   gap: 10px;
 }
-.promo_code input{
+.promo_code input {
   width: 70%;
   padding: 5px;
 }
-.proceed_btn button{
+.promo_code button {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.proceed_btn button {
   width: 100%;
   margin-top: 15px;
   padding: 10px;
@@ -90,6 +99,6 @@
   cursor: pointer;
   border: none;
 }
-.proceed_btn button:hover{
+.proceed_btn button:hover {
   background-color: rgb(12, 75, 12);
 }
