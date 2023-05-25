@@ -24,3 +24,14 @@
 select{
   margin-top: 1em;
 }
+.remove_btn{
+  border: none;
+  cursor: pointer;
+  background-color: rgb(90, 47, 47);
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+.remove_btn:hover{
+  background-color: red;
+}
