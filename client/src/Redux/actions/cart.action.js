@@ -41,11 +41,12 @@ export const getCartItems = (token) => {
 };
 
 export const updateCartItemQuantity = (token, id, quantity) => {
+  // console.log(quantity, token, id)
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.UPDATE_CART_ITEM_QUANTITY_REQUEST });
       const response = await fetch(`https://courageous-rose-nightgown.cyclic.app/carts/${id}`, {
-        method: "PATCH",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
           authorization: `Bearer ${token}`,
@@ -53,6 +54,7 @@ export const updateCartItemQuantity = (token, id, quantity) => {
         body: JSON.stringify({ quantity }),
       });
       const data = await response.json();
+      console.log(data);
       dispatch({ type: actionTypes.UPDATE_CART_ITEM_QUANTITY_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: actionTypes.UPDATE_CART_ITEM_QUANTITY_FAILURE, payload: error.message });
