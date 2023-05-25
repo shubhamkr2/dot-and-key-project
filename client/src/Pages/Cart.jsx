@@ -80,6 +80,9 @@ const Cart = () => {
             />
             <button onClick={handlePromo}>Apply</button>
           </div>
+          <div className={styles.proceed_btn}>
+            <button>Proceed to buy</button>
+          </div>
         </div>
       </div>
     </div>

@@ -78,3 +78,18 @@
   width: 70%;
   padding: 5px;
 }
+.proceed_btn button{
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: bold;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+.proceed_btn button:hover{
+  background-color: rgb(12, 75, 12);
+}
