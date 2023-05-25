@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCartItems } from "../Redux/actions/cart.action";
 import { CartCard } from "../Components/CartCard";
 import styles from "../Styles/Cart.module.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const Cart = () => {
   const token = localStorage.getItem("token");
@@ -28,16 +29,26 @@ const Cart = () => {
     0
   );
   function handlePromo() {
+    let discountAmt = 0;
     if (promoCode === "GET30") {
-      setDiscount(() => totalPrice * (30 / 100));
+      discountAmt = totalPrice * (30 / 100);
+      setDiscount(discountAmt);
+      toast.success(`Offer applied discounted RS: ${discountAmt}`);
     } else if (promoCode === "GET50") {
-      setDiscount(() => totalPrice * (50 / 100));
+      discountAmt = totalPrice * (50 / 100);
+      setDiscount(discountAmt);
+      toast.success(`Offer applied discounted RS: ${discountAmt}`);
     } else {
       setDiscount(0);
+      toast.error("Invalid promo code");
+
     }
   }
   return (
     <div className={styles.main_container}>
+      <div>
+        <Toaster />
+      </div>
       <h1>Cart</h1>
       <div className={styles.cards_and_price}>
         <div className={styles.cards}>
