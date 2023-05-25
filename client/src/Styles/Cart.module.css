@@ -1,69 +1,80 @@
 .main_container h1 {
-    text-align: center;
-    color: gray;
-  }
-  
-  .cards_and_price {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  .cards_and_price > div {
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    background-color: rgb(240, 236, 236);
-  }
-  
-  .cards {
-    padding: 10px;
-    flex: 1; /* Add flex: 1 to allow the cards section to grow and shrink */
-  }
-  
-  .price {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    height: fit-content;
-    padding: 20px;
-    position: sticky;
-    top: 100px; /* Stick the price section to the top */
-    width: 200px; /* Adjust the width of the price section as needed */
-    margin-left: 20px; /* Add margin to create spacing between the cards and the price section */
-  }
-  
-  .price h2{
-    margin-top: 0px;
-    border-bottom: 1px solid rgb(163, 161, 161);
-    padding-bottom: 5px;
-  }
-  .price div,
-  .total_qty{
-    width: 100%;
-  }
-  .priceItem {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .totalItem {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    border-top: 2px solid rgb(163, 161, 161);
-    padding-top: 10px;
-  }
-  
-  .priceLabel,
-  .totalLabel {
-    font-weight: bolder;
-    font-size: 1.3rem;
-  }
-  
-  .priceValue,
-  .totalValue {
-    margin-left: 10px;
-    width: 70px;
-    text-align: right;
-  }
-  
+  text-align: center;
+  color: gray;
+}
+.row_heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+}
+.cards_and_price {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.cards_and_price > div {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color: rgb(240, 236, 236);
+}
+
+.cards {
+  padding: 10px;
+  flex: 1; /* Add flex: 1 to allow the cards section to grow and shrink */
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: fit-content;
+  padding: 20px;
+  position: sticky;
+  top: 100px; /* Stick the price section to the top */
+  width: 200px; /* Adjust the width of the price section as needed */
+  margin-left: 20px; /* Add margin to create spacing between the cards and the price section */
+}
+
+.price h2 {
+  margin-top: 0px;
+  border-bottom: 1px solid rgb(163, 161, 161);
+  padding-bottom: 5px;
+}
+.price div,
+.total_qty {
+  width: 100%;
+}
+.priceItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.totalItem {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-top: 2px solid rgb(163, 161, 161);
+  padding: 10px 0px 10px 0px;
+}
+
+.priceLabel,
+.totalLabel {
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+
+.priceValue,
+.totalValue {
+  margin-left: 10px;
+  width: 70px;
+  text-align: right;
+}
+.promo_code {
+  display: flex;
+  gap: 10px;
+}
+.promo_code input{
+  width: 70%;
+  padding: 5px;
+}
