@@ -13,7 +13,15 @@ function Cart() {
   useEffect(() => {
     dispatch(getCartItem(token));
   }, []);
+
+  // Calculate total price dynamically
+  const totalPrice = cartItems?.data?.reduce(
+    (acc, item) => acc + item.price * quantity,
+    0
+  );
+
   console.log(cartItems);
+
   return (
     <div className={styles.main_container}>
       <h1>Cart</h1>
@@ -31,7 +39,7 @@ function Cart() {
         <div className={styles.price}>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Total price:</span>
-            <span className={styles.priceValue}>1000</span>
+            <span className={styles.priceValue}>{totalPrice}</span>
           </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Shipping:</span>
@@ -43,7 +51,7 @@ function Cart() {
           </div>
           <div className={styles.totalItem}>
             <span className={styles.totalLabel}>Total:</span>
-            <span className={styles.totalValue}>1150</span>
+            <span className={styles.totalValue}>{totalPrice + 50 - 100}</span>
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@
   font-size: 1.1rem;
 }
 .container .description h3{
-    color: gray;
+    color: rgb(61, 61, 61);
 }
 select{
   margin-top: 1em;
