@@ -12,9 +12,14 @@ function CartCard({ item }) {
   const token = localStorage.getItem("token") || "";
   const dispatch = useDispatch();
 
-  const handleQuantityChange = (e) => {
+  const handleQuantityChange = async (e) => {
     const newQuantity = parseInt(e.target.value);
-    dispatch(updateCartItemQuantity(token, _id, newQuantity));
+    try{
+      await dispatch(updateCartItemQuantity(token, _id, newQuantity));
+      dispatch(getCartItems(token));
+    }catch(err) {
+      console.log(err);
+    }
   };
 
   const handleRemove = async () => {
