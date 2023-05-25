@@ -17,18 +17,18 @@ export const addToCart = (product, token, toast) => {
         }
       );
       const data = await response.json();
-      dispatch({ type: actionTypes.ADD_TO_CART_SUCCESS, payload: data });
       if (data.message === "Quantity limit exceeded") {
         toast.error(data.message);
       } else {
         toast.success(data.message);
       }
+      dispatch({ type: actionTypes.ADD_TO_CART_SUCCESS, payload: data });
     } catch (error) {
       dispatch({
         type: actionTypes.ADD_TO_CART_FAILURE,
         payload: error.message,
       });
-      toast.error("Unable to add to cart");
+      // toast.error("Unable to add to cart");
     }
   };
 };
