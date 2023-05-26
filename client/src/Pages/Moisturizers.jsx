@@ -9,6 +9,7 @@ import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
+import toast, { Toaster } from "react-hot-toast";
 
 function Moisturizers() {
   const { loading, data } = useSelector((state) => state.product);
@@ -26,6 +27,9 @@ function Moisturizers() {
   return (
     <div className={styles.moisturizing_container}>
       <NavigationBar />
+      <div>
+        <Toaster />
+      </div>
       <img
         className={styles.banner}
         src="https://www.dotandkey.com/cdn/shop/files/Sale_Banner_Desktop_fe27af49-265a-4c7b-9625-134e604bc09d.jpg?v=1684230611"
@@ -43,7 +47,7 @@ function Moisturizers() {
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} key={product._id} />
+              <ProductCard product={product} key={product._id} toast={toast}/>
             ))}
           </div>
         )}
