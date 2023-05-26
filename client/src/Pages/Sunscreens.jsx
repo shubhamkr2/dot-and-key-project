@@ -9,6 +9,7 @@ import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
+import toast, { Toaster } from "react-hot-toast";
 
 function Sunscreens() {
   const { loading, data } = useSelector((state) => state.product);
@@ -28,6 +29,9 @@ function Sunscreens() {
   return (
     <div className={styles.sunscreens_container}>
       <NavigationBar />
+      <div>
+        <Toaster />
+      </div>
       <img
         className={styles.banner}
         src="https://www.dotandkey.com/cdn/shop/files/CATE_DESK_70f0f8fb-6857-4d23-bb4f-86449f2dcbd1.jpg?v=1682937797"
@@ -45,7 +49,7 @@ function Sunscreens() {
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} key={product._id} />
+              <ProductCard product={product} key={product._id} toast={toast}/>
             ))}
           </div>
         )}
