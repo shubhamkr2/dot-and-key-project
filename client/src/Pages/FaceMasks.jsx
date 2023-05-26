@@ -9,6 +9,7 @@ import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
+import toast, { Toaster } from "react-hot-toast";
 
 function FaceMasks() {
   const { loading, data } = useSelector((state) => state.product);
@@ -26,6 +27,9 @@ function FaceMasks() {
   return (
     <div className={styles.facemask_container}>
       <NavigationBar />
+      <div>
+        <Toaster />
+      </div>
       <img
         className={styles.banner}
         src="https://www.dotandkey.com/cdn/shop/files/Desktop_Top_banner.jpg?v=1684230503"
@@ -43,7 +47,7 @@ function FaceMasks() {
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} key={product._id} />
+              <ProductCard product={product} key={product._id} toast={toast}/>
             ))}
           </div>
         )}
