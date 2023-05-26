@@ -15,16 +15,18 @@ import { LogIn } from "../Pages/LogIn";
 import { SignUp } from "../Pages/SignUp";
 import { useDispatch } from "react-redux";
 import { userLogOut } from "../Redux/actions/user.action";
+import { getCartItems } from "../Redux/actions/cart.action";
 
 function MenuSideBar({ name, isOpen, setIsOpen, login }) {
   const dispatch = useDispatch();
 
-  // useEffect(()=>{
-
-  // },[login])
-  function handleSignOut() {
-    dispatch(userLogOut());
-    setIsOpen(!isOpen);
+  async function handleSignOut() {
+    try {
+      await dispatch(userLogOut());
+      dispatch(getCartItems([]));
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
