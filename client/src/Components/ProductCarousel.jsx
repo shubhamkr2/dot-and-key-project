@@ -8,7 +8,7 @@ import { IconContext } from "react-icons";
 import styles from "../Styles/ProductCarousel.module.css";
 import { Carousel_Product_Card } from "./Carousel_Product_Card";
 
-function ProductCarousel({ images }) {
+function ProductCarousel({ cards }) {
   const ref = useRef(null);
   const handleNextSlide = () => {
     ref.current.slickNext();
@@ -63,7 +63,7 @@ function ProductCarousel({ images }) {
   return (
     <div className={styles.carousel_container}>
       <Slider {...settings} ref={ref}>
-        {images?.map((item,i ) => (
+        {cards?.map((item,i ) => (
           <Carousel_Product_Card product={item} key={i} />
         ))}
       </Slider>
