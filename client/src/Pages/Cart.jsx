@@ -16,18 +16,14 @@ const Cart = () => {
     dispatch(getCartItems(token));
   }, []);
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
+  const totalPrice =
+    cartItems?.data?.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    ) || 0;
+  const totalQuantity =
+    cartItems?.data?.reduce((acc, item) => acc + item.quantity, 0) || 0;
 
-  const totalPrice = cartItems?.data?.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  )||0;
-  const totalQuantity = cartItems?.data?.reduce(
-    (acc, item) => acc + item.quantity,
-    0
-  )||0;
   function handlePromo() {
     let discountAmt = 0;
     if (promoCode === "GET30") {
@@ -44,7 +40,9 @@ const Cart = () => {
     }
   }
 
-  console.log(cartItems)
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div className={styles.main_container}>
       <div>
@@ -53,12 +51,16 @@ const Cart = () => {
       <h1>Cart</h1>
       <div className={styles.cards_and_price}>
         <div className={styles.cards}>
-          {cartItems?.length ===0 || cartItems?.message==="Items not found" || cartItems?.data?.length===0? <h2>Your cart is empty please fill it up</h2>:
-          <div className={styles.row_heading}>
-            <h2>Items</h2>
-            <h2>Quantity</h2>
-          </div>
-          }
+          {cartItems?.length === 0 ||
+          cartItems?.message === "Items not found" ||
+          cartItems?.data?.length === 0 ? (
+            <h2>Your cart is empty please fill it up</h2>
+          ) : (
+            <div className={styles.row_heading}>
+              <h2>Items</h2>
+              <h2>Quantity</h2>
+            </div>
+          )}
           {cartItems?.data?.map((item) => (
             <CartCard key={item._id} item={item} toast={toast} />
           ))}
@@ -82,7 +84,7 @@ const Cart = () => {
           <div className={styles.totalItem}>
             <span className={styles.totalLabel}>Subtotal:</span>
             <span className={styles.totalValue}>
-            &#x20B9; {totalPrice + 50 - discount}
+              &#x20B9; {totalPrice + 50 - discount}
             </span>
           </div>
           <div className={styles.promo_code}>

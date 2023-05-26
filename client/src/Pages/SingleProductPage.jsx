@@ -7,7 +7,7 @@ import { getSingleProduct } from "../Redux/actions/product.action";
 import { Footer } from "../Components/Footer";
 import { SinglePageSkeleton } from "../Components/SinglePageSkeleton";
 import { SingleImageCarousel } from "../Components/SingleImageCarousel";
-import { addToCart } from "../Redux/actions/cart.action";
+import { addToCart, getCartItems } from "../Redux/actions/cart.action";
 import toast, { Toaster } from "react-hot-toast";
 
 function SingleProductPage() {
@@ -42,7 +42,7 @@ function SingleProductPage() {
   if (loading) {
     return <SinglePageSkeleton />;
   }
-  function handleAddToCart() {
+  async function handleAddToCart() {
     const product = {
       productId: _id,
       category: category,
@@ -54,7 +54,12 @@ function SingleProductPage() {
       stock: stock,
       quantity: quantity,
     };
-    dispatch(addToCart(product, token, toast));
+    try {
+      await dispatch(addToCart(product, token, toast));
+      dispatch(getCartItems(token));
+    } catch (err) {
+      console.log(err);
+    }
   }
   return (
     <>

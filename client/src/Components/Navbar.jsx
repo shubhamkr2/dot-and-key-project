@@ -15,13 +15,17 @@ import { SignUp } from "../Pages/SignUp";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSearchSuggestions } from "../Redux/actions/search.action";
 import { userLogOut } from "../Redux/actions/user.action";
+import {
+  getCartItems,
+  updateTotalQuantity,
+} from "../Redux/actions/cart.action";
 
 // Define Navbar component
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  // const { token, isAuth } = useSelector((state) => state.user);
+  const { cartItems } = useSelector((state) => state.cart);
   const [loggedUserName, setLoggedUserName] = useState("");
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [searchValue, setSearchValue] = useState();
@@ -35,7 +39,7 @@ function Navbar() {
     dispatch(userLogOut());
     setIsDropDownOpen(!isDropDownOpen);
   }
-  
+
   useEffect(() => {
     const name = localStorage.getItem("user_name");
     if (name !== null) {
@@ -46,7 +50,6 @@ function Navbar() {
       setLoggedUserName("");
     }
   }, [token]);
-  
 
   const handleSearchChange = (e) => {
     const searchValue = e.target.value;
@@ -82,7 +85,13 @@ function Navbar() {
     setShowSuggestions(false);
     dispatch(fetchSearchSuggestions(searchValue));
   }
-  // console.log(suggestions);
+
+  useEffect(() => {
+    dispatch(getCartItems(token));
+  }, []);
+
+  const totalQuantity =
+    cartItems?.data?.reduce((acc, item) => acc + item.quantity, 0) || 0;
   return (
     <>
       {/* Navbar container */}
@@ -153,12 +162,12 @@ function Navbar() {
 
         {/* Cart and profile icons */}
         <div className={styles.cartLogo_profileIcon}>
-          <Link to="/cart" >
-            <div className={styles.cart_logo} >
+          <Link to="/cart">
+            <div className={styles.cart_logo}>
               <IconContext.Provider value={{ size: "2rem" }}>
                 <FiShoppingCart />
               </IconContext.Provider>
-              <div className={styles.cart_count}>5</div>
+              <div className={styles.cart_count}>{totalQuantity}</div>
             </div>
           </Link>
           {login ? (

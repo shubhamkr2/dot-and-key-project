@@ -4,7 +4,7 @@ import { IconContext } from "react-icons";
 import styles from "../Styles/ProductCard.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../Redux/actions/cart.action";
+import { addToCart, getCartItems } from "../Redux/actions/cart.action";
 
 // let data = {
 //   _id: "645e1551062c3fbde39b9667",
@@ -44,7 +44,7 @@ function ProductCard({ product, toast }) {
     highlights,
     stock,
   } = product || {};
-  function handleAddToCart() {
+  async function handleAddToCart() {
     const cart_product = {
       productId: _id,
       category: category,
@@ -56,7 +56,12 @@ function ProductCard({ product, toast }) {
       stock: stock,
       quantity: 1,
     };
-    dispatch(addToCart(cart_product, token, toast));
+    try {
+      await dispatch(addToCart(cart_product, token, toast));
+      dispatch(getCartItems(token));
+    } catch (err) {
+      console.log(err);
+    }
   }
   // console.log(product);
   return (
