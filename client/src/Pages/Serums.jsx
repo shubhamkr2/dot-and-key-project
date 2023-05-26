@@ -9,6 +9,7 @@ import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
+import toast, { Toaster } from "react-hot-toast";
 
 function Serums() {
   const { loading, data } = useSelector((state) => state.product);
@@ -28,6 +29,9 @@ function Serums() {
   return (
     <div className={styles.serums_container}>
       <NavigationBar />
+      <div>
+        <Toaster />
+      </div>
       <img
         className={styles.banner}
         src="https://www.dotandkey.com/cdn/shop/files/desk-47.webp?v=1679037760"
@@ -45,7 +49,7 @@ function Serums() {
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} key={product._id} />
+              <ProductCard product={product} key={product._id} toast={toast} />
             ))}
           </div>
         )}
