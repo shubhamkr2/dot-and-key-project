@@ -8,6 +8,7 @@ import { userLogin } from "../Redux/actions/user.action";
 import toast, { Toaster } from "react-hot-toast";
 import { ResetPasswordModal } from "../Components/ResetPasswordModal";
 import { resetModal } from "../Redux/actions/resetPassword.action";
+import { getCartItems } from "../Redux/actions/cart.action";
 
 const initialFormData = {
   email: "",
@@ -29,9 +30,11 @@ function LogIn() {
     console.log(formData);
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    dispatch(userLogin(formData, navigate, toast));
+    await dispatch(userLogin(formData, navigate, toast));
+    const token = localStorage.getItem("token") || [];
+    dispatch(getCartItems(token));
   }
 
   function handleModal() {

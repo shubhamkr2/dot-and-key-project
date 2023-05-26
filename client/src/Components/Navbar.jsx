@@ -17,7 +17,6 @@ import { fetchSearchSuggestions } from "../Redux/actions/search.action";
 import { userLogOut } from "../Redux/actions/user.action";
 import {
   getCartItems,
-  updateTotalQuantity,
 } from "../Redux/actions/cart.action";
 
 // Define Navbar component
@@ -35,9 +34,14 @@ function Navbar() {
 
   const token = localStorage.getItem("token") || [];
 
-  function handleSignOut() {
-    dispatch(userLogOut());
-    setIsDropDownOpen(!isDropDownOpen);
+  async function handleSignOut() {
+    try {
+      await dispatch(userLogOut());
+      dispatch(getCartItems([]));
+      setIsDropDownOpen(!isDropDownOpen);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
