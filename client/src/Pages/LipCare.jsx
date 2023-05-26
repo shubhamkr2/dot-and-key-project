@@ -9,6 +9,7 @@ import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
+import toast, { Toaster } from "react-hot-toast";
 
 function LipCare() {
   const { loading, data } = useSelector((state) => state.product);
@@ -28,6 +29,9 @@ function LipCare() {
   return (
     <div className={styles.lipcare_container}>
       <NavigationBar />
+      <div>
+        <Toaster />
+      </div>
       <img
         className={styles.banner}
         src="https://www.dotandkey.com/cdn/shop/files/DESK_e37f3ca9-dc02-41c0-95b8-159715e3646b.jpg?v=1682945740"
@@ -45,7 +49,7 @@ function LipCare() {
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} key={product._id} />
+              <ProductCard product={product} key={product._id} toast={toast}/>
             ))}
           </div>
         )}
