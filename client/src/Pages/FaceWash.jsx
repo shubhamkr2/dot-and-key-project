@@ -9,6 +9,7 @@ import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
+import toast, { Toaster } from "react-hot-toast";
 
 function FaceWash() {
   const { loading, data } = useSelector((state) => state.product);
@@ -26,6 +27,9 @@ function FaceWash() {
   return (
     <div className={styles.facewash_container}>
       <NavigationBar />
+      <div>
+        <Toaster />
+      </div>
       <img
         className={styles.banner}
         src="https://www.dotandkey.com/cdn/shop/files/vit_cDesktop_copy_26623988-3be2-43c7-8d96-bf2c3ce56ae9.jpg?v=1684345468"
@@ -43,7 +47,7 @@ function FaceWash() {
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} key={product._id} />
+              <ProductCard product={product} key={product._id} toast={toast} />
             ))}
           </div>
         )}
