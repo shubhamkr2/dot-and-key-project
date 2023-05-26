@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getCartItems } from "../Redux/actions/cart.action";
 
-
 function ProductCard({ product, toast }) {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token") || [];
@@ -22,6 +21,7 @@ function ProductCard({ product, toast }) {
     highlights,
     stock,
   } = product || {};
+  
   async function handleAddToCart() {
     const cart_product = {
       productId: _id,

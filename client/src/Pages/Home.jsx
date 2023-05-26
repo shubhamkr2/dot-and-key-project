@@ -5,6 +5,7 @@ import styles from "../Styles/Home.module.css";
 import { Carousel_Product_Card } from "../Components/Carousel_Product_Card";
 import { Footer } from "../Components/Footer";
 import { NavigationBar } from "../Components/NavigationBar";
+import toast, { Toaster } from "react-hot-toast";
 
 const images = [
   "https://www.dotandkey.com/cdn/shop/files/pro_desk_552a0e39-53bd-4a71-98da-ceb1a8d819b7_1024x1024.jpg?v=1680865716",
@@ -459,6 +460,9 @@ function Home() {
       <div className={styles.navigationBar}>
         <NavigationBar />
       </div>
+      <div>
+        <Toaster />
+      </div>
       {/********Top banner carousel*********/}
       <CarouselBanner images={images} />
 
@@ -467,7 +471,7 @@ function Home() {
         <span>SHOP OUR</span>
         <h2>NEW ARRIVALS</h2>
       </div>
-      <ProductCarousel cards={cards} />
+      <ProductCarousel cards={cards} toast={toast} />
 
       {/******** Offer banner carousel*********/}
       <div className={styles.heading}>
@@ -484,7 +488,7 @@ function Home() {
       </div>
       <div className={styles.bestsellers}>
         {bestsellers.map((item, i) => (
-          <Carousel_Product_Card product={item} key={i} />
+          <Carousel_Product_Card product={item} key={i} toast={toast} />
         ))}
       </div>
 
@@ -518,7 +522,7 @@ function Home() {
       </div>
       <div className={styles.category}>
         {category.map((item, i) => (
-          <Carousel_Product_Card product={item} key={i} />
+          <Carousel_Product_Card product={item} key={i} toast={toast}/>
         ))}
       </div>
 
