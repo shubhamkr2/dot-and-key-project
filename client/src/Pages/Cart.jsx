@@ -23,7 +23,7 @@ const Cart = () => {
   const totalPrice = cartItems?.data?.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
-  );
+  )||0;
   const totalQuantity = cartItems?.data?.reduce(
     (acc, item) => acc + item.quantity,
     0
@@ -43,6 +43,7 @@ const Cart = () => {
       toast.error("Invalid promo code");
     }
   }
+  console.log(cartItems)
   return (
     <div className={styles.main_container}>
       <div>
@@ -51,10 +52,12 @@ const Cart = () => {
       <h1>Cart</h1>
       <div className={styles.cards_and_price}>
         <div className={styles.cards}>
+          {cartItems?.length ===0 || cartItems?.message==="Items not found"? <h2>Your cart is empty please fill it up</h2>:
           <div className={styles.row_heading}>
             <h2>Items</h2>
             <h2>Quantity</h2>
           </div>
+          }
           {cartItems?.data?.map((item) => (
             <CartCard key={item._id} item={item} toast={toast} />
           ))}
