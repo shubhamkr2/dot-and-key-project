@@ -68,20 +68,20 @@ const Cart = () => {
           </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Total price:</span>
-            <span className={styles.priceValue}>{totalPrice}</span>
+            <span className={styles.priceValue}>&#x20B9; {totalPrice}</span>
           </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Shipping:</span>
-            <span className={styles.priceValue}>50</span>
+            <span className={styles.priceValue}>&#x20B9; {totalPrice<500?50:0}</span>
           </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Discount:</span>
-            <span className={styles.priceValue}>{discount}</span>
+            <span className={styles.priceValue}>&#x20B9; {discount}</span>
           </div>
           <div className={styles.totalItem}>
             <span className={styles.totalLabel}>Subtotal:</span>
             <span className={styles.totalValue}>
-              {totalPrice + 50 - discount}
+            &#x20B9; {totalPrice + 50 - discount}
             </span>
           </div>
           <div className={styles.promo_code}>
