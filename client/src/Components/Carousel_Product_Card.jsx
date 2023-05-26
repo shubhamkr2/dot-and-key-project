@@ -4,9 +4,20 @@ import { AiFillStar } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getCartItems } from "../Redux/actions/cart.action";
+import { Link } from "react-router-dom";
 
 function Carousel_Product_Card({ product, toast }) {
-  const {_id,images,category,title,description,price,rating,highlights,stock} = product;
+  const {
+    _id,
+    images,
+    category,
+    title,
+    description,
+    price,
+    rating,
+    highlights,
+    stock,
+  } = product;
   const token = localStorage.getItem("token") || [];
   const dispatch = useDispatch();
 
@@ -32,7 +43,9 @@ function Carousel_Product_Card({ product, toast }) {
 
   return (
     <div className={styles.container}>
-      <img src={images[0]} />
+      <Link to={_id}>
+        <img src={images[0]} />
+      </Link>
       <div className={styles.rating}>
         <IconContext.Provider value={{ color: "rgb(235, 182, 10)" }}>
           <AiFillStar />
