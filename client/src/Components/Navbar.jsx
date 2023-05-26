@@ -158,6 +158,7 @@ function Navbar() {
               <IconContext.Provider value={{ size: "2rem" }}>
                 <FiShoppingCart />
               </IconContext.Provider>
+              <div className={styles.cart_count}>5</div>
             </div>
           </Link>
           {login ? (
