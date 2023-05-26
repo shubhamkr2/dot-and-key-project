@@ -27,7 +27,7 @@ const Cart = () => {
   const totalQuantity = cartItems?.data?.reduce(
     (acc, item) => acc + item.quantity,
     0
-  );
+  )||0;
   function handlePromo() {
     let discountAmt = 0;
     if (promoCode === "GET30") {
@@ -43,6 +43,7 @@ const Cart = () => {
       toast.error("Invalid promo code");
     }
   }
+
   console.log(cartItems)
   return (
     <div className={styles.main_container}>
@@ -52,7 +53,7 @@ const Cart = () => {
       <h1>Cart</h1>
       <div className={styles.cards_and_price}>
         <div className={styles.cards}>
-          {cartItems?.length ===0 || cartItems?.message==="Items not found"? <h2>Your cart is empty please fill it up</h2>:
+          {cartItems?.length ===0 || cartItems?.message==="Items not found" || cartItems?.data?.length===0? <h2>Your cart is empty please fill it up</h2>:
           <div className={styles.row_heading}>
             <h2>Items</h2>
             <h2>Quantity</h2>
@@ -72,7 +73,7 @@ const Cart = () => {
           </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Shipping:</span>
-            <span className={styles.priceValue}>&#x20B9; {totalPrice<500?50:0}</span>
+            <span className={styles.priceValue}>&#x20B9; 50</span>
           </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Discount:</span>
