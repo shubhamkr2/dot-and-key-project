@@ -19,6 +19,9 @@
   border: 1px solid black;
   color: red;
 }
+.container .activeLink{
+  color: red;
+}
 @media (max-width: 950px) {
   .container {
     display: none;
