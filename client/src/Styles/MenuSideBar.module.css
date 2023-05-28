@@ -61,3 +61,6 @@
 .close_btn:hover {
   color: rgb(253, 6, 6);
 }
+.menuNavigationBar .activeLink{
+  color: red;
+}

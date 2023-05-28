@@ -15,7 +15,7 @@ function NavigationBar() {
   const {pathname}=location;
   const path = pathname.trim().split("/");
 
-  console.log(path[1]);
+  // console.log(path[1]);
 
   return (
     <div className={styles.container}>

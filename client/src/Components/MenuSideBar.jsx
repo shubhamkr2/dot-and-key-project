@@ -16,8 +16,13 @@ import { SignUp } from "../Pages/SignUp";
 import { useDispatch } from "react-redux";
 import { userLogOut } from "../Redux/actions/user.action";
 import { getCartItems } from "../Redux/actions/cart.action";
+import { useLocation } from "react-router-dom";
 
 function MenuSideBar({ name, isOpen, setIsOpen, login }) {
+  const location = useLocation();
+  const { pathname } = location;
+  const path = pathname.trim().split("/");
+
   const dispatch = useDispatch();
 
   async function handleSignOut() {
@@ -84,13 +89,19 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
       )}
       <div className={styles.menuNavigationBar}>
         <h2>Browse, Dot&Key</h2>
-        <Link to="/all" element={<All />} onClick={() => setIsOpen(!isOpen)}>
+        <Link
+          to="/all"
+          element={<All />}
+          onClick={() => setIsOpen(!isOpen)}
+          className={path[1] === "all" ? styles.activeLink : ""}
+        >
           All
         </Link>
         <Link
           to="/sunscreens"
           element={<Sunscreens />}
           onClick={() => setIsOpen(!isOpen)}
+          className={path[1] === "sunscreens" ? styles.activeLink : ''}
         >
           Sunscreens
         </Link>
@@ -98,6 +109,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           to="/moisturizers"
           element={<Moisturizers />}
           onClick={() => setIsOpen(!isOpen)}
+          className={path[1] === "moisturizers" ? styles.activeLink : ''}
         >
           Moisturizers
         </Link>
@@ -105,6 +117,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           to="/faceserums"
           element={<Serums />}
           onClick={() => setIsOpen(!isOpen)}
+          className={path[1] === "faceserums" ? styles.activeLink : ''}
         >
           Serums
         </Link>
@@ -112,6 +125,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           to="/lipcare"
           element={<LipCare />}
           onClick={() => setIsOpen(!isOpen)}
+          className={path[1] === "lipcare" ? styles.activeLink : ''}
         >
           Lip Care
         </Link>
@@ -119,6 +133,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           to="/facewash"
           element={<FaceWash />}
           onClick={() => setIsOpen(!isOpen)}
+          className={path[1] === "facewash" ? styles.activeLink : ''}
         >
           Face Wash
         </Link>
@@ -126,6 +141,7 @@ function MenuSideBar({ name, isOpen, setIsOpen, login }) {
           to="/facemasks"
           element={<FaceMasks />}
           onClick={() => setIsOpen(!isOpen)}
+          className={path[1] === "facemasks" ? styles.activeLink : ''}
         >
           Face Masks
         </Link>
