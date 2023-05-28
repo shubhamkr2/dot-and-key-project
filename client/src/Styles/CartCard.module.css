@@ -37,3 +37,21 @@ select{
 .remove_btn:hover{
   background-color: red;
 }
+@media(max-width:940px){
+  .container{
+    justify-content: center;
+    gap: 10px;
+  }
+  .image_and_description{
+    flex-direction: column;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+  .description{
+    text-align: center;
+  }
+  .qty select{
+    width: 85px;
+  }
+}
