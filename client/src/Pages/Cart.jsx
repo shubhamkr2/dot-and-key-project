@@ -5,6 +5,7 @@ import { CartCard } from "../Components/CartCard";
 import styles from "../Styles/Cart.module.css";
 import toast, { Toaster } from "react-hot-toast";
 import { NavigationBar } from "../Components/NavigationBar";
+import { Footer } from "../Components/Footer";
 
 const Cart = () => {
   const token = localStorage.getItem("token");
@@ -104,6 +105,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
