@@ -4,6 +4,7 @@ import { getCartItems } from "../Redux/actions/cart.action";
 import { CartCard } from "../Components/CartCard";
 import styles from "../Styles/Cart.module.css";
 import toast, { Toaster } from "react-hot-toast";
+import { NavigationBar } from "../Components/NavigationBar";
 
 const Cart = () => {
   const token = localStorage.getItem("token");
@@ -46,10 +47,11 @@ const Cart = () => {
   }
   return (
     <div className={styles.main_container}>
+      <NavigationBar />
       <div>
         <Toaster />
       </div>
-      <h1>Cart</h1>
+      <h1>Your Cart</h1>
       <div className={styles.cards_and_price}>
         <div className={styles.cards}>
           {cartItems?.length === 0 ||
