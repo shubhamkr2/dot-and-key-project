@@ -39,7 +39,6 @@ select{
 }
 @media(max-width:940px){
   .container{
-    justify-content: center;
     gap: 10px;
   }
   .image_and_description{

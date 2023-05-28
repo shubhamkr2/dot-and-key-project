@@ -87,7 +87,7 @@
   cursor: pointer;
 }
 
-.proceed_btn button {
+.proceed_btn- button {
   width: 100%;
   margin-top: 15px;
   padding: 10px;
@@ -101,4 +101,18 @@
 }
 .proceed_btn button:hover {
   background-color: rgb(12, 75, 12);
+}
+
+@media(max-width:622px){
+  .cards_and_price{
+    flex-direction: column;
+  }
+  .price {
+  height: fit-content;
+  padding: 10px;
+  position: sticky;
+  top: 100x; 
+  width: 100%; 
+  margin: auto; 
+}
 }
