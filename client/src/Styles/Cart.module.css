@@ -31,10 +31,10 @@
   height: fit-content;
   padding: 20px;
   position: sticky;
-  top: 100px; 
-  width: 200px; 
-  margin-left: 20px; 
-  box-sizing: border-box;
+  top: 100px;
+  width: 200px;
+  margin-left: 20px;
+  /* box-sizing: border-box; */
 }
 
 .price h2 {
@@ -105,17 +105,17 @@
   background-color: rgb(12, 75, 12);
 }
 
-@media(max-width:622px){
-  .cards_and_price{
+@media (max-width: 622px) {
+  .cards_and_price {
     flex-direction: column;
   }
   .price {
-  height: fit-content;
-  padding: 10px;
-  position: sticky;
-  top: 100x; 
-  width: 100%; 
-  margin: 10px auto; 
-
-}
+    height: fit-content;
+    padding: 10px;
+    position: sticky;
+    top: 100x;
+    width: 100%;
+    margin: 20px auto;
+    box-sizing: border-box;
+  }
 }

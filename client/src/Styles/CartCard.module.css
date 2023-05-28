@@ -6,6 +6,7 @@
   /* width: fit-content; */
   gap: 20px;
   padding: 10px;
+  border-top: 1px solid rgb(163, 161, 161);
 }
 .image_and_description{
   display: flex;
