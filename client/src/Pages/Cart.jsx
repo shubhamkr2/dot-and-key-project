@@ -8,6 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 const Cart = () => {
   const token = localStorage.getItem("token");
   const { cartItems, loading } = useSelector((state) => state.cart);
+  const { isAuth } = useSelector((state) => state.user);
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const Cart = () => {
       toast.error("Invalid promo code");
     }
   }
-
+  console.log(isAuth);
   if (loading) {
     return <h1>Loading...</h1>;
   }
@@ -51,7 +52,8 @@ const Cart = () => {
       <h1>Cart</h1>
       <div className={styles.cards_and_price}>
         <div className={styles.cards}>
-          {cartItems?.length === 0 ||
+          {isAuth ||
+          cartItems?.length === 0 ||
           cartItems?.message === "Items not found" ||
           cartItems?.data?.length === 0 ? (
             <h2>Your cart is empty please fill it up</h2>

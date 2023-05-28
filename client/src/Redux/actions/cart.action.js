@@ -19,7 +19,9 @@ export const addToCart = (product, token, toast) => {
       const data = await response.json();
       if (data.message === "Quantity limit exceeded") {
         toast.error(data.message);
-      } else {
+      } else if(data.message === "Invalid token format"){
+        toast.error("Please login first");
+      }else {
         toast.success(data.message);
       }
       dispatch({ type: actionTypes.ADD_TO_CART_SUCCESS, payload: data });

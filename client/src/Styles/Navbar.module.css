@@ -177,13 +177,11 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 100px;
-  top: 160%;
-  left: 0;
+  width: 120px;
+  top: 162%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: white;
   z-index: 99;
-  right: 1%;
   padding: 10px;
   border-radius: 10px;
   font-size: large;
