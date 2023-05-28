@@ -14,6 +14,7 @@
 }
 
 .cards_and_price > div {
+  border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   background-color: rgb(240, 236, 236);
 }
@@ -33,6 +34,7 @@
   top: 100px; 
   width: 200px; 
   margin-left: 20px; 
+  box-sizing: border-box;
 }
 
 .price h2 {
@@ -87,7 +89,7 @@
   cursor: pointer;
 }
 
-.proceed_btn- button {
+.proceed_btn button {
   width: 100%;
   margin-top: 15px;
   padding: 10px;
@@ -113,6 +115,7 @@
   position: sticky;
   top: 100x; 
   width: 100%; 
-  margin: auto; 
+  margin: 10px auto; 
+
 }
 }
