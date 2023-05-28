@@ -45,10 +45,11 @@ function Navbar() {
   }
 
   useEffect(() => {
-    const name = localStorage.getItem("user_name");
+    let name = localStorage.getItem("user_name");
+    name = name.trim().split(" ");
     if (name !== null) {
       setLogin(true);
-      setLoggedUserName(name);
+      setLoggedUserName(name[0]);
     } else {
       setLogin(false);
       setLoggedUserName("");
@@ -96,6 +97,8 @@ function Navbar() {
 
   const totalQuantity =
     cartItems?.data?.reduce((acc, item) => acc + item.quantity, 0) || 0;
+
+    console.log(loggedUserName[0])
   return (
     <>
       {/* Navbar container */}

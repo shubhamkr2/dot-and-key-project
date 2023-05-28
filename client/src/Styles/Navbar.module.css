@@ -12,8 +12,13 @@
   z-index: 1;
   background-color: white;
 }
+.logo{
+  display: flex;
+  justify-content: center;
+}
 .logo img {
-  max-width: 150px;
+  max-width: 70%;
+  margin: auto;
 }
 .cart_logo {
   color: black;
@@ -123,6 +128,10 @@
   align-items: center;
   gap: 6dvw;
 }
+.cart_logo{
+  padding-right: 10px;
+  padding-left: 10px;
+}
 .cart_logo,
 .user_profile {
   cursor: pointer;
@@ -152,6 +161,8 @@
 }
 .hamburgerIcon {
   display: none;
+  /* margin-right: 20px; */
+  padding-left: 10px;
 }
 .hamburgerIcon:hover {
   cursor: pointer;
