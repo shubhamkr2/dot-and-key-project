@@ -52,8 +52,7 @@ const Cart = () => {
       <h1>Cart</h1>
       <div className={styles.cards_and_price}>
         <div className={styles.cards}>
-          {isAuth ||
-          cartItems?.length === 0 ||
+          {cartItems?.length === 0 ||
           cartItems?.message === "Items not found" ||
           cartItems?.data?.length === 0 ? (
             <h2>Your cart is empty please fill it up</h2>
