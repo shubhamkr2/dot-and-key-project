@@ -86,14 +86,14 @@
   font-size: 1.2rem;
 }
 .buy_now_btn {
-  background-color: rgb(102, 102, 102);
+  background-color: rgb(231, 86, 2);
   color: white;
   font-weight: bold;
   cursor: pointer;
   font-size: 1.1rem;
 }
 .buy_now_btn:hover {
-  background-color: rgb(68, 39, 39);
+  background-color: rgb(231, 50, 2);
   font-size: 1.2rem;
 }
 .description {
