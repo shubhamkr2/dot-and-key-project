@@ -22,7 +22,7 @@
 .container .description h3{
     color: rgb(61, 61, 61);
 }
-select{
+.qty select{
   margin-top: 1em;
   cursor: pointer;
   font-size: large;

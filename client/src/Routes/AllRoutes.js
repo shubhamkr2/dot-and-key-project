@@ -14,6 +14,7 @@ import { SingleProductPage } from "../Pages/SingleProductPage";
 import { SearchResult } from "../Pages/SearchResult";
 import { Cart } from "../Pages/Cart";
 import { Payment } from "../Pages/Payment";
+import { Shipment } from "../Pages/Shipment";
 
 function AllRoutes() {
   return (
@@ -39,6 +40,7 @@ function AllRoutes() {
       <Route path="/all/:id" element={<SingleProductPage />} />
       <Route path="/searchresult" element={<SearchResult />} />
       <Route path="/searchresult/:id" element={<SingleProductPage />} />
+      <Route path="/shipment/:id" element={<Shipment />} />
       <Route path="/payment/:id" element={<Payment />} />
     </Routes>
   );
