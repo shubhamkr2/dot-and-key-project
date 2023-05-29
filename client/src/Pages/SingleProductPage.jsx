@@ -9,12 +9,12 @@ import { SinglePageSkeleton } from "../Components/SinglePageSkeleton";
 import { SingleImageCarousel } from "../Components/SingleImageCarousel";
 import { addToCart, getCartItems } from "../Redux/actions/cart.action";
 import toast, { Toaster } from "react-hot-toast";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function SingleProductPage() {
   const { id } = useParams();
-  const { loading, single_product_data } = useSelector(
-    (state) => state.product
-  );
+  const { loading, single_product_data } = useSelector((state) => state.product);
+  const { isLoading } = useSelector((state) => state.cart);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
@@ -108,8 +108,14 @@ function SingleProductPage() {
             <button
               className={styles.add_to_cart_btn}
               onClick={handleAddToCart}
+              disabled={isLoading ? true : false}
             >
-              ADD TO CART
+            {isLoading ? (
+                <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
+              ) : (
+                "ADD TO CART"
+              )}
+              
             </button>
             <button className={styles.buy_now_btn}>BUY NOW</button>
           </div>

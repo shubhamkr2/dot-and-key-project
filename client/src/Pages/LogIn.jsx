@@ -79,7 +79,6 @@ function LogIn() {
               </span>
             </div>
             <button disabled={loading ? true : false}>
-              {" "}
               {loading ? (
                 <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
               ) : (
