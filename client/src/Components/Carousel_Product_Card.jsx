@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../Styles/Carousel_Product_Card.module.css";
 import { AiFillStar } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getCartItems } from "../Redux/actions/cart.action";
 import { Link } from "react-router-dom";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function Carousel_Product_Card({ product, toast }) {
   const {
@@ -21,7 +22,11 @@ function Carousel_Product_Card({ product, toast }) {
   const token = localStorage.getItem("token") || [];
   const dispatch = useDispatch();
 
+  // Add a loading state for the current product card
+  const [isLoading, setIsLoading] = useState(false);
+
   async function handleAddToCart() {
+    setIsLoading(true); // Set the loading state to true for the current card
     const cart_product = {
       productId: _id,
       category: category,
@@ -38,6 +43,8 @@ function Carousel_Product_Card({ product, toast }) {
       dispatch(getCartItems(token));
     } catch (err) {
       console.log(err);
+    } finally {
+      setIsLoading(false); // Set the loading state back to false
     }
   }
 
@@ -56,7 +63,13 @@ function Carousel_Product_Card({ product, toast }) {
       <h4>{title}</h4>
       <h5 className={styles.highlights}>{highlights}</h5>
       <h4 className={styles.price}>RS: {price}</h4>
-      <button onClick={handleAddToCart}>ADD TO CART</button>
+      <button onClick={handleAddToCart} disabled={isLoading ? true : false}>
+        {isLoading ? (
+          <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
+        ) : (
+          "ADD TO CART"
+        )}
+      </button>
     </div>
   );
 }
