@@ -7,12 +7,12 @@
   top: 100px;
 }
 
-h3 {
+.sidebar h3 {
   margin-top: 0;
   margin-bottom: 10px;
 }
 
-select {
+.sidebar select {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
@@ -40,7 +40,7 @@ select:focus {
   .sidebar select {
     width: 30%;
   }
-  .h3 {
+  .qty h3 {
     margin: auto;
   }
 }
