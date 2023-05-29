@@ -15,7 +15,7 @@ function Payment() {
   const [cvv, setCvv] = useState("___");
 
   return (
-    <div className={styles.container}>
+    <div className={styles.payment_container}>
       <div className={styles.card_container}>
         <div className={styles.card_layout}>
           <img
