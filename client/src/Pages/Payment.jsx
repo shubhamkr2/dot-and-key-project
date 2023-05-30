@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styles from "../Styles/Payment.module.css";
 
@@ -7,7 +7,7 @@ function Payment() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const amount = searchParams.get("amount");
-  const { id } = useParams();
+  // const { id } = useParams();
   const [name, setName] = useState("Name");
   const [cardNumber, setCardNumber] = useState("xxxx xxxx xxxx xxxx");
   const [exMonth, setExMonth] = useState("MM");
@@ -69,7 +69,7 @@ function Payment() {
             placeholder="Card Number"
             maxlength="16"
             required
-            onChange={(e)=>setCardNumber(e.target.value)}
+            onChange={(e) => setCardNumber(e.target.value)}
           />
           <br />
           <br />
@@ -82,7 +82,7 @@ function Payment() {
                 placeholder="mm"
                 maxlength="2"
                 required
-                onChange={(e)=>setExMonth(e.target.value)}
+                onChange={(e) => setExMonth(e.target.value)}
               />
             </div>
             <div>
@@ -93,7 +93,7 @@ function Payment() {
                 placeholder="yyyy"
                 maxlength="4"
                 required
-                onChange={(e)=>setExYear(e.target.value)}
+                onChange={(e) => setExYear(e.target.value)}
               />
             </div>
             <div>
@@ -104,7 +104,7 @@ function Payment() {
                 placeholder="CVC"
                 maxlength="3"
                 required
-                onChange={(e)=>setCvv(e.target.value)}
+                onChange={(e) => setCvv(e.target.value)}
               />
             </div>
           </div>
