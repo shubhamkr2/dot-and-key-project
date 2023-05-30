@@ -50,7 +50,7 @@ function Carousel_Product_Card({ product, toast }) {
 
   return (
     <div className={styles.container}>
-      <Link to={_id}>
+      <Link to={`/product/${_id}`}>
         <img src={images[0]} />
       </Link>
       <div className={styles.rating}>

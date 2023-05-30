@@ -76,7 +76,7 @@ function Navbar() {
   function handleSuggestion(id) {
     console.log(id);
     // Construct the path using the id
-    const path = `/${id}`;
+    const path = `/product/${id}`;
 
     // Redirect to the single ID page using the Link component
     navigate(path);
