@@ -5,6 +5,7 @@ import { cartReducer } from "./Redux/reducers/cart.reducer";
 import { resetPassword } from "./Redux/reducers/resetPassword.reducer";
 import { productReducer } from "./Redux/reducers/product.reducer";
 import { searchReducer } from "./Redux/reducers/search.reducer";
+import { shipmentReducer } from "./Redux/reducers/shipment.reducer";
 
 const rootReducer = combineReducers({
   user: userReducer,
