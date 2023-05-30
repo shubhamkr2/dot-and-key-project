@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../Styles/Shipment.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
-import { addAddress } from "../Redux/actions/shipment.action";
+import { addAddress, getAddress } from "../Redux/actions/shipment.action";
 
 let initialFormData = {
   name: "",
@@ -18,6 +18,7 @@ let initialFormData = {
 function Shipment() {
   const [formData, setFormData] = useState({ ...initialFormData });
   const token = localStorage.getItem("token") || [];
+  const { addresses, loading } = useSelector((state) => state.shipment);
   const dispatch = useDispatch();
 
   function handleChange(e) {
@@ -26,14 +27,22 @@ function Shipment() {
     // console.log(e.target);
   }
 
+  useEffect(() => {
+    dispatch(getAddress(token));
+  }, []);
+
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(addAddress(formData, token, toast))
+    dispatch(addAddress(formData, token, toast));
   }
-  console.log(formData);
+
+  console.log(addresses);
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div className={styles.shipment_container}>
-    <Toaster />
+      <Toaster />
       <div></div>
       <div className={styles.form_container}>
         <form onSubmit={(e) => handleSubmit(e)}>
