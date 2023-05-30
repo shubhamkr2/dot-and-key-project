@@ -1,0 +1,33 @@
+.shipment_container .form_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shipment_container .form_container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 1px solid red;
+  padding: 5px;
+}
+.shipment_container .form_container form div {
+  display: flex;
+  flex-direction: column;
+}
+.shipment_container .form_container form label {
+  font-weight: 500;
+}
+.shipment_container .form_container form select,
+.shipment_container .form_container form input {
+  padding: 5px;
+}
+.shipment_container .form_container form button {
+  padding: 5px;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.shipment_container .form_container form button:hover {
+  background-color: black;
+}
