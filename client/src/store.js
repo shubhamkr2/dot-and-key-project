@@ -12,6 +12,7 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   reset: resetPassword,
   search: searchReducer,
+  shipment: shipmentReducer,
 });
 
 const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
