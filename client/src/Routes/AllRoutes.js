@@ -43,7 +43,7 @@ function AllRoutes() {
       <Route path="/shipment" element={<Shipment />} exact />
       <Route path="/payment" element={<Payment />} exact />
       {/* <Route path="/error" element={<ErrorPage />} exact /> */}
-      <Route path="/product" element={<SingleProductPage />} />
+      <Route path="/product/:id" element={<SingleProductPage />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
