@@ -3,6 +3,8 @@ import styles from "../Styles/Shipment.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import { addAddress, getAddress } from "../Redux/actions/shipment.action";
+import { AddressCard } from "../Components/AddressCard";
+
 
 let initialFormData = {
   name: "",
@@ -43,7 +45,12 @@ function Shipment() {
   return (
     <div className={styles.shipment_container}>
       <Toaster />
-      <div></div>
+      <div className={styles.address_card_container}>
+        {addresses?.data?.map((address, index) => (
+          <AddressCard address={address} key={address._id} />
+        ))}
+      </div>
+      <h1>or add new one</h1>
       <div className={styles.form_container}>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
