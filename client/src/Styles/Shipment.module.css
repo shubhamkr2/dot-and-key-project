@@ -1,7 +1,6 @@
-/* .shipment_container{
+.container{
   display: flex;
-  flex-direction: column;
-} */
+}
 .title{
   text-align: center;
   color: gray;
@@ -32,7 +31,10 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 5px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color: rgb(240, 236, 236);
 }
 .shipment_container .form_container form div {
   display: flex;
@@ -58,5 +60,68 @@
 .address_card_container{
   padding: 0px 50px 0px 50px;
   box-sizing: border-box;
-  width: 90%;
+  /* width: 90%; */
+}
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: fit-content;
+  padding: 20px;
+  position: sticky;
+  top: 100px;
+  width: 250px;
+  margin-right: 20px;
+  /* box-sizing: border-box; */
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color: rgb(240, 236, 236);
+}
+.price div {
+  width: 100%;
+}
+.priceItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.totalItem {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-top: 2px solid rgb(163, 161, 161);
+  padding: 10px 0px 10px 0px;
+}
+
+ .priceLabel,
+.totalLabel {
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+
+ .priceValue,
+.totalValue {
+  /* margin-left: 10px; */
+  /* width: 70px; */
+  text-align: right;
+  font-weight: bolder;
+}
+.totalValue {
+  color: green;
+}  
+.proceed_btn button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: bold;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+.proceed_btn button:hover {
+  background-color: rgb(12, 75, 12);
 }
