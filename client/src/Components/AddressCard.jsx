@@ -4,16 +4,9 @@ function AddressCard({ Address }) {
   const { area, city, flat, landmark, name, number, pincode, state } = Address;
   return (
     <div className={styles.address_card}>
-      <h2>Name: {name}</h2>
-      <p>Area: {area}</p>
-      <div>
-        <span>City: {city}</span>
-        <span>Pincode: {pincode}</span>
-      </div>
-      <div>
-        <span>Mobile: {number}</span>
-        <span>State: {state}</span>
-      </div>
+      <input type="radio" />
+      <span>{name}</span>
+      <span>{flat}, {area}, {landmark}, {pincode}, {city}, {state} </span>
     </div>
   );
 }

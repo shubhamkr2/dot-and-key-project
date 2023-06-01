@@ -1,26 +1,5 @@
 .address_card{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 10px;
-    border: 2px solid transparent;
     display: flex;
-    flex-direction: column;
-    justify-content: left;
-    gap: 5px;
-    width: fit-content;
-    height: fit-content;
-    cursor: pointer;
-}
-.address_card h2, .address_card p, .address_card span{
-    margin: 0px;
-    text-align: left;
-}
-.address_card div{
-    display: flex;
-    gap: 10px;
-}
-.address_card:hover{
-    border: 2px solid red;
-}
-.address_card h3{
-    color: gray;
 }
