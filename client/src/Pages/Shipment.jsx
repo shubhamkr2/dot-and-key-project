@@ -5,7 +5,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { addAddress, getAddress } from "../Redux/actions/shipment.action";
 import { AddressCard } from "../Components/AddressCard";
 
-
 let initialFormData = {
   name: "",
   number: "",
@@ -33,9 +32,10 @@ function Shipment() {
     dispatch(getAddress(token));
   }, []);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    dispatch(addAddress(formData, token, toast));
+    await dispatch(addAddress(formData, token, toast));
+    dispatch(getAddress(token));
   }
 
   console.log(addresses);
@@ -45,9 +45,12 @@ function Shipment() {
   return (
     <div className={styles.shipment_container}>
       <Toaster />
+      <div className={styles.select_address}>
+        <h2>Select your address: </h2>
+      </div>
       <div className={styles.address_card_container}>
         {addresses?.data?.map((address, index) => (
-          <AddressCard address={address} key={address._id} />
+          <AddressCard Address={address} key={address._id} />
         ))}
       </div>
       <h1>or add new one</h1>

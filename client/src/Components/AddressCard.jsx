@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../Styles/AddreessCard.module.css";
-function AddressCard({ address }) {
-  const { area, city, flat, landmark, name, number, pincode, state } = address;
+import styles from "../Styles/AddressCard.module.css";
+function AddressCard({ Address }) {
+  const { area, city, flat, landmark, name, number, pincode, state } = Address;
   return (
     <div className={styles.address_card}>
       <h2>Name: {name}</h2>
@@ -12,7 +12,7 @@ function AddressCard({ address }) {
       </div>
       <div>
         <span>Mobile: {number}</span>
-        <state>State: {state}</state>
+        <span>State: {state}</span>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@
     gap: 5px;
     width: fit-content;
     height: fit-content;
+    cursor: pointer;
 }
 .address_card h2, .address_card p, .address_card span{
     margin: 0px;
