@@ -6,6 +6,7 @@ import { addAddress, getAddress } from "../Redux/actions/shipment.action";
 import { AddressCard } from "../Components/AddressCard";
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
+import { NavigationBar } from "../Components/NavigationBar";
 
 let initialFormData = {
   name: "",
@@ -50,6 +51,9 @@ function Shipment() {
     return <h1>Loading...</h1>;
   }
   return (
+    <>
+    <NavigationBar />
+      <h1 className={styles.title}>Checkout</h1>
     <div className={styles.shipment_container}>
       <Toaster />
       <div className={styles.select_address}>
@@ -194,6 +198,7 @@ function Shipment() {
       }
       </div>
     </div>
+    </>
   );
 }
 
