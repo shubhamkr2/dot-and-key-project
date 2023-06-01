@@ -1,11 +1,12 @@
-.address_card{
-    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
-    padding: 10px;
-    display: flex;
+.address_card {
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  padding: 10px;
+  display: flex;
+  border-bottom: 2px solid gray;
 }
-.address_card span{
-    text-align: left;
+.address_card span {
+  text-align: left;
 }
-.address_card .name{
-    font-weight: bold;
+.address_card .name {
+  font-weight: bold;
 }
