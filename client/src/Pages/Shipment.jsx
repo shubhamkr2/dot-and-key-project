@@ -7,6 +7,7 @@ import { AddressCard } from "../Components/AddressCard";
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
 import { NavigationBar } from "../Components/NavigationBar";
+import { Footer } from "../Components/Footer";
 
 let initialFormData = {
   name: "",
@@ -198,6 +199,7 @@ function Shipment() {
       }
       </div>
     </div>
+    <Footer />
     </>
   );
 }
