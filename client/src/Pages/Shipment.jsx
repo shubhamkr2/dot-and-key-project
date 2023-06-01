@@ -202,7 +202,9 @@ function Shipment() {
           </div>
         </div>
         <div className={styles.price}>
-          <h3>Order Summary</h3>
+          <div>
+            <h3>Order Summary</h3>
+          </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Items:</span>
             <span>4</span>
@@ -212,7 +214,7 @@ function Shipment() {
             <span>&#x20B9;50</span>
           </div>
           <div className={styles.priceItem}>
-            <span className={styles.totalLabel}>Order total:</span>
+            <span className={styles.totalLabel}>Total:</span>
             <span className={styles.totalValue}>&#x20B9;2323</span>
           </div>
           <div className={styles.proceed_btn}>

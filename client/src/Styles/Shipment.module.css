@@ -72,6 +72,7 @@
   top: 100px;
   width: 250px;
   margin-right: 20px;
+  margin-left: 10px;
   /* box-sizing: border-box; */
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -124,4 +125,15 @@
 }
 .proceed_btn button:hover {
   background-color: rgb(12, 75, 12);
+}
+@media(max-width:1024px){
+  .container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .price{
+    margin-top: 20px;
+    max-width: 200px;
+  }
 }
