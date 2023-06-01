@@ -46,7 +46,7 @@ function Shipment() {
     <div className={styles.shipment_container}>
       <Toaster />
       <div className={styles.select_address}>
-        <h2>Select your address: </h2>
+        <h2>Select a delivery address: </h2>
       </div>
       <div className={styles.address_card_container}>
         {addresses?.data?.map((address, index) => (
