@@ -8,6 +8,7 @@ import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
 import { NavigationBar } from "../Components/NavigationBar";
 import { Footer } from "../Components/Footer";
+import { useLocation } from "react-router-dom";
 
 let initialFormData = {
   name: "",
@@ -26,6 +27,10 @@ function Shipment() {
   const { addresses, loading } = useSelector((state) => state.shipment);
   const dispatch = useDispatch();
   const [expanded, setExpanded] = useState(false);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const amount = searchParams.get("amount")||0;
+  const items = searchParams.get("items")||0;
 
   const toggleSection = () => {
     setExpanded(!expanded);
@@ -47,7 +52,7 @@ function Shipment() {
     dispatch(getAddress(token));
   }
 
-  console.log(addresses);
+  console.log(searchParams);
   if (loading) {
     return <h1>Loading...</h1>;
   }
@@ -207,7 +212,7 @@ function Shipment() {
           </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Items:</span>
-            <span>4</span>
+            <span>{items}</span>
           </div>
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Delivery:</span>
@@ -215,7 +220,7 @@ function Shipment() {
           </div>
           <div className={styles.priceItem}>
             <span className={styles.totalLabel}>Total:</span>
-            <span className={styles.totalValue}>&#x20B9;2323</span>
+            <span className={styles.totalValue}>&#x20B9;{+amount+50}</span>
           </div>
           <div className={styles.proceed_btn}>
             <button>Proceed to pay</button>
