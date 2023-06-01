@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import { addAddress, getAddress } from "../Redux/actions/shipment.action";
 import { AddressCard } from "../Components/AddressCard";
+import { MdExpandMore } from "react-icons/md";
+import { MdExpandLess } from "react-icons/md";
 
 let initialFormData = {
   name: "",
@@ -21,6 +23,11 @@ function Shipment() {
   const token = localStorage.getItem("token") || [];
   const { addresses, loading } = useSelector((state) => state.shipment);
   const dispatch = useDispatch();
+  const [expanded, setExpanded] = useState(false);
+
+  const toggleSection = () => {
+    setExpanded(!expanded);
+  };
 
   function handleChange(e) {
     let { name, value } = e.target;
@@ -53,8 +60,14 @@ function Shipment() {
           <AddressCard Address={address} key={address._id} />
         ))}
       </div>
-      <h1>or add new one</h1>
+      {/* <h1>or add new one</h1> */}
       <div className={styles.form_container}>
+
+      <div onClick={toggleSection} className={styles.add_address}>
+          Add a new address
+          {expanded? <MdExpandLess />:<MdExpandMore />}
+      </div>
+      {expanded?
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
             <label>Full Name</label>
@@ -177,7 +190,8 @@ function Shipment() {
             </select>
           </div>
           <button>Add address</button>
-        </form>
+        </form>:""
+      }
       </div>
     </div>
   );
