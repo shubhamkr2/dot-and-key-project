@@ -11,13 +11,16 @@
 }
 .add_address{
   font-weight: bold;
+  cursor: pointer;
 }
 .shipment_container .form_container {
   display: flex;
   flex-direction: column;
-  padding-left: 50px;
+  padding: 0px 50px 0px 50px;
   gap: 20px;
   margin-top: 20px;
+  max-width: 700px;
+  box-sizing: border-box;
   /* justify-content: center; */
   /* align-items: center; */
 }
@@ -51,6 +54,6 @@
 .address_card_container{
   border: 1px solid red;
   padding: 0px 50px 0px 50px;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   width: 90%;
 }
