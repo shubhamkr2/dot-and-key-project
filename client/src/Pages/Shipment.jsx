@@ -9,6 +9,7 @@ import { MdExpandLess } from "react-icons/md";
 import { NavigationBar } from "../Components/NavigationBar";
 import { Footer } from "../Components/Footer";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 let initialFormData = {
   name: "",
@@ -31,6 +32,7 @@ function Shipment() {
   const searchParams = new URLSearchParams(location.search);
   const amount = searchParams.get("amount")||0;
   const items = searchParams.get("items")||0;
+  const navigate = useNavigate();
 
   const toggleSection = () => {
     setExpanded(!expanded);
@@ -51,7 +53,9 @@ function Shipment() {
     await dispatch(addAddress(formData, token, toast));
     dispatch(getAddress(token));
   }
-
+  function handleProceedToPay() {
+    navigate(`/payment?amount=${amount}&items=${items}`);
+  }
   console.log(searchParams);
   if (loading) {
     return <h1>Loading...</h1>;
@@ -223,7 +227,7 @@ function Shipment() {
             <span className={styles.totalValue}>&#x20B9;{+amount+50}</span>
           </div>
           <div className={styles.proceed_btn}>
-            <button>Proceed to pay</button>
+            <button onClick={handleProceedToPay}>Proceed to pay</button>
           </div>
         </div>
       </div>
