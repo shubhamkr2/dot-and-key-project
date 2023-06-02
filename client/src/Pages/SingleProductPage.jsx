@@ -67,7 +67,7 @@ function SingleProductPage() {
   }
 
   function handleBuyNow() {
-    navigate(`/shipment?amount=${price*quantity}&&items=${quantity}`);
+    navigate(`/shipment?amount=${price*quantity}&items=${quantity}`);
   }
   return (
     <>
