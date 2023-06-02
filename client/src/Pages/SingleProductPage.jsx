@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../Styles/SingleProductPage.module.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NavigationBar } from "../Components/NavigationBar";
 import { getSingleProduct } from "../Redux/actions/product.action";
@@ -10,16 +10,20 @@ import { SingleImageCarousel } from "../Components/SingleImageCarousel";
 import { addToCart, getCartItems } from "../Redux/actions/cart.action";
 import toast, { Toaster } from "react-hot-toast";
 import BeatLoader from "react-spinners/BeatLoader";
+import { useNavigate } from 'react-router-dom';
 
 function SingleProductPage() {
   const { id } = useParams();
-  const { loading, single_product_data } = useSelector((state) => state.product);
+  const { loading, single_product_data } = useSelector(
+    (state) => state.product
+  );
   const { isLoading } = useSelector((state) => state.cart);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const { data } = single_product_data || {};
   const token = localStorage.getItem("token") || [];
+  const navigate = useNavigate();
   const {
     _id,
     category,
@@ -60,6 +64,10 @@ function SingleProductPage() {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  function handleBuyNow() {
+    navigate(`/shipment?amount=${price*quantity}&&items=${quantity}`);
   }
   return (
     <>
@@ -110,14 +118,17 @@ function SingleProductPage() {
               onClick={handleAddToCart}
               disabled={isLoading ? true : false}
             >
-            {isLoading ? (
+              {isLoading ? (
                 <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
               ) : (
                 "ADD TO CART"
               )}
-              
             </button>
-            <button className={styles.buy_now_btn}>BUY NOW</button>
+            
+              <button className={styles.buy_now_btn} onClick={handleBuyNow}>
+                BUY NOW
+              </button>
+            
           </div>
           <div className={styles.description}>
             <h3>About this item</h3>
