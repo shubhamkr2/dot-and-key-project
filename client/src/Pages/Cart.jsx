@@ -6,6 +6,7 @@ import styles from "../Styles/Cart.module.css";
 import toast, { Toaster } from "react-hot-toast";
 import { NavigationBar } from "../Components/NavigationBar";
 import { Footer } from "../Components/Footer";
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const token = localStorage.getItem("token");
@@ -14,6 +15,7 @@ const Cart = () => {
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getCartItems(token));
@@ -42,6 +44,11 @@ const Cart = () => {
       toast.error("Invalid promo code");
     }
   }
+
+  function handleProceedToBuy() {
+    navigate(`/shipment?amount=${totalPrice}&items=${totalQuantity}`);
+  }
+
   console.log(isAuth);
   if (loading) {
     return <h1>Loading...</h1>;
@@ -101,7 +108,7 @@ const Cart = () => {
             <button onClick={handlePromo}>Apply</button>
           </div>
           <div className={styles.proceed_btn}>
-            <button>Proceed to buy</button>
+            <button onClick={handleProceedToBuy}>Proceed to buy</button>
           </div>
         </div>
       </div>
