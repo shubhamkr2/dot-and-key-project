@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import styles from "../Styles/Shipment.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
-import { addAddress, getAddress, removeAddress } from "../Redux/actions/shipment.action";
+import {
+  addAddress,
+  getAddress,
+  removeAddress,
+} from "../Redux/actions/shipment.action";
 import { AddressCard } from "../Components/AddressCard";
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
@@ -75,8 +79,13 @@ function Shipment() {
     }
   }
 
-  function handleRemove(id) {
-    dispatch(removeAddress(token, id, toast));
+  async function handleRemove(id) {
+    try {
+      await dispatch(removeAddress(token, id, toast));
+      dispatch(getAddress(token));
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   if (loading) {
