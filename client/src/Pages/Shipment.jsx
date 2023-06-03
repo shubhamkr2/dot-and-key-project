@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../Styles/Shipment.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
-import { addAddress, getAddress } from "../Redux/actions/shipment.action";
+import { addAddress, getAddress, removeAddress } from "../Redux/actions/shipment.action";
 import { AddressCard } from "../Components/AddressCard";
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
@@ -74,7 +74,11 @@ function Shipment() {
       toast.error("Invalid promo code");
     }
   }
-  console.log(searchParams);
+
+  function handleRemove(id) {
+    dispatch(removeAddress(token, id, toast));
+  }
+
   if (loading) {
     return <h1>Loading...</h1>;
   }
@@ -90,7 +94,11 @@ function Shipment() {
           </div>
           <div className={styles.address_card_container}>
             {addresses?.data?.map((address, index) => (
-              <AddressCard Address={address} key={address._id} />
+              <AddressCard
+                Address={address}
+                key={address._id}
+                handleRemove={handleRemove}
+              />
             ))}
           </div>
           {/* <h1>or add new one</h1> */}

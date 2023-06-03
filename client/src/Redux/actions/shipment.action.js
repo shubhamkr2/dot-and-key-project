@@ -92,6 +92,7 @@ export const updateAddress = (token, id, newAddress, toast) => {
 };
 
 export const removeAddress = (token, id, toast) => {
+  console.log(id, token)
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.REMOVE_ADDRESS_REQUEST });
