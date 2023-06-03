@@ -9,7 +9,7 @@ import { MdExpandLess } from "react-icons/md";
 import { NavigationBar } from "../Components/NavigationBar";
 import { Footer } from "../Components/Footer";
 import { useLocation } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 let initialFormData = {
   name: "",
@@ -30,8 +30,8 @@ function Shipment() {
   const [expanded, setExpanded] = useState(false);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const amount = searchParams.get("amount")||0;
-  const items = searchParams.get("items")||0;
+  const amount = searchParams.get("amount") || 0;
+  const items = searchParams.get("items") || 0;
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ function Shipment() {
   function handleProceedToPay() {
     navigate(`/payment?amount=${amount}&items=${items}`);
   }
-  
+
   function handlePromo() {
     let discountAmt = 0;
     if (promoCode === "GET30") {
@@ -228,26 +228,7 @@ function Shipment() {
             )}
           </div>
         </div>
-        {/* <div className={styles.price}>
-          <div>
-            <h3>Order Summary</h3>
-          </div>
-          <div className={styles.priceItem}>
-            <span className={styles.priceLabel}>Items:</span>
-            <span>{items}</span>
-          </div>
-          <div className={styles.priceItem}>
-            <span className={styles.priceLabel}>Delivery:</span>
-            <span>&#x20B9;50</span>
-          </div>
-          <div className={styles.priceItem}>
-            <span className={styles.totalLabel}>Total:</span>
-            <span className={styles.totalValue}>&#x20B9;{+amount+50}</span>
-          </div>
-          <div className={styles.proceed_btn}>
-            <button onClick={handleProceedToPay}>Proceed to pay</button>
-          </div>
-        </div> */}
+
         <div className={styles.price}>
           <div className={styles.total_qty}>
             <h2>Total {items} items</h2>
