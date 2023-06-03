@@ -1,18 +1,18 @@
-.container{
+.container {
   display: flex;
 }
-.title{
+.title {
   text-align: center;
   color: gray;
 }
-.shipment_container h1{
+.shipment_container h1 {
   text-align: center;
 }
-.select_address h2{
+.select_address h2 {
   padding-left: 50px;
   color: rgb(197, 75, 19);
 }
-.add_address{
+.add_address {
   font-weight: bold;
   cursor: pointer;
 }
@@ -57,12 +57,12 @@
 .shipment_container .form_container form button:hover {
   background-color: black;
 }
-.address_card_container{
+.address_card_container {
   padding: 0px 50px 0px 50px;
   box-sizing: border-box;
   /* width: 90%; */
 }
-.price {
+/* .price {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -73,7 +73,6 @@
   width: 250px;
   margin-right: 20px;
   margin-left: 10px;
-  /* box-sizing: border-box; */
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   background-color: rgb(240, 236, 236);
@@ -103,8 +102,6 @@
 
  .priceValue,
 .totalValue {
-  /* margin-left: 10px; */
-  /* width: 70px; */
   text-align: right;
   font-weight: bolder;
 }
@@ -125,14 +122,96 @@
 }
 .proceed_btn button:hover {
   background-color: rgb(12, 75, 12);
+} */
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: fit-content;
+  padding: 20px;
+  position: sticky;
+  top: 100px;
+  width: 250px;
+  margin-left: 10px;
+  margin-right: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  background-color: rgb(240, 236, 236);
 }
-@media(max-width:1024px){
-  .container{
+
+.price h2 {
+  margin-top: 0px;
+  border-bottom: 1px solid rgb(163, 161, 161);
+  padding-bottom: 5px;
+}
+.price div,
+.total_qty {
+  width: 100%;
+}
+.priceItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.totalItem {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-top: 2px solid rgb(163, 161, 161);
+  padding: 10px 0px 10px 0px;
+}
+
+.priceLabel,
+.totalLabel {
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+
+.priceValue,
+.totalValue {
+  margin-left: 10px;
+  width: 70px;
+  text-align: right;
+  font-weight: bolder;
+}
+.totalValue {
+  color: green;
+}
+.promo_code {
+  display: flex;
+  gap: 10px;
+}
+.promo_code input {
+  width: 70%;
+  padding: 5px;
+}
+.promo_code button {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.proceed_btn button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: bold;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+.proceed_btn button:hover {
+  background-color: rgb(12, 75, 12);
+}
+@media (max-width: 1024px) {
+  .container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .price{
+  .price {
     margin-top: 20px;
     max-width: 200px;
   }

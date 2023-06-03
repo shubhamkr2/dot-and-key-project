@@ -32,6 +32,8 @@ function Shipment() {
   const searchParams = new URLSearchParams(location.search);
   const amount = searchParams.get("amount")||0;
   const items = searchParams.get("items")||0;
+  const [promoCode, setPromoCode] = useState("");
+  const [discount, setDiscount] = useState(0);
   const navigate = useNavigate();
 
   const toggleSection = () => {
@@ -55,6 +57,22 @@ function Shipment() {
   }
   function handleProceedToPay() {
     navigate(`/payment?amount=${amount}&items=${items}`);
+  }
+  
+  function handlePromo() {
+    let discountAmt = 0;
+    if (promoCode === "GET30") {
+      discountAmt = amount * (30 / 100);
+      setDiscount(discountAmt);
+      toast.success(`Offer applied discounted RS: ${discountAmt}`);
+    } else if (promoCode === "GET50") {
+      discountAmt = amount * (50 / 100);
+      setDiscount(discountAmt);
+      toast.success(`Offer applied discounted RS: ${discountAmt}`);
+    } else {
+      setDiscount(0);
+      toast.error("Invalid promo code");
+    }
   }
   console.log(searchParams);
   if (loading) {
@@ -210,7 +228,7 @@ function Shipment() {
             )}
           </div>
         </div>
-        <div className={styles.price}>
+        {/* <div className={styles.price}>
           <div>
             <h3>Order Summary</h3>
           </div>
@@ -228,6 +246,41 @@ function Shipment() {
           </div>
           <div className={styles.proceed_btn}>
             <button onClick={handleProceedToPay}>Proceed to pay</button>
+          </div>
+        </div> */}
+        <div className={styles.price}>
+          <div className={styles.total_qty}>
+            <h2>Total {items} items</h2>
+          </div>
+          <div className={styles.priceItem}>
+            <span className={styles.priceLabel}>Total price:</span>
+            <span className={styles.priceValue}>&#x20B9; {amount}</span>
+          </div>
+          <div className={styles.priceItem}>
+            <span className={styles.priceLabel}>Shipping:</span>
+            <span className={styles.priceValue}>&#x20B9; 50</span>
+          </div>
+          <div className={styles.priceItem}>
+            <span className={styles.priceLabel}>Discount:</span>
+            <span className={styles.priceValue}>&#x20B9; {discount}</span>
+          </div>
+          <div className={styles.totalItem}>
+            <span className={styles.totalLabel}>Subtotal:</span>
+            <span className={styles.totalValue}>
+              &#x20B9; {+amount + 50 - discount}
+            </span>
+          </div>
+          <div className={styles.promo_code}>
+            <input
+              type="text"
+              placeholder="Apply Promo Code"
+              value={promoCode}
+              onChange={(e) => setPromoCode(e.target.value)}
+            />
+            <button onClick={handlePromo}>Apply</button>
+          </div>
+          <div className={styles.proceed_btn}>
+            <button onClick={handleProceedToPay}>Proceed to buy</button>
           </div>
         </div>
       </div>
