@@ -7,7 +7,9 @@ function AddressCard({ Address }) {
     <div className={styles.address_card}>
       <input type="radio" />
       <span>
-        <strong>{name}</strong> {flat}, {area}, {landmark}, {pincode}, {city}, {state}, Phone number: {number}
+        <strong>{name}</strong> {flat}, {area}, {landmark}, {pincode}, {city},{" "}
+        {state}, Phone number: {number}.{" "}
+        <strong className={styles.remove}> Remove</strong>
       </span>
     </div>
   );
