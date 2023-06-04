@@ -15,7 +15,7 @@ function AddressCard({
       <input
         type="radio"
         checked={selectedOption === index}
-        onChange={() => handleOptionChange(index)}
+        onChange={() => handleOptionChange(index,_id)}
       />
       <span>
         <strong>{name}</strong> {flat}, {area}, {landmark}, {pincode}, {city},{" "}

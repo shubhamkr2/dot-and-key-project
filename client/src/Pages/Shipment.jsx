@@ -39,6 +39,7 @@ function Shipment() {
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [defaultAddress, setDefaultAddress] = useState(null);
   const navigate = useNavigate();
 
   const toggleSection = () => {
@@ -89,8 +90,9 @@ function Shipment() {
     }
   }
 
-  const handleOptionChange = (index) => {
+  const handleOptionChange = (index, id) => {
     setSelectedOption(index);
+    setDefaultAddress(id);
   };
 
   if (loading) {
