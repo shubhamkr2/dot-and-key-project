@@ -10,11 +10,11 @@
 .address_card .name {
   font-weight: bold;
 }
-.remove{
+.edit,.remove{
   color: rgb(4, 45, 158);
   text-decoration: underline;
 }
-.remove:hover{
+.edit:hover,.remove:hover{
   color: rgb(211, 6, 6);
   cursor: pointer;
 }

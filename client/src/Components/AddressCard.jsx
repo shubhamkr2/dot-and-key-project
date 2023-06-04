@@ -20,6 +20,7 @@ function AddressCard({
       <span>
         <strong>{name}</strong> {flat}, {area}, {landmark}, {pincode}, {city},{" "}
         {state}, Phone number: {number}.{" "}
+        <strong className={styles.edit}>Edit |</strong>
         <strong className={styles.remove} onClick={() => handleRemove(_id)}>
           {" "}
           Remove
