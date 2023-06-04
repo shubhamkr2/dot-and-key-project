@@ -127,7 +127,13 @@
     margin-top: 20px;
   }
   .card_layout {
-    height: 22vh;
+    height: 25vh;
+  }
+  .card_layout img {
+    width: 17dvw;
+  }
+  .card_layout .chip {
+    width: 35px;
   }
 }
 @media (max-width: 330px) {
@@ -136,5 +142,12 @@
   }
   .payment_container {
     display: block;
+  }
+  .card_layout span {
+    font-size: 1.2rem;
+  }
+
+  .card_layout div {
+    font-size: 0.7rem;
   }
 }
