@@ -62,7 +62,7 @@ function Shipment() {
     dispatch(getAddress(token));
   }
   function handleProceedToPay() {
-    navigate(`/payment?amount=${amount}&items=${items}`);
+    navigate(`/payment?amount=${amount}&items=${items}&address=${defaultAddress}`);
   }
 
   function handlePromo() {
