@@ -16,32 +16,45 @@ function Payment() {
 
   return (
     <div className={styles.payment_container}>
-      <div className={styles.card_container}>
-        <div className={styles.card_layout}>
-          <img
-            src="https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png"
-            alt="visa logo"
-          />
-          <img
-            className={styles.chip}
-            src="https://cdn-icons-png.flaticon.com/512/6404/6404100.png"
-          />
-          <span className={styles.layout_number}>{cardNumber}</span>
-          <div className={styles.layout_validity_cvc_box}>
-            <div>
-              <div>CARD HOLDER</div>
-              <div className={styles.layout_name}>{name}</div>
-            </div>
-            <div>
-              <div>EXPIRES</div>
-              <div className={styles.layout_expires}>
-                <div className={styles.month}>{exMonth} </div>/
-                <div className="year"> {exYear}</div>
+      <div className={styles.address_and_card}>
+        <div className={styles.default_address}>
+          <h3>Selected Address</h3>
+          <div>
+            <strong>Name: Shubham kumar</strong>
+            <span>
+              <strong>Address: </strong>Flat: Amba niwash, Postal park, Near
+              school, 800001, Patna
+            </span>
+            <strong> Mob: 8916487925</strong>
+          </div>
+        </div>
+        <div className={styles.card_container}>
+          <div className={styles.card_layout}>
+            <img
+              src="https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png"
+              alt="visa logo"
+            />
+            <img
+              className={styles.chip}
+              src="https://cdn-icons-png.flaticon.com/512/6404/6404100.png"
+            />
+            <span className={styles.layout_number}>{cardNumber}</span>
+            <div className={styles.layout_validity_cvc_box}>
+              <div>
+                <div>CARD HOLDER</div>
+                <div className={styles.layout_name}>{name}</div>
               </div>
-            </div>
-            <div>
-              <div>CVC</div>
-              <div className={styles.layout_cvc}>{cvv}</div>
+              <div>
+                <div>EXPIRES</div>
+                <div className={styles.layout_expires}>
+                  <div className={styles.month}>{exMonth} </div>/
+                  <div className="year"> {exYear}</div>
+                </div>
+              </div>
+              <div>
+                <div>CVC</div>
+                <div className={styles.layout_cvc}>{cvv}</div>
+              </div>
             </div>
           </div>
         </div>
