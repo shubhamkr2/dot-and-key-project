@@ -38,6 +38,7 @@ function Shipment() {
   const items = searchParams.get("items") || 0;
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
   const navigate = useNavigate();
 
   const toggleSection = () => {
@@ -88,6 +89,10 @@ function Shipment() {
     }
   }
 
+  const handleOptionChange = (index) => {
+    setSelectedOption(index);
+  };
+
   if (loading) {
     return <h1>Loading...</h1>;
   }
@@ -107,6 +112,9 @@ function Shipment() {
                 Address={address}
                 key={address._id}
                 handleRemove={handleRemove}
+                selectedOption={selectedOption}
+                handleOptionChange={handleOptionChange}
+                index={index}
               />
             ))}
           </div>

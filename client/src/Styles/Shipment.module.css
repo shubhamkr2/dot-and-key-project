@@ -71,11 +71,12 @@
   padding: 20px;
   position: sticky;
   top: 100px;
-  width: 250px;
+  /* width: 250px; */
   margin-left: 10px;
   margin-right: 20px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   background-color: rgb(240, 236, 236);
+  box-sizing: border-box;
 }
 
 .price h2 {
@@ -145,14 +146,30 @@
 .proceed_btn button:hover {
   background-color: rgb(12, 75, 12);
 }
-@media (max-width: 1024px) {
+@media (max-width: 724px) {
   .container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
   }
   .price {
     margin-top: 20px;
     max-width: 200px;
+    /* display: none; */
+  }
+  .shipment_container .form_container {
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+  .price{
+    width: auto;
+  }
+  .select_address h2 {
+    padding-left: 0px;
+    font-size: .8rem;
+    text-align: center;
+    width: 100%;
   }
 }
