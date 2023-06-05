@@ -19,11 +19,17 @@ function Payment() {
   const [cvv, setCvv] = useState("___");
   const token = localStorage.getItem("token") || [];
   const { addresses, loading } = useSelector((state) => state.shipment);
+  const [modal, setModal] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAddressById(token, address));
   }, []);
+
+  function handleModal() {
+    setModal(!modal);
+    // dispatch(resetModal());
+  }
 
   console.log(addresses?.data)
   return (
@@ -147,7 +153,11 @@ function Payment() {
         </form>
       </div>
     </div>
-      <OtpModal />
+    {modal?
+      <OtpModal handleModal={handleModal} />
+    :(
+      ""
+    )}
     </>
   );
 }
