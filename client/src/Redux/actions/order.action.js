@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 import * as actionTypes from "../actionTypes/order.actionTypes";
 
-export const addOrders = (product, token, toast) => {
+export const addOrders = (products, token, toast) => {
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.ADD_ORDER_REQUEST });
@@ -13,7 +13,7 @@ export const addOrders = (product, token, toast) => {
             "Content-Type": "application/json",
             authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify(product),
+          body: JSON.stringify(products),
         }
       );
       const data = await response.json();
