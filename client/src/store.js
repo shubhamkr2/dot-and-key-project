@@ -6,6 +6,7 @@ import { resetPassword } from "./Redux/reducers/resetPassword.reducer";
 import { productReducer } from "./Redux/reducers/product.reducer";
 import { searchReducer } from "./Redux/reducers/search.reducer";
 import { shipmentReducer } from "./Redux/reducers/shipment.reducer";
+import { orderReducer } from "./Redux/reducers/order.reducer";
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   reset: resetPassword,
   search: searchReducer,
   shipment: shipmentReducer,
+  order: orderReducer,
 });
 
 const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
