@@ -26,8 +26,7 @@ function Payment() {
 
   console.log(addresses?.data)
   return (
-    <div className={styles.payment_container}>
-      <div className={styles.address_and_card}>
+    <>
         <div className={styles.default_address}>
           <h3>Selected Address</h3>
           {addresses && addresses.data ? (
@@ -42,6 +41,8 @@ function Payment() {
             ""
           )}
         </div>
+    <div className={styles.payment_container}>
+      <div className={styles.address_and_card}>
         <div className={styles.card_container}>
           <div className={styles.card_layout}>
             <img
@@ -145,6 +146,7 @@ function Payment() {
         </form>
       </div>
     </div>
+    </>
   );
 }
 
