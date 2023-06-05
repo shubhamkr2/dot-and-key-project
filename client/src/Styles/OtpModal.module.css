@@ -67,11 +67,9 @@ a {
   color: red;
 }
 .form_container form {
-  border: 1px solid red;
   width: 360px;
 }
 .form_container .otp_container div {
-  border: 1px solid black;
   display: flex;
   gap: 20px;
   width: 90%;
