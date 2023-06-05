@@ -49,7 +49,6 @@ function Shipment() {
   function handleChange(e) {
     let { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    // console.log(e.target);
   }
 
   useEffect(() => {
@@ -62,7 +61,12 @@ function Shipment() {
     dispatch(getAddress(token));
   }
   function handleProceedToPay() {
-    navigate(`/payment?amount=${amount}&items=${items}&address=${defaultAddress}`);
+    if (defaultAddress === null) {
+      return toast.error("Please select a default address");
+    }
+    navigate(
+      `/payment?amount=${amount}&items=${items}&address=${defaultAddress}`
+    );
   }
 
   function handlePromo() {
