@@ -17,9 +17,10 @@ function Payment() {
   const [exMonth, setExMonth] = useState("MM");
   const [exYear, setExYear] = useState("YY");
   const [cvv, setCvv] = useState("___");
-  const token = localStorage.getItem("token") || [];
-  const { addresses, loading } = useSelector((state) => state.shipment);
+  const { addresses } = useSelector((state) => state.shipment);
   const [modal, setModal] = useState(false);
+
+  const token = localStorage.getItem("token") || [];
   const dispatch = useDispatch();
 
   useEffect(() => {
