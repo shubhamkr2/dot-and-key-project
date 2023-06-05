@@ -58,7 +58,30 @@ export const getAddress = (token) => {
     }
   };
 };
-
+export const getAddressById = (token,id) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: actionTypes.GET_ADDRESS_REQUEST });
+      const response = await fetch(
+        `https://courageous-rose-nightgown.cyclic.app/address/${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      dispatch({ type: actionTypes.GET_ADDRESS_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({
+        type: actionTypes.GET_ADDRESS_FAILURE,
+        payload: error.message,
+      });
+    }
+  };
+};
 export const updateAddress = (token, id, newAddress, toast) => {
   // console.log(quantity, token, id)
   return async (dispatch) => {

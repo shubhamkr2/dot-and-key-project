@@ -1,32 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styles from "../Styles/Payment.module.css";
+import { getAddressById } from "../Redux/actions/shipment.action";
+import { useDispatch, useSelector } from "react-redux";
 
 function Payment() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const amount = searchParams.get("amount");
+  const address = searchParams.get("address");
   // const { id } = useParams();
   const [name, setName] = useState("Name");
   const [cardNumber, setCardNumber] = useState("xxxx xxxx xxxx xxxx");
   const [exMonth, setExMonth] = useState("MM");
   const [exYear, setExYear] = useState("YY");
   const [cvv, setCvv] = useState("___");
+  const token = localStorage.getItem("token") || [];
+  const { addresses, loading } = useSelector((state) => state.shipment);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getAddressById(token, address));
+  }, []);
+
+  console.log(addresses?.data)
   return (
     <div className={styles.payment_container}>
       <div className={styles.address_and_card}>
         <div className={styles.default_address}>
           <h3>Selected Address</h3>
-          <div>
-            <strong>Name: Shubham kumar</strong>
-            <span>
-              <strong>Address: </strong>Flat: Amba niwash, Postal park, Near
-              school, 800001, Patna
-            </span>
-            <strong> Mob: 8916487925</strong>
-          </div>
+          {addresses && addresses.data ? (
+            <div>
+              <strong>Name: {addresses.data[0].name}</strong>
+              <span>
+                <strong>Address: </strong> {addresses.data[0].flat}, {addresses.data[0].area}, {addresses.data[0].landmark}, {addresses.data[0].city} {addresses.data[0].state}, {addresses.data[0].pincode}
+              </span>
+              <strong> Mob: +91 {addresses.data[0].number}</strong>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className={styles.card_container}>
           <div className={styles.card_layout}>
