@@ -10,10 +10,8 @@ function OtpModal({ handleModal }) {
     useSelector((store) => store.reset);
   const dispatch = useDispatch();
 
-  //for email
   function handleEmailSubmit(e) {
     e.preventDefault();
-
   }
 
   return (
@@ -29,42 +27,26 @@ function OtpModal({ handleModal }) {
           />
         </div>
         {/* {!email_confirmed && !secret_question_confirmed && ( */}
-          <form onSubmit={(e) => handleEmailSubmit(e)}>
-            <h2>OTP</h2>
-            <div className={styles.otp_container}>
+        <form onSubmit={(e) => handleEmailSubmit(e)}>
+          <h2>OTP</h2>
+          <div className={styles.otp_container}>
             <div>
-              <input
-                type="text"
-                required
-              />
-              <input
-                type="text"
-                required
-              />
-              <input
-                type="text"
-                required
-              />
-              <input
-                type="text"
-                required
-              />
-              </div>
-              <button disabled={loading ? true : false}>
-                {" "}
-                {loading ? (
-                  <BeatLoader
-                    color="#FFFFFF"
-                    cssOverride={{ margin: "auto" }}
-                  />
-                ) : (
-                  "Submit"
-                )}
-              </button>
+              <input type="text" required />
+              <input type="text" required />
+              <input type="text" required />
+              <input type="text" required />
             </div>
-          </form>
+            <button disabled={loading ? true : false}>
+              {" "}
+              {loading ? (
+                <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
+              ) : (
+                "Submit"
+              )}
+            </button>
+          </div>
+        </form>
         {/* )} */}
-
       </div>
     </div>
   );
