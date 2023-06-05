@@ -51,8 +51,9 @@ function ResetPasswordModal({ handleModal }) {
   function handleNewPasswordSubmit(e) {
     e.preventDefault();
     if (newPassword.password === newPassword.confirm_password) {
-      dispatch(resetPassword(newPassword.password, userId, token, toast, handleModal));
-      
+      dispatch(
+        resetPassword(newPassword.password, userId, token, toast, handleModal)
+      );
     } else {
       toast.error("Confirm password didn't match");
     }
@@ -146,38 +147,41 @@ function ResetPasswordModal({ handleModal }) {
           </form>
         )}
         {secret_question_confirmed && (
-        <form onSubmit={(e) => handleNewPasswordSubmit(e)}>
-          <h2>Create New Password</h2>
-          <div>
-            <label className={styles.required}>New Password</label>
-            <input
-              type="text"
-              placeholder="Type new password"
-              name="password"
-              value={newPassword.password}
-              onChange={(e) => handleNewPassword(e)}
-              required
-            />
+          <form onSubmit={(e) => handleNewPasswordSubmit(e)}>
+            <h2>Create New Password</h2>
+            <div>
+              <label className={styles.required}>New Password</label>
+              <input
+                type="text"
+                placeholder="Type new password"
+                name="password"
+                value={newPassword.password}
+                onChange={(e) => handleNewPassword(e)}
+                required
+              />
 
-            <label className={styles.required}>Confirm New Password</label>
-            <input
-              type="password"
-              placeholder="Confirm new password"
-              name="confirm_password"
-              value={newPassword.confirm_password}
-              onChange={(e) => handleNewPassword(e)}
-              required
-            />
-            <button disabled={loading ? true : false}>
-              {" "}
-              {loading ? (
-                <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
-              ) : (
-                "Submit"
-              )}
-            </button>
-          </div>
-        </form>
+              <label className={styles.required}>Confirm New Password</label>
+              <input
+                type="password"
+                placeholder="Confirm new password"
+                name="confirm_password"
+                value={newPassword.confirm_password}
+                onChange={(e) => handleNewPassword(e)}
+                required
+              />
+              <button disabled={loading ? true : false}>
+                {" "}
+                {loading ? (
+                  <BeatLoader
+                    color="#FFFFFF"
+                    cssOverride={{ margin: "auto" }}
+                  />
+                ) : (
+                  "Submit"
+                )}
+              </button>
+            </div>
+          </form>
         )}
       </div>
     </div>
