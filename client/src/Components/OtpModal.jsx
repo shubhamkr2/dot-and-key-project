@@ -8,6 +8,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 function OtpModal({ handleModal }) {
   const { loading, email_confirmed, userId, secret_question_confirmed, token } =
     useSelector((store) => store.reset);
+  const [otp, setOtp] = useState();
   const dispatch = useDispatch();
 
   function handleEmailSubmit(e) {
@@ -31,10 +32,10 @@ function OtpModal({ handleModal }) {
           <h2>OTP</h2>
           <div className={styles.otp_container}>
             <div>
-              <input type="text" required />
-              <input type="text" required />
-              <input type="text" required />
-              <input type="text" required />
+              <input type="text" maxLength="1" required />
+              <input type="text" maxLength="1" required />
+              <input type="text" maxLength="1" required />
+              <input type="text" maxLength="1" required />
             </div>
             <button disabled={loading ? true : false}>
               {" "}

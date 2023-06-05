@@ -18,7 +18,7 @@ function Payment() {
   const [exYear, setExYear] = useState("YY");
   const [cvv, setCvv] = useState("___");
   const { addresses } = useSelector((state) => state.shipment);
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(true);
 
   const token = localStorage.getItem("token") || [];
   const dispatch = useDispatch();

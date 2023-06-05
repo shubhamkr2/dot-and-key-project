@@ -29,6 +29,7 @@
   height: 40px;
   display: block;
   width: 100%;
+  text-align: center;
 }
 .form_container form button {
   display: block;
@@ -75,6 +76,7 @@ a {
   width: 90%;
   margin: auto;
 }
+
 @media (max-width: 450px) {
   .form_container {
     width: 80%;
