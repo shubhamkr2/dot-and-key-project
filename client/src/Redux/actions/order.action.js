@@ -4,9 +4,9 @@ import * as actionTypes from "../actionTypes/order.actionTypes";
 export const addOrders = (product, token, toast) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: actionTypes.ADD_TO_CART_REQUEST });
+      dispatch({ type: actionTypes.ADD_ORDER_REQUEST });
       const response = await fetch(
-        "https://courageous-rose-nightgown.cyclic.app/carts",
+        "https://courageous-rose-nightgown.cyclic.app/orders",
         {
           method: "POST",
           headers: {
@@ -17,20 +17,17 @@ export const addOrders = (product, token, toast) => {
         }
       );
       const data = await response.json();
-      if (data.message === "Quantity limit exceeded") {
+      if (data.message === "Order added successfully") {
         toast.error(data.message);
-      } else if(data.message === "Invalid token format"){
-        toast.error("Please login first");
-      }else {
+        dispatch({ type: actionTypes.ADD_ORDER_SUCCESS, payload: data });
+      } else {
         toast.success(data.message);
       }
-      dispatch({ type: actionTypes.ADD_TO_CART_SUCCESS, payload: data });
     } catch (error) {
       dispatch({
-        type: actionTypes.ADD_TO_CART_FAILURE,
+        type: actionTypes.ADD_ORDER_FAILURE,
         payload: error.message,
       });
-      // toast.error("Unable to add to cart");
     }
   };
 };
@@ -38,9 +35,9 @@ export const addOrders = (product, token, toast) => {
 export const getOrders = (token) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: actionTypes.GET_CART_ITEMS_REQUEST });
+      dispatch({ type: actionTypes.GET_ORDER_REQUEST });
       const response = await fetch(
-        "https://courageous-rose-nightgown.cyclic.app/carts",
+        "https://courageous-rose-nightgown.cyclic.app/orders",
         {
           method: "GET",
           headers: {
@@ -50,13 +47,12 @@ export const getOrders = (token) => {
         }
       );
       const data = await response.json();
-      dispatch({ type: actionTypes.GET_CART_ITEMS_SUCCESS, payload: data });
+      dispatch({ type: actionTypes.GET_ORDER_SUCCESS, payload: data });
     } catch (error) {
       dispatch({
-        type: actionTypes.GET_CART_ITEMS_FAILURE,
+        type: actionTypes.GET_ORDER_FAILURE,
         payload: error.message,
       });
     }
   };
 };
-
