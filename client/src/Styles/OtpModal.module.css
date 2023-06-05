@@ -30,6 +30,7 @@
   display: block;
   width: 100%;
   text-align: center;
+  font-weight: bold;
 }
 .form_container form button {
   display: block;
