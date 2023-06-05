@@ -19,7 +19,7 @@ function Payment() {
   const [cvv, setCvv] = useState("___");
   const token = localStorage.getItem("token") || [];
   const { addresses, loading } = useSelector((state) => state.shipment);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
