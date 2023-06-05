@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import styles from "../Styles/Payment.module.css";
 import { getAddressById } from "../Redux/actions/shipment.action";
 import { useDispatch, useSelector } from "react-redux";
+import { OtpModal } from "../Components/OtpModal";
 
 function Payment() {
   const location = useLocation();
@@ -146,6 +147,7 @@ function Payment() {
         </form>
       </div>
     </div>
+      <OtpModal />
     </>
   );
 }

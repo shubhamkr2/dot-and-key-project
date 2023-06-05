@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0%;
+  }
+  .form_container {
+    /* width: 360px; */
+    background-color: white;
+    position: absolute;
+    top: 30dvh;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+  }
+  .form_container h2 {
+    text-align: center;
+    margin: 0%;
+    margin-bottom: 15px;
+  }
+
+  .form_container form div input {
+    padding: 5px;
+    height: 40px;
+    display: block;
+    width: 100%;
+  }
+  .form_container form button {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    font-size: large;
+    font-weight: bolder;
+    cursor: pointer;
+    background-color: #2e2e2d;
+    color: white;
+    border: none;
+  }
+  .form_container form button:hover {
+    background-color: rgb(16, 90, 16);
+  }
+  a {
+    text-decoration: none;
+  }
+  .required:after {
+    content: " *";
+    color: red;
+  }
+  .close_btn {
+    position: relative;
+    left: 94%;
+    width: fit-content;
+  }
+  .close_icon {
+    cursor: pointer;
+  }
+  .close_icon:hover {
+    color: red;
+  }
+  .form_container form{
+    border: 1px  solid red;
+    width: 360px;
+  }
+ .form_container .otp_container div{
+    border: 1px solid black;
+    display: flex;
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+  }
+  @media (max-width: 450px) {
+    .form_container {
+      width: 80%;
+    }
+    .form_container form{
+        width: 80dvw;
+    }
+    .form_container .otp_container div{
+        gap: 10px;
+  }
+}
+  
