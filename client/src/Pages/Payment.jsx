@@ -29,6 +29,9 @@ function Payment() {
 
   useEffect(() => {
     dispatch(getAddressById(token, address));
+    if(id!=="null" && id!==null ){
+      console.log(id)
+    }
   }, []);
 
   function handleModal() {
