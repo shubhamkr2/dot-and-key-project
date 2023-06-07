@@ -47,7 +47,6 @@ function Payment() {
     e.preventDefault();
   }
   function finalSubmit() {
-    toast.success(id);
     if (id !== "null" && id !== null) {
       console.log(single_product_data);
       return;
