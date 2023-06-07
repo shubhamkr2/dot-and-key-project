@@ -49,7 +49,7 @@ const Cart = () => {
     navigate(`/shipment?amount=${totalPrice}&items=${totalQuantity}`);
   }
 
-  console.log(isAuth);
+  console.log(cartItems);
   if (loading) {
     return <h1>Loading...</h1>;
   }

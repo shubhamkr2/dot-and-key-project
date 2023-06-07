@@ -1,25 +1,27 @@
 import React, { useState } from "react";
 import styles from "../Styles/OtpModal.module.css";
 import { FaRegWindowClose } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import toast, { Toaster } from "react-hot-toast";
 import BeatLoader from "react-spinners/BeatLoader";
 
-function OtpModal({ handleModal }) {
-  const { loading, email_confirmed, userId, secret_question_confirmed, token } =
-    useSelector((store) => store.reset);
-  const [otp, setOtp] = useState();
-  const dispatch = useDispatch();
+function OtpModal({ handleModal, toast, finalSubmit }) {
+  const [digit1, setDigit1] = useState("");
+  const [digit2, setDigit2] = useState("");
+  const [digit3, setDigit3] = useState("");
+  const [digit4, setDigit4] = useState("");
 
-  function handleEmailSubmit(e) {
+  let loading = false;
+  function handleSubmit(e) {
     e.preventDefault();
+    if (digit1 == 1 && digit2 == 2 && digit3 == 3 && digit4 == 4) {
+      toast.success("OTP varified successfully");
+      finalSubmit();
+    } else {
+      toast.error("Wrong OTP");
+    }
   }
 
   return (
     <div className={styles.container}>
-      <div>
-        <Toaster />
-      </div>
       <div className={styles.form_container}>
         <div className={styles.close_btn}>
           <FaRegWindowClose
@@ -28,14 +30,34 @@ function OtpModal({ handleModal }) {
           />
         </div>
         {/* {!email_confirmed && !secret_question_confirmed && ( */}
-        <form onSubmit={(e) => handleEmailSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <h2>OTP</h2>
           <div className={styles.otp_container}>
             <div>
-              <input type="text" maxLength="1" required />
-              <input type="text" maxLength="1" required />
-              <input type="text" maxLength="1" required />
-              <input type="text" maxLength="1" required />
+              <input
+                type="text"
+                maxLength="1"
+                required
+                onChange={(e) => setDigit1(e.target.value)}
+              />
+              <input
+                type="text"
+                maxLength="1"
+                required
+                onChange={(e) => setDigit2(e.target.value)}
+              />
+              <input
+                type="text"
+                maxLength="1"
+                required
+                onChange={(e) => setDigit3(e.target.value)}
+              />
+              <input
+                type="text"
+                maxLength="1"
+                required
+                onChange={(e) => setDigit4(e.target.value)}
+              />
             </div>
             <button disabled={loading ? true : false}>
               {" "}

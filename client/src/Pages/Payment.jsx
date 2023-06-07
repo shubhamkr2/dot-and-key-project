@@ -5,6 +5,7 @@ import styles from "../Styles/Payment.module.css";
 import { getAddressById } from "../Redux/actions/shipment.action";
 import { useDispatch, useSelector } from "react-redux";
 import { OtpModal } from "../Components/OtpModal";
+import toast, { Toaster }  from "react-hot-toast";
 
 function Payment() {
   const location = useLocation();
@@ -12,12 +13,14 @@ function Payment() {
   const amount = searchParams.get("amount");
   const address = searchParams.get("address");
   // const { id } = useParams();
-  const [name, setName] = useState("Name");
+  const [cardName, setCardName] = useState("Name");
   const [cardNumber, setCardNumber] = useState("xxxx xxxx xxxx xxxx");
   const [exMonth, setExMonth] = useState("MM");
   const [exYear, setExYear] = useState("YY");
   const [cvv, setCvv] = useState("___");
   const { addresses } = useSelector((state) => state.shipment);
+  const { name, area, city, flat, landmark, number, pincode, state } =
+    addresses.data || {};
   const [modal, setModal] = useState(true);
 
   const token = localStorage.getItem("token") || [];
@@ -34,9 +37,18 @@ function Payment() {
   function handlePay(e) {
     e.preventDefault();
   }
+  function finalSubmit(){
+    toast.success("final submit");
+  }
+  // const order = [
+  //   (orderId = `ODID${Date.now().toString()}`),
+  //   // (products = []),
+  //   (address = addresses.data),
+  // ];
   console.log(addresses?.data);
   return (
     <>
+    <Toaster />
       <div className={styles.default_address}>
         <h3>Selected Address</h3>
         {addresses && addresses.data ? (
@@ -70,7 +82,7 @@ function Payment() {
               <div className={styles.layout_validity_cvc_box}>
                 <div>
                   <div>CARD HOLDER</div>
-                  <div className={styles.layout_name}>{name}</div>
+                  <div className={styles.layout_name}>{cardName}</div>
                 </div>
                 <div>
                   <div>EXPIRES</div>
@@ -99,7 +111,7 @@ function Payment() {
               type="text"
               placeholder="Name"
               required
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setCardName(e.target.value)}
             />
             <br />
             <br />
@@ -159,7 +171,7 @@ function Payment() {
           </form>
         </div>
       </div>
-      {modal ? <OtpModal handleModal={handleModal} /> : ""}
+      {modal ? <OtpModal handleModal={handleModal} toast={toast} finalSubmit={finalSubmit} /> : ""}
     </>
   );
 }
