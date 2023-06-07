@@ -5,7 +5,8 @@ import styles from "../Styles/Payment.module.css";
 import { getAddressById } from "../Redux/actions/shipment.action";
 import { useDispatch, useSelector } from "react-redux";
 import { OtpModal } from "../Components/OtpModal";
-import toast, { Toaster }  from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
+import { getSingleProduct } from "../Redux/actions/product.action";
 
 function Payment() {
   const location = useLocation();
@@ -23,14 +24,16 @@ function Payment() {
   const { name, area, city, flat, landmark, number, pincode, state } =
     addresses.data || {};
   const [modal, setModal] = useState(true);
-
+  const { loading, single_product_data } = useSelector((state) => state.product);
   const token = localStorage.getItem("token") || [];
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAddressById(token, address));
-    if(id!=="null" && id!==null ){
-      console.log(id)
+    if (id !== "null" && id !== null) {
+      dispatch(getSingleProduct(id));
+    }else{
+      
     }
   }, []);
 
@@ -41,15 +44,17 @@ function Payment() {
   function handlePay(e) {
     e.preventDefault();
   }
-  function finalSubmit(){
+  function finalSubmit() {
     toast.success(id);
-    console.log(id)
+    if (id !== "null" && id !== null) {
+      console.log(single_product_data);
+    }
   }
 
   console.log(addresses?.data);
   return (
     <>
-    <Toaster />
+      <Toaster />
       <div className={styles.default_address}>
         <h3>Selected Address</h3>
         {addresses && addresses.data ? (
@@ -172,7 +177,15 @@ function Payment() {
           </form>
         </div>
       </div>
-      {modal ? <OtpModal handleModal={handleModal} toast={toast} finalSubmit={finalSubmit} /> : ""}
+      {modal ? (
+        <OtpModal
+          handleModal={handleModal}
+          toast={toast}
+          finalSubmit={finalSubmit}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 }
