@@ -10,7 +10,7 @@ import { SingleImageCarousel } from "../Components/SingleImageCarousel";
 import { addToCart, getCartItems } from "../Redux/actions/cart.action";
 import toast, { Toaster } from "react-hot-toast";
 import BeatLoader from "react-spinners/BeatLoader";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function SingleProductPage() {
   const { id } = useParams();
@@ -67,7 +67,9 @@ function SingleProductPage() {
   }
 
   function handleBuyNow() {
-    navigate(`/shipment?id=${_id}&amount=${price*quantity}&items=${quantity}`);
+    navigate(
+      `/shipment?id=${_id}&amount=${price * quantity}&items=${quantity}`
+    );
   }
   return (
     <>
@@ -124,11 +126,10 @@ function SingleProductPage() {
                 "ADD TO CART"
               )}
             </button>
-            
-              <button className={styles.buy_now_btn} onClick={handleBuyNow}>
-                BUY NOW
-              </button>
-            
+
+            <button className={styles.buy_now_btn} onClick={handleBuyNow}>
+              BUY NOW
+            </button>
           </div>
           <div className={styles.description}>
             <h3>About this item</h3>
