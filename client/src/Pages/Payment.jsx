@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { OtpModal } from "../Components/OtpModal";
 import toast, { Toaster } from "react-hot-toast";
 import { getSingleProduct } from "../Redux/actions/product.action";
+import { getCartItems } from "../Redux/actions/cart.action";
 
 function Payment() {
   const location = useLocation();
@@ -24,7 +25,8 @@ function Payment() {
   const { name, area, city, flat, landmark, number, pincode, state } =
     addresses.data || {};
   const [modal, setModal] = useState(true);
-  const { loading, single_product_data } = useSelector((state) => state.product);
+  const { single_product_data } = useSelector((state) => state.product);
+  const { cartItems } = useSelector((state) => state.cart);
   const token = localStorage.getItem("token") || [];
   const dispatch = useDispatch();
 
@@ -32,8 +34,8 @@ function Payment() {
     dispatch(getAddressById(token, address));
     if (id !== "null" && id !== null) {
       dispatch(getSingleProduct(id));
-    }else{
-      
+    } else {
+      dispatch(getCartItems(token));
     }
   }, []);
 
@@ -48,7 +50,9 @@ function Payment() {
     toast.success(id);
     if (id !== "null" && id !== null) {
       console.log(single_product_data);
+      return;
     }
+    console.log(cartItems);
   }
 
   console.log(addresses?.data);
