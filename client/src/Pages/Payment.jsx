@@ -42,11 +42,7 @@ function Payment() {
     toast.success(id);
     console.log(id)
   }
-  // const order = [
-  //   (orderId = `ODID${Date.now().toString()}`),
-  //   // (products = []),
-  //   (address = addresses.data),
-  // ];
+  
   console.log(addresses?.data);
   return (
     <>
