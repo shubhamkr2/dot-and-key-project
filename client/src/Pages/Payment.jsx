@@ -42,7 +42,7 @@ function Payment() {
     toast.success(id);
     console.log(id)
   }
-  
+
   console.log(addresses?.data);
   return (
     <>
