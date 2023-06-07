@@ -10,6 +10,7 @@ import toast, { Toaster }  from "react-hot-toast";
 function Payment() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.get("id");
   const amount = searchParams.get("amount");
   const address = searchParams.get("address");
   // const { id } = useParams();
@@ -38,7 +39,8 @@ function Payment() {
     e.preventDefault();
   }
   function finalSubmit(){
-    toast.success("final submit");
+    toast.success(id);
+    console.log(id)
   }
   // const order = [
   //   (orderId = `ODID${Date.now().toString()}`),

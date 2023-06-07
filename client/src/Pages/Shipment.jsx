@@ -34,6 +34,7 @@ function Shipment() {
   const [expanded, setExpanded] = useState(false);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.get("id");
   const amount = searchParams.get("amount") || 0;
   const items = searchParams.get("items") || 0;
   const [promoCode, setPromoCode] = useState("");
@@ -65,7 +66,7 @@ function Shipment() {
       return toast.error("Please select a default address");
     }
     navigate(
-      `/payment?amount=${amount}&items=${items}&address=${defaultAddress}`
+      `/payment?id=${id}&amount=${amount}&items=${items}&address=${defaultAddress}`
     );
   }
 
