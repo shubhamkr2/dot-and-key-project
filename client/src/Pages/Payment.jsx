@@ -8,6 +8,7 @@ import { OtpModal } from "../Components/OtpModal";
 import toast, { Toaster } from "react-hot-toast";
 import { getSingleProduct } from "../Redux/actions/product.action";
 import { getCartItems } from "../Redux/actions/cart.action";
+import { addOrders } from "../Redux/actions/order.action";
 
 function Payment() {
   const location = useLocation();
@@ -49,16 +50,19 @@ function Payment() {
   function finalSubmit() {
     if (id !== "null" && id !== null) {
       let order = {
-        products: [{...single_product_data.data}],
-        address: addresses.data || [],
-      }
+        products: [{ ...single_product_data.data }],
+        address: {...addresses.data} || {},
+      };
+      dispatch(addOrders(order, token, toast));
       console.log(order);
+      setModal(!modal);
       return;
     }
     let order = {
-      products: [{...cartItems.data}],
-      address: addresses.data || [],
-    }
+      products: [{ ...cartItems.data }],
+      address: {...addresses.data} || {},
+    };
+    dispatch(addOrders(order, token, toast));
     console.log(order);
     setModal(!modal);
   }
