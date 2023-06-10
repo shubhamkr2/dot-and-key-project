@@ -60,6 +60,7 @@ function Payment() {
       address: addresses.data || [],
     }
     console.log(order);
+    setModal(!modal);
   }
 
   console.log(addresses?.data);
