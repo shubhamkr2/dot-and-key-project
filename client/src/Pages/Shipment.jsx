@@ -125,7 +125,7 @@ function Shipment() {
               />
             ))}
           </div>
-          {/* <h1>or add new one</h1> */}
+
           <div className={styles.form_container}>
             <div onClick={toggleSection} className={styles.add_address}>
               Add a new address

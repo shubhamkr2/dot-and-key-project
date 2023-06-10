@@ -48,10 +48,18 @@ function Payment() {
   }
   function finalSubmit() {
     if (id !== "null" && id !== null) {
-      console.log(single_product_data);
+      let order = {
+        products: [{...single_product_data.data}],
+        address: addresses.data || [],
+      }
+      console.log(order);
       return;
     }
-    console.log(cartItems);
+    let order = {
+      products: [{...cartItems.data}],
+      address: addresses.data || [],
+    }
+    console.log(order);
   }
 
   console.log(addresses?.data);
