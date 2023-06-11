@@ -118,3 +118,29 @@ export const removeFromCart = (token, id, toast) => {
     }
   };
 };
+
+export const deleteAllFromCart = (token, toast) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: actionTypes.DELETE_ALL_FROM_CART_REQUEST });
+      const response = await fetch(
+        `https://courageous-rose-nightgown.cyclic.app/carts/deleteall`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const data = await response.json();
+      toast.success("All removed successfully");
+      dispatch({ type: actionTypes.DELETE_ALL_FROM_CART_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({
+        type: actionTypes.DELETE_ALL_FROM_CART_FAILURE,
+        payload: error.message,
+      });
+    }
+  };
+}
