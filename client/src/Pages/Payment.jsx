@@ -47,22 +47,22 @@ function Payment() {
   function handlePay(e) {
     e.preventDefault();
   }
-  function finalSubmit() {
+  async function finalSubmit() {
     if (id !== "null" && id !== null) {
       let order = {
         products: [{ ...single_product_data.data }],
-        address: {...addresses.data} || {},
+        address: { ...addresses.data } || {},
       };
-      dispatch(addOrders(order, token, toast));
+      await dispatch(addOrders(order, token, toast));
       console.log(order);
       setModal(!modal);
       return;
     }
     let order = {
       products: [{ ...cartItems.data }],
-      address: {...addresses.data} || {},
+      address: { ...addresses.data } || {},
     };
-    dispatch(addOrders(order, token, toast));
+    await dispatch(addOrders(order, token, toast));
     console.log(order);
     setModal(!modal);
   }
