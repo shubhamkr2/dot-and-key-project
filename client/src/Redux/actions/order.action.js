@@ -13,7 +13,7 @@ export const addOrders = (orders, token, toast) => {
             "Content-Type": "application/json",
             authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({...orders}),
+          body: JSON.stringify({ ...orders }),
         }
       );
       const data = await response.json();
