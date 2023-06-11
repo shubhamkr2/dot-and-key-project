@@ -161,12 +161,12 @@
     justify-content: center;
     align-items: center;
   }
-  .price{
+  .price {
     width: auto;
   }
   .select_address h2 {
     padding-left: 0px;
-    font-size: .8rem;
+    font-size: 0.8rem;
     text-align: center;
     width: 100%;
   }
