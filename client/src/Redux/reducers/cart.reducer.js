@@ -12,6 +12,7 @@ const cartReducer = (state = initialState, action) => {
     case actionTypes.GET_CART_ITEMS_REQUEST:
     case actionTypes.UPDATE_CART_ITEM_QUANTITY_REQUEST:
     case actionTypes.REMOVE_FROM_CART_REQUEST:
+    case actionTypes.DELETE_ALL_FROM_CART_REQUEST:
       return {
         ...state,
         isLoading: true,
@@ -51,10 +52,18 @@ const cartReducer = (state = initialState, action) => {
         isLoading: false,
         error: null,
       };
+    case actionTypes.DELETE_ALL_FROM_CART_SUCCESS:
+      return {
+        ...state,
+        cartItems: [],
+        isLoading: false,
+        error: null,
+      };
     case actionTypes.ADD_TO_CART_FAILURE:
     case actionTypes.GET_CART_ITEMS_FAILURE:
     case actionTypes.UPDATE_CART_ITEM_QUANTITY_FAILURE:
     case actionTypes.REMOVE_FROM_CART_FAILURE:
+    case actionTypes.DELETE_ALL_FROM_CART_FAILURE:
       return {
         ...state,
         isLoading: false,
