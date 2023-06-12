@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { ResetPasswordModal } from "../Components/ResetPasswordModal";
 import { resetModal } from "../Redux/actions/resetPassword.action";
 import { getCartItems } from "../Redux/actions/cart.action";
+import { Footer } from "../Components/Footer";
 
 const initialFormData = {
   email: "",
