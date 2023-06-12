@@ -9,7 +9,8 @@
   margin: auto;
 }
 .container img {
-  height: 62%;
+  /* height: 62%; */
+  width: 100%;
 }
 .rating {
   display: flex;
