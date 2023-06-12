@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { OtpModal } from "../Components/OtpModal";
 import toast, { Toaster } from "react-hot-toast";
 import { getSingleProduct } from "../Redux/actions/product.action";
-import { getCartItems } from "../Redux/actions/cart.action";
+import { deleteAllFromCart, getCartItems } from "../Redux/actions/cart.action";
 import { addOrders } from "../Redux/actions/order.action";
 
 function Payment() {
@@ -63,7 +63,7 @@ function Payment() {
       address: { ...addresses.data } || {},
     };
     await dispatch(addOrders(order, token, toast));
-    console.log(order);
+    dispatch(deleteAllFromCart(token, toast));
     setModal(!modal);
   }
 
