@@ -18,7 +18,7 @@ export const addOrders = (orders, token, toast) => {
       );
       const data = await response.json();
       if (data.message === "Order added successfully") {
-        toast.success("Order Placed Successfully");
+        toast.success("Order Placed Successfully, redirecting to home page");
         dispatch({ type: actionTypes.ADD_ORDER_SUCCESS, payload: data });
       } else {
         toast.error(data.message);
