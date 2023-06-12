@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { getSingleProduct } from "../Redux/actions/product.action";
 import { deleteAllFromCart, getCartItems } from "../Redux/actions/cart.action";
 import { addOrders } from "../Redux/actions/order.action";
+import { useNavigate } from "react-router-dom";
 
 function Payment() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function Payment() {
   const { cartItems } = useSelector((state) => state.cart);
   const token = localStorage.getItem("token") || [];
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getAddressById(token, address));
@@ -64,6 +66,7 @@ function Payment() {
     };
     await dispatch(addOrders(order, token, toast));
     dispatch(deleteAllFromCart(token, toast));
+    navigate("/");
     setModal(!modal);
   }
 
