@@ -37,6 +37,7 @@ function Serums() {
         src="https://www.dotandkey.com/cdn/shop/files/desk-47.webp?v=1679037760"
         alt="banner"
       />
+      <h1 className={styles.category}>Serums</h1>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
           <Sidebar
