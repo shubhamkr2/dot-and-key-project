@@ -4,6 +4,10 @@
 .all_container .banner {
   width: 100%;
 }
+.category {
+  text-align: center;
+  color: gray;
+}
 .product_list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

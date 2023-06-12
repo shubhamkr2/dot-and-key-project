@@ -37,6 +37,7 @@ function All() {
         src="https://www.dotandkey.com/cdn/shop/collections/CATE-DESK_1_1512x.jpg?v=1684301670"
         alt="banner"
       />
+      <h1 className={styles.category}>ALL</h1>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
           <Sidebar
