@@ -37,6 +37,7 @@ function Sunscreens() {
         src="https://www.dotandkey.com/cdn/shop/files/CATE_DESK_70f0f8fb-6857-4d23-bb4f-86449f2dcbd1.jpg?v=1682937797"
         alt="sunscreens"
       />
+      <h1 className={styles.category}>Sunscreens</h1>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
           <Sidebar
