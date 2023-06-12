@@ -4,7 +4,8 @@
   align-items: center;
   /* background-color: rgb(108, 109, 108); */
   height: 35px;
-  padding: 5px 15px 5px 15px;
+  /* padding: 5px 15px 5px 15px; */
+  padding: 10px 0px 10px 0px;
   border-bottom: 2px solid rgb(206, 206, 206);
   margin: auto;
   max-width: 1024px;
