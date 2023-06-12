@@ -13,7 +13,7 @@ function OtpModal({ handleModal, toast, finalSubmit }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (digit1 == 1 && digit2 == 2 && digit3 == 3 && digit4 == 4) {
-      toast.success("OTP varified successfully");
+      // toast.success("OTP varified successfully");
       finalSubmit();
     } else {
       toast.error("Wrong OTP");

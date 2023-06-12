@@ -135,7 +135,7 @@ export const deleteAllFromCart = (token, toast) => {
         }
       );
       const data = await response.json();
-      toast.success("Order Placed successfully");
+      // toast.success("Order Placed successfully");
       dispatch({ type: actionTypes.DELETE_ALL_FROM_CART_SUCCESS, payload: data });
     } catch (error) {
       dispatch({

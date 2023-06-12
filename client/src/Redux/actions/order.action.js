@@ -18,7 +18,7 @@ export const addOrders = (orders, token, toast) => {
       );
       const data = await response.json();
       if (data.message === "Order added successfully") {
-        toast.success(data.message);
+        toast.success("Order Placed Successfully");
         dispatch({ type: actionTypes.ADD_ORDER_SUCCESS, payload: data });
       } else {
         toast.error(data.message);
