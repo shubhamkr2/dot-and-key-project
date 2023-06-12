@@ -35,6 +35,7 @@ function FaceMasks() {
         src="https://www.dotandkey.com/cdn/shop/files/Desktop_Top_banner.jpg?v=1684230503"
         alt="banner"
       />
+      <h1 className={styles.category}>FaceMasks</h1>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
           <Sidebar
