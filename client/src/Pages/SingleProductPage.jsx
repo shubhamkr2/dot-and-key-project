@@ -72,7 +72,7 @@ function SingleProductPage() {
     );
   }
   return (
-    <>
+    <div className={styles.container}>
       <NavigationBar />
       <h1 className={styles.category}>{category?.toUpperCase()}</h1>
       <div>
@@ -140,7 +140,7 @@ function SingleProductPage() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

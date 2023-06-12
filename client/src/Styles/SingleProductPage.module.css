@@ -1,10 +1,13 @@
+.container {
+  margin: auto;
+  max-width: 1024px;
+  background-color: white;
+}
 .single_page_container {
   padding: 10px 40px;
   display: flex;
   justify-content: center;
   /* gap: 5%; */
-  margin: auto;
-  max-width: 1024px;
 }
 .image_container {
   width: 50dvw;
