@@ -18,6 +18,7 @@ function Payment() {
   const amount = searchParams.get("amount");
   const address = searchParams.get("address");
   // const { id } = useParams();
+  const [otpSubmitLoading, setOtpSubmitLoading] = useState(false);
   const [cardName, setCardName] = useState("Name");
   const [cardNumber, setCardNumber] = useState("xxxx xxxx xxxx xxxx");
   const [exMonth, setExMonth] = useState("MM");
@@ -57,7 +58,11 @@ function Payment() {
       };
       await dispatch(addOrders(order, token, toast));
       console.log(order);
-      setModal(!modal);
+      setTimeout(() => {
+        setOtpSubmitLoading(false);
+        setModal(!modal);
+        navigate("/");
+      }, 2500);
       return;
     }
     let order = {
@@ -66,8 +71,11 @@ function Payment() {
     };
     await dispatch(addOrders(order, token, toast));
     dispatch(deleteAllFromCart(token, toast));
-    navigate("/");
-    setModal(!modal);
+    setTimeout(() => {
+      setOtpSubmitLoading(false);
+      setModal(!modal);
+      navigate("/");
+    }, 2500);
   }
 
   console.log(addresses?.data);
@@ -201,6 +209,8 @@ function Payment() {
           handleModal={handleModal}
           toast={toast}
           finalSubmit={finalSubmit}
+          otpSubmitLoading={otpSubmitLoading}
+          setOtpSubmitLoading={setOtpSubmitLoading}
         />
       ) : (
         ""

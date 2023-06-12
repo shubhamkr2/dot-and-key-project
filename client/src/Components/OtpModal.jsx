@@ -3,19 +3,20 @@ import styles from "../Styles/OtpModal.module.css";
 import { FaRegWindowClose } from "react-icons/fa";
 import BeatLoader from "react-spinners/BeatLoader";
 
-function OtpModal({ handleModal, toast, finalSubmit }) {
+function OtpModal({ handleModal, toast, finalSubmit, otpSubmitLoading, setOtpSubmitLoading }) {
   const [digit1, setDigit1] = useState("");
   const [digit2, setDigit2] = useState("");
   const [digit3, setDigit3] = useState("");
   const [digit4, setDigit4] = useState("");
 
-  let loading = false;
   function handleSubmit(e) {
     e.preventDefault();
     if (digit1 == 1 && digit2 == 2 && digit3 == 3 && digit4 == 4) {
       // toast.success("OTP varified successfully");
+      setOtpSubmitLoading(true);
       finalSubmit();
     } else {
+      setOtpSubmitLoading(false);
       toast.error("Wrong OTP");
     }
   }
@@ -59,9 +60,9 @@ function OtpModal({ handleModal, toast, finalSubmit }) {
                 onChange={(e) => setDigit4(e.target.value)}
               />
             </div>
-            <button disabled={loading ? true : false}>
+            <button disabled={otpSubmitLoading ? true : false}>
               {" "}
-              {loading ? (
+              {otpSubmitLoading ? (
                 <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
               ) : (
                 "Submit"
