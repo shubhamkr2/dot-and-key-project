@@ -35,6 +35,7 @@ function FaceWash() {
         src="https://www.dotandkey.com/cdn/shop/files/vit_cDesktop_copy_26623988-3be2-43c7-8d96-bf2c3ce56ae9.jpg?v=1684345468"
         alt="banner"
       />
+      <h1 className={styles.category}>FaceWash</h1>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
           <Sidebar
