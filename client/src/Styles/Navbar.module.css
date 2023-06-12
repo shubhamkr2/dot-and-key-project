@@ -126,9 +126,9 @@
 }
 .cartLogo_profileIcon {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 6dvw;
+  gap: 2dvw;
 }
 .cart_logo{
   padding-right: 10px;
