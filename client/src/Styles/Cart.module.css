@@ -1,8 +1,12 @@
+.main_container {
+  margin: auto;
+  max-width: 1024px;
+}
 .main_container h1 {
   text-align: center;
   color: gray;
 }
-.main_container>h1{
+.main_container > h1 {
   margin: 0%;
 }
 .row_heading {
