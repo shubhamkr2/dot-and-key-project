@@ -35,6 +35,7 @@ function Moisturizers() {
         src="https://www.dotandkey.com/cdn/shop/files/Sale_Banner_Desktop_fe27af49-265a-4c7b-9625-134e604bc09d.jpg?v=1684230611"
         alt="banner"
       />
+      <h1 className={styles.category}>Moisturizers</h1>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
           <Sidebar
