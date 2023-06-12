@@ -37,6 +37,7 @@ function LipCare() {
         src="https://www.dotandkey.com/cdn/shop/files/DESK_e37f3ca9-dc02-41c0-95b8-159715e3646b.jpg?v=1682945740"
         alt="banner"
       />
+      <h1 className={styles.category}>LipCare</h1>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
           <Sidebar
