@@ -1,3 +1,7 @@
+.payment_container {
+  margin: auto;
+  max-width: 1024px;
+}
 .payment_container .form_container input {
   padding: 10px;
   box-sizing: border-box;
@@ -64,7 +68,7 @@
   height: fit-content;
   padding: 10px;
 }
-.payment_container .form_container h3{
+.payment_container .form_container h3 {
   margin: 0%;
 }
 .payment_container form input {
@@ -109,7 +113,7 @@
 }
 .default_address {
   border: 1px solid rgb(197, 75, 19);
-  padding:0px 10px;
+  padding: 0px 10px;
   max-width: 600px;
   margin: 20px auto;
 }
