@@ -1,3 +1,7 @@
+.container{
+  margin: auto;
+  max-width: 1024px;
+}
 .heading {
   text-align: center;
   margin-top: 55px;
@@ -18,7 +22,7 @@
 .bestsellers,
 .category {
   margin: auto;
-  width: 78%;
+  /* width: %; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
@@ -26,7 +30,7 @@
   gap: 40px;
 }
 .spotlight {
-  width: 96%;
+  /* width: 96%; */
   margin: auto;
 }
 .spotlight_img {

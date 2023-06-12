@@ -1,12 +1,13 @@
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   /* background-color: rgb(108, 109, 108); */
   height: 35px;
   padding: 5px 15px 5px 15px;
   border-bottom: 2px solid rgb(206, 206, 206);
-  /* margin-top: 100px; */
+  margin: auto;
+  max-width: 1024px;
 }
 .container a {
   font-weight: 500;

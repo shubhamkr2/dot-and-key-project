@@ -1,6 +1,6 @@
 .carousel_container {
   position: relative;
-  width: 78%;
+  width: 90%;
   margin: auto;
 }
 .prev_btn,
@@ -17,10 +17,10 @@
   cursor: pointer;
 }
 .prev_btn {
-  left: -7%;
+  left: -5%;
 }
 .next_btn {
-  right: -7%;
+  right: -5%;
 }
 .prev_btn:hover,
 .next_btn:hover {
