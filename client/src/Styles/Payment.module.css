@@ -1,6 +1,10 @@
-.payment_container {
+.container{
   margin: auto;
   max-width: 1024px;
+  background-color: white;
+}
+.payment_container {
+ 
 }
 .payment_container .form_container input {
   padding: 10px;
@@ -112,10 +116,10 @@
   width: 50px;
 }
 .default_address {
-  border: 1px solid rgb(197, 75, 19);
-  padding: 0px 10px;
+  border-bottom: 1px solid rgb(197, 75, 19);
+  padding: 10px;
   max-width: 600px;
-  margin: 20px auto;
+  margin: auto;
 }
 .default_address h3 {
   margin: 0%;

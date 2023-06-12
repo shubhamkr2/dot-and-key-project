@@ -1,6 +1,7 @@
 .lipcare_container {
   margin: auto;
   max-width: 1024px;
+  background-color: white;
 }
 .lipcare_container .banner {
   width: 100%;

@@ -1,6 +1,7 @@
 .moisturizing_container {
   margin: auto;
   max-width: 1024px;
+  background-color: white;
 }
 .moisturizing_container .banner {
   width: 100%;

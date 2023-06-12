@@ -1,6 +1,7 @@
 .serums_container {
   margin: auto;
   max-width: 1024px;
+  background-color: white;
 }
 .serums_container .banner {
   width: 100%;

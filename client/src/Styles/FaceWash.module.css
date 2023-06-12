@@ -1,6 +1,7 @@
 .facewash_container {
   margin: auto;
   max-width: 1024px;
+  background-color: white;
 }
 .facewash_container .banner {
   width: 100%;

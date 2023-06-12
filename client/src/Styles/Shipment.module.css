@@ -1,7 +1,11 @@
-.container {
-  display: flex;
+.main_container{
   margin: auto;
   max-width: 1024px;
+  background-color: white;
+}
+.container {
+  display: flex;
+ 
 }
 .title {
   text-align: center;

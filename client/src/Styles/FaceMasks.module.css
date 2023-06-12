@@ -1,6 +1,7 @@
 .facemask_container {
   margin: auto;
   max-width: 1024px;
+  background-color: white;
 }
 .facemask_container .banner {
   width: 100%;

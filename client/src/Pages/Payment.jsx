@@ -80,7 +80,7 @@ function Payment() {
 
   console.log(addresses?.data);
   return (
-    <>
+    <div className={styles.container}>
       <Toaster />
       <div className={styles.default_address}>
         <h3>Selected Address</h3>
@@ -215,7 +215,7 @@ function Payment() {
       ) : (
         ""
       )}
-    </>
+    </div>
   );
 }
 

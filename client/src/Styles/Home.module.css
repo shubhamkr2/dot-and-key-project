@@ -1,6 +1,7 @@
 .container{
   margin: auto;
   max-width: 1024px;
+  background-color: white;
 }
 .heading {
   text-align: center;

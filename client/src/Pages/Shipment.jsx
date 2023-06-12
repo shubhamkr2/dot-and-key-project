@@ -104,7 +104,7 @@ function Shipment() {
     return <h1>Loading...</h1>;
   }
   return (
-    <>
+    <div className={styles.main_container}>
       <NavigationBar />
       <h1 className={styles.title}>Checkout</h1>
       <div className={styles.container}>
@@ -298,7 +298,7 @@ function Shipment() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
