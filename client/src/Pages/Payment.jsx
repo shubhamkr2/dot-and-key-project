@@ -10,6 +10,8 @@ import { getSingleProduct } from "../Redux/actions/product.action";
 import { deleteAllFromCart, getCartItems } from "../Redux/actions/cart.action";
 import { addOrders } from "../Redux/actions/order.action";
 import { useNavigate } from "react-router-dom";
+import { NavigationBar } from "../Components/NavigationBar";
+import { Footer } from "../Components/Footer";
 
 function Payment() {
   const location = useLocation();
@@ -81,6 +83,7 @@ function Payment() {
   console.log(addresses?.data);
   return (
     <div className={styles.container}>
+    <NavigationBar />
       <Toaster />
       <div className={styles.default_address}>
         <h3>Selected Address</h3>
@@ -215,6 +218,7 @@ function Payment() {
       ) : (
         ""
       )}
+      <Footer />
     </div>
   );
 }
