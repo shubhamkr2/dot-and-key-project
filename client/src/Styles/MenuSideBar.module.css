@@ -64,3 +64,8 @@
 .menuNavigationBar .activeLink{
   color: red;
 }
+@media (max-width: 450px) {
+  .MenuSidebar_container {
+    width: 100dvw;
+  }
+}
