@@ -1,5 +1,6 @@
 .facewash_container {
-  width: 100%;
+  margin: auto;
+  max-width: 1024px;
 }
 .facewash_container .banner {
   width: 100%;
