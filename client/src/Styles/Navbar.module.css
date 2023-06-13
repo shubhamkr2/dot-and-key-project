@@ -214,7 +214,7 @@
   background-color: red;
   color: white;
 }
-@media (max-width: 950px) {
+@media (max-width: 750px) {
   .user_profile,
   .login_signup {
     display: none;

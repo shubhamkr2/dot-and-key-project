@@ -24,7 +24,7 @@
 .container .activeLink{
   color: red;
 }
-@media (max-width: 950px) {
+@media (max-width: 750px) {
   .container {
     display: none;
   }
