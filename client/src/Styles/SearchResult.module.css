@@ -1,5 +1,7 @@
 .searchresult_container {
-  width: 100%;
+    max-width: 1024px;
+    margin: auto;
+    background-color: white;
 }
 .searchresult_container h1 {
   text-align: center;
@@ -23,7 +25,7 @@
   min-height: 10dvh;
 }
 .sidebar_and_product .no_result_image {
-  width: 100dvw;
+  width: 100%;
 }
 .mob_sidebar {
   display: none;
