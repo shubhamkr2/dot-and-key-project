@@ -1,4 +1,4 @@
-.container{
+.container {
   margin: auto;
   max-width: 1024px;
   background-color: white;
@@ -45,6 +45,9 @@
 }
 .spotlight img {
   width: 100%;
+}
+.category {
+  padding-bottom: 50px;
 }
 .footer {
   border: 1px solid black;
