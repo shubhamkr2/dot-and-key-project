@@ -212,6 +212,7 @@ function Shipment() {
                       onChange={(e) => handleChange(e)}
                       required
                     >
+                      <option value="">Select</option>
                       <option value="Andhra Pradesh">Andhra Pradesh</option>
                       <option value="Arunachal Pradesh">
                         Arunachal Pradesh
