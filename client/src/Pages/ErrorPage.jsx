@@ -4,7 +4,7 @@ import { Footer } from "../Components/Footer";
 
 function ErrorPage() {
   return (
-    <div style={{maxWidth: "1024px",margin:"auto", backgroundColor:"white"}}>
+    <div style={{maxWidth: "1224px",margin:"auto", backgroundColor:"white"}}>
     <NavigationBar />
     <div style={{  display: "flex", justifyContent: "center", alignItems: "center" }}>
       <img

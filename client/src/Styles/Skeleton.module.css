@@ -6,7 +6,7 @@
   border-radius: 5px;
   /* width: 60%; */
   margin: auto;
-  max-width: 1024px;
+  max-width: 1224px;
   background-color: white;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
