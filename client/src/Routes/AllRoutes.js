@@ -16,6 +16,8 @@ import { Cart } from "../Pages/Cart";
 import { Payment } from "../Pages/Payment";
 import { Shipment } from "../Pages/Shipment";
 import { ErrorPage } from "../Pages/ErrorPage";
+import { Order } from "../Pages/Order";
+import { Account } from "../Pages/Account";
 
 function AllRoutes() {
   return (
@@ -42,6 +44,8 @@ function AllRoutes() {
       <Route path="/searchresult/:id" element={<SingleProductPage />} />
       <Route path="/shipment" element={<Shipment />} exact />
       <Route path="/payment" element={<Payment />} exact />
+      <Route path="/order" element={<Order />} exact />
+      <Route path="/account" element={<Account />} exact />
       {/* <Route path="/error" element={<ErrorPage />} exact /> */}
       <Route path="/product/:id" element={<SingleProductPage />} />
       <Route path="*" element={<ErrorPage />} />
