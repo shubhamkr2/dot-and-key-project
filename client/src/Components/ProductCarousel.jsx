@@ -25,8 +25,19 @@ function ProductCarousel({ cards, toast }) {
     slidesToScroll: 1,
     arrows: false,
     responsive: [
+      // {
+      //   breakpoint: 1100,
+      //   settings: {
+      //     dots: false,
+      //     infinite: true,
+      //     speed: 500,
+      //     slidesToShow: 3,
+      //     slidesToScroll: 1,
+      //     arrows: false,
+      //   },
+      // },
       {
-        breakpoint: 1100,
+        breakpoint: 1000,
         settings: {
           dots: false,
           infinite: true,
@@ -37,7 +48,7 @@ function ProductCarousel({ cards, toast }) {
         },
       },
       {
-        breakpoint: 950,
+        breakpoint: 750,
         settings: {
           dots: false,
           infinite: true,
@@ -48,7 +59,7 @@ function ProductCarousel({ cards, toast }) {
         },
       },
       {
-        breakpoint: 550,
+        breakpoint: 490,
         settings: {
           dots: false,
           infinite: true,

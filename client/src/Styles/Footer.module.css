@@ -1,6 +1,6 @@
 .footer_container {
   /* border: 1px solid black; */
-  height: 500px;
+  min-height: 500px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
