@@ -43,7 +43,8 @@ function Footer() {
           </div>
           <button className={styles.download_app_btn}>DOWNLOAD THE APP</button>
           <div className={styles.social_links}>
-            <Link to="#">FOLLOW US</Link>
+            <Link to="#" style={{fontSize:"1rem"}}>FOLLOW US</Link>
+            <div style={{display:"flex", gap:"10px"}}>
             <IconContext.Provider value={{ size: "1.8rem" }}>
               <div>
                 <FaFacebookF />
@@ -55,6 +56,7 @@ function Footer() {
                 <IoLogoYoutube />
               </div>
             </IconContext.Provider>
+            </div>
           </div>
         </div>
       </div>
