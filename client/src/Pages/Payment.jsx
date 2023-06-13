@@ -29,7 +29,7 @@ function Payment() {
   const { addresses } = useSelector((state) => state.shipment);
   const { name, area, city, flat, landmark, number, pincode, state } =
     addresses.data || {};
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   const { single_product_data } = useSelector((state) => state.product);
   const { cartItems } = useSelector((state) => state.cart);
   const token = localStorage.getItem("token") || [];
@@ -51,6 +51,7 @@ function Payment() {
   }
   function handlePay(e) {
     e.preventDefault();
+    setModal(!modal);
   }
   async function finalSubmit() {
     if (id !== "null" && id !== null) {
@@ -83,7 +84,7 @@ function Payment() {
   console.log(addresses?.data);
   return (
     <div className={styles.container}>
-    <NavigationBar />
+      <NavigationBar />
       <Toaster />
       <div className={styles.default_address}>
         <h3>Selected Address</h3>
