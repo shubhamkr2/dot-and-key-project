@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../Styles/Pagination.module.css";
+import { ScrollToTop } from "./ScrollToTop";
 
 function Pagination({page, setPage, data}) {
   const totalPage=Math.ceil(data?.count / 6);
@@ -10,6 +11,7 @@ function Pagination({page, setPage, data}) {
         {page} Out Of {totalPage}
       </span>
       <button disabled={page===totalPage} className={styles.next_btn} onClick={() => setPage(page + 1)}>Next</button>
+      <ScrollToTop key={page} />
     </div>
   );
 }
