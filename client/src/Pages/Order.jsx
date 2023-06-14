@@ -28,7 +28,7 @@ function Order() {
                   {/* <img src={product.images[0]} alt="product" />
                   <div></div> */}
                 </div>
-              ))}
+              ))} 
           </div>
         ))}
     </div>
