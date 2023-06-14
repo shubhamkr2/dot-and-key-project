@@ -19,12 +19,14 @@ export const addToCart = (product, token, toast) => {
       const data = await response.json();
       if (data.message === "Quantity limit exceeded") {
         toast.error(data.message);
-      } else if(data.message === "Invalid token format"){
+      } else if (data.message === "Invalid token format") {
         toast.error("Please login first");
-      }else {
+      } else if (data.message === "Unable to add item") {
+        toast.error("Something went wrong");
+      } else {
         toast.success(data.message);
+        dispatch({ type: actionTypes.ADD_TO_CART_SUCCESS, payload: data });
       }
-      dispatch({ type: actionTypes.ADD_TO_CART_SUCCESS, payload: data });
     } catch (error) {
       dispatch({
         type: actionTypes.ADD_TO_CART_FAILURE,
@@ -120,7 +122,7 @@ export const removeFromCart = (token, id, toast) => {
 };
 
 export const deleteAllFromCart = (token, toast) => {
-  console.log(token)
+  console.log(token);
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.DELETE_ALL_FROM_CART_REQUEST });
@@ -136,7 +138,10 @@ export const deleteAllFromCart = (token, toast) => {
       );
       const data = await response.json();
       // toast.success("Order Placed successfully");
-      dispatch({ type: actionTypes.DELETE_ALL_FROM_CART_SUCCESS, payload: data });
+      dispatch({
+        type: actionTypes.DELETE_ALL_FROM_CART_SUCCESS,
+        payload: data,
+      });
     } catch (error) {
       dispatch({
         type: actionTypes.DELETE_ALL_FROM_CART_FAILURE,
@@ -144,4 +149,4 @@ export const deleteAllFromCart = (token, toast) => {
       });
     }
   };
-}
+};

@@ -47,6 +47,7 @@ export const getOrders = (token) => {
         }
       );
       const data = await response.json();
+      console.log(data);
       dispatch({ type: actionTypes.GET_ORDER_SUCCESS, payload: data });
     } catch (error) {
       dispatch({
