@@ -8,7 +8,7 @@ import {
 } from "../Redux/actions/cart.action";
 
 function CartCard({ item, toast }) {
-  const { _id, image, title, category, price, quantity } = item;
+  const { _id, images, title, category, price, quantity } = item;
   const token = localStorage.getItem("token") || "";
   const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ function CartCard({ item, toast }) {
   return (
     <div className={styles.container}>
       <div className={styles.image_and_description}>
-        <img src={image[0]} alt="product image" />
+        <img src={images[0]} alt="product image" />
         <div className={styles.description}>
           <h2>{title}</h2>
           <h3>Category: {category}</h3>
