@@ -35,7 +35,7 @@ function ProductCard({ product, toast }) {
       title: title,
       description: description,
       price: price,
-      image: images,
+      images: images,
       rating: rating,
       stock: stock,
       quantity: 1,

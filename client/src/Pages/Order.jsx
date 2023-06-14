@@ -12,23 +12,24 @@ function Order() {
     dispatch(getOrders(token));
   }, [dispatch]);
 
-  console.log(orders);
-  console.log(orders);
+  // console.log(orders);
+
   return (
     <div className={styles.container}>
       {orders.orders.length > 0 &&
         orders.orders?.map((order) => (
-          <div>
+          <div key={order._id}>
             <h2>Order id: OID{order._id}</h2>
-            {order.products.length > 0 &&
+            {order.products?.length > 0 &&
               order.products?.map((product) => (
-                <div>
-                  {/* <h1>{product}</h1> */}
+                <div key={product.id}>
                   <h1>hello</h1>
-                  {/* <img src={product.images[0]} alt="product" />
-                  <div></div> */}
+                  {product.images && product.images.length > 0 && (
+                    <img src={product.images[0]} alt="product" />
+                  )}
+                  <div></div>
                 </div>
-              ))} 
+              ))}
           </div>
         ))}
     </div>
