@@ -56,7 +56,7 @@ function Payment() {
   async function finalSubmit() {
     if (id !== "null" && id !== null) {
       let order = {
-        products: [{ ...single_product_data.data }],
+        products: [ single_product_data.data ],
         address: { ...addresses.data } || {},
       };
       await dispatch(addOrders(order, token, toast));
@@ -69,7 +69,7 @@ function Payment() {
       return;
     }
     let order = {
-      products: [{ ...cartItems.data }],
+      products: [ ...cartItems.data ],
       address: { ...addresses.data } || {},
     };
     await dispatch(addOrders(order, token, toast));
