@@ -3,3 +3,11 @@
     margin: auto;
     background-color: white;
 }
+.image_and_details_container{
+    display: flex;
+    gap: 10px;
+}
+.image_and_details_container img{
+    width: 100px;
+    height: 100px;
+}

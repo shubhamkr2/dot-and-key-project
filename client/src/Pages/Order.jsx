@@ -24,7 +24,7 @@ function Order() {
               order.products?.map((product) => (
                 <div key={product.id}>
                   {product.images && product.images.length > 0 && (
-                    <div>
+                    <div className={styles.image_and_details_container}>
                       <img src={product.images[0]} alt="product" />
                       <div>
                         <h3>{product.title}</h3>
