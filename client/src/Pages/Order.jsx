@@ -14,7 +14,7 @@ function Order() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.category}>Your orders</h1>
+      <h1 className={styles.category}>My orders</h1>
       {loading ? (
         <>
           <h1>Loading...</h1>
