@@ -18,11 +18,11 @@ function Order() {
     <div className={styles.container}>
       {orders.orders.length > 0 &&
         orders.orders?.map((order) => (
-          <div key={order._id}>
+          <div key={order._id} className={styles.order}>
             <h2>Order id: OID{order._id}</h2>
             {order.products?.length > 0 &&
               order.products?.map((product) => (
-                <div key={product.id}>
+                <div key={product.id} className={styles.product}>
                   {product.images && product.images.length > 0 && (
                     <div className={styles.image_and_details_container}>
                       <img src={product.images[0]} alt="product" />
