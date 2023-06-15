@@ -23,11 +23,17 @@ function Order() {
             {order.products?.length > 0 &&
               order.products?.map((product) => (
                 <div key={product.id}>
-                  <h1>hello</h1>
                   {product.images && product.images.length > 0 && (
-                    <img src={product.images[0]} alt="product" />
+                    <div>
+                      <img src={product.images[0]} alt="product" />
+                      <div>
+                        <h3>{product.title}</h3>
+                        <h4>Quantity: {product.quantity}</h4>
+                        <h4>Rating: {product.rating}</h4>
+                        <h4>Cost: {product.price*product.quantity}</h4>
+                      </div>
+                    </div>
                   )}
-                  <div></div>
                 </div>
               ))}
           </div>
