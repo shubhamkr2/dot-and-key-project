@@ -25,8 +25,10 @@ function Order() {
         orders.orders?.map((order) => (
           <div key={order._id} className={styles.order}>
             <h2>Order id: OID{order._id}</h2>
-            <h3>Total paid: &#x20B9;{order.totalamt}</h3>
-            <h3>Paid on: {new Date(order.createdAt).toLocaleString()}</h3>
+            <div className={styles.price_and_time}>
+              <h3>Total paid: &#x20B9;{order.totalamt}</h3>
+              <h3>Paid on: {new Date(order.createdAt).toLocaleString()}</h3>
+            </div>
             {order.products?.length > 0 &&
               order.products?.map((product) => (
                 <div key={product.id} className={styles.product}>
