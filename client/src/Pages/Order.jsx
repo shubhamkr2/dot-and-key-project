@@ -7,12 +7,17 @@ function Order() {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const orders = useSelector((state) => state.order);
-
+  // const {data} = orders;
   useEffect(() => {
     dispatch(getOrders(token));
   }, [dispatch]);
 
-  // console.log(orders);
+  // const totalPrice =
+  // orders?.data?.products?.reduce(
+  //   (acc, item) => acc + item.price * item.quantity,
+  //   0
+  // ) || 0;
+  // console.log(orders.data);
 
   return (
     <div className={styles.container}>
@@ -20,6 +25,8 @@ function Order() {
         orders.orders?.map((order) => (
           <div key={order._id} className={styles.order}>
             <h2>Order id: OID{order._id}</h2>
+            <h3>Total paid: &#x20B9;{order.totalamt}</h3>
+            <h3>Paid on: {new Date(order.createdAt).toLocaleString()}</h3>
             {order.products?.length > 0 &&
               order.products?.map((product) => (
                 <div key={product.id} className={styles.product}>
@@ -30,7 +37,7 @@ function Order() {
                         <h3>{product.title}</h3>
                         <h4>Quantity: {product.quantity}</h4>
                         <h4>Rating: {product.rating}</h4>
-                        <h4>Cost: {product.price*product.quantity}</h4>
+                        <h4>Price: {product.price}</h4>
                       </div>
                     </div>
                   )}

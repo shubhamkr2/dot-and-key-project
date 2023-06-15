@@ -58,6 +58,7 @@ function Payment() {
       let order = {
         products: [single_product_data.data],
         address: { ...addresses.data } || {},
+        totalamt: amount,
       };
       await dispatch(addOrders(order, token, toast));
       console.log(order);
@@ -71,6 +72,7 @@ function Payment() {
     let order = {
       products: [...cartItems.data],
       address: { ...addresses.data } || {},
+      totalamt: amount,
     };
     await dispatch(addOrders(order, token, toast));
     dispatch(deleteAllFromCart(token, toast));
