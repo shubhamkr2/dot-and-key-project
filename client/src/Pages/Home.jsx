@@ -5,6 +5,7 @@ import styles from "../Styles/Home.module.css";
 import { Carousel_Product_Card } from "../Components/Carousel_Product_Card";
 import { Footer } from "../Components/Footer";
 import { NavigationBar } from "../Components/NavigationBar";
+import { Toaster } from "react-hot-toast";
 
 const images = [
   "https://www.dotandkey.com/cdn/shop/files/pro_desk_552a0e39-53bd-4a71-98da-ceb1a8d819b7_1024x1024.jpg?v=1680865716",
