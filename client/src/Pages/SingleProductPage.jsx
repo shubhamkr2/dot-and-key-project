@@ -35,17 +35,22 @@ function SingleProductPage() {
     highlights,
     stock,
   } = data || {};
+
   useEffect(() => {
+    // Fetch the single product data on component mount
     dispatch(getSingleProduct(id));
   }, [id]);
 
   const switchImage = (index) => {
+    // Change the currently displayed image
     setCurrentImageIndex(index);
   };
 
   if (loading) {
+    // Render skeleton UI while loading the single product data
     return <SinglePageSkeleton />;
   }
+
   async function handleAddToCart() {
     const product = {
       productId: _id,
@@ -58,8 +63,11 @@ function SingleProductPage() {
       stock: stock,
       quantity: quantity,
     };
+
     try {
+      // Dispatch the addToCart action to add the product to the cart
       await dispatch(addToCart(product, token, toast));
+      // Refresh the cart items after adding to cart
       dispatch(getCartItems(token));
     } catch (err) {
       console.log(err);
@@ -67,10 +75,10 @@ function SingleProductPage() {
   }
 
   function handleBuyNow() {
-    navigate(
-      `/shipment?id=${id}&amount=${price * quantity}&items=${quantity}`
-    );
+    // Redirect to the shipment page with the necessary query parameters
+    navigate(`/shipment?id=${id}&amount=${price * quantity}&items=${quantity}`);
   }
+
   return (
     <div className={styles.container}>
       <NavigationBar />
@@ -126,7 +134,6 @@ function SingleProductPage() {
                 "ADD TO CART"
               )}
             </button>
-
             <button className={styles.buy_now_btn} onClick={handleBuyNow}>
               BUY NOW
             </button>
