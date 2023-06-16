@@ -1,6 +1,7 @@
 import { toast } from "react-hot-toast";
 import * as actionTypes from "../actionTypes/order.actionTypes";
 
+// Add orders
 export const addOrders = (orders, token) => {
   return async (dispatch) => {
     try {
@@ -18,10 +19,10 @@ export const addOrders = (orders, token) => {
       );
       const data = await response.json();
       if (data.message === "Order added successfully") {
-        toast.success("Order Placed Successfully, redirecting to home page");
+        toast.success("Order Placed Successfully, redirecting to home page"); // Display success message for successful order placement
         dispatch({ type: actionTypes.ADD_ORDER_SUCCESS, payload: data });
       } else {
-        toast.error(data.message);
+        toast.error(data.message); // Display error message if order placement fails
       }
     } catch (error) {
       dispatch({
@@ -32,6 +33,7 @@ export const addOrders = (orders, token) => {
   };
 };
 
+// Get orders
 export const getOrders = (token) => {
   return async (dispatch) => {
     try {
@@ -47,7 +49,6 @@ export const getOrders = (token) => {
         }
       );
       const data = await response.json();
-      console.log(data);
       dispatch({ type: actionTypes.GET_ORDER_SUCCESS, payload: data });
     } catch (error) {
       dispatch({

@@ -6,6 +6,7 @@ import {
 
 let debounceTimeout;
 
+// Fetch search suggestions with debounce
 export const fetchSearchSuggestions = (searchValue = "") => {
   return async (dispatch) => {
     try {
@@ -21,21 +22,22 @@ export const fetchSearchSuggestions = (searchValue = "") => {
       debounceTimeout = setTimeout(async () => {
         console.log(searchValue);
         if (searchValue === "") {
+          // Fetch all products if search value is empty
           const response = await fetch(
             `https://courageous-rose-nightgown.cyclic.app/products?title=""`
           );
           const suggestions = await response.json();
           dispatch(setSuggestions(suggestions));
         } else {
+          // Fetch products matching the search value
           const response = await fetch(
             `https://courageous-rose-nightgown.cyclic.app/products?title=${searchValue}`
           );
           const suggestions = await response.json();
           dispatch(setSuggestions(suggestions));
         }
-        // console.log(suggestions)
         dispatch(setLoading(false));
-      }, 500); // Debounce for 300 milliseconds
+      }, 500); // Debounce for 500 milliseconds
     } catch (error) {
       console.error("Error fetching search suggestions:", error);
       dispatch(setLoading(false));

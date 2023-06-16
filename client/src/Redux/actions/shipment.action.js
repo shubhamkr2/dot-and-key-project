@@ -1,6 +1,7 @@
 import { toast } from "react-hot-toast";
 import * as actionTypes from "../actionTypes/shipment.actionTypes";
 
+// Add a new address
 export const addAddress = (address, token) => {
   return async (dispatch) => {
     try {
@@ -34,6 +35,7 @@ export const addAddress = (address, token) => {
   };
 };
 
+// Get all addresses
 export const getAddress = (token) => {
   return async (dispatch) => {
     try {
@@ -58,7 +60,9 @@ export const getAddress = (token) => {
     }
   };
 };
-export const getAddressById = (token,id) => {
+
+// Get an address by ID
+export const getAddressById = (token, id) => {
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.GET_ADDRESS_REQUEST });
@@ -82,8 +86,9 @@ export const getAddressById = (token,id) => {
     }
   };
 };
+
+// Update an address
 export const updateAddress = (token, id, newAddress) => {
-  // console.log(quantity, token, id)
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.UPDATE_ADDRESS_REQUEST });
@@ -99,7 +104,6 @@ export const updateAddress = (token, id, newAddress) => {
         }
       );
       const data = await response.json();
-      console.log(data);
       toast.success(`Address updated successfully`);
       dispatch({
         type: actionTypes.UPDATE_ADDRESS_SUCCESS,
@@ -114,8 +118,8 @@ export const updateAddress = (token, id, newAddress) => {
   };
 };
 
+// Remove an address
 export const removeAddress = (token, id) => {
-  console.log(id, token)
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.REMOVE_ADDRESS_REQUEST });
@@ -130,7 +134,7 @@ export const removeAddress = (token, id) => {
         }
       );
       const data = await response.json();
-      toast.success("address removed successfully");
+      toast.success("Address removed successfully");
       dispatch({ type: actionTypes.REMOVE_ADDRESS_SUCCESS, payload: id });
     } catch (error) {
       dispatch({

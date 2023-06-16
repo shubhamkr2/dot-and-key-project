@@ -9,10 +9,10 @@ import {
 } from "../actionTypes/user.actionTypes";
 import { toast } from "react-hot-toast";
 
+// Function for user login
 function userLogin(userDetails, navigate) {
   return async function (dispatch) {
     dispatch({ type: USER_LOGIN_REQUEST });
-    // console.log(userDetails);
     try {
       let res = await fetch(
         `https://courageous-rose-nightgown.cyclic.app/users/login`,
@@ -23,7 +23,6 @@ function userLogin(userDetails, navigate) {
         }
       );
       let data = await res.json();
-      // console.log(data);
       if (data.token) {
         dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
         toast.success("User logged in successfully");
@@ -41,6 +40,7 @@ function userLogin(userDetails, navigate) {
   };
 }
 
+// Function for user registration
 function userRegister(userDetails, navigate) {
   return async function (dispatch) {
     dispatch({ type: USER_REGISTER_REQUEST });
@@ -72,6 +72,7 @@ function userRegister(userDetails, navigate) {
   };
 }
 
+// Function for user logout
 function userLogOut() {
   return async function (dispatch) {
     dispatch({ type: USER_LOGOUT });

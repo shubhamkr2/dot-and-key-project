@@ -7,8 +7,8 @@ import {
   SINGLE_PRODUCTS_FAIL,
 } from "../actionTypes/product.actionTypes.js";
 
+// Get all products
 function getAllProduct(category, page, sortAs, filterAsRating) {
-  // console.log(page);
   return async function (dispatch) {
     dispatch({ type: ALL_PRODUCTS_REQUEST });
     try {
@@ -16,15 +16,15 @@ function getAllProduct(category, page, sortAs, filterAsRating) {
         `https://courageous-rose-nightgown.cyclic.app/products?category=${category}&&rating=${filterAsRating}&&page=${page}&&limit=6&&sortBy=${sortAs}`
       );
       let data = await res.json();
-      // console.log(data);
-      dispatch({ type: ALL_PRODUCTS_SUCCESS, payload: data });
+      dispatch({ type: ALL_PRODUCTS_SUCCESS, payload: data }); // Dispatch success action with the retrieved data
     } catch (err) {
       console.log(err);
-      dispatch({ type: ALL_PRODUCTS_FAIL });
+      dispatch({ type: ALL_PRODUCTS_FAIL }); // Dispatch failure action if an error occurs
     }
   };
 }
 
+// Get single product
 function getSingleProduct(id) {
   return async function (dispatch) {
     dispatch({ type: SINGLE_PRODUCTS_REQUEST });
@@ -33,11 +33,10 @@ function getSingleProduct(id) {
         `https://courageous-rose-nightgown.cyclic.app/products/${id}`
       );
       let data = await res.json();
-      // console.log(data);
-      dispatch({ type: SINGLE_PRODUCTS_SUCCESS, payload: data });
+      dispatch({ type: SINGLE_PRODUCTS_SUCCESS, payload: data }); // Dispatch success action with the retrieved data
     } catch (err) {
       console.log(err);
-      dispatch({ type: SINGLE_PRODUCTS_FAIL });
+      dispatch({ type: SINGLE_PRODUCTS_FAIL }); // Dispatch failure action if an error occurs
     }
   };
 }
