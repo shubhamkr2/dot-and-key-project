@@ -9,7 +9,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { ResetPasswordModal } from "../Components/ResetPasswordModal";
 import { resetModal } from "../Redux/actions/resetPassword.action";
 import { getCartItems } from "../Redux/actions/cart.action";
-import { Footer } from "../Components/Footer";
 
 const initialFormData = {
   email: "",
@@ -17,9 +16,9 @@ const initialFormData = {
 };
 
 function LogIn() {
-  const [formData, setFormData] = useState(initialFormData);
-  const { loading } = useSelector((store) => store.user);
-  const [modal, setModal] = useState(false);
+  const [formData, setFormData] = useState(initialFormData); // State for form data
+  const { loading } = useSelector((store) => store.user); // Retrieve 'loading' state from the user store in Redux
+  const [modal, setModal] = useState(false); // State for reset password modal
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -28,20 +27,21 @@ function LogIn() {
     const { name, value } = e.target;
 
     setFormData({ ...formData, [name]: value });
-    console.log(formData);
+    // console.log(formData);
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await dispatch(userLogin(formData, navigate, toast));
+    await dispatch(userLogin(formData, navigate, toast)); // Dispatch action to perform user login
     const token = localStorage.getItem("token") || [];
-    dispatch(getCartItems(token));
+    dispatch(getCartItems(token)); // Dispatch action to get cart items for the logged-in user
   }
 
   function handleModal() {
     setModal(!modal);
-    dispatch(resetModal());
+    dispatch(resetModal()); // Dispatch action to reset the reset password modal state
   }
+
   return (
     <>
       <div className={styles.container}>
