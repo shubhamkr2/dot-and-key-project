@@ -3,7 +3,6 @@ import styles from "../Styles/Moisturizing.module.css";
 import { NavigationBar } from "../Components/NavigationBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";
-import { useParams } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
 import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
@@ -12,18 +11,16 @@ import { Skeleton } from "../Components/Skeleton";
 import toast, { Toaster } from "react-hot-toast";
 
 function Moisturizers() {
-  const { loading, data } = useSelector((state) => state.product);
-  const [page, setPage] = useState(1);
-  const [sortAs, setSortAs] = useState("");
-  const [filterAsRating, setFilterAsRating] = useState("");
+  const { loading, data } = useSelector((state) => state.product); // Retrieve product data and loading state from Redux store
+  const [page, setPage] = useState(1); // State for current page
+  const [sortAs, setSortAs] = useState(""); // State for sorting option
+  const [filterAsRating, setFilterAsRating] = useState(""); // State for filtering by rating
   const dispatch = useDispatch();
-  const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("moisturizer", page, sortAs, filterAsRating)).then(() => {});
+    dispatch(getAllProduct("moisturizer", page, sortAs, filterAsRating)); // Fetch moisturizer products based on page, sorting, and filtering options
   }, [page, sortAs, filterAsRating]);
 
-  console.log(data);
   return (
     <div className={styles.moisturizing_container}>
       <NavigationBar />
@@ -39,21 +36,21 @@ function Moisturizers() {
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
           <Sidebar
-            setSortAs={setSortAs}
-            setFilterAsRating={setFilterAsRating}
+            setSortAs={setSortAs} // Pass the sorting option setter to the sidebar component
+            setFilterAsRating={setFilterAsRating} // Pass the rating filter option setter to the sidebar component
           />
         </div>
         {loading ? (
-          <Skeleton />
+          <Skeleton /> // Display a skeleton loader while products are being loaded
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} key={product._id} toast={toast}/>
+              <ProductCard product={product} key={product._id} toast={toast} /> // Render each product card component
             ))}
           </div>
         )}
       </div>
-      <Pagination page={page} setPage={setPage} data={data} />
+      <Pagination page={page} setPage={setPage} data={data} /> // Render pagination component to navigate through pages
       <Footer />
     </div>
   );
