@@ -8,7 +8,7 @@ import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
 import Sidebar from "../Components/Sidebar";
 import { Skeleton } from "../Components/Skeleton";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 function All() {
   const { loading, data } = useSelector((state) => state.product);
@@ -46,7 +46,7 @@ function All() {
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} key={product._id} toast={toast} />
+              <ProductCard product={product} key={product._id} />
             ))}
           </div>
         )}
