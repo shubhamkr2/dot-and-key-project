@@ -8,7 +8,7 @@ function Account() {
     <div className={styles.container}>
       <h1 className={styles.category}>My account</h1>
       <div>
-        <h2>Name: {name}</h2>
+        <h2>Name: {name}</h2> {/* Display user's name */}
       </div>
     </div>
   );
