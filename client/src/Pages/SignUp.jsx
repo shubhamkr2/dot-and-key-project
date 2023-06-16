@@ -24,39 +24,53 @@ function SignUp() {
   const navigate = useNavigate();
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
+  useEffect(() => {
+    // Check if all fields are valid
+    const isFormValid =
+      formData.name.length >= 4 &&
+      emailRegex.test(formData.email) &&
+      formData.password.length >= 8 &&
+      passwordStrength === 5 &&
+      formData.question.length > 0 &&
+      formData.answer.length > 0;
+
+    setIsFormValidated(isFormValid);
+  }, [formData, emailRegex, passwordStrength]);
+
   function checkPasswordStrength(password) {
     let strength = 0;
     const length = password.length;
 
-    //check for length
+    // Check for length
     if (length >= 8) {
-      strength = strength + 1;
+      strength += 1;
       setPasswordStrength(strength);
     }
 
-    //check for numbers
+    // Check for numbers
     if (/\d/.test(password)) {
-      strength = strength + 1;
+      strength += 1;
       setPasswordStrength(strength);
     }
 
-    //check for lower case
+    // Check for lowercase
     if (/[a-z]/.test(password)) {
-      strength = strength + 1;
+      strength += 1;
       setPasswordStrength(strength);
     }
 
-    //check for upper case
+    // Check for uppercase
     if (/[A-Z]/.test(password)) {
-      strength = strength + 1;
+      strength += 1;
       setPasswordStrength(strength);
     }
 
-    //check for special characters
+    // Check for special characters
     if (/[\W_]/.test(password)) {
-      strength = strength + 1;
+      strength += 1;
       setPasswordStrength(strength);
     }
+
     return strength;
   }
 
@@ -64,10 +78,6 @@ function SignUp() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     checkPasswordStrength(formData.password);
-    console.log(formData);
-    if (formData.name.length >= 4 && emailRegex.test(formData.email)) {
-      setIsFormValidated(true);
-    }
   }
 
   function handleSubmit(e) {
@@ -94,6 +104,7 @@ function SignUp() {
       <div className={styles.form_container}>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div>
+            {/* Input for Name */}
             <label className={styles.required}>NAME</label>
             <input
               type="text"
@@ -103,13 +114,13 @@ function SignUp() {
               onChange={(e) => handleChange(e)}
               required
             />
-            {formData.name.length > 0 && formData.name.length < 4 ? (
+            {/* Error message for name length */}
+            {formData.name.length > 0 && formData.name.length < 4 && (
               <div className={styles.error}>at least 4 characters</div>
-            ) : (
-              ""
             )}
           </div>
           <div>
+            {/* Input for Email */}
             <label className={styles.required}>EMAIL</label>
             <input
               type="text"
@@ -119,13 +130,13 @@ function SignUp() {
               onChange={(e) => handleChange(e)}
               required
             />
-            {!emailRegex.test(formData.email) && formData.email.length > 0 ? (
+            {/* Error message for invalid email */}
+            {!emailRegex.test(formData.email) && formData.email.length > 0 && (
               <div className={styles.error}>Invalid email</div>
-            ) : (
-              ""
             )}
           </div>
           <div>
+            {/* Input for Password */}
             <label className={styles.required}>PASSWORD</label>
             <input
               type="password"
@@ -135,6 +146,7 @@ function SignUp() {
               onChange={(e) => handleChange(e)}
               required
             />
+            {/* Password strength indicator */}
             {formData.password.length > 0 && passwordStrength < 5 ? (
               <div className={styles.error}>
                 {passwordStrength < 3 ? (
@@ -150,6 +162,7 @@ function SignUp() {
             )}
           </div>
           <div>
+            {/* Select for Secret Question */}
             <select
               name="question"
               value={formData.question}
@@ -173,6 +186,7 @@ function SignUp() {
                 Who is your favourite character?
               </option>
             </select>
+            {/* Input for Secret Question Answer */}
             <input
               type="text"
               placeholder="Your answer"
@@ -182,7 +196,8 @@ function SignUp() {
               required
             />
           </div>
-          <button disabled={loading ? true : false}>
+          {/* Submit button */}
+          <button disabled={!isFormValidated || loading}>
             {loading ? (
               <BeatLoader color="#FFFFFF" cssOverride={{ margin: "auto" }} />
             ) : (
