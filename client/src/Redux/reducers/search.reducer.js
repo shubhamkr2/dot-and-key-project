@@ -12,21 +12,25 @@ const initialState = {
 
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
+    // Set search value action
     case SET_SEARCH_VALUE:
       return {
         ...state,
         searchValue: action.payload,
       };
+    // Set suggestions action
     case SET_SUGGESTIONS:
       return {
         ...state,
         suggestions: action.payload,
       };
+    // Set loading action
     case SET_LOADING:
       return {
         ...state,
         isLoading: action.payload,
       };
+    // Default case
     default:
       return state;
   }

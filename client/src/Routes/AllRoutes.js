@@ -46,7 +46,6 @@ function AllRoutes() {
       <Route path="/payment" element={<Payment />} exact />
       <Route path="/order" element={<Order />} exact />
       <Route path="/account" element={<Account />} exact />
-      {/* <Route path="/error" element={<ErrorPage />} exact /> */}
       <Route path="/product/:id" element={<SingleProductPage />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>

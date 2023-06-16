@@ -1,13 +1,16 @@
 import * as actionTypes from "../actionTypes/order.actionTypes";
 
+// Initial state of the order
 const initialState = {
   orders: [],
   loading: false,
   error: null,
 };
 
+// Order reducer function
 const orderReducer = (state = initialState, action) => {
   switch (action.type) {
+    // Request actions
     case actionTypes.ADD_ORDER_REQUEST:
     case actionTypes.GET_ORDER_REQUEST:
       return {
@@ -15,6 +18,8 @@ const orderReducer = (state = initialState, action) => {
         loading: true,
         error: null,
       };
+
+    // Success actions
     case actionTypes.ADD_ORDER_SUCCESS:
       return {
         ...state,
@@ -29,6 +34,8 @@ const orderReducer = (state = initialState, action) => {
         loading: false,
         error: null,
       };
+
+    // Failure actions
     case actionTypes.ADD_ORDER_FAILURE:
     case actionTypes.GET_ORDER_FAILURE:
       return {
@@ -36,6 +43,8 @@ const orderReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+
+    // Default case
     default:
       return state;
   }

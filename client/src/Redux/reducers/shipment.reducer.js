@@ -8,6 +8,7 @@ const initialState = {
 
 const shipmentReducer = (state = initialState, action) => {
   switch (action.type) {
+    // Request actions
     case actionTypes.ADD_ADDRESS_REQUEST:
     case actionTypes.GET_ADDRESS_REQUEST:
     case actionTypes.UPDATE_ADDRESS_REQUEST:
@@ -17,6 +18,7 @@ const shipmentReducer = (state = initialState, action) => {
         loading: true,
         error: null,
       };
+    // Success actions
     case actionTypes.ADD_ADDRESS_SUCCESS:
       return {
         ...state,
@@ -53,6 +55,7 @@ const shipmentReducer = (state = initialState, action) => {
         loading: false,
         error: null,
       };
+    // Failure actions
     case actionTypes.ADD_ADDRESS_FAILURE:
     case actionTypes.GET_ADDRESS_FAILURE:
     case actionTypes.UPDATE_ADDRESS_FAILURE:
@@ -62,6 +65,7 @@ const shipmentReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+    // Default case
     default:
       return state;
   }
