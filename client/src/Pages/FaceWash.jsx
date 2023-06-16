@@ -3,7 +3,6 @@ import styles from "../Styles/FaceWash.module.css";
 import { NavigationBar } from "../Components/NavigationBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";
-import { useParams } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
 import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
@@ -17,13 +16,12 @@ function FaceWash() {
   const [sortAs, setSortAs] = useState("");
   const [filterAsRating, setFilterAsRating] = useState("");
   const dispatch = useDispatch();
-  const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("facewash", page, sortAs, filterAsRating)).then(() => {});
+    // Fetch all face wash products based on the selected page, sorting, and filtering options
+    dispatch(getAllProduct("facewash", page, sortAs, filterAsRating));
   }, [page, sortAs, filterAsRating]);
 
-  console.log(data);
   return (
     <div className={styles.facewash_container}>
       <NavigationBar />
@@ -38,6 +36,7 @@ function FaceWash() {
       <h1 className={styles.category}>FaceWash</h1>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
+          {/* Sidebar component for sorting and filtering options */}
           <Sidebar
             setSortAs={setSortAs}
             setFilterAsRating={setFilterAsRating}
@@ -47,12 +46,14 @@ function FaceWash() {
           <Skeleton />
         ) : (
           <div className={styles.product_list}>
+            {/* Render product cards for each product */}
             {data?.data?.map((product) => (
               <ProductCard product={product} key={product._id} toast={toast} />
             ))}
           </div>
         )}
       </div>
+      {/* Pagination component for navigating through pages */}
       <Pagination page={page} setPage={setPage} data={data} />
       <Footer />
     </div>
