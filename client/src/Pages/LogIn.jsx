@@ -5,7 +5,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from "../Redux/actions/user.action";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { ResetPasswordModal } from "../Components/ResetPasswordModal";
 import { resetModal } from "../Redux/actions/resetPassword.action";
 import { getCartItems } from "../Redux/actions/cart.action";
@@ -32,7 +32,7 @@ function LogIn() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await dispatch(userLogin(formData, navigate, toast)); // Dispatch action to perform user login
+    await dispatch(userLogin(formData, navigate)); // Dispatch action to perform user login
     const token = localStorage.getItem("token") || [];
     dispatch(getCartItems(token)); // Dispatch action to get cart items for the logged-in user
   }

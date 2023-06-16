@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 import * as actionTypes from "../actionTypes/shipment.actionTypes";
 
-export const addAddress = (address, token, toast) => {
+export const addAddress = (address, token) => {
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.ADD_ADDRESS_REQUEST });
@@ -82,7 +82,7 @@ export const getAddressById = (token,id) => {
     }
   };
 };
-export const updateAddress = (token, id, newAddress, toast) => {
+export const updateAddress = (token, id, newAddress) => {
   // console.log(quantity, token, id)
   return async (dispatch) => {
     try {
@@ -114,7 +114,7 @@ export const updateAddress = (token, id, newAddress, toast) => {
   };
 };
 
-export const removeAddress = (token, id, toast) => {
+export const removeAddress = (token, id) => {
   console.log(id, token)
   return async (dispatch) => {
     try {

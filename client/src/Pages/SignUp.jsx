@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../Redux/actions/user.action";
 import { useNavigate } from "react-router-dom";
 import BeatLoader from "react-spinners/BeatLoader";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 const initialFormData = {
   name: "",
@@ -92,7 +92,7 @@ function SignUp() {
       },
     };
     setIsFormValidated(false);
-    dispatch(userRegister(userDetails, navigate, toast));
+    dispatch(userRegister(userDetails, navigate));
   }
 
   return (

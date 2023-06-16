@@ -8,7 +8,7 @@ import { Footer } from "../Components/Footer";
 import { SinglePageSkeleton } from "../Components/SinglePageSkeleton";
 import { SingleImageCarousel } from "../Components/SingleImageCarousel";
 import { addToCart, getCartItems } from "../Redux/actions/cart.action";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import BeatLoader from "react-spinners/BeatLoader";
 import { useNavigate } from "react-router-dom";
 

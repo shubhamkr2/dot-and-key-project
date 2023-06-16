@@ -7,8 +7,9 @@ import {
   USER_REGISTER_FAILURE,
   USER_LOGOUT,
 } from "../actionTypes/user.actionTypes";
+import { toast } from "react-hot-toast";
 
-function userLogin(userDetails, navigate, toast) {
+function userLogin(userDetails, navigate) {
   return async function (dispatch) {
     dispatch({ type: USER_LOGIN_REQUEST });
     // console.log(userDetails);
@@ -40,7 +41,7 @@ function userLogin(userDetails, navigate, toast) {
   };
 }
 
-function userRegister(userDetails, navigate, toast) {
+function userRegister(userDetails, navigate) {
   return async function (dispatch) {
     dispatch({ type: USER_REGISTER_REQUEST });
     // console.log(userDetails);

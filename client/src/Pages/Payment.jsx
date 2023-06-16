@@ -60,7 +60,7 @@ function Payment() {
         address: { ...addresses.data } || {},
         totalamt: amount,
       };
-      await dispatch(addOrders(order, token, toast)); // Add the order to the user's orders
+      await dispatch(addOrders(order, token)); // Add the order to the user's orders
       console.log(order);
       setTimeout(() => {
         setOtpSubmitLoading(false);
@@ -75,8 +75,8 @@ function Payment() {
       address: { ...addresses.data } || {},
       totalamt: amount,
     };
-    await dispatch(addOrders(order, token, toast)); // Add the order to the user's orders
-    dispatch(deleteAllFromCart(token, toast)); // Delete all items from the cart
+    await dispatch(addOrders(order, token)); // Add the order to the user's orders
+    dispatch(deleteAllFromCart(token)); // Delete all items from the cart
     setTimeout(() => {
       setOtpSubmitLoading(false);
       setModal(!modal);

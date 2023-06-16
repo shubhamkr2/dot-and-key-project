@@ -62,7 +62,7 @@ function Shipment() {
   // Handle form submission
   async function handleSubmit(e) {
     e.preventDefault();
-    await dispatch(addAddress(formData, token, toast));
+    await dispatch(addAddress(formData, token));
     dispatch(getAddress(token));
   }
 
@@ -96,7 +96,7 @@ function Shipment() {
   // Remove an address
   async function handleRemove(id) {
     try {
-      await dispatch(removeAddress(token, id, toast));
+      await dispatch(removeAddress(token, id));
       dispatch(getAddress(token));
     } catch (err) {
       console.log(err);

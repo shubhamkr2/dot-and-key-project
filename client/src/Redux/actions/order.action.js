@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 import * as actionTypes from "../actionTypes/order.actionTypes";
 
-export const addOrders = (orders, token, toast) => {
+export const addOrders = (orders, token) => {
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.ADD_ORDER_REQUEST });
