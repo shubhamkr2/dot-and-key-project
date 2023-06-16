@@ -3,7 +3,6 @@ import styles from "../Styles/FaceMasks.module.css";
 import { NavigationBar } from "../Components/NavigationBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";
-import { useParams } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
 import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
@@ -17,10 +16,10 @@ function FaceMasks() {
   const [sortAs, setSortAs] = useState("");
   const [filterAsRating, setFilterAsRating] = useState("");
   const dispatch = useDispatch();
-  const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("facemask", page, sortAs, filterAsRating)).then(() => {});
+    // Fetch all face masks products based on the selected page, sorting, and filtering options
+    dispatch(getAllProduct("facemask", page, sortAs, filterAsRating));
   }, [page, sortAs, filterAsRating]);
 
   return (
@@ -37,6 +36,7 @@ function FaceMasks() {
       <h1 className={styles.category}>FaceMasks</h1>
       <div className={styles.sidebar_and_product}>
         <div className={styles.Sidebar}>
+          {/* Sidebar component for sorting and filtering options */}
           <Sidebar
             setSortAs={setSortAs}
             setFilterAsRating={setFilterAsRating}
@@ -46,12 +46,14 @@ function FaceMasks() {
           <Skeleton />
         ) : (
           <div className={styles.product_list}>
+            {/* Render product cards for each product */}
             {data?.data?.map((product) => (
               <ProductCard product={product} key={product._id} toast={toast}/>
             ))}
           </div>
         )}
       </div>
+      {/* Pagination component for navigating through pages */}
       <Pagination page={page} setPage={setPage} data={data} />
       <Footer />
     </div>
