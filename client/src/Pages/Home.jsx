@@ -28,7 +28,7 @@ const cards = [
     ],
     price: 199,
     images: [
-      "https://cdn.shopify.com/s/files/1/0361/8553/8692/files/strawberry_f623e305-a335-47ac-9aa1-c61279335834_360x.jpg?v=1684821643",
+      "https://cdn.shopify.com/s/files/1/0361/8553/8692/files/strawberry.jpg?v=1686770683",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/2_19.jpg?v=1684303838",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/3-2_1.jpg?v=1684303838",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/4_20.jpg?v=1684303838",
