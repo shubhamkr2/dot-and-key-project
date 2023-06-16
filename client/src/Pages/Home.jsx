@@ -341,7 +341,7 @@ const bestsellers = [
     ],
     price: 399,
     images: [
-      "https://cdn.shopify.com/s/files/1/0361/8553/8692/files/mango_6eabd3ae-6371-4264-842c-db3ae71b663b_360x.jpg?v=1684821634",
+      "https://cdn.shopify.com/s/files/1/0361/8553/8692/files/mango_9dc0f4f2-713c-476a-9716-7e6fb1ba6d50.jpg?v=1686770639",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/mango_8f10f236-66b6-45fb-a684-adf7f7f5d28d.webp?v=1684303406",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/2_24.jpg?v=1684303406",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/3-2_3.jpg?v=1684303406",
