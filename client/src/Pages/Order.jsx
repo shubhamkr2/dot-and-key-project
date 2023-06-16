@@ -5,11 +5,11 @@ import { getOrders } from "../Redux/actions/order.action";
 
 function Order() {
   const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
-  const { orders, loading } = useSelector((state) => state.order);
+  const token = localStorage.getItem("token"); // Retrieve the token from localStorage
+  const { orders, loading } = useSelector((state) => state.order); // Retrieve orders and loading state from Redux store
 
   useEffect(() => {
-    dispatch(getOrders(token));
+    dispatch(getOrders(token)); // Fetch the user's orders using the token
   }, [dispatch]);
 
   return (
@@ -17,7 +17,7 @@ function Order() {
       <h1 className={styles.category}>My orders</h1>
       {loading ? (
         <>
-          <h1>Loading...</h1>
+          <h1>Loading...</h1> // Display a loading message while the orders are being fetched
         </>
       ) : (
         <>
