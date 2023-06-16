@@ -73,7 +73,7 @@ const Cart = () => {
             </div>
           )}
           {cartItems?.data?.map((item) => (
-            <CartCard key={item._id} item={item} toast={toast} />
+            <CartCard key={item._id} item={item} />
           ))}
         </div>
         <div className={styles.price}>

@@ -7,8 +7,9 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import styles from "../Styles/ProductCarousel.module.css";
 import { Carousel_Product_Card } from "./Carousel_Product_Card";
+import { toast } from "react-hot-toast";
 
-function ProductCarousel({ cards, toast }) {
+function ProductCarousel({ cards }) {
   const ref = useRef(null);
   const handleNextSlide = () => {
     ref.current.slickNext();
@@ -25,17 +26,6 @@ function ProductCarousel({ cards, toast }) {
     slidesToScroll: 1,
     arrows: false,
     responsive: [
-      // {
-      //   breakpoint: 1100,
-      //   settings: {
-      //     dots: false,
-      //     infinite: true,
-      //     speed: 500,
-      //     slidesToShow: 3,
-      //     slidesToScroll: 1,
-      //     arrows: false,
-      //   },
-      // },
       {
         breakpoint: 1000,
         settings: {
@@ -75,7 +65,7 @@ function ProductCarousel({ cards, toast }) {
     <div className={styles.carousel_container}>
       <Slider {...settings} ref={ref}>
         {cards?.map((item,i ) => (
-          <Carousel_Product_Card product={item} key={i} toast={toast} />
+          <Carousel_Product_Card product={item} key={i} />
         ))}
       </Slider>
 

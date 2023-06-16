@@ -6,8 +6,9 @@ import {
   removeFromCart,
   getCartItems,
 } from "../Redux/actions/cart.action";
+import { toast } from "react-hot-toast";
 
-function CartCard({ item, toast }) {
+function CartCard({ item}) {
   const { _id, images, title, category, price, quantity } = item;
   const token = localStorage.getItem("token") || "";
   const dispatch = useDispatch();

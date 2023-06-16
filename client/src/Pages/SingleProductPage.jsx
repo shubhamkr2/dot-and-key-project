@@ -66,7 +66,7 @@ function SingleProductPage() {
 
     try {
       // Dispatch the addToCart action to add the product to the cart
-      await dispatch(addToCart(product, token, toast));
+      await dispatch(addToCart(product, token));
       // Refresh the cart items after adding to cart
       dispatch(getCartItems(token));
     } catch (err) {

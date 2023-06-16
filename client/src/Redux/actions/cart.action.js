@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 import * as actionTypes from "../actionTypes/cart.actionTypes";
 
-export const addToCart = (product, token, toast) => {
+export const addToCart = (product, token) => {
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.ADD_TO_CART_REQUEST });
@@ -62,7 +62,7 @@ export const getCartItems = (token) => {
   };
 };
 
-export const updateCartItemQuantity = (token, id, quantity, toast) => {
+export const updateCartItemQuantity = (token, id, quantity) => {
   // console.log(quantity, token, id)
   return async (dispatch) => {
     try {
@@ -95,7 +95,7 @@ export const updateCartItemQuantity = (token, id, quantity, toast) => {
   };
 };
 
-export const removeFromCart = (token, id, toast) => {
+export const removeFromCart = (token, id) => {
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.REMOVE_FROM_CART_REQUEST });
@@ -121,7 +121,7 @@ export const removeFromCart = (token, id, toast) => {
   };
 };
 
-export const deleteAllFromCart = (token, toast) => {
+export const deleteAllFromCart = (token) => {
   console.log(token);
   return async (dispatch) => {
     try {

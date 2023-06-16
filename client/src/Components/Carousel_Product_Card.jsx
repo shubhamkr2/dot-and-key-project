@@ -7,7 +7,7 @@ import { addToCart, getCartItems } from "../Redux/actions/cart.action";
 import { Link } from "react-router-dom";
 import BeatLoader from "react-spinners/BeatLoader";
 
-function Carousel_Product_Card({ product, toast }) {
+function Carousel_Product_Card({ product }) {
   const {
     _id,
     images,
@@ -39,7 +39,7 @@ function Carousel_Product_Card({ product, toast }) {
       quantity: 1,
     };
     try {
-      await dispatch(addToCart(cart_product, token, toast));
+      await dispatch(addToCart(cart_product, token));
       dispatch(getCartItems(token));
     } catch (err) {
       console.log(err);

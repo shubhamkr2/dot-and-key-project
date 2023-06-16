@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getCartItems } from "../Redux/actions/cart.action";
 import BeatLoader from "react-spinners/BeatLoader";
 
-function ProductCard({ product, toast }) {
+function ProductCard({ product }) {
   // const { isLoading } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const token = localStorage.getItem("token") || [];
@@ -41,7 +41,7 @@ function ProductCard({ product, toast }) {
       quantity: 1,
     };
     try {
-      await dispatch(addToCart(cart_product, token, toast));
+      await dispatch(addToCart(cart_product, token ));
       dispatch(getCartItems(token));
     } catch (err) {
       console.log(err);
