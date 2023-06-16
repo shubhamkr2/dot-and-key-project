@@ -3,7 +3,6 @@ import styles from "../Styles/All.module.css";
 import { NavigationBar } from "../Components/NavigationBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";
-import { useParams } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
 import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
@@ -17,15 +16,12 @@ function All() {
   const [sortAs, setSortAs] = useState("");
   const [filterAsRating, setFilterAsRating] = useState("");
   const dispatch = useDispatch();
-  const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("", page, sortAs, filterAsRating)).then(() => {
-      // window.scrollTo(0, 0); // Scroll to top after pagination
-    });
+    // Fetch product data when page, sortAs, or filterAsRating changes
+    dispatch(getAllProduct("", page, sortAs, filterAsRating));
   }, [page, sortAs, filterAsRating]);
 
-  console.log(data);
   return (
     <div className={styles.all_container}>
       <NavigationBar />
@@ -50,7 +46,7 @@ function All() {
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} key={product._id} toast={toast}/>
+              <ProductCard product={product} key={product._id} toast={toast} />
             ))}
           </div>
         )}
