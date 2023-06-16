@@ -3,7 +3,6 @@ import styles from "../Styles/Sunscreens.module.css";
 import { NavigationBar } from "../Components/NavigationBar";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduct } from "../Redux/actions/product.action";
-import { useParams } from "react-router-dom";
 import ProductCard from "../Components/ProductCard";
 import { Footer } from "../Components/Footer";
 import Pagination from "../Components/Pagination";
@@ -17,15 +16,11 @@ function Sunscreens() {
   const [sortAs, setSortAs] = useState("");
   const [filterAsRating, setFilterAsRating] = useState("");
   const dispatch = useDispatch();
-  const url = useParams();
 
   useEffect(() => {
-    dispatch(getAllProduct("sunscreens", page, sortAs, filterAsRating)).then(
-      () => {}
-    );
+    dispatch(getAllProduct("sunscreens", page, sortAs, filterAsRating));
   }, [page, sortAs, filterAsRating]);
 
-  console.log(data);
   return (
     <div className={styles.sunscreens_container}>
       <NavigationBar />
@@ -50,7 +45,7 @@ function Sunscreens() {
         ) : (
           <div className={styles.product_list}>
             {data?.data?.map((product) => (
-              <ProductCard product={product} key={product._id} toast={toast}/>
+              <ProductCard product={product} key={product._id} toast={toast} />
             ))}
           </div>
         )}
@@ -62,3 +57,4 @@ function Sunscreens() {
 }
 
 export { Sunscreens };
+
