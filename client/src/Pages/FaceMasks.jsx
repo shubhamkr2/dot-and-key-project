@@ -23,7 +23,6 @@ function FaceMasks() {
     dispatch(getAllProduct("facemask", page, sortAs, filterAsRating)).then(() => {});
   }, [page, sortAs, filterAsRating]);
 
-  console.log(data);
   return (
     <div className={styles.facemask_container}>
       <NavigationBar />

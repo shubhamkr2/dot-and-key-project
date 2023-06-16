@@ -49,7 +49,6 @@ const Cart = () => {
     navigate(`/shipment?amount=${totalPrice}&items=${totalQuantity}`);
   }
 
-  console.log(cartItems);
   if (loading) {
     return <h1>Loading...</h1>;
   }
@@ -62,6 +61,7 @@ const Cart = () => {
       <h1>Your Cart</h1>
       <div className={styles.cards_and_price}>
         <div className={styles.cards}>
+          {/* Conditionally render cart items or empty cart message */}
           {cartItems?.length === 0 ||
           cartItems?.message === "Items not found" ||
           cartItems?.data?.length === 0 ? (
@@ -80,18 +80,22 @@ const Cart = () => {
           <div className={styles.total_qty}>
             <h2>Total {totalQuantity} items</h2>
           </div>
+          {/* Display total price */}
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Total price:</span>
             <span className={styles.priceValue}>&#x20B9; {totalPrice}</span>
           </div>
+          {/* Display shipping cost */}
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Shipping:</span>
             <span className={styles.priceValue}>&#x20B9; 50</span>
           </div>
+          {/* Display discount */}
           <div className={styles.priceItem}>
             <span className={styles.priceLabel}>Discount:</span>
             <span className={styles.priceValue}>&#x20B9; {discount}</span>
           </div>
+          {/* Display subtotal */}
           <div className={styles.totalItem}>
             <span className={styles.totalLabel}>Subtotal:</span>
             <span className={styles.totalValue}>
@@ -107,6 +111,7 @@ const Cart = () => {
             />
             <button onClick={handlePromo}>Apply</button>
           </div>
+          {/* Proceed to buy button */}
           <div className={styles.proceed_btn}>
             <button onClick={handleProceedToBuy}>Proceed to buy</button>
           </div>
