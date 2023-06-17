@@ -93,6 +93,9 @@
 <h4>My Order Page</h4>
 <img src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot%26Key%20Src/MyOrders.png"/>
 <br/>
+<h4>Search Box</h4>
+<img src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot%26Key%20Src/SearchBox.png"/>
+<br/>
 <hr/>
 <!-- <h1 align="center">Backend</h1>
 ### Products -->
