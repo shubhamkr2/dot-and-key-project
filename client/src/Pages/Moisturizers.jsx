@@ -50,7 +50,7 @@ function Moisturizers() {
           </div>
         )}
       </div>
-      <Pagination page={page} setPage={setPage} data={data} /> // Render pagination component to navigate through pages
+      <Pagination page={page} setPage={setPage} data={data} /> 
       <Footer />
     </div>
   );
