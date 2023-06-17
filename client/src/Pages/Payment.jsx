@@ -108,14 +108,106 @@ function Payment() {
       <div className={styles.payment_container}>
         <div className={styles.address_and_card}>
           <div className={styles.card_container}>
-            {/* Card layout */}
+            <div className={styles.card_layout}>
+              <img
+                src="https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png"
+                alt="visa logo"
+              />
+              <img
+                className={styles.chip}
+                src="https://cdn-icons-png.flaticon.com/512/6404/6404100.png"
+              />
+              <span className={styles.layout_number}>{cardNumber}</span>
+              <div className={styles.layout_validity_cvc_box}>
+                <div>
+                  <div>CARD HOLDER</div>
+                  <div className={styles.layout_name}>{cardName}</div>
+                </div>
+                <div>
+                  <div>EXPIRES</div>
+                  <div className={styles.layout_expires}>
+                    <div className={styles.month}>{exMonth} </div>/
+                    <div className="year"> {exYear}</div>
+                  </div>
+                </div>
+                <div>
+                  <div>CVC</div>
+                  <div className={styles.layout_cvc}>{cvv}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Input form for payment details */}
         <div className={styles.form_container}>
           <h3>Payment Details</h3>
-          {/* Form for entering payment details */}
+          <br />
+          <form className={styles.form} onSubmit={(e) => handlePay(e)}>
+            <label>CARDHOLDER NAME</label>
+            <input
+              className={styles.name}
+              type="text"
+              placeholder="Name"
+              required
+              onChange={(e) => setCardName(e.target.value)}
+            />
+            <br />
+            <br />
+            <label>CARD NUMBER</label>
+            <input
+              className={styles.number}
+              type="text"
+              placeholder="Card Number"
+              maxlength="16"
+              required
+              onChange={(e) => setCardNumber(e.target.value)}
+            />
+            <br />
+            <br />
+            <div className={styles.validity_cvc_box}>
+              <div>
+                <label>EXPIRY MONTH</label>
+                <input
+                  className={styles.expiry_month}
+                  type="text"
+                  placeholder="mm"
+                  maxlength="2"
+                  required
+                  onChange={(e) => setExMonth(e.target.value)}
+                />
+              </div>
+              <div>
+                <label>EXPIRY YEAR</label>
+                <input
+                  className={styles.expiry_year}
+                  type="text"
+                  placeholder="yyyy"
+                  maxlength="4"
+                  required
+                  onChange={(e) => setExYear(e.target.value)}
+                />
+              </div>
+              <div>
+                <label>CVC</label>
+                <input
+                  className={styles.cvc}
+                  type="text"
+                  placeholder="CVC"
+                  maxlength="3"
+                  required
+                  onChange={(e) => setCvv(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className={styles.payment_amt}>
+              <span>Payment amount: </span>
+              <span className={styles.amt}>Rs: {amount}</span>
+            </div>
+            <div className={styles.pay_btn}>
+              <button>Pay {amount}</button>
+            </div>
+          </form>
         </div>
       </div>
       {modal ? (
@@ -133,5 +225,4 @@ function Payment() {
     </div>
   );
 }
-
 export { Payment };
