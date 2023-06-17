@@ -17,7 +17,7 @@ function Order() {
       <h1 className={styles.category}>My orders</h1>
       {loading ? (
         <>
-          <h1>Loading...</h1> // Display a loading message while the orders are being fetched
+          <h1>Loading...</h1> 
         </>
       ) : (
         <>
