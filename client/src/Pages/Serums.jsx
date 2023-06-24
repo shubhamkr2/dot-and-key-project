@@ -20,7 +20,7 @@ function Serums() {
   useEffect(() => {
     // Fetch serum products based on page, sortAs, and filterAsRating values
     dispatch(getAllProduct("serums", page, sortAs, filterAsRating)).then(() => {});
-  }, [page, sortAs, filterAsRating]);
+  }, [page, sortAs, filterAsRating, dispatch]);
 
   console.log(data);
   return (
