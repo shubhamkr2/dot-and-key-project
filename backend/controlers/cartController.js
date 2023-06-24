@@ -2,8 +2,9 @@ const { CartModel } = require("../models/cartModel");
 
 //to get all cart items
 const getCartItems = async (req, res) => {
+  const { userId } = req.body;
   try {
-    let items = await CartModel.find(req.query);
+    let items = await CartModel.find({ userId }).maxTimeMS(20000);
     res.status(200).json({ data: items });
   } catch (err) {
     console.log(err);
@@ -14,7 +15,7 @@ const getCartItems = async (req, res) => {
 //to get a item by ID
 const getItemByID = async (req, res) => {
   try {
-    let item = await CartModel.find({ _id: req.params.id });
+    let item = await CartModel.find({ _id: req.params.id }).maxTimeMS(20000);
     res.status(200).json({ data: item });
   } catch (err) {
     console.log(err);
@@ -22,15 +23,45 @@ const getItemByID = async (req, res) => {
   }
 };
 
-//to add a item to cart
 const addItem = async (req, res) => {
+  const { userId, productId, quantity } = req.body;
+
   try {
-    const item = new CartModel(req.body);
-    await item.save();
-    res.status(201).json({ message: "Item added successfully" });
+    let cartItem = await CartModel.findOne({ userId, productId });
+
+    if (cartItem) {
+      const updatedQuantity = +cartItem.quantity + +quantity;
+
+      if (updatedQuantity <= 5) {
+        cartItem.quantity = updatedQuantity;
+        await cartItem.save();
+        return res.status(200).json({ message: "Updated item quantity" });
+      } else {
+        return res.status(400).json({ message: "Quantity limit exceeded" });
+      }
+    } else {
+      const { category, title, description, price, images, rating, stock } =
+        req.body;
+
+      const newItem = new CartModel({
+        userId,
+        productId,
+        category,
+        title,
+        description,
+        price,
+        images,
+        rating,
+        stock,
+        quantity,
+      });
+
+      await newItem.save();
+      return res.status(201).json({ message: "Item added successfully" });
+    }
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Unable to add item" });
+    return res.status(500).json({ message: "Unable to add item" });
   }
 };
 
@@ -52,7 +83,20 @@ const deleteItem = async (req, res) => {
     res.status(200).json({ message: "deleted item" });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Unable to update the item" });
+    res.status(500).json({ message: "Unable to delete the item" });
+  }
+};
+
+//to delete many items
+const deleteAllItems = async (req, res) => {
+  const { userId } = req.body;
+  console.log(userId);
+  try {
+    let result = await CartModel.deleteMany({ userId: userId });
+    res.status(200).json({ data: result, message: "removed all items" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Unable to delete the items" });
   }
 };
 module.exports = {
@@ -61,4 +105,5 @@ module.exports = {
   addItem,
   updateItem,
   deleteItem,
+  deleteAllItems,
 };
