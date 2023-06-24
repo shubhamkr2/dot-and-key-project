@@ -57,7 +57,7 @@ function Shipment() {
   // Fetch addresses when the component mounts
   useEffect(() => {
     dispatch(getAddress(token));
-  }, []);
+  }, [dispatch]);
 
   // Handle form submission
   async function handleSubmit(e) {
