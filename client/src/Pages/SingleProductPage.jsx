@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../Styles/SingleProductPage.module.css";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NavigationBar } from "../Components/NavigationBar";
 import { getSingleProduct } from "../Redux/actions/product.action";
@@ -39,7 +39,7 @@ function SingleProductPage() {
   useEffect(() => {
     // Fetch the single product data on component mount
     dispatch(getSingleProduct(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   const switchImage = (index) => {
     // Change the currently displayed image
