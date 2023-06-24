@@ -19,7 +19,7 @@ function Sunscreens() {
 
   useEffect(() => {
     dispatch(getAllProduct("sunscreens", page, sortAs, filterAsRating));
-  }, [page, sortAs, filterAsRating]);
+  }, [page, sortAs, filterAsRating, dispatch]);
 
   return (
     <div className={styles.sunscreens_container}>
