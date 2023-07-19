@@ -1,35 +1,15 @@
 const mongoose = require("mongoose");
 
 const orderSchema = mongoose.Schema({
-  category: {
-    type: String,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  image: {
+  products: {
     type: Array,
     required: true,
   },
-  rating: {
-    type: Number,
+  address: {
+    type: Object,
     required: true,
   },
-  stock: {
-    type: Boolean,
-    required: true,
-  },
-  quantity: {
+  totalamt: {
     type: Number,
     required: true,
   },
@@ -37,7 +17,11 @@ const orderSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const OrderModel = mongoose.model("carts", orderSchema);
+const OrderModel = mongoose.model("orders", orderSchema);
 module.exports = { OrderModel };
