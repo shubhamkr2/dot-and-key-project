@@ -10,14 +10,14 @@ const cartSchema = mongoose.Schema({
     required: true,
   },
   description: {
-    type: String,
+    type: Array,
     required: true,
   },
   price: {
     type: Number,
     required: true,
   },
-  image: {
+  images: {
     type: Array,
     required: true,
   },
@@ -31,6 +31,10 @@ const cartSchema = mongoose.Schema({
   },
   quantity: {
     type: Number,
+    required: true,
+  },
+  productId: {
+    type: String,
     required: true,
   },
   userId: {
