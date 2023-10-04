@@ -148,7 +148,7 @@ const cards = [
     ],
     price: 236,
     images: [
-      "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/mango_8f10f236-66b6-45fb-a684-adf7f7f5d28d.webp?v=1683527284",
+      "https://cdn.shopify.com/s/files/1/0361/8553/8692/files/mangolip_360x.jpg?v=1692903106",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/2_24.jpg?v=1683527284",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/3-2_3.jpg?v=1683527284",
       "cdn.shopify.com/s/files/1/0361/8553/8692/products/4_25.jpg?v=1683527284",
