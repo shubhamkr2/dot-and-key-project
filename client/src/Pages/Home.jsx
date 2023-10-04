@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 const images = [
   "https://www.dotandkey.com/cdn/shop/files/vit_c_range_2_3db9ac7c-72cb-4cdd-b3fc-a14e367e6113.jpg?v=1694971486",
   "https://www.dotandkey.com/cdn/shop/files/desk_1_1.jpg?v=1695020502",
-  "https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot/vit_c_range_1_1024x1024.webp",
+  "https://www.dotandkey.com/cdn/shop/files/CATE_DESK_83a75687-70e2-4b85-9461-e76234271980.jpg?v=1694972157",
   "https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot/CATE_DESK_4375de5a-9172-48e3-9308-938dcbe6759b_1024x1024.webp",
 ];
 const cards = [
