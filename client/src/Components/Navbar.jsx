@@ -123,7 +123,7 @@ function Navbar() {
         <Link to="/">
           <div className={styles.logo}>
             <img
-              src="https://github.com/shubhamkr2/Dot-Key-Project/blob/main/dot_and_key_clone/src/Logo/unnamed_250x_200x_2x_260x_24408e11-6e3a-4a0c-8327-74d0455f7696_260x.jpg?raw=true"
+              src="https://www.dotandkey.com/cdn/shop/files/Skype_Picture_2023_09_19T09_33_02_315Z_260x.png?v=1695116367"
               alt="logo"
             />
           </div>
