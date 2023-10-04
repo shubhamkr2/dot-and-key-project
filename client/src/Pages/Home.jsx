@@ -52,7 +52,7 @@ const cards = [
     ],
     price: 285,
     images: [
-      "https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot/Hcard/vitcfw.webp",
+      "https://cdn.shopify.com/s/files/1/0361/8553/8692/files/1-Deep-Pore-Cleanser_360x.jpg?v=1692902752",
       "https://github.com/shubhamkr2/UploadImages/blob/main/Dot/Hcard/Artboard2-2_5.jpg?raw=true",
       "https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot/Hcard/Artboard1-2_22.webp",
       "https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot/Hcard/Artboard2_9_c42cab18-c6e0-4b8b-97d4-5af66d9d802a.webp",
