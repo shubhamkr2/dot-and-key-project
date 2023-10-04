@@ -103,7 +103,7 @@ const cards = [
     ],
     price: 375,
     images: [
-      "http://cdn.shopify.com/s/files/1/0361/8553/8692/products/barrcream_1_540x_30017c57-3909-4ddf-9181-453749dc965b.webp?v=1683526469",
+      "https://cdn.shopify.com/s/files/1/0361/8553/8692/files/cream_0addd5f9-5e4b-4c7c-8ee2-d3a02a947574_360x.jpg?v=1694695905",
       "http://cdn.shopify.com/s/files/1/0361/8553/8692/products/2.jpg?v=1683526469",
       "http://cdn.shopify.com/s/files/1/0361/8553/8692/products/4_fa136b44-dbe0-408c-9849-574a415155aa.jpg?v=1683526469",
       "http://cdn.shopify.com/s/files/1/0361/8553/8692/products/5_d10bbdbc-6bb3-4fbb-a78e-69402d04a25c.jpg?v=1683526469",
