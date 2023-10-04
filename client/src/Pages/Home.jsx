@@ -77,7 +77,7 @@ const cards = [
     ],
     price: 310,
     images: [
-      "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/cica_5.jpg?v=1683526566",
+      "https://cdn.shopify.com/s/files/1/0361/8553/8692/files/eyecica-1_360x.jpg?v=1692902424",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/spf_1_2.png?v=1683526566",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/Website2_fc09aa58-6509-446e-8945-8edd6c742f7e.jpg?v=1683526566",
       "https://cdn.shopify.com/s/files/1/0361/8553/8692/products/Website3_31668387-6bdc-42a6-b5c5-4a92b1cc51c1.jpg?v=1683526566",
