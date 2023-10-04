@@ -28,7 +28,7 @@ const cards = [
     ],
     price: 199,
     images: [
-      "https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot/Hcard/strawbewrry.webp",
+      "https://cdn.shopify.com/s/files/1/0361/8553/8692/files/1-Retinol-Eye-Cream1_5a81d19d-a46f-47c0-a374-f6ebeda47c81_360x.png?v=1695126946",
       "https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot/Hcard/strawbewrry%20(1).webp",
       "https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot/Hcard/3-2_1.webp",
       "https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Dot/Hcard/2_05c691a5-cf1b-4c94-af97-e4149b6ce588.webp",
